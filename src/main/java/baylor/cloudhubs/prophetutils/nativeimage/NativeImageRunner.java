@@ -43,7 +43,7 @@ public class NativeImageRunner {
 
     private void executeNativeImage() {
         List<String> cmd = prepareCommand();
-        System.out.println(String.join(" ", cmd));
+        // System.out.println(String.join(" ", cmd));
         try {
             Process process = new ProcessBuilder()
                     .command(cmd)
@@ -63,7 +63,6 @@ public class NativeImageRunner {
         List<String> cmd = new ArrayList<>();
         cmd.add(niCommand);
         cmd.add("-H:+ProphetPlugin");
-        cmd.add("-H:+ProphetRest");
         cmd.add("-H:-InlineBeforeAnalysis");
         cmd.add("-H:ProphetModuleName=" + this.info.getMicroserviceName());
         cmd.add("-H:ProphetBasePackage=" + this.info.getBasePackage());
