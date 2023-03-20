@@ -1,0 +1,1014 @@
+{
+  "systemName": "unknown",
+  "boundedContextEntities": [
+    {
+      "entityName": {
+        "name": "Choice",
+        "fullName": "Choice"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "id",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@784249e0::id"
+          },
+          "type": "Integer",
+          "annotations": [
+            {
+              "name": "@GeneratedValue",
+              "stringValue": "GeneratedValue"
+            },
+            {
+              "name": "@Id",
+              "stringValue": "Id"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "question",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@784249e0::question"
+          },
+          "type": "Question",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@JoinColumn",
+              "stringValue": "JoinColumn"
+            },
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "chosen",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@784249e0::chosen"
+          },
+          "type": "boolean",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "body",
+            "fullName": "body"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "question",
+            "fullName": "Choice::question"
+          },
+          "type": "Question",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@JoinColumn",
+              "stringValue": "JoinColumn"
+            },
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Question",
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "correct",
+            "fullName": "correct"
+          },
+          "type": "boolean",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Person",
+        "fullName": "Person"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "userName",
+            "fullName": "userName"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "lastName",
+            "fullName": "lastName"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "firstName",
+            "fullName": "firstName"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Configuration",
+        "fullName": "Configuration"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "name",
+            "fullName": "name"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "description",
+            "fullName": "description"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "groups",
+            "fullName": "groups"
+          },
+          "type": "ConfigurationGroup",
+          "annotations": [
+            {
+              "name": "@OneToMany",
+              "stringValue": "OneToMany"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "ConfigurationGroup",
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "FIND_ALL_GROUPS_BY_ID",
+            "fullName": "ID"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Exam",
+        "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@18168::Exam"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "sum",
+            "fullName": "sum"
+          },
+          "type": "Integer",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "id",
+            "fullName": "id"
+          },
+          "type": "Integer",
+          "annotations": [
+            {
+              "name": "@GeneratedValue",
+              "stringValue": "GeneratedValue"
+            },
+            {
+              "name": "@Id",
+              "stringValue": "Id"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "issuer",
+            "fullName": "issuer"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "examinee",
+            "fullName": "examinee"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "description",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@212c5e::description"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "status",
+            "fullName": "status"
+          },
+          "type": "ExamStatus",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "configurationId",
+            "fullName": "configurationId"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "correct",
+            "fullName": "correct"
+          },
+          "type": "Integer",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "examDate",
+            "fullName": "examDate"
+          },
+          "type": "Date",
+          "annotations": [
+            {
+              "name": "@JsonFormat",
+              "stringValue": "JsonFormat"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Language",
+        "fullName": "Language"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "name",
+            "fullName": "name"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "ConfigurationGroup",
+        "fullName": "ConfigurationGroup"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "count",
+            "fullName": "count"
+          },
+          "type": "Integer",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "level",
+            "fullName": "level"
+          },
+          "type": "Integer",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "languageId",
+            "fullName": "languageId"
+          },
+          "type": "Long",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "configuration",
+            "fullName": "configuration"
+          },
+          "type": "Configuration",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@JoinColumn",
+              "stringValue": "JoinColumn"
+            },
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Configuration",
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "category",
+            "fullName": "category"
+          },
+          "type": "Long",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Question",
+        "fullName": "Question"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "exam",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@be5ca025::exam"
+          },
+          "type": "Exam",
+          "annotations": [
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@JoinColumn",
+              "stringValue": "JoinColumn"
+            },
+            {
+              "name": "@OnDelete",
+              "stringValue": "OnDelete"
+            },
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "categories",
+            "fullName": "Question::categories"
+          },
+          "type": "Category",
+          "annotations": [
+            {
+              "name": "@ManyToMany",
+              "stringValue": "ManyToMany"
+            },
+            {
+              "name": "@JoinTable",
+              "stringValue": "JoinTable"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Category",
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "FIND_BY_CATEGORYID_AND_NAME",
+            "fullName": "Question::FIND_BY_CATEGORYID_AND_NAME"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "FIND_BY_CATEGORYID_LEVEL_LANGUAGE",
+            "fullName": "Question::FIND_BY_CATEGORYID_LEVEL_LANGUAGE"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "choices",
+            "fullName": "Question::choices"
+          },
+          "type": "Choice",
+          "annotations": [
+            {
+              "name": "@OneToMany",
+              "stringValue": "OneToMany"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Choice",
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "id",
+            "fullName": "id"
+          },
+          "type": "Code",
+          "annotations": [
+            {
+              "name": "@GeneratedValue",
+              "stringValue": "GeneratedValue"
+            },
+            {
+              "name": "@Id",
+              "stringValue": "Id"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            },
+            {
+              "name": "@OneToMany",
+              "stringValue": "OneToMany"
+            }
+          ],
+          "isReference": true,
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "description",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@be5ca025::description"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "level",
+            "fullName": "Question::level"
+          },
+          "type": "Integer",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Min",
+              "stringValue": "Min"
+            },
+            {
+              "name": "@Max",
+              "stringValue": "Max"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "FIND_BY_CATEGORYID",
+            "fullName": "Question::FIND_BY_CATEGORYID"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "choices",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@be5ca025::choices"
+          },
+          "type": "Choice",
+          "annotations": [
+            {
+              "name": "@OneToMany",
+              "stringValue": "OneToMany"
+            }
+          ],
+          "isReference": true,
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "body",
+            "fullName": "body"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            },
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "FIND_DTO_BY_NAME",
+            "fullName": "Question::FIND_DTO_BY_NAME"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "code",
+            "fullName": "edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Name@be5ca025::code"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "title",
+            "fullName": "Question::title"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Category",
+        "fullName": "Category"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "questions",
+            "fullName": "questions"
+          },
+          "type": "Question",
+          "annotations": [
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@ManyToMany",
+              "stringValue": "ManyToMany"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Question",
+          "isCollection": true
+        },
+        {
+          "name": {
+            "name": "name",
+            "fullName": "name"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "description",
+            "fullName": "description"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "FIND_QUESTION_COUNT_DTO_BY_ID",
+            "fullName": "ID"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "FIND_NAMES_BY_QUESTION_ID",
+            "fullName": "ID"
+          },
+          "type": "String",
+          "annotations": [],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "Code",
+        "fullName": "Code"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "language",
+            "fullName": "language"
+          },
+          "type": "Language",
+          "annotations": [
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Language",
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "body",
+            "fullName": "body"
+          },
+          "type": "String",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@Size",
+              "stringValue": "Size"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "question",
+            "fullName": "question"
+          },
+          "type": "Question",
+          "annotations": [
+            {
+              "name": "@NotNull",
+              "stringValue": "NotNull"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@JoinColumn",
+              "stringValue": "JoinColumn"
+            },
+            {
+              "name": "@ManyToOne",
+              "stringValue": "ManyToOne"
+            }
+          ],
+          "isReference": true,
+          "entityRefName": "Question",
+          "isCollection": false
+        }
+      ]
+    },
+    {
+      "entityName": {
+        "name": "AuditModel",
+        "fullName": "AuditModel"
+      },
+      "fields": [
+        {
+          "name": {
+            "name": "modifiedBy",
+            "fullName": "modifiedBy"
+          },
+          "type": "Long",
+          "annotations": [
+            {
+              "name": "@LastModifiedBy",
+              "stringValue": "LastModifiedBy"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "createdWhen",
+            "fullName": "createdWhen"
+          },
+          "type": "Date",
+          "annotations": [
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            },
+            {
+              "name": "@CreatedDate",
+              "stringValue": "CreatedDate"
+            },
+            {
+              "name": "@Temporal",
+              "stringValue": "Temporal"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "createdBy",
+            "fullName": "createdBy"
+          },
+          "type": "Long",
+          "annotations": [
+            {
+              "name": "@CreatedBy",
+              "stringValue": "CreatedBy"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        },
+        {
+          "name": {
+            "name": "modifiedWhen",
+            "fullName": "modifiedWhen"
+          },
+          "type": "Date",
+          "annotations": [
+            {
+              "name": "@LastModifiedDate",
+              "stringValue": "LastModifiedDate"
+            },
+            {
+              "name": "@JsonIgnore",
+              "stringValue": "JsonIgnore"
+            },
+            {
+              "name": "@Column",
+              "stringValue": "Column"
+            },
+            {
+              "name": "@Temporal",
+              "stringValue": "Temporal"
+            }
+          ],
+          "isReference": false,
+          "isCollection": false
+        }
+      ]
+    }
+  ]
+}

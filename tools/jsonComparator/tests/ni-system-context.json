@@ -1,0 +1,1449 @@
+{
+  "modules": [
+      {
+          "entities": [
+              {
+                  "entityName": {
+                      "fullName": "AuditModel",
+                      "name": "AuditModel"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@CreatedBy",
+                                  "stringValue": "CreatedBy"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "createdBy",
+                              "name": "createdBy"
+                          },
+                          "type": "Long"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@CreatedDate",
+                                  "stringValue": "CreatedDate"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@Temporal",
+                                  "stringValue": "Temporal"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "createdWhen",
+                              "name": "createdWhen"
+                          },
+                          "type": "Date"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@LastModifiedBy",
+                                  "stringValue": "LastModifiedBy"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "modifiedBy",
+                              "name": "modifiedBy"
+                          },
+                          "type": "Long"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@LastModifiedDate",
+                                  "stringValue": "LastModifiedDate"
+                              },
+                              {
+                                  "name": "@Temporal",
+                                  "stringValue": "Temporal"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "modifiedWhen",
+                              "name": "modifiedWhen"
+                          },
+                          "type": "Date"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Category",
+                      "name": "Category"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_NAMES_BY_QUESTION_ID",
+                              "name": "FIND_NAMES_BY_QUESTION_ID"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_QUESTION_COUNT_DTO_BY_ID",
+                              "name": "FIND_QUESTION_COUNT_DTO_BY_ID"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "description",
+                              "name": "description"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "name",
+                              "name": "name"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToMany",
+                                  "stringValue": "ManyToMany"
+                              }
+                          ],
+                          "entityRefName": "Question",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "questions",
+                              "name": "questions"
+                          },
+                          "type": "Question"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Choice",
+                      "name": "Choice"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "correct",
+                              "name": "correct"
+                          },
+                          "type": "Boolean"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "entityRefName": "Question",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "question",
+                              "name": "question"
+                          },
+                          "type": "Question"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Code",
+                      "name": "Code"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "entityRefName": "Question",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "question",
+                              "name": "question"
+                          },
+                          "type": "Question"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              }
+                          ],
+                          "entityRefName": "Language",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "language",
+                              "name": "language"
+                          },
+                          "type": "Language"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Configuration",
+                      "name": "Configuration"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_ALL_GROUPS_BY_ID",
+                              "name": "FIND_ALL_GROUPS_BY_ID"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "description",
+                              "name": "description"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "name",
+                              "name": "name"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@OneToMany",
+                                  "stringValue": "OneToMany"
+                              }
+                          ],
+                          "entityRefName": "ConfigurationGroup",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "groups",
+                              "name": "groups"
+                          },
+                          "type": "ConfigurationGroup"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "ConfigurationGroup",
+                      "name": "ConfigurationGroup"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "category",
+                              "name": "category"
+                          },
+                          "type": "Long"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "count",
+                              "name": "count"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "languageId",
+                              "name": "languageId"
+                          },
+                          "type": "Long"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "level",
+                              "name": "level"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "entityRefName": "Configuration",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "configuration",
+                              "name": "configuration"
+                          },
+                          "type": "Configuration"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Language",
+                      "name": "Language"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "name",
+                              "name": "name"
+                          },
+                          "type": "String"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Person",
+                      "name": "Person"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "firstName",
+                              "name": "firstName"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "lastName",
+                              "name": "lastName"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "userName",
+                              "name": "userName"
+                          },
+                          "type": "String"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Question",
+                      "name": "Question"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_BY_CATEGORYID",
+                              "name": "FIND_BY_CATEGORYID"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_BY_CATEGORYID_AND_NAME",
+                              "name": "FIND_BY_CATEGORYID_AND_NAME"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_BY_CATEGORYID_LEVEL_LANGUAGE",
+                              "name": "FIND_BY_CATEGORYID_LEVEL_LANGUAGE"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "FIND_DTO_BY_NAME",
+                              "name": "FIND_DTO_BY_NAME"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@Max",
+                                  "stringValue": "Max"
+                              },
+                              {
+                                  "name": "@Min",
+                                  "stringValue": "Min"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "level",
+                              "name": "level"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              },
+                              {
+                                  "name": "@Size",
+                                  "stringValue": "Size"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "title",
+                              "name": "title"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinTable",
+                                  "stringValue": "JoinTable"
+                              },
+                              {
+                                  "name": "@ManyToMany",
+                                  "stringValue": "ManyToMany"
+                              }
+                          ],
+                          "entityRefName": "Category",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "categories",
+                              "name": "categories"
+                          },
+                          "type": "Category"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@OneToMany",
+                                  "stringValue": "OneToMany"
+                              }
+                          ],
+                          "entityRefName": "Choice",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "choices",
+                              "name": "choices"
+                          },
+                          "type": "Choice"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@OneToMany",
+                                  "stringValue": "OneToMany"
+                              }
+                          ],
+                          "entityRefName": "Code",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "codes",
+                              "name": "codes"
+                          },
+                          "type": "Code"
+                      }
+                  ]
+              }
+          ],
+          "name": {
+              "fullName": "qms",
+              "name": "qms"
+          }
+      },
+      {
+          "entities": [
+              {
+                  "entityName": {
+                      "fullName": "Choice",
+                      "name": "Choice"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "chosen",
+                              "name": "chosen"
+                          },
+                          "type": "boolean"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "correct",
+                              "name": "correct"
+                          },
+                          "type": "boolean"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "entityRefName": "Question",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "question",
+                              "name": "question"
+                          },
+                          "type": "Question"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Exam",
+                      "name": "Exam"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "configurationId",
+                              "name": "configurationId"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "correct",
+                              "name": "correct"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "examinee",
+                              "name": "examinee"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "issuer",
+                              "name": "issuer"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "status",
+                              "name": "status"
+                          },
+                          "type": "ExamStatus"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "sum",
+                              "name": "sum"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JsonFormat",
+                                  "stringValue": "JsonFormat"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "examDate",
+                              "name": "examDate"
+                          },
+                          "type": "Date"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Question",
+                      "name": "Question"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "code",
+                              "name": "code"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@OnDelete",
+                                  "stringValue": "OnDelete"
+                              }
+                          ],
+                          "entityRefName": "Exam",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "exam",
+                              "name": "exam"
+                          },
+                          "type": "Exam"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@OneToMany",
+                                  "stringValue": "OneToMany"
+                              }
+                          ],
+                          "entityRefName": "Choice",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "choices",
+                              "name": "choices"
+                          },
+                          "type": "Choice"
+                      }
+                  ]
+              }
+          ],
+          "name": {
+              "fullName": "ems",
+              "name": "ems"
+          }
+      },
+      {
+          "entities": [
+              {
+                  "entityName": {
+                      "fullName": "Choice",
+                      "name": "Choice"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "chosen",
+                              "name": "chosen"
+                          },
+                          "type": "boolean"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "correct",
+                              "name": "correct"
+                          },
+                          "type": "boolean"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@NotNull",
+                                  "stringValue": "NotNull"
+                              }
+                          ],
+                          "entityRefName": "Question",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "question",
+                              "name": "question"
+                          },
+                          "type": "Question"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Exam",
+                      "name": "Exam"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "configurationId",
+                              "name": "configurationId"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "correct",
+                              "name": "correct"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "description",
+                              "name": "description"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "examinee",
+                              "name": "examinee"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "issuer",
+                              "name": "issuer"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "status",
+                              "name": "status"
+                          },
+                          "type": "ExamStatus"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "sum",
+                              "name": "sum"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JsonFormat",
+                                  "stringValue": "JsonFormat"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "examDate",
+                              "name": "examDate"
+                          },
+                          "type": "String"
+                      }
+                  ]
+              },
+              {
+                  "entityName": {
+                      "fullName": "Question",
+                      "name": "Question"
+                  },
+                  "fields": [
+                      {
+                          "annotations": [],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "description",
+                              "name": "description"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              },
+                              {
+                                  "name": "@GeneratedValue",
+                                  "stringValue": "GeneratedValue"
+                              },
+                              {
+                                  "name": "@Id",
+                                  "stringValue": "Id"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "id",
+                              "name": "id"
+                          },
+                          "type": "Integer"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "body",
+                              "name": "body"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@Column",
+                                  "stringValue": "Column"
+                              }
+                          ],
+                          "isCollection": false,
+                          "isReference": false,
+                          "name": {
+                              "fullName": "code",
+                              "name": "code"
+                          },
+                          "type": "String"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@JoinColumn",
+                                  "stringValue": "JoinColumn"
+                              },
+                              {
+                                  "name": "@JsonIgnore",
+                                  "stringValue": "JsonIgnore"
+                              },
+                              {
+                                  "name": "@ManyToOne",
+                                  "stringValue": "ManyToOne"
+                              },
+                              {
+                                  "name": "@OnDelete",
+                                  "stringValue": "OnDelete"
+                              }
+                          ],
+                          "entityRefName": "Exam",
+                          "isCollection": false,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "exam",
+                              "name": "exam"
+                          },
+                          "type": "Exam"
+                      },
+                      {
+                          "annotations": [
+                              {
+                                  "name": "@OneToMany",
+                                  "stringValue": "OneToMany"
+                              }
+                          ],
+                          "entityRefName": "Choice",
+                          "isCollection": true,
+                          "isReference": true,
+                          "name": {
+                              "fullName": "choices",
+                              "name": "choices"
+                          },
+                          "type": "Choice"
+                      }
+                  ]
+              }
+          ],
+          "name": {
+              "fullName": "cms",
+              "name": "cms"
+          }
+      }
+  ],
+  "systemName": "unknown"
+}

@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "first_name": "Anjela",
+        "last_name": "Baack",
+        "email": "abaack0@cnn.com",
+        "gender": "Female",
+        "ip_address": "4.53.48.239"
+    },
+    {
+        "id": 2,
+        "first_name": "Beverley",
+        "last_name": "Mattschas",
+        "email": {
+            "slabs": "red",
+            "orange": ["yellowTail", "YelloTail", "goldfish"],
+            "games": [{"name": "total war"}, {"name": "WoW"}]
+        },
+        "gender": "Female",
+        "ip_address": "124.22.128.227"
+    },
+    {
+        "id": 3,
+        "first_name": "Christian",
+        "last_name": "Haggas",
+        "email": "chaggas2@desdev.cn",
+        "gender": "Female",
+        "ip_address": "181.28.34.58"
+    },
+    {
+        "id": 4,
+        "first_name": "Aldric",
+        "last_name": "Romain",
+        "email": "aromain3@xing.com",
+        "gender": "Male",
+        "ip_address": "61.8.205.104"
+    },
+    {
+        "id": 5,
+        "first_name": "Eadie",
+        "last_name": "Pigot",
+        "email": "epigot4@bigcartel.com",
+        "gender": "Genderqueer",
+        "ip_address": "178.254.57.1"
+    },
+    {
+        "id": 6,
+        "first_name": "Iggie",
+        "last_name": "Pietruszewicz",
+        "email": "ipietruszewicz5@google.nl",
+        "gender": "Male",
+        "ip_address": "182.191.248.180"
+    },
+    {
+        "id": 7,
+        "first_name": "Pearce",
+        "last_name": "Marrington",
+        "email": "pmarrington6@epa.gov",
+        "gender": "Agender",
+        "ip_address": "232.102.194.236"
+    },
+    {
+        "id": 8,
+        "first_name": "Daisey",
+        "last_name": "Keasley",
+        "email": "dkeasley7@biblegateway.com",
+        "gender": "Polygender",
+        "ip_address": "96.233.210.244"
+    },
+    {
+        "id": 9,
+        "first_name": "Marion",
+        "last_name": "Pughsley",
+        "email": "mpughsley8@myspace.com",
+        "gender": "Male",
+        "ip_address": "12.149.13.64"
+    },
+    {
+        "id": 10,
+        "first_name": "Anabelle",
+        "last_name": "Bartomieu",
+        "email": "abartomieu9@hud.gov",
+        "gender": "Female",
+        "ip_address": "35.112.195.173"
+    }
+]

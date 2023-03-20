@@ -1,0 +1,214 @@
+{
+    "microservices": [
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-basic-info-service",
+        "basePackage": "adminbasic",
+        "microserviceName": "ts-admin-basic-info-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-order-service",
+        "basePackage": "adminorder",
+        "microserviceName": "ts-admin-order-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-route-service",
+        "basePackage": "adminroute",
+        "microserviceName": "ts-admin-route-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-travel-service",
+        "basePackage": "admintravel",
+        "microserviceName": "ts-admin-travel-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-user-service",
+        "basePackage": "adminuser",
+        "microserviceName": "ts-admin-user-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-assurance-service",
+        "basePackage": "assurance",
+        "microserviceName": "ts-assurance-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-auth-service",
+        "basePackage": "auth",
+        "microserviceName": "ts-auth-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-basic-service",
+        "basePackage": "fdse.microservice",
+        "microserviceName": "ts-basic-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-cancel-service",
+        "basePackage": "cancel",
+        "microserviceName": "ts-cancel-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-common",
+        "basePackage": "edu.fudan.common",
+        "microserviceName": "ts-common"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-config-service",
+        "basePackage": "config",
+        "microserviceName": "ts-config-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-consign-price-service",
+        "basePackage": "consignprice",
+        "microserviceName": "ts-consign-price-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-consign-service",
+        "basePackage": "consign",
+        "microserviceName": "ts-consign-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-contacts-service",
+        "basePackage": "contacts",
+        "microserviceName": "ts-contacts-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-delivery-service",
+        "basePackage": "delivery",
+        "microserviceName": "ts-delivery-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-execute-service",
+        "basePackage": "execute",
+        "microserviceName": "ts-execute-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-food-delivery-service",
+        "basePackage": "food_delivery",
+        "microserviceName": "ts-food-delivery-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-food-service",
+        "basePackage": "foodsearch",
+        "microserviceName": "ts-food-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-gateway-service",
+        "basePackage": "gateway",
+        "microserviceName": "ts-gateway-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-inside-payment-service",
+        "basePackage": "inside_payment",
+        "microserviceName": "ts-inside-payment-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-notification-service",
+        "basePackage": "notification",
+        "microserviceName": "ts-notification-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-order-other-service",
+        "basePackage": "other",
+        "microserviceName": "ts-order-other-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-order-service",
+        "basePackage": "order",
+        "microserviceName": "ts-order-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-payment-service",
+        "basePackage": "com.trainticket",
+        "microserviceName": "ts-payment-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-preserve-other-service",
+        "basePackage": "preserveOther",
+        "microserviceName": "ts-preserve-other-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-preserve-service",
+        "basePackage": "preserve",
+        "microserviceName": "ts-preserve-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-price-service",
+        "basePackage": "price",
+        "microserviceName": "ts-price-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-rebook-service",
+        "basePackage": "rebook",
+        "microserviceName": "ts-rebook-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-route-plan-service",
+        "basePackage": "plan",
+        "microserviceName": "ts-route-plan-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-route-service",
+        "basePackage": "route",
+        "microserviceName": "ts-route-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-seat-service",
+        "basePackage": "seat",
+        "microserviceName": "ts-seat-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-security-service",
+        "basePackage": "security",
+        "microserviceName": "ts-security-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-station-food-service",
+        "basePackage": "food",
+        "microserviceName": "ts-station-food-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-station-service",
+        "basePackage": "fdse.microservice",
+        "microserviceName": "ts-station-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-train-food-service",
+        "basePackage": "trainFood",
+        "microserviceName": "ts-train-food-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-train-service",
+        "basePackage": "train",
+        "microserviceName": "ts-train-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-travel-plan-service",
+        "basePackage": "travelplan",
+        "microserviceName": "ts-travel-plan-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-travel-service",
+        "basePackage": "travel",
+        "microserviceName": "ts-travel-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-travel2-service",
+        "basePackage": "travel2",
+        "microserviceName": "ts-travel2-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-user-service",
+        "basePackage": "user",
+        "microserviceName": "ts-user-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-verification-code-service",
+        "basePackage": "verifycode",
+        "microserviceName": "ts-verification-code-service"
+      },
+      {
+        "baseDir": "/home/richardh/capstone/train-ticket/ts-wait-order-service",
+        "basePackage": "waitorder",
+        "microserviceName": "ts-wait-order-service"
+      }
+    ]
+  }
