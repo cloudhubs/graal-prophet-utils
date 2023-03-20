@@ -13,11 +13,26 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
         
+        List<String> commands = new ArrayList<>();
+        commands.add("/bin/bash");
+        commands.add("-c");
+        commands.add("/home/jack/Capstone/graal-prophet-utils/src/main/java/script.sh");
+
+        try{
+            ProcessBuilder pb = new ProcessBuilder(commands);
+            Process process = pb.start();
+            process.waitFor();
+        }catch (IOException | InterruptedException e){
+            e.printStackTrace();
+        }
+
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), "GRAAL_PROPHET_HOME not set");
         if (args.length != 1) {
             throw new IllegalArgumentException("Expecting one argument - the configuration request to parse.");

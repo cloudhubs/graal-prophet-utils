@@ -18,7 +18,7 @@ public class AppConfigUtils{
     //attempt to load path config file, bubble up exceptions
     public static void loadConfigFile() throws FileNotFoundException, IOException{
 
-        final String CONFIG_FILE_PATH = "config/config.properties";
+        final String CONFIG_FILE_PATH = "/home/jack/Capstone/graal-prophet-utils/config/config.properties";
         try(FileInputStream fis = new FileInputStream(CONFIG_FILE_PATH)){
             CONFIG_PROPS.load(fis);
         }catch(FileNotFoundException err){
