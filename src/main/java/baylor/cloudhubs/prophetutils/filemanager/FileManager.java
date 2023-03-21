@@ -31,7 +31,7 @@ public class FileManager {
         try {
             Gson gson = new Gson();
             String json = gson.toJson(systemContext);
-            BufferedWriter writer = new BufferedWriter(new FileWriter("/home/jack/Capstone/graal-prophet-utils" + fileName.substring(1)));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(json);
             writer.close();
         } catch (IOException e) {

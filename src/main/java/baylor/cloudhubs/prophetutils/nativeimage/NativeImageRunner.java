@@ -11,7 +11,9 @@ import java.util.List;
 
 public class NativeImageRunner {
     private final String classpath;
-    private final String outputJson;
+    private final String entityOutput;
+    private final String restcallOutput;
+    private final String endpointOutput;
 
     private final MicroserviceInfo info;
     private final String niCommand;
@@ -24,7 +26,10 @@ public class NativeImageRunner {
         //PREVIOUS
         // String microservicePath = info.getBaseDir() + File.separator + info.getMicroserviceName();
         this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-        this.outputJson = "/home/jack/Capstone/graal-prophet-utils/output/" + info.getMicroserviceName() + ".json";
+        this.entityOutput = "./output/" + info.getMicroserviceName() + ".json";
+        this.restcallOutput = "./output/" + info.getMicroserviceName() + "_restcalls.csv";
+        this.endpointOutput = "./output/" + info.getMicroserviceName() + "_endpoints.csv";
+
     }
 
     public Module runProphetPlugin() {
@@ -34,7 +39,7 @@ public class NativeImageRunner {
 
     private Module parseOutputFile() {
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader(outputJson)) {
+        try (FileReader reader = new FileReader(entityOutput)) {
             return gson.fromJson(reader, Module.class);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -43,7 +48,7 @@ public class NativeImageRunner {
 
     private void executeNativeImage() {
         List<String> cmd = prepareCommand();
-        System.out.println(String.join(" ", cmd));
+        // System.out.println(String.join(" ", cmd));
         try {
             Process process = new ProcessBuilder()
                     .command(cmd)
@@ -63,11 +68,12 @@ public class NativeImageRunner {
         List<String> cmd = new ArrayList<>();
         cmd.add(niCommand);
         cmd.add("-H:+ProphetPlugin");
-        cmd.add("-H:+ProphetRest");
         cmd.add("-H:-InlineBeforeAnalysis");
         cmd.add("-H:ProphetModuleName=" + this.info.getMicroserviceName());
         cmd.add("-H:ProphetBasePackage=" + this.info.getBasePackage());
-        cmd.add("-H:ProphetOutputFile=" + this.outputJson);        
+        cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);   
+        cmd.add("-H:ProphetRestCallOutputFile=" + this.restcallOutput);        
+        cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);        
         cmd.add("-cp");
         cmd.add(classpath);
         cmd.add(this.info.getMicroserviceName());

@@ -1,7 +1,6 @@
 import java.text.ParseException;
 import com.google.gson.Gson;
 
-import baylor.cloudhubs.prophetutils.AppConfigUtils;
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
@@ -21,11 +20,6 @@ public class Main {
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), "GRAAL_PROPHET_HOME not set");
         if (args.length != 1) {
             throw new IllegalArgumentException("Expecting one argument - the configuration request to parse.");
-        }
-        //Load path config properties properties, throws error if file is empty, can't be found, or can't be loaded
-        AppConfigUtils.loadConfigFile();
-        if (AppConfigUtils.CONFIG_PROPS.isEmpty()){
-            throw new ParseException("application configuration file is empty", 0);
         }
 
         Gson gson = new Gson();
