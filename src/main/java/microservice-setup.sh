@@ -9,7 +9,7 @@ for element in "${microservices[@]}"; do
     path2="$directory$element"
     unzip -o $path -d $path2
     yaml="/BOOT-INF/lib/"
-    file=$(find "$directory$element$yaml" -name "snakeyaml*" -print -quit)
+    file=$(find "$directory$element$directory2$yaml" -name "snakeyaml*" -print -quit)
     if [ -f "$file" ]; then
         rm "$file"
     fi
