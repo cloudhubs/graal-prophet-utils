@@ -36,3 +36,7 @@ build/
 ### application.properties ###
 systemContext.json
 /.apt_generated_tests/
+
+.idea/
+target/
+output/
