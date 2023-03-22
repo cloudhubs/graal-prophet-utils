@@ -29,5 +29,6 @@ public class Main {
         // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
         BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
         FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
+
     }
 }
