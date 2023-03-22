@@ -1,0 +1,8 @@
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.addOrder,ts-order-other-service/api/v1/orderOtherService/orderOther/admin,POST,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.getAllOrders,ts-order-service/api/v1/orderservice/order,GET,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.deleteOrder,ts-order-service/api/v1/orderservice/order/,DELETE,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.updateOrder,ts-order-service/api/v1/orderservice/order/admin,PUT,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.addOrder,ts-order-service/api/v1/orderservice/order/admin,POST,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.deleteOrder,ts-order-other-service/api/v1/orderOtherService/orderOther/,DELETE,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.updateOrder,ts-order-other-service/api/v1/orderOtherService/orderOther/admin,PUT,org.springframework.http.HttpEntity,false
+ts-admin-order-service,adminorder.service.AdminOrderServiceImpl,adminorder.service.AdminOrderServiceImpl.getAllOrders,ts-order-other-service/api/v1/orderOtherService/orderOther,GET,org.springframework.http.HttpEntity,false

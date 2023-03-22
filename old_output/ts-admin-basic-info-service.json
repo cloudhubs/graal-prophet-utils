@@ -1,0 +1,526 @@
+{
+		"name" : {
+			"name" : "ts-admin-basic-info-service",
+			"fullName" : "ts-admin-basic-info-service"
+			}
+		,
+		"entities" : [
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.addStation",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.addPrice",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-price-service/api/v1/priceservice/prices",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.getAllStations",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.modifyConfig",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-config-service/api/v1/configservice/configs",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.getAllPrices",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-price-service/api/v1/priceservice/prices",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.modifyContact",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-contacts-service/api/v1/contactservice/contacts",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.modifyTrain",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-service/api/v1/trainservice/trains",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.getAllContacts",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-contacts-service/api/v1/contactservice/contacts",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.modifyStation",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.deletePrice",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-price-service/api/v1/priceservice/prices/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.deleteStation",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.addTrain",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-service/api/v1/trainservice/trains",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.deleteContact",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-contacts-service/api/v1/contactservice/contacts/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.addContact",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-contacts-service/api/v1/contactservice/contacts/admin",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.getAllTrains",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-service/api/v1/trainservice/trains",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.modifyPrice",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-price-service/api/v1/priceservice/prices",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.getAllConfigs",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-config-service/api/v1/configservice/configs",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.deleteConfig",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-config-service/api/v1/configservice/configs/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.addConfig",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-config-service/api/v1/configservice/configs",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.service.AdminBasicInfoServiceImpl.deleteTrain",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-service/api/v1/trainservice/trains/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminbasic.service.AdminBasicInfoServiceImpl",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.modifyStation",
+				"arguments" : [
+					"@RequestBody Station s",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/stations",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.deleteConfig",
+				"arguments" : [
+					"@PathVariable String name",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/configs/{name}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.modifyConfig",
+				"arguments" : [
+					"@RequestBody Config c",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/configs",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.deleteContacts",
+				"arguments" : [
+					"@PathVariable String contactsId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/contacts/{contactsId}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.addPrice",
+				"arguments" : [
+					"@RequestBody PriceInfo pi",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/prices",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.getAllConfigs",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/configs",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.getAllPrices",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/prices",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.modifyPrice",
+				"arguments" : [
+					"@RequestBody PriceInfo pi",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/prices",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.getAllStations",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/stations",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.deletePrice",
+				"arguments" : [
+					"@PathVariable String pricesId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/prices/{pricesId}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.deleteTrain",
+				"arguments" : [
+					"@PathVariable String id",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/trains/{id}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.modifyContacts",
+				"arguments" : [
+					"@RequestBody Contacts mci",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/contacts",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.modifyTrain",
+				"arguments" : [
+					"@RequestBody TrainType t",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/trains",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.addContacts",
+				"arguments" : [
+					"@RequestBody Contacts c",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/contacts",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.addTrain",
+				"arguments" : [
+					"@RequestBody TrainType t",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/trains",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.deleteStation",
+				"arguments" : [
+					"@PathVariable String id",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/stations/{id}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.addStation",
+				"arguments" : [
+					"@RequestBody Station s",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/stations",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.getAllTrains",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/trains",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.addConfig",
+				"arguments" : [
+					"@RequestBody Config c",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/configs",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminbasic.controller.AdminBasicInfoController.getAllContacts",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/adminbasic/contacts",
+				"isCollection" : false,
+				"endpointInClassName" : "adminbasic.controller.AdminBasicInfoController",
+				"msName" : "ts-admin-basic-info-service"
+				}
+			
+			]
+		
+		}
+	

@@ -1,0 +1,4 @@
+ts-basic-service,fdse.microservice.controller.BasicController,fdse.microservice.controller.BasicController.queryForStationId,/basic/{stationName},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_stationName&@RequestHeader_HttpHeaders_headers
+ts-basic-service,fdse.microservice.controller.BasicController,fdse.microservice.controller.BasicController.queryForTravel,/basic/travel,POST,org.springframework.http.HttpEntity,false,@RequestBody_Travel_info&@RequestHeader_HttpHeaders_headers
+ts-basic-service,fdse.microservice.controller.BasicController,fdse.microservice.controller.BasicController.queryForTravels,/basic/travels,POST,org.springframework.http.HttpEntity,false,@RequestBody_Travel>_infos&@RequestHeader_HttpHeaders_headers
+ts-basic-service,fdse.microservice.controller.BasicController,fdse.microservice.controller.BasicController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers

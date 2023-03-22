@@ -1,0 +1,195 @@
+{
+		"name" : {
+			"name" : "ts-station-food-service",
+			"fullName" : "ts-station-food-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "StationFoodStore",
+					"fullName" : "StationFoodStore"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "stationName",
+							"fullName" : "stationName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "foodList",
+							"fullName" : "foodList"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							{
+								"name" : "@ElementCollection",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@CollectionTable",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "storeName",
+							"fullName" : "storeName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food.controller.StationFoodController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/stationfoodstores/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "food.controller.StationFoodController",
+				"msName" : "ts-station-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food.controller.StationFoodController.getFoodListByStationFoodStoreId",
+				"arguments" : [
+					"@PathVariable String stationFoodStoreId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/stationfoodstores/bystoreid/{stationFoodStoreId}",
+				"isCollection" : false,
+				"endpointInClassName" : "food.controller.StationFoodController",
+				"msName" : "ts-station-food-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "food.controller.StationFoodController.getFoodStoresByStationNames",
+				"arguments" : [
+					"@RequestBody String> stationNameList"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/stationfoodstores",
+				"isCollection" : false,
+				"endpointInClassName" : "food.controller.StationFoodController",
+				"msName" : "ts-station-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food.controller.StationFoodController.getFoodStoresOfStation",
+				"arguments" : [
+					"@PathVariable String stationName",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/stationfoodstores/{stationId}",
+				"isCollection" : false,
+				"endpointInClassName" : "food.controller.StationFoodController",
+				"msName" : "ts-station-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food.controller.StationFoodController.getAllFoodStores",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/stationfoodstores",
+				"isCollection" : false,
+				"endpointInClassName" : "food.controller.StationFoodController",
+				"msName" : "ts-station-food-service"
+				}
+			
+			]
+		
+		}
+	

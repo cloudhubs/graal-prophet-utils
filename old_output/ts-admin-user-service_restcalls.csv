@@ -1,0 +1,4 @@
+ts-admin-user-service,adminuser.service.AdminUserServiceImpl,adminuser.service.AdminUserServiceImpl.getAllUsers,ts-user-service/api/v1/userservice/users,GET,org.springframework.http.HttpEntity,false
+ts-admin-user-service,adminuser.service.AdminUserServiceImpl,adminuser.service.AdminUserServiceImpl.deleteUser,ts-user-service/api/v1/userservice/users/,DELETE,org.springframework.http.HttpEntity,false
+ts-admin-user-service,adminuser.service.AdminUserServiceImpl,adminuser.service.AdminUserServiceImpl.updateUser,ts-user-service/api/v1/userservice/users,PUT,org.springframework.http.HttpEntity,false
+ts-admin-user-service,adminuser.service.AdminUserServiceImpl,adminuser.service.AdminUserServiceImpl.addUser,ts-user-service/api/v1/userservice/users/register,POST,org.springframework.http.HttpEntity,false

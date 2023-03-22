@@ -1,0 +1,2 @@
+ts-user-service,user.service.impl.UserServiceImpl,user.service.impl.UserServiceImpl.deleteUserAuth,ts-auth-service/api/v1/users/,DELETE,org.springframework.http.HttpEntity,false
+ts-user-service,user.service.impl.UserServiceImpl,user.service.impl.UserServiceImpl.createDefaultAuthUser,ts-auth-service/api/v1/auth,POST,org.springframework.http.HttpEntity,false

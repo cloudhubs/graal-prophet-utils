@@ -1,0 +1,240 @@
+{
+		"name" : {
+			"name" : "ts-user-service",
+			"fullName" : "ts-user-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "User",
+					"fullName" : "User"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "userName",
+							"fullName" : "userName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentNum",
+							"fullName" : "documentNum"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentType",
+							"fullName" : "documentType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "user.service.impl.UserServiceImpl.deleteUserAuth",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-auth-service/api/v1/users/",
+				"isCollection" : false,
+				"restCallInClassName" : "user.service.impl.UserServiceImpl",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "user.service.impl.UserServiceImpl.createDefaultAuthUser",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-auth-service/api/v1/auth",
+				"isCollection" : false,
+				"restCallInClassName" : "user.service.impl.UserServiceImpl",
+				"msName" : "ts-user-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "user.controller.UserController.getAllUser",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : null,
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "user.controller.UserController.updateUser",
+				"arguments" : [
+					"@RequestBody UserDto user",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : null,
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "user.controller.UserController.getUserByUserName",
+				"arguments" : [
+					"@PathVariable String userName",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/{userName}",
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "user.controller.UserController.deleteUserById",
+				"arguments" : [
+					"@PathVariable String userId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/{userId}",
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "user.controller.UserController.testHello",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/hello",
+				"isCollection" : false,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "user.controller.UserController.getUserByUserId",
+				"arguments" : [
+					"@PathVariable String userId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/id/{userId}",
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "user.controller.UserController.registerUser",
+				"arguments" : [
+					"@RequestBody UserDto userDto",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/register",
+				"isCollection" : true,
+				"endpointInClassName" : "user.controller.UserController",
+				"msName" : "ts-user-service"
+				}
+			
+			]
+		
+		}
+	

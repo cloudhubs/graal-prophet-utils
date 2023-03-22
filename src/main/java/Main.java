@@ -12,20 +12,36 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), "GRAAL_PROPHET_HOME not set");
+        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
+                "GRAAL_PROPHET_HOME not set");
         if (args.length != 1) {
             throw new IllegalArgumentException("Expecting one argument - the configuration request to parse.");
         }
 
+        // Create a File object for the root directory
+        File rootDir = new File("./");
+        // Check if the 'output' directory exists in the root directory
+        File outputDir = new File(rootDir, "output");
+        if (!outputDir.exists()) {
+            // Create the 'output' directory if it does not exist
+            if (!(outputDir.mkdir())){
+                throw new IOException("Unable to create output directory");
+            }
+        }
+
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
-        SystemContext ctx = ProphetUtilsFacade.getSystemContextViaNativeImage(analysisRequest.getMicroservices(), graalProphetHome);
+        SystemContext ctx = ProphetUtilsFacade.getSystemContextViaNativeImage(analysisRequest.getMicroservices(),
+                graalProphetHome);
         FileManager.writeToFile(ctx, "./output/ni-system-context.json");
+
         // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
         BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
         FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
