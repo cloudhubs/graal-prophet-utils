@@ -1,5 +1,0 @@
-ts-station-food-service,food.controller.StationFoodController,food.controller.StationFoodController.home,/stationfoodstores/welcome,GET,java.lang.String,false,
-ts-station-food-service,food.controller.StationFoodController,food.controller.StationFoodController.getFoodListByStationFoodStoreId,/stationfoodstores/bystoreid/{stationFoodStoreId},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_stationFoodStoreId&@RequestHeader_HttpHeaders_headers
-ts-station-food-service,food.controller.StationFoodController,food.controller.StationFoodController.getFoodStoresByStationNames,/stationfoodstores,POST,org.springframework.http.HttpEntity,false,@RequestBody_String>_stationNameList
-ts-station-food-service,food.controller.StationFoodController,food.controller.StationFoodController.getFoodStoresOfStation,/stationfoodstores/{stationId},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_stationName&@RequestHeader_HttpHeaders_headers
-ts-station-food-service,food.controller.StationFoodController,food.controller.StationFoodController.getAllFoodStores,/stationfoodstores,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
