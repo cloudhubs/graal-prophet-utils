@@ -6,7 +6,7 @@ ending="-1.0.jar"
 
 for element in "${microservices[@]}"; do
     path="$directory$element$directory2$element$ending"
-    path2="$directory$element"
+    path2="$directory$element$directory2"
     unzip -o $path -d $path2
     yaml="/BOOT-INF/lib/"
     file=$(find "$directory$element$directory2$yaml" -name "snakeyaml*" -print -quit)

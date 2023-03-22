@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
-
+        
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), "GRAAL_PROPHET_HOME not set");
         if (args.length != 1) {
             throw new IllegalArgumentException("Expecting one argument - the configuration request to parse.");
@@ -25,9 +25,9 @@ public class Main {
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
         SystemContext ctx = ProphetUtilsFacade.getSystemContextViaNativeImage(analysisRequest.getMicroservices(), graalProphetHome);
-        FileManager.writeToFile(ctx, "./output/ni-system-context.json");
+        FileManager.writeToFile(ctx, "/home/jack/Capstone/graal-prophet-utils/output/ni-system-context.json");
         // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
         BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
-        FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
+        FileManager.writeToFile(boundedContext, "/home/jack/Capstone/graal-prophet-utils/output/ni-bounded-context.json");
     }
 }
