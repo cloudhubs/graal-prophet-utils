@@ -5,20 +5,24 @@ public class Request {
     private String uri;
     private String requestReturn;
     private String endpointFunction;
-    private String targetEndpoint;
-    
-    public Request(String httpType, String uri, String requestReturn, String endpointFunction, String targetEndpoint) {
+    private String targetEndpointUri;
+    private Boolean isCollection;
+
+    public Request(String httpType, String uri, String requestReturn, Boolean isCollection, String endpointFunction, String targetEndpointUri) {
         this.httpType = httpType;
         this.uri = uri;
         this.requestReturn = requestReturn;
         this.endpointFunction = endpointFunction;
-        this.targetEndpoint = targetEndpoint;
+        this.targetEndpointUri = targetEndpointUri;
+        this.isCollection = isCollection;
     }
     
     public String getHttpType() {
         return httpType;
     }
-
+    public Boolean getIsCollection() {
+        return isCollection;
+    }
     public void setHttpType(String httpType) {
         this.httpType = httpType;
     }
@@ -38,7 +42,9 @@ public class Request {
     public void setRequestReturn(String requestReturn) {
         this.requestReturn = requestReturn;
     }
-
+    public void setIsCollection(Boolean c) {
+        this.isCollection = c;
+    }
     public String getEndpointFunction() {
         return endpointFunction;
     }
@@ -48,10 +54,10 @@ public class Request {
     }
 
     public String getTargetEndpoint() {
-        return targetEndpoint;
+        return targetEndpointUri;
     }
 
     public void setTargetEndpoint(String targetEndpoint) {
-        this.targetEndpoint = targetEndpoint;
+        this.targetEndpointUri = targetEndpoint;
     }
 }

@@ -39,4 +39,4 @@ systemContext.json
 
 .idea/
 target/
-output/
+output/*
