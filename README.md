@@ -15,6 +15,7 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
 3. ProphetUtils accepts one argument: the path to the microservices JSON. The format of the microservices JSON is as follows
     - ```
         {
+            "systemName": "systemnameHere",
             "microservices":[
                 {
                 "baseDir": "/home/person/work/microservice_system/microservice_root/",
