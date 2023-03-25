@@ -178,6 +178,7 @@ public class LinkAlg {
             Request r = reqs.getKey();
             Endpoint e = reqs.getValue();
 
+            // create the link
             Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
 
             // set missing fields in the request
@@ -185,10 +186,12 @@ public class LinkAlg {
             r.setTargetEndpoint(e.getPath());
             r.setEndpointFunction(e.getParentMethod());
 
+            // if the link doesn't exist add it to the list
             if (!this.msLinks.contains(l)) {
                 l.addRequest(r);
                 this.msLinks.add(l);
             }
+            // if the link does exist, find it then add the request to it
             else {
                 this.msLinks
                         .stream()
@@ -203,6 +206,7 @@ public class LinkAlg {
 
     }
 
+    // levenstein algorithm for two strings
     int findDistance(String a, String b) {
         int d[][] = new int[a.length() + 1][b.length() + 1];
 
