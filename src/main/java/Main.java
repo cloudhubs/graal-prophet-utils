@@ -1,4 +1,6 @@
 import java.text.ParseException;
+
+import baylor.cloudhubs.prophetutils.visualizer.Link;
 import com.google.gson.Gson;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
@@ -12,6 +14,7 @@ import edu.baylor.ecs.prophet.bounded.context.api.impl.BoundedContextApiImpl;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 import java.io.File;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
@@ -37,18 +40,22 @@ public class Main {
             }
         }
 
-        Gson gson = new Gson();
-        AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
-        SystemContext ctx = ProphetUtilsFacade.getSystemContextViaNativeImage(analysisRequest.getMicroservices(),
-                graalProphetHome);
-        FileManager.writeToFile(ctx, "./output/ni-system-context.json");
-        // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
-        BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
-        FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
+//        Gson gson = new Gson();
+//        AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
+//        SystemContext ctx = ProphetUtilsFacade.getSystemContextViaNativeImage(analysisRequest.getMicroservices(),
+//                graalProphetHome);
+//        FileManager.writeToFile(ctx, "./output/ni-system-context.json");
+//        // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
+//        BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
+//        FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
         
         try{
             LinkAlg linkAlgorithm = new LinkAlg();
             linkAlgorithm.calculateLinks("./output");
+
+            for (Link l : linkAlgorithm.getMsLinks()) {
+                System.out.println(l.toString());
+            }
 
         }catch(IOException | InterruptedException e){
             e.printStackTrace();

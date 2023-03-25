@@ -48,12 +48,12 @@ public class Link {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Link link = (Link) o;
-        return Objects.equals(source, link.source) && Objects.equals(target, link.target) && Objects.equals(requests, link.requests);
+        return Objects.equals(source, link.source) && Objects.equals(target, link.target);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(source, target, requests);
+        return Objects.hash(source, target);
     }
 
     @Override

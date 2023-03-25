@@ -7,10 +7,11 @@ import java.util.*;
 
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class LinkAlg {
 
-    private Map<String, Link> msMaptoLinks = new HashMap<>();
+    private ArrayList<Link> msLinks = new ArrayList<>();
     private Set<Node> nodes = new HashSet<>();
 
     private int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
@@ -46,7 +47,7 @@ public class LinkAlg {
         String nodesJsonString = gson.toJson(nodes);
         nodesJsonString.replaceFirst("\\[\\{", "");
         nodesJsonString.substring(0, nodesJsonString.length() - 2); //remove "}]"
-        String linksJsonString = gson.toJson(msMaptoLinks.values());
+        String linksJsonString = gson.toJson(msLinks);
         linksJsonString.replaceFirst("\\[\\{", "");
         linksJsonString.substring(0, linksJsonString.length() - 2); //remove "}]"
         String combinedJson = "{\"nodes\": " + nodesJsonString + ", \"links\": " + linksJsonString + "}";
@@ -60,8 +61,8 @@ public class LinkAlg {
 
     }
 
-    public Map<String, Link> getMsMapToLinks() {
-        return this.msMaptoLinks;
+    public ArrayList<Link> getMsLinks() {
+        return this.msLinks;
     }
 
     private ArrayList<Endpoint> parseEndpoints(File csv) throws IOException {
@@ -102,6 +103,96 @@ public class LinkAlg {
         br.close();
 
         return endpoints;
+    }
+
+    private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
+        Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
+
+        // open file readers
+        FileReader fileReader = new FileReader(csv);
+        BufferedReader br = new BufferedReader(fileReader);
+
+        // CSV SCHEMA
+        // 0   ,         1             ,     2   ,   3    ,     4   ,    5     ,     6,    
+        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isCollection
+
+        ArrayList<Request> requests = new ArrayList<>();
+
+        // read in csv and make requests
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] items = line.split(",");
+
+            if (items.length != RESTCALL_CSV_SCHEMA_LENGTH){
+                br.close();
+                throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items");
+            }
+            Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
+            //ADD REQUEST MS 
+            this.nodes.add(new Node(req.getMsName()));
+            requests.add(req);
+        }
+
+        // close file
+        br.close();
+        fileReader.close();
+
+        // loop through parsed requests
+        for (Request r : requests) {
+
+            URL uriObj;
+            String uri; //only necessary because of final requirement for comparator
+
+            // parse the endpoint path from the request URL
+            try {
+                uriObj = new URL(r.getUri());
+                uri = uriObj.getPath();
+            } catch (MalformedURLException ex) {
+                uri = r.getUri();
+            }
+
+            int min = Integer.MAX_VALUE;
+            int dist = -1;
+            Endpoint closestMatch = null;
+
+            // find the specific endpoint being called
+            for (Endpoint e : endpoints) {
+                dist = findDistance(e.getPath(), uri);
+                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && min > dist) {
+                    min = dist;
+                    closestMatch = e;
+                }
+            }
+
+            // add request to endpoint map
+            if (closestMatch != null && min <= 5 && min != -1) {
+                requestEndpointMap.put(r, closestMatch);
+            }
+
+        }
+
+        // create the links
+        for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
+            Request r = reqs.getKey();
+            Endpoint e = reqs.getValue();
+
+            Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
+
+            if (!this.msLinks.contains(l)) {
+                this.msLinks.add(l);
+            }
+            else {
+                this.msLinks
+                        .stream()
+                        .filter((link) -> link.equals(l))
+                        .collect(Collectors.toList())
+                        .get(0)
+                        .addRequest(r);
+            }
+
+        }
+
+
     }
 
     int findDistance(String a, String b) {
@@ -145,82 +236,4 @@ public class LinkAlg {
             return z;
     }
 
-    private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
-        Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
-
-        // open file readers
-        FileReader fileReader = new FileReader(csv);
-        BufferedReader br = new BufferedReader(fileReader);
-
-        // CSV SCHEMA
-        // 0   ,         1             ,     2   ,   3    ,     4   ,    5     ,     6,    
-        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isCollection
-
-        ArrayList<Request> requests = new ArrayList<>();
-
-        // read in csv and make requests
-        String line;
-        while ((line = br.readLine()) != null) {
-            String[] items = line.split(",");
-
-            if (items.length != RESTCALL_CSV_SCHEMA_LENGTH){
-                br.close();
-                throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items");
-            }
-            Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
-            //ADD REQUEST MS 
-            this.nodes.add(new Node(req.getMsName()));
-            requests.add(req);
-        }
-
-        // close file
-        br.close();
-        fileReader.close();
-
-        // loop through parsed requests
-        for (Request r : requests) {
-
-            URL uri = null;
-            String temp = null; //only necessary because of final requirement for comparator
-
-            try {
-                uri = new URL(r.getUri());
-                temp = uri.getPath();
-            } catch (MalformedURLException ex) {
-                temp = r.getUri();
-            }
-
-            int min = 1000000000;
-            int dist;
-            Endpoint closestMatch = null;
-
-            // find the specific endpoint being called
-            for (Endpoint e : endpoints) {
-                dist = findDistance(e.getPath(), r.getUri());
-                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && min > dist) {
-                    min = dist;
-                    closestMatch = e;
-                }
-            }
-
-            // add request to endpoint map
-            if (closestMatch != null) {
-                requestEndpointMap.put(r, closestMatch);
-            }
-
-        }
-
-        for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
-            Request r = reqs.getKey();
-            Endpoint e = reqs.getValue();
-
-            this.msMaptoLinks.putIfAbsent(r.getMsName(), new Link(r.getMsName(), e.getMsName(), new ArrayList<>()));
-            this.msMaptoLinks.get(r.getMsName()).addRequest(r);
-        }
-
-        for (Map.Entry<String, Link> link : this.msMaptoLinks.entrySet()) {
-            System.out.println("key: " + link.getKey() + " value: " + link.getValue());
-        }
-
-    }
 }
