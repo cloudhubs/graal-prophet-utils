@@ -165,7 +165,7 @@ public class LinkAlg {
             }
 
             // add request to endpoint map
-            if (closestMatch != null && min <= 5 && min != -1) {
+            if (closestMatch != null && min <= 5) {
                 requestEndpointMap.put(r, closestMatch);
             }
 
@@ -178,7 +178,13 @@ public class LinkAlg {
 
             Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
 
+            // set missing fields in the request
+            r.setEndpointMsName(e.getMsName());
+            r.setTargetEndpoint(e.getPath());
+            r.setEndpointFunction(e.getParentMethod());
+
             if (!this.msLinks.contains(l)) {
+                l.addRequest(r);
                 this.msLinks.add(l);
             }
             else {
