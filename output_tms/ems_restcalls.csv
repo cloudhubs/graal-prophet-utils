@@ -1,2 +1,0 @@
-ems,edu.baylor.ems.service.QmsService,edu.baylor.ems.service.QmsService.getQuestions,http://129.62.148.179:12345/test?configId=,GET,org.springframework.http.HttpEntity,false
-ems,edu.baylor.ems.service.UmsService,edu.baylor.ems.service.UmsService.getExamineeId,userinfo/getId/,GET,java.lang.String,false
