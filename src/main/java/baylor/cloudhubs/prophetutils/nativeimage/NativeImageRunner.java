@@ -1,7 +1,7 @@
 package baylor.cloudhubs.prophetutils.nativeimage;
 
 import com.google.gson.Gson;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Module;
+import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.FileReader;

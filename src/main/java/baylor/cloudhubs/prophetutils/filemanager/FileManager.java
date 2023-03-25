@@ -1,7 +1,7 @@
 package baylor.cloudhubs.prophetutils.filemanager;
 
 import com.google.gson.Gson;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.SystemContext;
+import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
 
 import java.io.*;
 import java.util.List;

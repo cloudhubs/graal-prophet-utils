@@ -1,7 +1,7 @@
 package baylor.cloudhubs.prophetutils;
 
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Module;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.SystemContext;
+import baylor.cloudhubs.prophetutils.systemcontext.Module;
+import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
 
 import java.util.*;
 

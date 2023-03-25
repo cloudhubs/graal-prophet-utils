@@ -5,16 +5,16 @@ import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.BoundedContext;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.SystemContext;
-import edu.baylor.ecs.prophet.bounded.context.api.impl.BoundedContextApiImpl;
+import baylor.cloudhubs.prophetutils.systemcontext.BoundedContext;
+import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
+import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
 import java.io.File;
-import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
 
 public class Main {
 
@@ -43,9 +43,7 @@ public class Main {
                 graalProphetHome);
         FileManager.writeToFile(ctx, "./output/ni-system-context.json");
         // System.out.println("GSON TO JSON: " + gson.toJson(ctx));
-        BoundedContext boundedContext = new BoundedContextApiImpl().getBoundedContext(ctx, false);
-        FileManager.writeToFile(boundedContext, "./output/ni-bounded-context.json");
-        
+
         try{
             LinkAlg linkAlgorithm = new LinkAlg();
             linkAlgorithm.calculateLinks("./output");

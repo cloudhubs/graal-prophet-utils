@@ -16,17 +16,6 @@
     </properties>
 
     <dependencies>        
-        <dependency>
-		    <groupId>com.github.cloudhubs</groupId>
-		    <artifactId>prophet-dto</artifactId>
-		    <version>expansion-base-SNAPSHOT</version>
-		</dependency>
-        
-        <dependency>
-		    <groupId>com.github.cloudhubs</groupId>
-		    <artifactId>bounded-context</artifactId>
-		    <version>expansion-base-SNAPSHOT</version>
-		</dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
