@@ -1,6 +1,7 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Link {
     
@@ -40,4 +41,27 @@ public class Link {
         this.requests = requests;
     }
 
+    public void addRequest(Request r) { this.requests.add(r); }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Link link = (Link) o;
+        return Objects.equals(source, link.source) && Objects.equals(target, link.target) && Objects.equals(requests, link.requests);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(source, target, requests);
+    }
+
+    @Override
+    public String toString() {
+        return "Link{\n" +
+                "source='" + source + '\'' +
+                ", target='" + target + '\'' +
+                ", requests=" + requests +
+                "\n}\n";
+    }
 }
