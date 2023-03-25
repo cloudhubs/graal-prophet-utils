@@ -1,4 +1,5 @@
 {
+  "systemName": "trainTicket",
   "microservices": [
     {
       "baseDir": "/home/richardh/capstone/train-ticket/ts-admin-basic-info-service",

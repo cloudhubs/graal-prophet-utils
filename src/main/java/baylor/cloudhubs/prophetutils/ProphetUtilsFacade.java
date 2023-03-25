@@ -13,9 +13,6 @@ import java.io.IOException;
 
 import java.util.*;
 
-
-
-
 public class ProphetUtilsFacade {
 
      private static SystemContext createSystemContext(List<MicroserviceInfo> microservices, String graalProphetHome, String outputDir) {
@@ -31,7 +28,13 @@ public class ProphetUtilsFacade {
     public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome){
         String outputFolderName = null;
         List<MicroserviceInfo> microservices = analysisRequest.getMicroservices();
+        String systemName = analysisRequest.getSystemName();
+        if (systemName == null){
+            System.err.println("WARNING: No system name provided in microservices JSON");
+            return;
+        }
         if (!microservices.isEmpty()){
+            
             outputFolderName = "output_" + analysisRequest.getSystemName();
             try {
 				createOutputDir(outputFolderName);
@@ -44,6 +47,7 @@ public class ProphetUtilsFacade {
             }
         }else{
             System.err.println("WARNING: No microservices in system");
+            return;
         }
              
     }

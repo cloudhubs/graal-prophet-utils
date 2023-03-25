@@ -207,7 +207,7 @@ public class LinkAlg {
     }
 
     // levenstein algorithm for two strings
-    int findDistance(String a, String b) {
+    private int findDistance(String a, String b) {
         int d[][] = new int[a.length() + 1][b.length() + 1];
 
         // Initialising first column:
@@ -239,7 +239,7 @@ public class LinkAlg {
     }
 
     // Helper function used by findDistance()
-    int findMin(int x, int y, int z) {
+    private int findMin(int x, int y, int z) {
         if(x <= y && x <= z)
             return x;
         if(y <= x && y <= z)
