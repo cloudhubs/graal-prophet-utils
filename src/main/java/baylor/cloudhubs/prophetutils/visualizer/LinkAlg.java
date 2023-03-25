@@ -5,18 +5,21 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 
-import javax.swing.SpinnerDateModel;
-
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 public class LinkAlg {
 
-    private Map<String, Link> msMaptoLinks = new HashMap<>();
+    private ArrayList<Link> msLinks = new ArrayList<>();
     private Set<Node> nodes = new HashSet<>();
 
-    private int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
-    private int RESTCALL_CSV_SCHEMA_LENGTH = 7;
+    private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
+    private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
+
+    private final int DIFF_THRESHOLD = 15;
+
+
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
         // read from output dir and create list of all files *endpoints.csv and *restcalls.csv
@@ -46,7 +49,7 @@ public class LinkAlg {
         String nodesJsonString = gson.toJson(nodes);
         nodesJsonString.replaceFirst("\\[\\{", "");
         nodesJsonString.substring(0, nodesJsonString.length() - 2); //remove "}]"
-        String linksJsonString = gson.toJson(msMaptoLinks.values());
+        String linksJsonString = gson.toJson(msLinks);
         linksJsonString.replaceFirst("\\[\\{", "");
         linksJsonString.substring(0, linksJsonString.length() - 2); //remove "}]"
         String combinedJson = "{\"nodes\": " + nodesJsonString + ", \"links\": " + linksJsonString + "}";
@@ -60,8 +63,8 @@ public class LinkAlg {
 
     }
 
-    public Map<String, Link> getMsMapToLinks() {
-        return this.msMaptoLinks;
+    public ArrayList<Link> getMsLinks() {
+        return this.msLinks;
     }
 
     private ArrayList<Endpoint> parseEndpoints(File csv) throws IOException {
@@ -105,8 +108,9 @@ public class LinkAlg {
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
-        Map<String, ArrayList<Request>> reqMaptoServices = new HashMap<>();
+        Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
 
+        // open file readers
         FileReader fileReader = new FileReader(csv);
         BufferedReader br = new BufferedReader(fileReader);
 
@@ -130,87 +134,118 @@ public class LinkAlg {
             this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
         }
-        
+
+        // close file
         br.close();
         fileReader.close();
 
+        // loop through parsed requests
         for (Request r : requests) {
-            // parse the endpoint path from the request objects URI
 
-            URL uri = null;
-            String temp = null; //only necessary because of final requirement for comparator
-            try{
-                uri = new URL(r.getUri());
-                temp = uri.getPath();
+            URL uriObj;
+            String uri; //only necessary because of final requirement for comparator
 
-            }catch(MalformedURLException ex){
-                temp = r.getUri();
+            // parse the endpoint path from the request URL
+            try {
+                uriObj = new URL(r.getUri());
+                uri = uriObj.getPath();
+            } catch (MalformedURLException ex) {
+                uri = r.getUri();
             }
-            String reqEndpointString = temp.replaceAll("//", "/");
-            List<Endpoint> endpointContains = new ArrayList<>();
 
-            Endpoint exactMatch = null;
-            String regex = ".*\\{[^}]*\\}.*"; //removes the curly braces and its contents from endpoints
+            int min = Integer.MAX_VALUE;
+            int dist = -1;
+            Endpoint closestMatch = null;
 
+            // find the specific endpoint being called
             for (Endpoint e : endpoints) {
-                // String premoddedPath = e.getPath();
-                // e.setPath(e.getPath().replaceAll(regex, ""));
-                // System.out.println("modified path = " + e.getPath());
-
-                if (r.getType().equals(e.getHttpMethod()) && !(r.getMsName().equals(e.getMsName()))) {
-
-                    if (reqEndpointString.equals(r.getUri())) {
-                        exactMatch = e;
-                        break;
-                    }
-
-                    if (reqEndpointString.contains(e.getPath()) || e.getPath().contains(reqEndpointString)) {
-                        endpointContains.add(e);
-                    }
-
+                dist = findDistance(e.getPath(), uri);
+                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && min > dist) {
+                    min = dist;
+                    closestMatch = e;
                 }
             }
 
-            if (exactMatch == null && !endpointContains.isEmpty()) {
-
-                endpointContains.sort(new Comparator<Endpoint>() {
-                    @Override
-                    public int compare(Endpoint o1, Endpoint o2) {
-                
-                        boolean o1Has = o1.getPath().endsWith(reqEndpointString);
-                        boolean rHaso1 = reqEndpointString.endsWith(o1.getPath());
-
-                        boolean o2Has = o2.getPath().endsWith(reqEndpointString);
-                        boolean rHaso2 = reqEndpointString.endsWith(o2.getPath());
-
-                        if( (o1Has && !o2Has) || (rHaso1 && !rHaso2)) return -1;
-                        else if( (o2Has && !o1Has) || (rHaso2 && !rHaso1)) return 1;
-                        else if( (o1Has && o2Has) || (rHaso2 && rHaso1)) return 0;
-                        else
-                            return o1.getPath().length() - o2.getPath().length();
-                    }
-                });
-                System.out.println("rest call = " + reqEndpointString);
-                for (Endpoint test : endpointContains){
-                    System.out.println(test.getPath() +", " + test.getParentMethod());
-                }
-                exactMatch = endpointContains.get(0);  
+            // add request to endpoint map
+            if (closestMatch != null && min <= DIFF_THRESHOLD) {
+                requestEndpointMap.put(r, closestMatch);
             }
-            if (exactMatch != null){
-                r.setEndpointFunction(exactMatch.getParentMethod());
-                r.setTargetEndpoint(exactMatch.getPath());
-                r.setEndpointMsName(exactMatch.getMsName());
-                
-                reqMaptoServices.putIfAbsent(r.getMsName(), new ArrayList<Request>());
-                reqMaptoServices.get(r.getMsName()).add(r);
 
-                // System.out.println("REQ = " + reqEndpointString + ", " + r.getParentMethod() + ", EXACT MATCH = " + exactMatch.getPath() + ", method = " + exactMatch.getParentMethod());
+        }
+
+        // create the links
+        for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
+            Request r = reqs.getKey();
+            Endpoint e = reqs.getValue();
+
+            // create the link
+            Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
+
+            // set missing fields in the request
+            r.setEndpointMsName(e.getMsName());
+            r.setTargetEndpoint(e.getPath());
+            r.setEndpointFunction(e.getParentMethod());
+
+            // if the link doesn't exist add it to the list
+            if (!this.msLinks.contains(l)) {
+                l.addRequest(r);
+                this.msLinks.add(l);
             }
+            // if the link does exist, find it then add the request to it
+            else {
+                this.msLinks
+                        .stream()
+                        .filter((link) -> link.equals(l))
+                        .collect(Collectors.toList())
+                        .get(0)
+                        .addRequest(r);
+            }
+
         }
-        for (Map.Entry<String,ArrayList<Request>> entry : reqMaptoServices.entrySet()) {
-            //entry.getValue() the array it returns should have at least one item in it
-            //cms
-            msMaptoLinks.put(entry.getKey(), new Link( entry.getKey(), entry.getValue().get(0).getEndpointMsName(), entry.getValue()));
-        }
+
+
     }
+
+    // levenstein algorithm for two strings
+    int findDistance(String a, String b) {
+        int d[][] = new int[a.length() + 1][b.length() + 1];
+
+        // Initialising first column:
+        for(int i = 0; i <= a.length(); i++)
+            d[i][0] = i;
+
+        // Initialising first row:
+        for(int j = 0; j <= b.length(); j++)
+            d[0][j] = j;
+
+        // Applying the algorithm:
+        int insertion, deletion, replacement;
+        for(int i = 1; i <= a.length(); i++) {
+            for(int j = 1; j <= b.length(); j++) {
+                if(a.charAt(i - 1) == (b.charAt(j - 1)))
+                    d[i][j] = d[i - 1][j - 1];
+                else {
+                    insertion = d[i][j - 1];
+                    deletion = d[i - 1][j];
+                    replacement = d[i - 1][j - 1];
+
+                    // Using the sub-problems
+                    d[i][j] = 1 + findMin(insertion, deletion, replacement);
+                }
+            }
+        }
+
+        return d[a.length()][b.length()];
+    }
+
+    // Helper function used by findDistance()
+    int findMin(int x, int y, int z) {
+        if(x <= y && x <= z)
+            return x;
+        if(y <= x && y <= z)
+            return y;
+        else
+            return z;
+    }
+
 }

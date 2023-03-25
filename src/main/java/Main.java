@@ -1,4 +1,6 @@
 import java.text.ParseException;
+
+import baylor.cloudhubs.prophetutils.visualizer.Link;
 import com.google.gson.Gson;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
@@ -12,6 +14,7 @@ import edu.baylor.ecs.prophet.bounded.context.api.impl.BoundedContextApiImpl;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 import java.io.File;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
@@ -49,6 +52,11 @@ public class Main {
         try{
             LinkAlg linkAlgorithm = new LinkAlg();
             linkAlgorithm.calculateLinks("./output");
+
+            // FOR PRINTING THE RESULTING LINKS
+//            for (Link l : linkAlgorithm.getMsLinks()) {
+//                System.out.println(l.toString());
+//            }
 
         }catch(IOException | InterruptedException e){
             e.printStackTrace();
