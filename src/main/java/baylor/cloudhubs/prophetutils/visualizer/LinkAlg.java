@@ -14,8 +14,10 @@ public class LinkAlg {
     private ArrayList<Link> msLinks = new ArrayList<>();
     private Set<Node> nodes = new HashSet<>();
 
-    private int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
-    private int RESTCALL_CSV_SCHEMA_LENGTH = 7;
+    private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
+    private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
+
+    private final int DIFF_THRESHOLD = 15;
 
 
 
@@ -165,7 +167,7 @@ public class LinkAlg {
             }
 
             // add request to endpoint map
-            if (closestMatch != null && min <= 5) {
+            if (closestMatch != null && min <= DIFF_THRESHOLD) {
                 requestEndpointMap.put(r, closestMatch);
             }
 
