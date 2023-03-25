@@ -3,17 +3,17 @@
 
     "microservices": [
       {
-        "baseDir": "/home/richardh/capstone/tms/cms/",
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/tms/cms/",
         "basePackage": "edu.baylor.ecs.cms",
         "microserviceName": "cms"
       },
       {
-        "baseDir": "/home/richardh/capstone/tms/ems/",
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/tms/ems/",
         "basePackage": "edu.baylor.ems",
         "microserviceName": "ems"
       },
       {
-        "baseDir": "/home/richardh/capstone/tms/qms/",
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/tms/qms/",
         "basePackage": "baylor.csi.questionManagement",
         "microserviceName": "qms"
       }

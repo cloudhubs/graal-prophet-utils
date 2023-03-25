@@ -1,4 +1,6 @@
 import java.text.ParseException;
+
+import baylor.cloudhubs.prophetutils.visualizer.Link;
 import com.google.gson.Gson;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
@@ -6,6 +8,8 @@ import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Map;
 import java.util.Objects;
 
 public class Main {
@@ -22,8 +26,7 @@ public class Main {
 
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
+
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome);
-
-
     }
 }

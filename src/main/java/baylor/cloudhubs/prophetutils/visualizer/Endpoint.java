@@ -1,6 +1,7 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Endpoint {
     private String httpMethod;
@@ -26,14 +27,6 @@ public class Endpoint {
         this.msName = msName;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.msName).append(",").append(endpointInClassName).append(",").append(parentMethod).append(",").append(path)
-            .append(",").append(httpMethod).append(",").append(returnType).append(",").append(isCollection)
-            .append(",").append(toStringModified(arguments));
-        return sb.toString();
-    }
     private String toStringModified(List<String> args){
         StringBuilder sb = new StringBuilder();
         
@@ -105,5 +98,32 @@ public class Endpoint {
 
     public void setCollection(boolean isCollection) {
         this.isCollection = isCollection;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Endpoint endpoint = (Endpoint) o;
+        return isCollection == endpoint.isCollection && Objects.equals(httpMethod, endpoint.httpMethod) && Objects.equals(parentMethod, endpoint.parentMethod) && Objects.equals(arguments, endpoint.arguments) && Objects.equals(returnType, endpoint.returnType) && Objects.equals(path, endpoint.path) && Objects.equals(endpointInClassName, endpoint.endpointInClassName) && Objects.equals(msName, endpoint.msName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(httpMethod, parentMethod, arguments, returnType, path, isCollection, endpointInClassName, msName);
+    }
+
+    @Override
+    public String toString() {
+        return "Endpoint{\n" +
+                "httpMethod='" + httpMethod + '\'' +
+                ", parentMethod='" + parentMethod + '\'' +
+                ", arguments=" + arguments +
+                ", returnType='" + returnType + '\'' +
+                ", path='" + path + '\'' +
+                ", isCollection=" + isCollection +
+                ", endpointInClassName='" + endpointInClassName + '\'' +
+                ", msName='" + msName + '\'' +
+                "\n}\n";
     }
 }

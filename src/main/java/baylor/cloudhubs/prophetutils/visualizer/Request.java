@@ -1,5 +1,7 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
+import java.util.Objects;
+
 public class Request {
     private String type;
     private String uri;
@@ -88,5 +90,34 @@ public class Request {
 
     public void setTargetEndpoint(String targetEndpoint) {
         this.targetEndpointUri = targetEndpoint;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Request request = (Request) o;
+        return Objects.equals(type, request.type) && Objects.equals(uri, request.uri) && Objects.equals(requestReturn, request.requestReturn) && Objects.equals(endpointFunction, request.endpointFunction) && Objects.equals(endpointMsName, request.endpointMsName) && Objects.equals(targetEndpointUri, request.targetEndpointUri) && Objects.equals(isCollection, request.isCollection) && Objects.equals(parentMethod, request.parentMethod) && Objects.equals(msName, request.msName) && Objects.equals(restCallInClassName, request.restCallInClassName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, uri, requestReturn, endpointFunction, endpointMsName, targetEndpointUri, isCollection, parentMethod, msName, restCallInClassName);
+    }
+
+    @Override
+    public String toString() {
+        return "Request{\n" +
+                "type='" + type + '\'' +
+                ", uri='" + uri + '\'' +
+                ", requestReturn='" + requestReturn + '\'' +
+                ", endpointFunction='" + endpointFunction + '\'' +
+                ", endpointMsName='" + endpointMsName + '\'' +
+                ", targetEndpointUri='" + targetEndpointUri + '\'' +
+                ", isCollection=" + isCollection +
+                ", parentMethod='" + parentMethod + '\'' +
+                ", msName='" + msName + '\'' +
+                ", restCallInClassName='" + restCallInClassName + '\'' +
+                "\n}\n";
     }
 }
