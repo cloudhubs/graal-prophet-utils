@@ -5,6 +5,7 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
 ## Note:
 - This program only currently accepts Java microservices
 - Program only runs on Windows and Linux machines
+- This program depends on cloudhubs/graal repository
 
 ## Setup:
 1. Install or build your every microservice
