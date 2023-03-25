@@ -135,7 +135,7 @@ public class LinkAlg {
         return d[a.length()][b.length()];
     }
 
-    // Helper funciton used by findDistance()
+    // Helper function used by findDistance()
     int findMin(int x, int y, int z) {
         if(x <= y && x <= z)
             return x;
@@ -210,96 +210,17 @@ public class LinkAlg {
 
         }
 
-        Map<String, Link> srcToDest = new HashMap<>();
-
         for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
             Request r = reqs.getKey();
             Endpoint e = reqs.getValue();
 
-            srcToDest.putIfAbsent(r.getMsName(), new Link(r.getMsName(), e.getMsName(), new ArrayList<>()));
-            srcToDest.get(r.getMsName()).addRequest(r);
+            this.msMaptoLinks.putIfAbsent(r.getMsName(), new Link(r.getMsName(), e.getMsName(), new ArrayList<>()));
+            this.msMaptoLinks.get(r.getMsName()).addRequest(r);
         }
 
-        for (Map.Entry<String, Link> link : srcToDest.entrySet()) {
+        for (Map.Entry<String, Link> link : this.msMaptoLinks.entrySet()) {
             System.out.println("key: " + link.getKey() + " value: " + link.getValue());
         }
 
-
-
-
-            // parse the endpoint path from the request objects URI
-
-//            URL uri = null;
-//            String temp = null; //only necessary because of final requirement for comparator
-
-//            String reqEndpointString = temp.replaceAll("//", "/");
-//            List<Endpoint> endpointContains = new ArrayList<>();
-//
-//            Endpoint exactMatch = null;
-//            String regex = ".*\\{[^}]*\\}.*"; //removes the curly braces and its contents from endpoints
-
-//            for (Endpoint e : endpoints) {
-//                // String premoddedPath = e.getPath();
-//                // e.setPath(e.getPath().replaceAll(regex, ""));
-//                // System.out.println("modified path = " + e.getPath());
-//
-//                if (r.getType().equals(e.getHttpMethod()) && !(r.getMsName().equals(e.getMsName()))) {
-//
-//                    if (reqEndpointString.equals(r.getUri())) {
-//                        exactMatch = e;
-//                        break;
-//                    }
-//
-//                    if (reqEndpointString.contains(e.getPath()) || e.getPath().contains(reqEndpointString)) {
-//                        endpointContains.add(e);
-//                    }
-//
-//                }
-//            }
-//
-//            if (exactMatch == null && !endpointContains.isEmpty()) {
-
-//                endpoints.sort(new Comparator<Endpoint>() {
-//                    @Override
-//                    public int compare(Endpoint o1, Endpoint o2) {
-
-//                        boolean o1Has = o1.getPath().endsWith(reqEndpointString);
-//                        boolean rHaso1 = reqEndpointString.endsWith(o1.getPath());
-//
-//                        boolean o2Has = o2.getPath().endsWith(reqEndpointString);
-//                        boolean rHaso2 = reqEndpointString.endsWith(o2.getPath());
-//
-//                        if( (o1Has && !o2Has) || (rHaso1 && !rHaso2)) return -1;
-//                        else if( (o2Has && !o1Has) || (rHaso2 && !rHaso1)) return 1;
-//                        else if( (o1Has && o2Has) || (rHaso2 && rHaso1)) return 0;
-//                        else
-//                            return o1.getPath().length() - o2.getPath().length();
-//                        int dist = findDistance(o1.getPath(), o2.getPath());
-//                        System.out.println("dist: " + dist);
-//                        return dist;
-//                    }
-//                });
-
-//                System.out.println("rest call = " + reqEndpointString);
-//                for (Endpoint test : endpoints){
-//                    System.out.println(test.getPath() +", " + test.getParentMethod());
-//                }
-//                exactMatch = endpointContains.get(0);
-//            }
-//            if (exactMatch != null){
-//                r.setEndpointFunction(exactMatch.getParentMethod());
-//                r.setTargetEndpoint(exactMatch.getPath());
-//                r.setEndpointMsName(exactMatch.getMsName());
-//
-//                reqMaptoServices.putIfAbsent(r.getMsName(), new ArrayList<Request>());
-//                reqMaptoServices.get(r.getMsName()).add(r);
-//
-//                // System.out.println("REQ = " + reqEndpointString + ", " + r.getParentMethod() + ", EXACT MATCH = " + exactMatch.getPath() + ", method = " + exactMatch.getParentMethod());
-//            }
-//        }
-//        for (Map.Entry<String,ArrayList<Request>> entry : reqMaptoServices.entrySet()) {
-//            //entry.getValue() the array it returns should have at least one item in it
-//            //cms
-//            msMaptoLinks.put(entry.getKey(), new Link( entry.getKey(), entry.getValue().get(0).getEndpointMsName(), entry.getValue()));
     }
 }
