@@ -1,4 +1,6 @@
 {
+    "systemName": "tms",
+
     "microservices": [
       {
         "baseDir": "/home/richardh/capstone/tms/cms/",

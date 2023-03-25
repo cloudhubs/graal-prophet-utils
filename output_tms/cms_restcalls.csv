@@ -1,0 +1,12 @@
+cms,edu.baylor.ecs.cms.service.QmsService,edu.baylor.ecs.cms.service.QmsService.getConfigurations,http://qms-backend.myicpc.live/configuration,GET,java.lang.Object;,true
+cms,edu.baylor.ecs.cms.service.UmsService,edu.baylor.ecs.cms.service.UmsService.isEmailValid,http://ums-backend.myicpc.live/userinfo/emailInUse/,GET,java.lang.String,false
+cms,edu.baylor.ecs.cms.service.QmsService,edu.baylor.ecs.cms.service.QmsService.createConfiguration,http://qms-backend.myicpc.live/configuration,POST,java.lang.Object,false
+cms,edu.baylor.ecs.cms.service.EmsService,edu.baylor.ecs.cms.service.EmsService.getINITExams,http://ems-backend.myicpc.live/exam,GET,edu.baylor.ecs.cms.model.Exam;,true
+cms,edu.baylor.ecs.cms.service.EmsService,edu.baylor.ecs.cms.service.EmsService.getExams,http://ems-backend.myicpc.live/exam,GET,edu.baylor.ecs.cms.model.Exam;,true
+cms,edu.baylor.ecs.cms.service.EmsService,edu.baylor.ecs.cms.service.EmsService.getQuestionsForExam,http://ems-backend.myicpc.live/exam//questions,GET,edu.baylor.ecs.cms.model.Question;,true
+cms,edu.baylor.ecs.cms.service.EmsService,edu.baylor.ecs.cms.service.EmsService.createExam,http://ems-backend.myicpc.live/exam,POST,edu.baylor.ecs.cms.dto.ExamDto,false
+cms,edu.baylor.ecs.cms.service.UmsService,edu.baylor.ecs.cms.service.UmsService.getExamineeId,http://ums-backend.myicpc.live/userinfo/userIdByUsername/,GET,java.lang.String,false
+cms,edu.baylor.ecs.cms.service.UmsService,edu.baylor.ecs.cms.service.UmsService.getExamineeInfo,http://ums-backend.myicpc.live/userinfo/userById/,GET,edu.baylor.ecs.cms.model.User,false
+cms,edu.baylor.ecs.cms.service.QmsService,edu.baylor.ecs.cms.service.QmsService.getCategoryInfoDtos,http://qms-backend.myicpc.live/categoryinfo,GET,java.lang.Object;,true
+cms,edu.baylor.ecs.cms.service.UmsService,edu.baylor.ecs.cms.service.UmsService.getAllUsers,http://ums-backend.myicpc.live/userinfo/users,GET,java.lang.Object;,true
+cms,edu.baylor.ecs.cms.service.EmsService,edu.baylor.ecs.cms.service.EmsService.deleteINITExam,http://ems-backend.myicpc.live/exam/,DELETE,org.springframework.http.HttpEntity,false

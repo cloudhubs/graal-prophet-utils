@@ -1,0 +1,10 @@
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.submitExam,@PathVariable_Integer_id,exam/submit/{id},GET,edu.baylor.ems.model.Exam,false
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.listAllQuestionsForExam,@PathVariable_Integer_id,exam/{id}/questions,GET,java.util.List<edu.baylor.ems.model.Question>,true
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.deleteINITExam,@PathVariable_Integer_id,exam/{id},DELETE,java.lang.String,false
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.listAllExams,,exam,GET,java.util.List<edu.baylor.ems.model.Exam>,true
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.getByUserName,@PathVariable_String_username&@RequestHeader_String_authorization,examgetByUsername/{username},GET,java.util.List<edu.baylor.ems.model.Exam>,true
+ems,edu.baylor.ems.controller.ChoiceController,edu.baylor.ems.controller.ChoiceController.updateChoices,@RequestBody_SelectedChoiceEmsDto_selectedChoiceEmsDto,choice,POST,java.util.List<edu.baylor.ems.model.Choice>,true
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.getExam,@PathVariable_Integer_id,exam/get/{id},GET,edu.baylor.ems.model.Exam,false
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.takeExam,@PathVariable_Integer_id,exam/take/{id},GET,java.util.List<edu.baylor.ems.dto.QuestionEmsDto>,true
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.createExam,@RequestBody_ExamDto_examDto,exam,POST,edu.baylor.ems.model.Exam,false
+ems,edu.baylor.ems.controller.ExamController,edu.baylor.ems.controller.ExamController.finishExam,@PathVariable_Integer_id,exam/finish/{id},GET,java.lang.String,false

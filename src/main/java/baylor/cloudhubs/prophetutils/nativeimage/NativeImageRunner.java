@@ -18,17 +18,14 @@ public class NativeImageRunner {
     private final MicroserviceInfo info;
     private final String niCommand;
 
-    public NativeImageRunner(MicroserviceInfo info, String graalProphetHome) {
+    public NativeImageRunner(MicroserviceInfo info, String graalProphetHome, String outputDir) {
         this.niCommand = graalProphetHome + "/bin/native-image";
         this.info = info;
-        //NEW
         String microservicePath = info.getBaseDir();
-        //PREVIOUS
-        // String microservicePath = info.getBaseDir() + File.separator + info.getMicroserviceName();
         this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-        this.entityOutput = "./output/" + info.getMicroserviceName() + ".json";
-        this.restcallOutput = "./output/" + info.getMicroserviceName() + "_restcalls.csv";
-        this.endpointOutput = "./output/" + info.getMicroserviceName() + "_endpoints.csv";
+        this.entityOutput = "./" + outputDir + "/" + info.getMicroserviceName() + ".json";
+        this.restcallOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_restcalls.csv";
+        this.endpointOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_endpoints.csv";
 
     }
 
