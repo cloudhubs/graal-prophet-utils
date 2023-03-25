@@ -23,7 +23,7 @@ public class LinkAlg {
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
         // read from output dir and create list of all files *endpoints.csv and *restcalls.csv
-        // File outputDir = new File("../../../../../../../output");
+        
         File outputDir = new File(dir);
         File[] files = outputDir.listFiles();
         ArrayList<Endpoint> endpoints = new ArrayList<>();

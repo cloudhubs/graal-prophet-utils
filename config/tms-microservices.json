@@ -1,4 +1,6 @@
 {
+    "systemName": "tms",
+
     "microservices": [
       {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/tms/cms/",
