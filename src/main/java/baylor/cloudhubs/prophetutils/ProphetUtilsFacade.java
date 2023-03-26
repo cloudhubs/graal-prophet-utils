@@ -42,7 +42,11 @@ public class ProphetUtilsFacade {
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
                 LinkAlg linkAlgorithm = new LinkAlg();
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
-			}catch(IOException | InterruptedException e){
+			}
+            // catch(IOException e){
+            //     e.printStackTrace();
+            // }
+            catch(IOException | InterruptedException e){
                 e.printStackTrace();
             }
         }else{
@@ -56,7 +60,7 @@ public class ProphetUtilsFacade {
         // Create a File object for the root directory
         File rootDir = new File("./");
         // Check if the 'output' directory exists in the root directory
-        File outputDir = new File(rootDir, outputFolderName);
+        File outputDir = new File(rootDir, "./" + outputFolderName);
         if (!outputDir.exists()) {
             // Create the 'output' directory if it does not exist
             if (!(outputDir.mkdir())){

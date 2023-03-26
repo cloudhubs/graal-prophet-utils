@@ -66,6 +66,7 @@ public class NativeImageRunner {
         cmd.add(niCommand);
         cmd.add("-H:+ProphetPlugin");
         cmd.add("-H:-InlineBeforeAnalysis");
+        cmd.add("-H:+BuildOutputSilent");
         cmd.add("-H:ProphetMicroserviceName=" + this.info.getMicroserviceName());
         cmd.add("-H:ProphetBasePackage=" + this.info.getBasePackage());
         cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);   
