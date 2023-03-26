@@ -26,10 +26,9 @@ public class NativeImageRunner {
         //PREVIOUS
         // String microservicePath = info.getBaseDir() + File.separator + info.getMicroserviceName();
         this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-        this.entityOutput = "./output/" + info.getMicroserviceName() + ".json";
-        this.restcallOutput = "./output/" + info.getMicroserviceName() + "_restcalls.csv";
-        this.endpointOutput = "./output/" + info.getMicroserviceName() + "_endpoints.csv";
-
+        this.entityOutput = "/home/jack/Capstone/graal-prophet-utils/src/main/java/output/" + info.getMicroserviceName() + ".json";
+        this.restcallOutput = "/home/jack/Capstone/graal-prophet-utils/src/main/java/output/" + info.getMicroserviceName() + "_restcalls.csv";
+        this.endpointOutput = "/home/jack/Capstone/graal-prophet-utils/src/main/java/output/" + info.getMicroserviceName() + "_endpoints.csv";
     }
 
     public Module runProphetPlugin() {
