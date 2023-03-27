@@ -39,7 +39,7 @@ public class ProphetUtilsFacade {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
-                LinkAlg linkAlgorithm = new LinkAlg();
+                LinkAlg linkAlgorithm = new LinkAlg(70);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
 			}
             catch(IOException | InterruptedException e){

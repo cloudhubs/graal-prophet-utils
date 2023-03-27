@@ -11,15 +11,27 @@ import java.util.stream.Collectors;
 
 public class LinkAlg {
 
-    private ArrayList<Link> msLinks = new ArrayList<>();
-    private Set<Node> nodes = new HashSet<>();
+    private ArrayList<Link> msLinks;
+    private Set<Node> nodes;
+
+    private double dissimilarityPercent;
 
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    private final double DISSIMILARITY_PERCENT = 0.3;
+    public LinkAlg() {
+        this.dissimilarityPercent = 0.3;
+        this.msLinks = new ArrayList<>();
+        this.nodes = new HashSet<>();
+    }
 
 
+    // takes similarity percentage as a whole number or integer
+    public LinkAlg(int similarityPercentage) {
+        this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
+        this.msLinks = new ArrayList<>();
+        this.nodes = new HashSet<>();
+    }
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
         // read from output dir and create list of all files *endpoints.csv and *restcalls.csv
@@ -168,7 +180,7 @@ public class LinkAlg {
                 }
             }
 
-            double percent = lengthOfLongerStr * DISSIMILARITY_PERCENT;
+            double percent = lengthOfLongerStr * dissimilarityPercent;
 
             // add request to endpoint map
             if (closestMatch != null && percent > minDist) {
