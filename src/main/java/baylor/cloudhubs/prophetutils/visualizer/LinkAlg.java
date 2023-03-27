@@ -17,7 +17,7 @@ public class LinkAlg {
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    private final double DISSIMILARITY_PERCENT = 0.4;
+    private final double DISSIMILARITY_PERCENT = 0.3;
 
 
 
