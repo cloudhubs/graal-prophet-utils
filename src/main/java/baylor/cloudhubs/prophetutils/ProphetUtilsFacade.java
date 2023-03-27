@@ -10,7 +10,6 @@ import baylor.cloudhubs.prophetutils.nativeimage.NativeImageRunner;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.*;
 
 public class ProphetUtilsFacade {
@@ -43,9 +42,6 @@ public class ProphetUtilsFacade {
                 LinkAlg linkAlgorithm = new LinkAlg();
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
 			}
-            // catch(IOException e){
-            //     e.printStackTrace();
-            // }
             catch(IOException | InterruptedException e){
                 e.printStackTrace();
             }
