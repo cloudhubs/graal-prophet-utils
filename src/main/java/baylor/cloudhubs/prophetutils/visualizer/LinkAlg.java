@@ -17,7 +17,7 @@ public class LinkAlg {
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    private final int DIFF_THRESHOLD = 15;
+    private final double DISSIMILARITY_PERCENT = 0.4;
 
 
 
@@ -153,21 +153,25 @@ public class LinkAlg {
                 uri = r.getUri();
             }
 
-            int min = Integer.MAX_VALUE;
-            int dist = -1;
+            int minDist = Integer.MAX_VALUE;
+            int currDist = -1;
             Endpoint closestMatch = null;
+            int lengthOfLongerStr = 0;
 
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
-                dist = findDistance(e.getPath(), uri);
-                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && min > dist) {
-                    min = dist;
+                currDist = findDistance(e.getPath(), uri);
+                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
+                    minDist = currDist;
                     closestMatch = e;
+                    lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
                 }
             }
 
+            double percent = lengthOfLongerStr * DISSIMILARITY_PERCENT;
+
             // add request to endpoint map
-            if (closestMatch != null && min <= DIFF_THRESHOLD) {
+            if (closestMatch != null && percent > minDist) {
                 requestEndpointMap.put(r, closestMatch);
             }
 
@@ -208,20 +212,20 @@ public class LinkAlg {
 
     // levenstein algorithm for two strings
     private int findDistance(String a, String b) {
-        int d[][] = new int[a.length() + 1][b.length() + 1];
+        short d[][] = new short[a.length() + 1][b.length() + 1];
 
         // Initialising first column:
-        for(int i = 0; i <= a.length(); i++)
+        for(short i = 0; i <= a.length(); i++)
             d[i][0] = i;
 
         // Initialising first row:
-        for(int j = 0; j <= b.length(); j++)
+        for(short j = 0; j <= b.length(); j++)
             d[0][j] = j;
 
         // Applying the algorithm:
-        int insertion, deletion, replacement;
-        for(int i = 1; i <= a.length(); i++) {
-            for(int j = 1; j <= b.length(); j++) {
+        short insertion, deletion, replacement;
+        for(short i = 1; i <= a.length(); i++) {
+            for(short j = 1; j <= b.length(); j++) {
                 if(a.charAt(i - 1) == (b.charAt(j - 1)))
                     d[i][j] = d[i - 1][j - 1];
                 else {
@@ -230,7 +234,7 @@ public class LinkAlg {
                     replacement = d[i - 1][j - 1];
 
                     // Using the sub-problems
-                    d[i][j] = 1 + findMin(insertion, deletion, replacement);
+                    d[i][j] = (short) (1 + findMin(insertion, deletion, replacement));
                 }
             }
         }
@@ -239,7 +243,7 @@ public class LinkAlg {
     }
 
     // Helper function used by findDistance()
-    private int findMin(int x, int y, int z) {
+    private short findMin(short x, short y, short z) {
         if(x <= y && x <= z)
             return x;
         if(y <= x && y <= z)
