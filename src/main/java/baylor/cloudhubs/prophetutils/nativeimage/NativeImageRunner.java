@@ -100,10 +100,10 @@ public class NativeImageRunner {
         cmd.add("-H:ProphetBasePackage=" + this.info.getBasePackage());
         cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);   
         cmd.add("-H:ProphetRestCallOutputFile=" + this.restcallOutput);        
-        cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);  
-        cmd.add("-R:MinHeapSize=4m"); 
-        cmd.add("-R:MaxHeapSize=15m");
-        cmd.add("-R:MaxNewSize=2m");   
+        cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);
+        // cmd.add("-R:MinHeapSize=4m"); 
+        // cmd.add("-R:MaxHeapSize=15m");
+        // cmd.add("-R:MaxNewSize=2m");   
         cmd.add("-cp");
         cmd.add(classpath);
         cmd.add(this.info.getMicroserviceName());
