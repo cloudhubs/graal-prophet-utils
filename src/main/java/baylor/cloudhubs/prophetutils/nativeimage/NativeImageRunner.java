@@ -55,6 +55,7 @@ public class NativeImageRunner {
             return null;
         } 
         catch (IOException e) {
+            System.out.println("ERROR: IOException RUNNING ON " + this.msInfo.getMicroserviceName());
             throw new RuntimeException(e);
         }
     }

@@ -27,12 +27,14 @@ public class ProphetUtilsFacade {
                 }
 
                 NativeImageRunner runner = new NativeImageRunner(info, graalProphetHome, outputDir);
+                System.out.println("RUNNING: " + info.getMicroserviceName());
                 Module module = runner.runProphetPlugin();
                 
                 //microservice analysis did NOT failed
                 if (module != null){
                     modules.add(module);
                     MS_TO_ANALYZE.remove(info.getMicroserviceName()); //SUCCESSFUL analysis, remove from list
+                    System.out.println("SUCCESS: removing " + info.getMicroserviceName() + " from list\n");
                 }
 
             }
