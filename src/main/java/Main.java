@@ -20,13 +20,18 @@ public class Main {
 
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
                 "GRAAL_PROPHET_HOME not set");
-        if (args.length != 1) {
-            throw new IllegalArgumentException("Expecting one argument - the microservices JSON");
+        if (args.length == 0 || args.length > 2) {
+            throw new IllegalArgumentException("Expecting one argument or two args <microservice_JSON> <percentMatch>");
+        }
+
+        int percentMatch = 70;
+        if (args.length == 2) {
+            percentMatch = Integer.parseInt(args[1]);
         }
 
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
-        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome);
+        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
     }
 }

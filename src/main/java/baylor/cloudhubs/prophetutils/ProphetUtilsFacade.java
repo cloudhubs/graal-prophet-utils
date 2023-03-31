@@ -24,7 +24,7 @@ public class ProphetUtilsFacade {
         return new SystemContext(!microservices.isEmpty() ? microservices.get(0).getMicroserviceName() : "unknown", modules);
     }
 
-    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome){
+    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome, int percentMatch){
         String outputFolderName = null;
         List<MicroserviceInfo> microservices = analysisRequest.getMicroservices();
         String systemName = analysisRequest.getSystemName();
@@ -39,7 +39,7 @@ public class ProphetUtilsFacade {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
-                LinkAlg linkAlgorithm = new LinkAlg(70);
+                LinkAlg linkAlgorithm = new LinkAlg(percentMatch);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
 			}
             catch(IOException | InterruptedException e){
