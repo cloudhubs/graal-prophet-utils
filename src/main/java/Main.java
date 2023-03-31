@@ -21,7 +21,7 @@ public class Main {
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
                 "GRAAL_PROPHET_HOME not set");
         if (args.length == 0 || args.length > 2) {
-            throw new IllegalArgumentException("Expecting one argument or two args <microservice_JSON> <percentMatch>");
+            throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <percentMatch>");
         }
 
         int percentMatch = 70;
