@@ -1,20 +1,19 @@
 import java.text.ParseException;
 
-import baylor.cloudhubs.prophetutils.visualizer.Link;
 import com.google.gson.Gson;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+
 import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Main {
-
-    public static String outputDir = null;
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
@@ -34,4 +33,6 @@ public class Main {
 
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
     }
+
+
 }
