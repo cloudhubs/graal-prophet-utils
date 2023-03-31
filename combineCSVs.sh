@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input_directory="./output"
-restcalls_output="./output/restcalls_total.csv"
-endpoints_output="./output/endpoints_total.csv"
+input_directory="./output_tms"
+restcalls_output="./output_tms/restcalls_total.csv"
+endpoints_output="./output_tms/endpoints_total.csv"
 
 # Initialize output files with header row
 #echo "header1,header2,header3" > "$restcalls_output"

@@ -45,6 +45,7 @@ public class NativeImageRunner {
 
     private void executeNativeImage() {
         List<String> cmd = prepareCommand();
+        
         // System.out.println(String.join(" ", cmd));
         try {
             Process process = new ProcessBuilder()
@@ -58,6 +59,34 @@ public class NativeImageRunner {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+        // String[] cmd = {
+        //     niCommand,
+        //     "-H:+ProphetPlugin",
+        //     "-H:-InlineBeforeAnalysis",
+        //     "-H:+BuildOutputSilent",
+        //     "-H:ProphetMicroserviceName=" + this.info.getMicroserviceName(),
+        //     "-H:ProphetBasePackage=" + this.info.getBasePackage(),
+        //     "-H:ProphetEntityOutputFile=" + this.entityOutput,   
+        //     "-H:ProphetRestCallOutputFile=" + this.restcallOutput,        
+        //     "-H:ProphetEndpointOutputFile=" + this.endpointOutput,        
+        //     "-cp",
+        //     classpath,
+        //     this.info.getMicroserviceName()
+        // };
+        // String commandStr = niCommand +  " --gc=G1 -H:+ProphetPlugin -H:-InlineBeforeAnalysis -H:+BuildOutputSilent -H:ProphetMicroserviceName=" + this.info.getMicroserviceName() + 
+        //     " -H:ProphetBasePackage=" + this.info.getBasePackage() + " -H:ProphetEntityOutputFile=" + this.entityOutput + " -H:ProphetRestCallOutputFile=" + this.restcallOutput + 
+        //     " -H:ProphetEndpointOutputFile=" + this.endpointOutput + " -cp " + classpath + " " + this.info.getMicroserviceName();
+        // System.out.println("command = " + commandStr);
+        // Runtime r = Runtime.getRuntime();
+        // try {
+        //     Process p = r.exec(commandStr);
+        //     int exitVal = p.waitFor();
+        //     if (exitVal != 0){
+        //         throw new IOException("Process did not complete successfully");
+        //     }
+        // } catch (IOException | InterruptedException e ) {
+        //     e.printStackTrace();
+        // }
     }
 
     @NotNull
@@ -66,11 +95,15 @@ public class NativeImageRunner {
         cmd.add(niCommand);
         cmd.add("-H:+ProphetPlugin");
         cmd.add("-H:-InlineBeforeAnalysis");
+//        cmd.add("-H:+BuildOutputSilent");
         cmd.add("-H:ProphetMicroserviceName=" + this.info.getMicroserviceName());
         cmd.add("-H:ProphetBasePackage=" + this.info.getBasePackage());
         cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);   
         cmd.add("-H:ProphetRestCallOutputFile=" + this.restcallOutput);        
-        cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);        
+        cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);  
+//        cmd.add("-R:MinHeapSize=4m");
+//        cmd.add("-R:MaxHeapSize=15m");
+//        cmd.add("-R:MaxNewSize=2m");
         cmd.add("-cp");
         cmd.add(classpath);
         cmd.add(this.info.getMicroserviceName());

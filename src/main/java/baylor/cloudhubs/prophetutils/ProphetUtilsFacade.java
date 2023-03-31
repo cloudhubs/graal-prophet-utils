@@ -10,11 +10,7 @@ import baylor.cloudhubs.prophetutils.nativeimage.NativeImageRunner;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.*;
-
-
-
 
 public class ProphetUtilsFacade {
 
@@ -28,22 +24,30 @@ public class ProphetUtilsFacade {
         return new SystemContext(!microservices.isEmpty() ? microservices.get(0).getMicroserviceName() : "unknown", modules);
     }
 
-    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome){
+    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome, int percentMatch){
         String outputFolderName = null;
         List<MicroserviceInfo> microservices = analysisRequest.getMicroservices();
+        String systemName = analysisRequest.getSystemName();
+        if (systemName == null){
+            System.err.println("WARNING: No system name provided in microservices JSON");
+            return;
+        }
         if (!microservices.isEmpty()){
+            
             outputFolderName = "output_" + analysisRequest.getSystemName();
             try {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
-                LinkAlg linkAlgorithm = new LinkAlg();
+                LinkAlg linkAlgorithm = new LinkAlg(percentMatch);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
-			}catch(IOException | InterruptedException e){
+			}
+            catch(IOException | InterruptedException e){
                 e.printStackTrace();
             }
         }else{
             System.err.println("WARNING: No microservices in system");
+            return;
         }
              
     }
@@ -52,7 +56,7 @@ public class ProphetUtilsFacade {
         // Create a File object for the root directory
         File rootDir = new File("./");
         // Check if the 'output' directory exists in the root directory
-        File outputDir = new File(rootDir, outputFolderName);
+        File outputDir = new File(rootDir, "./" + outputFolderName);
         if (!outputDir.exists()) {
             // Create the 'output' directory if it does not exist
             if (!(outputDir.mkdir())){
