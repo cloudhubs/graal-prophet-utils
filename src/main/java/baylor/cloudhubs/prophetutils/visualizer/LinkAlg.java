@@ -174,7 +174,7 @@ public class LinkAlg {
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
-            System.out.println("original: " + uri + " Added Braces: " + addCurlyBraceToURI(uri));
+//            System.out.println("original: " + uri + " Added Braces: " + addCurlyBraceToURI(uri));
 
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
