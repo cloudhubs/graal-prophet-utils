@@ -119,6 +119,10 @@ public class LinkAlg {
         return endpoints;
     }
 
+    private String addCurlyBraceToURI(String s) {
+        return s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+    }
+
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
         Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
 
@@ -170,9 +174,11 @@ public class LinkAlg {
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
+            System.out.println("original: " + uri + " Added Braces: " + addCurlyBraceToURI(uri));
+
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
-                currDist = findDistance(e.getPath(), uri);
+                currDist = findDistance(e.getPath(), addCurlyBraceToURI(uri));
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
