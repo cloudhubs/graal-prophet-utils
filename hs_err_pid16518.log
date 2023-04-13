@@ -1,0 +1,1874 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fae6acf17b0, pid=16518, tid=16544
+#
+# JRE version: OpenJDK Runtime Environment GraalVM 23.0.0-dev (20.0+26) (build 20+26-jvmci-23.0-b05)
+# Java VM: OpenJDK 64-Bit Server VM GraalVM 23.0.0-dev (20+26-jvmci-23.0-b05, mixed mode, tiered, jvmci, compressed oops, compressed class ptrs, parallel gc, linux-amd64)
+# Problematic frame:
+# V  [libjvm.so+0xdfd7b0]  Symbol::as_C_string() const+0x70
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/oracle/graal/issues
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -XX:+UseParallelGC -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -Dtruffle.TrustAllTruffleRuntimeProviders=true -Dtruffle.TruffleRuntime=com.oracle.truffle.api.impl.DefaultTruffleRuntime -Dgraalvm.ForcePolyglotInvalid=true -Dgraalvm.locatorDisabled=true -Dsubstratevm.IgnoreGraalVersionCheck=true --add-exports=java.base/com.sun.crypto.provider=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.access.foreign=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.event=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.loader=org.graalvm.nativeimage.builder,org.graalvm.truffle --add-exports=java.base/jdk.internal.logger=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.misc=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=java.base/jdk.internal.module=jdk.internal.vm.compiler,org.graalvm.nativeimage.base,org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.org.objectweb.asm=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.perf=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.platform=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.ref=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=java.base/jdk.internal.reflect=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.util=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.vm.annotation=org.graalvm.nativeimage.builder --add-exports=java.base/sun.invoke.util=org.graalvm.nativeimage.builder --add-exports=java.base/sun.net=org.graalvm.nativeimage.builder --add-exports=java.base/sun.nio.ch=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=java.base/sun.reflect.annotation=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.factory=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.reflectiveObjects=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.repository=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.scope=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.tree=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.jca=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.provider=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.ssl=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.util=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.x509=org.graalvm.nativeimage.builder --add-exports=java.base/sun.text.spi=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.calendar=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.cldr=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.locale.provider=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.locale=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.resources=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util=org.graalvm.nativeimage.builder --add-exports=java.desktop/sun.java2d.pipe=org.graalvm.nativeimage.builder --add-exports=java.desktop/sun.java2d=org.graalvm.nativeimage.builder --add-exports=java.management/com.sun.jmx.mbeanserver=org.graalvm.nativeimage.builder --add-exports=java.management/sun.management=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=java.xml.crypto/org.jcp.xml.dsig.internal.dom=org.graalvm.nativeimage.builder --add-exports=jdk.httpserver/sun.net.httpserver.simpleserver=org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.aarch64=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=jdk.internal.vm.ci/jdk.vm.ci.amd64=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.site=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.stack=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.common=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.aarch64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.amd64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.riscv64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.meta=jdk.internal.vm.compiler,org.graalvm.nativeimage.base,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.riscv64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.runtime=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.services=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.events=org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.internal.jfc=org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.internal=org.graalvm.nativeimage.builder --add-exports=jdk.management/com.sun.management.internal=org.graalvm.nativeimage.builder -XX:-UseJVMCICompiler -Xss10m -Xms1g -Xmx6540686128 -Djava.awt.headless=true -Dorg.graalvm.version=dev -Dorg.graalvm.vendor=Oracle Corporation -Dorg.graalvm.vendorurl=https://www.graalvm.org/ -Dorg.graalvm.config=CE -Dcom.oracle.graalvm.isaot=true -Djava.system.class.loader=com.oracle.svm.hosted.NativeImageSystemClassLoader -Xshare:off -Djdk.internal.lambda.disableEagerInitialization=true -Djdk.internal.lambda.eagerlyInitialize=false -Djava.lang.invoke.InnerClassLambdaMetafactory.initializeLambdas=false --add-modules=ALL-DEFAULT --module-path=/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/truffle/truffle-api.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/llvm-platform-specific-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/javacpp-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/objectfile.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/svm.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/svm-llvm.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/native-image-base.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/javacpp-platform-specific-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/llvm-wrapper-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/pointsto.jar -Djdk.module.main=org.graalvm.nativeimage.builder org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner --image-args-file=/tmp/native-image4562469794447761166.args
+
+Host: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz, 12 cores, 7G, Ubuntu 22.04.1 LTS
+Time: Fri Mar 31 17:48:06 2023 CDT elapsed time: 4.061671 seconds (0d 0h 0m 4s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fade4000ff0):  JavaThread "ForkJoinPool-1-worker-4" daemon [_thread_in_vm, id=16544, stack(0x00007fadeec00000,0x00007fadef600000)]
+
+Stack: [0x00007fadeec00000,0x00007fadef600000],  sp=0x00007fadef5fc480,  free space=10225k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xdfd7b0]  Symbol::as_C_string() const+0x70
+V  [libjvm.so+0xe0a80b]  handle_resolution_exception(Symbol*, bool, JavaThread*)+0xeb
+V  [libjvm.so+0xe1105e]  SystemDictionary::resolve_super_or_fail(Symbol*, Symbol*, Handle, Handle, bool, JavaThread*)+0x3ce
+V  [libjvm.so+0xe10321]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, JavaThread*)+0x2d1
+V  [libjvm.so+0xe10fe1]  SystemDictionary::resolve_super_or_fail(Symbol*, Symbol*, Handle, Handle, bool, JavaThread*)+0x351
+V  [libjvm.so+0xe10321]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, JavaThread*)+0x2d1
+V  [libjvm.so+0xe10fe1]  SystemDictionary::resolve_super_or_fail(Symbol*, Symbol*, Handle, Handle, bool, JavaThread*)+0x351
+V  [libjvm.so+0x5ae894]  ClassFileParser::post_process_parsed_stream(ClassFileStream const*, ConstantPool*, JavaThread*)+0x1b4
+V  [libjvm.so+0xad8028]  KlassFactory::create_from_stream(ClassFileStream*, Symbol*, ClassLoaderData*, ClassLoadInfo const&, JavaThread*)+0x238
+V  [libjvm.so+0xe0fe80]  SystemDictionary::resolve_class_from_stream(ClassFileStream*, Symbol*, Handle, ClassLoadInfo const&, JavaThread*)+0x170
+V  [libjvm.so+0x989dd8]  jvm_define_class_common(char const*, _jobject*, signed char const*, int, _jobject*, char const*, JavaThread*)+0x268
+V  [libjvm.so+0x98a0e7]  JVM_DefineClassWithSource+0x97
+C  [libjava.so+0xf1b2]  Java_java_lang_ClassLoader_defineClass1+0x182
+J 1626  java.lang.ClassLoader.defineClass1(Ljava/lang/ClassLoader;Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class; java.base@20 (0 bytes) @ 0x00007fae5272f458 [0x00007fae5272f320+0x0000000000000138]
+J 3410 c1 java.lang.ClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class; java.base@20 (43 bytes) @ 0x00007fae4af6bcd4 [0x00007fae4af6b980+0x0000000000000354]
+J 3451 c1 java.security.SecureClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class; java.base@20 (16 bytes) @ 0x00007fae4af6d6fc [0x00007fae4af6d620+0x00000000000000dc]
+J 3603 c1 java.net.URLClassLoader.defineClass(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class; java.base@20 (224 bytes) @ 0x00007fae4b0a0b84 [0x00007fae4b09f960+0x0000000000001224]
+J 3386 c1 java.net.URLClassLoader$1.run()Ljava/lang/Class; java.base@20 (81 bytes) @ 0x00007fae4af73fb4 [0x00007fae4af733a0+0x0000000000000c14]
+J 3387 c1 java.net.URLClassLoader$1.run()Ljava/lang/Object; java.base@20 (5 bytes) @ 0x00007fae4af5c2b4 [0x00007fae4af5c220+0x0000000000000094]
+J 1348 c1 java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@20 (26 bytes) @ 0x00007fae4adb847c [0x00007fae4adb82a0+0x00000000000001dc]
+J 3385 c1 java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (47 bytes) @ 0x00007fae4ae7cb8c [0x00007fae4ae7ca00+0x000000000000018c]
+J 3335 c1 java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@20 (121 bytes) @ 0x00007fae4b072fac [0x00007fae4b072a20+0x000000000000058c]
+J 3562 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (7 bytes) @ 0x00007fae52832ccc [0x00007fae52832c80+0x000000000000004c]
+J 3608 c1 jdk.internal.loader.Loader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@20 (168 bytes) @ 0x00007fae4b0a33bc [0x00007fae4b0a2160+0x000000000000125c]
+J 3562 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (7 bytes) @ 0x00007fae52832ccc [0x00007fae52832c80+0x000000000000004c]
+v  ~StubRoutines::call_stub 0x00007fae52100cc6
+V  [libjvm.so+0x8a4f65]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x315
+V  [libjvm.so+0x8a6b02]  JavaCalls::call_virtual(JavaValue*, Handle, Klass*, Symbol*, Symbol*, Handle, JavaThread*)+0x1e2
+V  [libjvm.so+0xe11861]  SystemDictionary::load_instance_class_impl(Symbol*, Handle, JavaThread*)+0x181
+V  [libjvm.so+0xe0ff37]  SystemDictionary::load_instance_class(Symbol*, Handle, JavaThread*)+0x17
+V  [libjvm.so+0xe1073c]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, JavaThread*)+0x6ec
+V  [libjvm.so+0xe11cae]  SystemDictionary::resolve_or_fail(Symbol*, Handle, Handle, bool, JavaThread*)+0x5e
+V  [libjvm.so+0x98a2e5]  JVM_FindClassFromCaller+0x125
+C  [libjava.so+0xedc7]  Java_java_lang_Class_forName0+0xd7
+J 1708  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class; java.base@20 (0 bytes) @ 0x00007fae52735b25 [0x00007fae52735a20+0x0000000000000105]
+J 3529 c2 java.lang.Class.forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class; java.base@20 (24 bytes) @ 0x00007fae5281eda4 [0x00007fae5281ed80+0x0000000000000024]
+J 2348 c1 com.oracle.svm.hosted.NativeImageClassLoaderSupport$LoadClassHandler.handleClassFileName(Ljava/net/URI;Ljava/lang/Module;Ljava/lang/String;)V org.graalvm.nativeimage.builder (235 bytes) @ 0x00007fae4af500ec [0x00007fae4af4f0a0+0x000000000000104c]
+J 3488 c1 com.oracle.svm.hosted.NativeImageClassLoaderSupport$LoadClassHandler$1$$Lambda$223+0x00000007c02fdf00.run()V org.graalvm.nativeimage.builder (16 bytes) @ 0x00007fae4af2670c [0x00007fae4af26620+0x00000000000000ec]
+J 2324 c1 com.oracle.svm.hosted.ImageClassLoader$1$$Lambda$195+0x00000007c0235cc8.run()V org.graalvm.nativeimage.builder (12 bytes) @ 0x00007fae4af4cd94 [0x00007fae4af4cc40+0x0000000000000154]
+J 2255 c1 java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec()Z java.base@20 (11 bytes) @ 0x00007fae4af33d94 [0x00007fae4af33d20+0x0000000000000074]
+J 2254 c1 java.util.concurrent.ForkJoinTask.doExec()I java.base@20 (37 bytes) @ 0x00007fae4af337ac [0x00007fae4af33660+0x000000000000014c]
+j  java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinPool$WorkQueue;)V+19 java.base@20
+j  java.util.concurrent.ForkJoinPool.scan(Ljava/util/concurrent/ForkJoinPool$WorkQueue;II)I+211 java.base@20
+j  java.util.concurrent.ForkJoinPool.runWorker(Ljava/util/concurrent/ForkJoinPool$WorkQueue;)V+35 java.base@20
+j  java.util.concurrent.ForkJoinWorkerThread.run()V+31 java.base@20
+v  ~StubRoutines::call_stub 0x00007fae52100cc6
+V  [libjvm.so+0x8a4f65]  JavaCalls::call_helper(JavaValue*, methodHandle const&, JavaCallArguments*, JavaThread*)+0x315
+V  [libjvm.so+0x8a68d2]  JavaCalls::call_virtual(JavaValue*, Handle, Klass*, Symbol*, Symbol*, JavaThread*)+0x1d2
+V  [libjvm.so+0x97909e]  thread_entry(JavaThread*, JavaThread*)+0x8e
+V  [libjvm.so+0x8bc818]  JavaThread::thread_main_inner() [clone .part.0]+0xb8
+V  [libjvm.so+0xe510b6]  Thread::call_run()+0xa6
+V  [libjvm.so+0xc81668]  thread_native_entry(Thread*)+0xd8
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 1626  java.lang.ClassLoader.defineClass1(Ljava/lang/ClassLoader;Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class; java.base@20 (0 bytes) @ 0x00007fae5272f3dd [0x00007fae5272f320+0x00000000000000bd]
+J 3410 c1 java.lang.ClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class; java.base@20 (43 bytes) @ 0x00007fae4af6bcd4 [0x00007fae4af6b980+0x0000000000000354]
+J 3451 c1 java.security.SecureClassLoader.defineClass(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class; java.base@20 (16 bytes) @ 0x00007fae4af6d6fc [0x00007fae4af6d620+0x00000000000000dc]
+J 3603 c1 java.net.URLClassLoader.defineClass(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class; java.base@20 (224 bytes) @ 0x00007fae4b0a0b84 [0x00007fae4b09f960+0x0000000000001224]
+J 3386 c1 java.net.URLClassLoader$1.run()Ljava/lang/Class; java.base@20 (81 bytes) @ 0x00007fae4af73fb4 [0x00007fae4af733a0+0x0000000000000c14]
+J 3387 c1 java.net.URLClassLoader$1.run()Ljava/lang/Object; java.base@20 (5 bytes) @ 0x00007fae4af5c2b4 [0x00007fae4af5c220+0x0000000000000094]
+J 1348 c1 java.security.AccessController.doPrivileged(Ljava/security/PrivilegedExceptionAction;Ljava/security/AccessControlContext;)Ljava/lang/Object; java.base@20 (26 bytes) @ 0x00007fae4adb847c [0x00007fae4adb82a0+0x00000000000001dc]
+J 3385 c1 java.net.URLClassLoader.findClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (47 bytes) @ 0x00007fae4ae7cb8c [0x00007fae4ae7ca00+0x000000000000018c]
+J 3335 c1 java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@20 (121 bytes) @ 0x00007fae4b072fac [0x00007fae4b072a20+0x000000000000058c]
+J 3562 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (7 bytes) @ 0x00007fae52832ccc [0x00007fae52832c80+0x000000000000004c]
+J 3608 c1 jdk.internal.loader.Loader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class; java.base@20 (168 bytes) @ 0x00007fae4b0a33bc [0x00007fae4b0a2160+0x000000000000125c]
+J 3562 c2 java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class; java.base@20 (7 bytes) @ 0x00007fae52832ccc [0x00007fae52832c80+0x000000000000004c]
+v  ~StubRoutines::call_stub 0x00007fae52100cc6
+J 1708  java.lang.Class.forName0(Ljava/lang/String;ZLjava/lang/ClassLoader;Ljava/lang/Class;)Ljava/lang/Class; java.base@20 (0 bytes) @ 0x00007fae52735aaa [0x00007fae52735a20+0x000000000000008a]
+J 3529 c2 java.lang.Class.forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class; java.base@20 (24 bytes) @ 0x00007fae5281eda4 [0x00007fae5281ed80+0x0000000000000024]
+J 2348 c1 com.oracle.svm.hosted.NativeImageClassLoaderSupport$LoadClassHandler.handleClassFileName(Ljava/net/URI;Ljava/lang/Module;Ljava/lang/String;)V org.graalvm.nativeimage.builder (235 bytes) @ 0x00007fae4af500ec [0x00007fae4af4f0a0+0x000000000000104c]
+J 3488 c1 com.oracle.svm.hosted.NativeImageClassLoaderSupport$LoadClassHandler$1$$Lambda$223+0x00000007c02fdf00.run()V org.graalvm.nativeimage.builder (16 bytes) @ 0x00007fae4af2670c [0x00007fae4af26620+0x00000000000000ec]
+J 2324 c1 com.oracle.svm.hosted.ImageClassLoader$1$$Lambda$195+0x00000007c0235cc8.run()V org.graalvm.nativeimage.builder (12 bytes) @ 0x00007fae4af4cd94 [0x00007fae4af4cc40+0x0000000000000154]
+J 2255 c1 java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec()Z java.base@20 (11 bytes) @ 0x00007fae4af33d94 [0x00007fae4af33d20+0x0000000000000074]
+J 2254 c1 java.util.concurrent.ForkJoinTask.doExec()I java.base@20 (37 bytes) @ 0x00007fae4af337ac [0x00007fae4af33660+0x000000000000014c]
+j  java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinPool$WorkQueue;)V+19 java.base@20
+j  java.util.concurrent.ForkJoinPool.scan(Ljava/util/concurrent/ForkJoinPool$WorkQueue;II)I+211 java.base@20
+j  java.util.concurrent.ForkJoinPool.runWorker(Ljava/util/concurrent/ForkJoinPool$WorkQueue;)V+35 java.base@20
+j  java.util.concurrent.ForkJoinWorkerThread.run()V+31 java.base@20
+v  ~StubRoutines::call_stub 0x00007fae52100cc6
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x00007faddc3f0000
+
+Registers:
+RAX=0x0000000000007ba0, RBX=0x00007faddc3e8450, RCX=0x0000000000007fa0, RDX=0x0000000000007faa
+RSP=0x00007fadef5fc480, RBP=0x00007fadef5fc490, RSI=0x0000000000007faa, RDI=0x00007faddc3e8457
+R8 =0x00007fae000d1490, R9 =0x0000000000000000, R10=0x00007ffcdddcb090, R11=0xfc83fc50848da8b0
+R12=0x0000000000007faa, R13=0x00007fae040017f0, R14=0x00007fade40015e0, R15=0x00000000000003d8
+RIP=0x00007fae6acf17b0, EFLAGS=0x0000000000010287, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+
+Register to memory mapping:
+
+RAX=0x0000000000007ba0 is an unknown value
+RBX=0x00007faddc3e8450 points into unknown readable memory: 0x00007faa26e01448 | 48 14 e0 26 aa 7f 00 00
+RCX=0x0000000000007fa0 is an unknown value
+RDX=0x0000000000007faa is an unknown value
+RSP=0x00007fadef5fc480 is pointing into the stack for thread: 0x00007fade4000ff0
+RBP=0x00007fadef5fc490 is pointing into the stack for thread: 0x00007fade4000ff0
+RSI=0x0000000000007faa is an unknown value
+RDI=0x00007faddc3e8457 points into unknown readable memory: 00
+R8 =0x00007fae000d1490 points into unknown readable memory: 0xfc50848da8b00000 | 00 00 b0 a8 8d 84 50 fc
+R9 =0x0 is NULL
+R10=0x00007ffcdddcb090 points into unknown readable memory: 0xffffffffffffffff | ff ff ff ff ff ff ff ff
+R11=0xfc83fc50848da8b0 is an unknown value
+R12=0x0000000000007faa is an unknown value
+R13=0x00007fae040017f0 points into unknown readable memory: 0x00007fae000d1480 | 80 14 0d 00 ae 7f 00 00
+R14=0x00007fade40015e0 points into unknown readable memory: 0x0000000000000002 | 02 00 00 00 00 00 00 00
+R15=0x00000000000003d8 is an unknown value
+
+
+Top of Stack: (sp=0x00007fadef5fc480)
+0x00007fadef5fc480:   00007fae04001828 00007fade4000ff0
+0x00007fadef5fc490:   00007fadef5fc500 00007fae6acfe80b
+0x00007fadef5fc4a0:   00007fae04001bd8 00007faddc3e8450
+0x00007fadef5fc4b0:   00007fade40016b8 00007fae64034090
+0x00007fadef5fc4c0:   00007fae040017f0 00007fae04001828
+0x00007fadef5fc4d0:   00007faddc3e8050 00007fade00dc710
+0x00007fadef5fc4e0:   00007fade4000ff0 00007faddc3e8050
+0x00007fadef5fc4f0:   00007fae64034090 00007faddc3e8450
+0x00007fadef5fc500:   00007fadef5fc620 00007fae6ad0505e
+0x00007fadef5fc510:   00007fadef5fb810 00007fade40016b0
+0x00007fadef5fc520:   00007fade00db880 0000000000000000
+0x00007fadef5fc530:   00007fade4001698 0000000000000000
+0x00007fadef5fc540:   00007faddc3e8188 0000000000000000
+0x00007fadef5fc550:   00007fae4ae7ca00 00007fae4ae7d0d0
+0x00007fadef5fc560:   0000000000000000 00007fadef5fc5a0
+0x00007fadef5fc570:   0000000000000018 00007fae6ab6a8b8
+0x00007fadef5fc580:   00007fadef5fdad0 0000000000000009
+0x00007fadef5fc590:   0000000000000018 00007fadd4417eb8
+0x00007fadef5fc5a0:   00007fadef5fc600 00007fae6a2da360
+0x00007fadef5fc5b0:   00007fade4000ff0 00007fade4000ff0
+0x00007fadef5fc5c0:   00007fadef5fd9f0 00007fae6a4df7a4
+0x00007fadef5fc5d0:   000000063a3fefe8 00007fae64034090
+0x00007fadef5fc5e0:   00007fadef5fc620 06424f8d5353f800
+0x00007fadef5fc5f0:   00007faddc3e8050 0000000000000000
+0x00007fadef5fc600:   00007fade4000ff0 00007faddc3e8050
+0x00007fadef5fc610:   00007fadef5fc6e0 00007fade00db880
+0x00007fadef5fc620:   00007fadef5fc750 00007fae6ad04321
+0x00007fadef5fc630:   00007fadef5fc750 00007fae6abc072c
+0x00007fadef5fc640:   000000000000000b 0000000000000000
+0x00007fadef5fc650:   0000000000000000 00007fadef5fc690
+0x00007fadef5fc660:   00007fade40016b0 000000000000004e
+0x00007fadef5fc670:   00007fade00dc710 00007fade4001698 
+
+Instructions: (pc=0x00007fae6acf17b0)
+0x00007fae6acf16b0:   70 03 39 f2 7e 44 48 63 f6 0f b6 7c 31 06 41 88
+0x00007fae6acf16c0:   3c 30 8d 70 04 39 f2 7e 31 48 63 f6 0f b6 7c 31
+0x00007fae6acf16d0:   06 41 88 3c 30 8d 70 05 39 f2 7e 1e 48 63 f6 83
+0x00007fae6acf16e0:   c0 06 0f b6 7c 31 06 41 88 3c 30 39 c2 7e 0b 48
+0x00007fae6acf16f0:   98 0f b6 4c 01 06 41 88 0c 00 48 63 d2 41 c6 04
+0x00007fae6acf1700:   10 00 4c 89 c0 c3 66 2e 0f 1f 84 00 00 00 00 00
+0x00007fae6acf1710:   89 d7 31 c0 0f 1f 40 00 0f b6 74 01 06 41 88 34
+0x00007fae6acf1720:   00 48 83 c0 01 48 39 f8 75 ee 48 63 d2 41 c6 04
+0x00007fae6acf1730:   10 00 eb ce 31 f6 31 c0 e9 2c ff ff ff 90 66 90
+0x00007fae6acf1740:   55 31 f6 48 89 e5 41 54 53 44 0f b7 67 04 48 89
+0x00007fae6acf1750:   fb 41 8d 7c 24 01 48 63 ff e8 b2 1b f2 ff 0f b7
+0x00007fae6acf1760:   53 04 49 89 c0 44 39 e2 41 0f 4f d4 85 d2 0f 84
+0x00007fae6acf1770:   fc 00 00 00 48 8d 7b 07 4c 89 c1 8d 42 ff 89 d6
+0x00007fae6acf1780:   48 29 f9 48 83 f9 0e 0f 86 f3 00 00 00 83 f8 06
+0x00007fae6acf1790:   0f 86 ea 00 00 00 83 f8 0e 0f 86 0b 01 00 00 89
+0x00007fae6acf17a0:   d1 31 c0 c1 e9 04 48 c1 e1 04 66 0f 1f 44 00 00
+0x00007fae6acf17b0:   f3 0f 6f 44 03 06 41 0f 11 04 00 48 83 c0 10 48
+0x00007fae6acf17c0:   39 c8 75 ec 89 d1 83 e1 f0 89 c8 39 ca 0f 84 9d
+0x00007fae6acf17d0:   00 00 00 89 d6 29 ce 8d 7e ff 83 ff 06 76 14 48
+0x00007fae6acf17e0:   8b 7c 0b 06 49 89 3c 08 89 f1 83 e1 f8 01 c8 39
+0x00007fae6acf17f0:   ce 74 7d 48 63 c8 0f b6 74 0b 06 41 88 34 08 8d
+0x00007fae6acf1800:   48 01 39 ca 7e 6a 48 63 c9 0f b6 74 0b 06 41 88
+0x00007fae6acf1810:   34 08 8d 48 02 39 ca 7e 57 48 63 c9 0f b6 74 0b
+0x00007fae6acf1820:   06 41 88 34 08 8d 48 03 39 ca 7e 44 48 63 c9 0f
+0x00007fae6acf1830:   b6 74 0b 06 41 88 34 08 8d 48 04 39 ca 7e 31 48
+0x00007fae6acf1840:   63 c9 0f b6 74 0b 06 41 88 34 08 8d 48 05 39 ca
+0x00007fae6acf1850:   7e 1e 48 63 c9 83 c0 06 0f b6 74 0b 06 41 88 34
+0x00007fae6acf1860:   08 39 c2 7e 0b 48 98 0f b6 4c 03 06 41 88 0c 00
+0x00007fae6acf1870:   48 63 d2 4c 89 c0 41 c6 04 10 00 5b 41 5c 5d c3
+0x00007fae6acf1880:   89 d6 31 c0 0f 1f 40 00 0f b6 4c 03 06 41 88 0c
+0x00007fae6acf1890:   00 48 83 c0 01 48 39 f0 75 ee 48 63 d2 4c 89 c0
+0x00007fae6acf18a0:   41 c6 04 10 00 5b 41 5c 5d c3 31 c9 31 c0 e9 2c 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00007fae04001828 points into unknown readable memory: 0x636170612f67726f | 6f 72 67 2f 61 70 61 63
+stack at sp + 1 slots: 0x00007fade4000ff0 is a thread
+stack at sp + 2 slots: 0x00007fadef5fc500 is pointing into the stack for thread: 0x00007fade4000ff0
+stack at sp + 3 slots: 0x00007fae6acfe80b: <offset 0x0000000000e0a80b> in /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/server/libjvm.so at 0x00007fae69ef4000
+stack at sp + 4 slots: 0x00007fae04001bd8 points into unknown readable memory: 0x00000000000003f5 | f5 03 00 00 00 00 00 00
+stack at sp + 5 slots: 0x00007faddc3e8450 points into unknown readable memory: 0x00007faa26e01448 | 48 14 e0 26 aa 7f 00 00
+stack at sp + 6 slots: 0x00007fade40016b8 points into unknown readable memory: 0x0000000745c91200 | 00 12 c9 45 07 00 00 00
+stack at sp + 7 slots: 0x00007fae64034090 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+
+
+Compiled method (n/a)    4083 1626     n 0       java.lang.ClassLoader::defineClass1 (native)
+ total in heap  [0x00007fae5272f190,0x00007fae5272f588] = 1016
+ relocation     [0x00007fae5272f2d8,0x00007fae5272f310] = 56
+ main code      [0x00007fae5272f320,0x00007fae5272f586] = 614
+ stub code      [0x00007fae5272f586,0x00007fae5272f588] = 2
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+[Entry Point]
+  # {method} {0x00007fae33c24f10} 'defineClass1' '(Ljava/lang/ClassLoader;Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;' in 'java/lang/ClassLoader'
+  # parm0:    rsi:rsi   = 'java/lang/ClassLoader'
+  # parm1:    rdx:rdx   = 'java/lang/String'
+  # parm2:    rcx:rcx   = '[B'
+  # parm3:    r8        = int
+  # parm4:    r9        = int
+  # parm5:    rdi:rdi   = 'java/security/ProtectionDomain'
+  # parm6:    [sp+0x70]   = 'java/lang/String'  (sp of caller)
+  0x00007fae5272f320:   mov    r10d,DWORD PTR [rsi+0x8]
+  0x00007fae5272f324:   shl    r10,0x3
+  0x00007fae5272f328:   cmp    rax,r10
+  0x00007fae5272f32b:   je     0x00007fae5272f338
+  0x00007fae5272f331:   jmp    0x00007fae52162f80           ;   {runtime_call ic_miss_stub}
+  0x00007fae5272f336:   xchg   ax,ax
+[Verified Entry Point]
+  0x00007fae5272f338:   mov    DWORD PTR [rsp-0x14000],eax
+  0x00007fae5272f33f:   push   rbp
+  0x00007fae5272f340:   mov    rbp,rsp
+  0x00007fae5272f343:   sub    rsp,0x60
+  0x00007fae5272f347:   nop
+  0x00007fae5272f348:   cmp    DWORD PTR [r15+0x20],0x7
+  0x00007fae5272f350:   je     0x00007fae5272f357
+  0x00007fae5272f352:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (2)}
+  0x00007fae5272f357:   cmp    QWORD PTR [rbp+0x10],0x0
+  0x00007fae5272f35c:   lea    rax,[rbp+0x10]
+  0x00007fae5272f360:   cmove  rax,QWORD PTR [rbp+0x10]
+  0x00007fae5272f365:   mov    QWORD PTR [rsp+0x10],rax
+  0x00007fae5272f36a:   mov    QWORD PTR [rsp+0x40],rdi
+  0x00007fae5272f36f:   cmp    rdi,0x0
+  0x00007fae5272f373:   lea    rax,[rsp+0x40]
+  0x00007fae5272f378:   cmove  rax,QWORD PTR [rsp+0x40]
+  0x00007fae5272f37e:   mov    QWORD PTR [rsp+0x8],rax
+  0x00007fae5272f383:   mov    QWORD PTR [rsp],r9
+  0x00007fae5272f387:   mov    r9,r8
+  0x00007fae5272f38a:   mov    QWORD PTR [rsp+0x28],rcx
+  0x00007fae5272f38f:   cmp    rcx,0x0
+  0x00007fae5272f393:   lea    r8,[rsp+0x28]
+  0x00007fae5272f398:   cmove  r8,QWORD PTR [rsp+0x28]
+  0x00007fae5272f39e:   mov    QWORD PTR [rsp+0x20],rdx
+  0x00007fae5272f3a3:   cmp    rdx,0x0
+  0x00007fae5272f3a7:   lea    rcx,[rsp+0x20]
+  0x00007fae5272f3ac:   cmove  rcx,QWORD PTR [rsp+0x20]
+  0x00007fae5272f3b2:   mov    QWORD PTR [rsp+0x18],rsi
+  0x00007fae5272f3b7:   cmp    rsi,0x0
+  0x00007fae5272f3bb:   lea    rdx,[rsp+0x18]
+  0x00007fae5272f3c0:   cmove  rdx,QWORD PTR [rsp+0x18]
+  0x00007fae5272f3c6:   movabs r14,0x63a215710              ;   {oop(a 'java/lang/Class'{0x000000063a215710} = 'java/lang/ClassLoader')}
+  0x00007fae5272f3d0:   mov    QWORD PTR [rsp+0x48],r14
+  0x00007fae5272f3d5:   lea    r14,[rsp+0x48]
+  0x00007fae5272f3da:   mov    rsi,r14
+  0x00007fae5272f3dd:   vzeroupper 
+  0x00007fae5272f3e0:   movabs r10,0x7fae5272f3dd           ;   {internal_word}
+  0x00007fae5272f3ea:   mov    QWORD PTR [r15+0x2c8],r10
+  0x00007fae5272f3f1:   mov    QWORD PTR [r15+0x2c0],rsp
+  0x00007fae5272f3f8:   cmp    BYTE PTR [rip+0x18af2d6e],0x0        # 0x00007fae6b22216d
+                                                            ;   {external_word}
+  0x00007fae5272f3ff:   je     0x00007fae5272f441
+  0x00007fae5272f405:   push   rsi
+  0x00007fae5272f406:   push   rdx
+  0x00007fae5272f407:   push   rcx
+  0x00007fae5272f408:   push   r8
+  0x00007fae5272f40a:   push   r9
+  0x00007fae5272f40c:   movabs rsi,0x7fae33c24f10           ;   {metadata({method} {0x00007fae33c24f10} 'defineClass1' '(Ljava/lang/ClassLoader;Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae5272f416:   mov    rdi,r15
+  0x00007fae5272f419:   test   spl,0xf
+  0x00007fae5272f41d:   je     0x00007fae5272f435
+  0x00007fae5272f423:   sub    rsp,0x8
+  0x00007fae5272f427:   call   0x00007fae6ac2b7f0           ;   {runtime_call SharedRuntime::dtrace_method_entry(JavaThread*, Method*)}
+  0x00007fae5272f42c:   add    rsp,0x8
+  0x00007fae5272f430:   jmp    0x00007fae5272f43a
+  0x00007fae5272f435:   call   0x00007fae6ac2b7f0           ;   {runtime_call SharedRuntime::dtrace_method_entry(JavaThread*, Method*)}
+  0x00007fae5272f43a:   pop    r9
+  0x00007fae5272f43c:   pop    r8
+  0x00007fae5272f43e:   pop    rcx
+  0x00007fae5272f43f:   pop    rdx
+  0x00007fae5272f440:   pop    rsi
+  0x00007fae5272f441:   lea    rdi,[r15+0x2e0]
+  0x00007fae5272f448:   mov    DWORD PTR [r15+0x374],0x4
+  0x00007fae5272f453:   call   0x00007fae693c7030           ;   {runtime_call Java_java_lang_ClassLoader_defineClass1}
+  0x00007fae5272f458:   vzeroupper 
+  0x00007fae5272f45b:   mov    DWORD PTR [r15+0x374],0x5
+  0x00007fae5272f466:   lock add DWORD PTR [rsp-0x40],0x0
+  0x00007fae5272f46c:   cmp    rbp,QWORD PTR [r15+0x378]
+  0x00007fae5272f473:   ja     0x00007fae5272f487
+  0x00007fae5272f479:   cmp    DWORD PTR [r15+0x370],0x0
+  0x00007fae5272f481:   je     0x00007fae5272f4ab
+  0x00007fae5272f487:   vzeroupper 
+  0x00007fae5272f48a:   mov    QWORD PTR [rbp-0x8],rax
+  0x00007fae5272f48e:   mov    rdi,r15
+  0x00007fae5272f491:   mov    r12,rsp
+  0x00007fae5272f494:   sub    rsp,0x0
+  0x00007fae5272f498:   and    rsp,0xfffffffffffffff0
+  0x00007fae5272f49c:   call   0x00007fae6a7b2bc0           ;   {runtime_call JavaThread::check_special_condition_for_native_trans(JavaThread*)}
+  0x00007fae5272f4a1:   mov    rsp,r12
+  0x00007fae5272f4a4:   xor    r12,r12
+  0x00007fae5272f4a7:   mov    rax,QWORD PTR [rbp-0x8]
+  0x00007fae5272f4ab:   mov    DWORD PTR [r15+0x374],0x8
+  0x00007fae5272f4b6:   cmp    DWORD PTR [r15+0x3f0],0x2
+  0x00007fae5272f4be:   je     0x00007fae5272f560
+  0x00007fae5272f4c4:   cmp    BYTE PTR [rip+0x18af2ca2],0x0        # 0x00007fae6b22216d
+                                                            ;   {external_word}
+  0x00007fae5272f4cb:   je     0x00007fae5272f507
+  0x00007fae5272f4d1:   mov    QWORD PTR [rbp-0x8],rax
+  0x00007fae5272f4d5:   movabs rsi,0x7fae33c24f10           ;   {metadata({method} {0x00007fae33c24f10} 'defineClass1' '(Ljava/lang/ClassLoader;Ljava/lang/String;[BIILjava/security/ProtectionDomain;Ljava/lang/String;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae5272f4df:   mov    rdi,r15
+  0x00007fae5272f4e2:   test   spl,0xf
+  0x00007fae5272f4e6:   je     0x00007fae5272f4fe
+  0x00007fae5272f4ec:   sub    rsp,0x8
+  0x00007fae5272f4f0:   call   0x00007fae6ac2b800           ;   {runtime_call SharedRuntime::dtrace_method_exit(JavaThread*, Method*)}
+  0x00007fae5272f4f5:   add    rsp,0x8
+  0x00007fae5272f4f9:   jmp    0x00007fae5272f503
+  0x00007fae5272f4fe:   call   0x00007fae6ac2b800           ;   {runtime_call SharedRuntime::dtrace_method_exit(JavaThread*, Method*)}
+  0x00007fae5272f503:   mov    rax,QWORD PTR [rbp-0x8]
+  0x00007fae5272f507:   mov    QWORD PTR [r15+0x2c0],0x0
+  0x00007fae5272f512:   mov    QWORD PTR [r15+0x2c8],0x0
+  0x00007fae5272f51d:   vzeroupper 
+  0x00007fae5272f520:   test   rax,rax
+  0x00007fae5272f523:   je     0x00007fae5272f53d
+  0x00007fae5272f529:   test   al,0x1
+  0x00007fae5272f52b:   je     0x00007fae5272f53a
+  0x00007fae5272f531:   mov    rax,QWORD PTR [rax-0x1]
+  0x00007fae5272f535:   jmp    0x00007fae5272f53d
+  0x00007fae5272f53a:   mov    rax,QWORD PTR [rax]
+  0x00007fae5272f53d:   mov    rcx,QWORD PTR [r15+0x350]
+  0x00007fae5272f544:   mov    DWORD PTR [rcx+0x100],0x0
+  0x00007fae5272f54e:   leave  
+  0x00007fae5272f54f:   cmp    QWORD PTR [r15+0x8],0x0
+  0x00007fae5272f554:   jne    0x00007fae5272f55b
+  0x00007fae5272f55a:   ret    
+  0x00007fae5272f55b:   jmp    Stub::forward exception      ;   {runtime_call StubRoutines (1)}
+  0x00007fae5272f560:   vzeroupper 
+  0x00007fae5272f563:   mov    QWORD PTR [rbp-0x8],rax
+  0x00007fae5272f567:   mov    r12,rsp
+  0x00007fae5272f56a:   sub    rsp,0x0
+  0x00007fae5272f56e:   and    rsp,0xfffffffffffffff0
+  0x00007fae5272f572:   call   0x00007fae6ac2c660           ;   {runtime_call SharedRuntime::reguard_yellow_pages()}
+  0x00007fae5272f577:   mov    rsp,r12
+  0x00007fae5272f57a:   xor    r12,r12
+  0x00007fae5272f57d:   mov    rax,QWORD PTR [rbp-0x8]
+  0x00007fae5272f581:   jmp    0x00007fae5272f4c4
+[Stub Code]
+  0x00007fae5272f586:   hlt    
+  0x00007fae5272f587:   hlt    
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+
+Compiled method (c1)    4093 3410       3       java.lang.ClassLoader::defineClass (43 bytes)
+ total in heap  [0x00007fae4af6b790,0x00007fae4af6c0a8] = 2328
+ relocation     [0x00007fae4af6b8d8,0x00007fae4af6b970] = 152
+ main code      [0x00007fae4af6b980,0x00007fae4af6be08] = 1160
+ stub code      [0x00007fae4af6be08,0x00007fae4af6be78] = 112
+ metadata       [0x00007fae4af6be78,0x00007fae4af6bea8] = 48
+ scopes data    [0x00007fae4af6bea8,0x00007fae4af6bf98] = 240
+ scopes pcs     [0x00007fae4af6bf98,0x00007fae4af6c078] = 224
+ dependencies   [0x00007fae4af6c078,0x00007fae4af6c080] = 8
+ nul chk table  [0x00007fae4af6c080,0x00007fae4af6c0a8] = 40
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+[Entry Point]
+  # {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader'
+  # this:     rsi:rsi   = 'java/lang/ClassLoader'
+  # parm0:    rdx:rdx   = 'java/lang/String'
+  # parm1:    rcx:rcx   = '[B'
+  # parm2:    r8        = int
+  # parm3:    r9        = int
+  # parm4:    rdi:rdi   = 'java/security/ProtectionDomain'
+  #           [sp+0xc0]  (sp of caller)
+  0x00007fae4af6b980:   mov    r10d,DWORD PTR [rsi+0x8]
+  0x00007fae4af6b984:   shl    r10,0x3
+  0x00007fae4af6b988:   cmp    r10,rax
+  0x00007fae4af6b98b:   jne    0x00007fae52162f80           ;   {runtime_call ic_miss_stub}
+  0x00007fae4af6b991:   data16 data16 nop WORD PTR [rax+rax*1+0x0]
+  0x00007fae4af6b99c:   data16 data16 xchg ax,ax
+[Verified Entry Point]
+  0x00007fae4af6b9a0:   mov    DWORD PTR [rsp-0x14000],eax
+  0x00007fae4af6b9a7:   push   rbp
+  0x00007fae4af6b9a8:   sub    rsp,0xb0
+  0x00007fae4af6b9af:   nop
+  0x00007fae4af6b9b0:   cmp    DWORD PTR [r15+0x20],0x7
+  0x00007fae4af6b9b8:   je     0x00007fae4af6b9bf
+  0x00007fae4af6b9ba:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (2)}
+  0x00007fae4af6b9bf:   mov    QWORD PTR [rsp+0x78],rsi
+  0x00007fae4af6b9c4:   movabs rbx,0x7fae344e77e8           ;   {metadata(method data for {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6b9ce:   mov    eax,DWORD PTR [rbx+0xf4]
+  0x00007fae4af6b9d4:   add    eax,0x2
+  0x00007fae4af6b9d7:   mov    DWORD PTR [rbx+0xf4],eax
+  0x00007fae4af6b9dd:   and    eax,0x7fe
+  0x00007fae4af6b9e2:   cmp    eax,0x0
+  0x00007fae4af6b9e5:   je     0x00007fae4af6bd2a
+  0x00007fae4af6b9eb:   mov    DWORD PTR [rsp+0x94],r9d
+  0x00007fae4af6b9f3:   mov    DWORD PTR [rsp+0x90],r8d
+  0x00007fae4af6b9fb:   mov    QWORD PTR [rsp+0x88],rcx
+  0x00007fae4af6ba03:   mov    rbx,rsi
+  0x00007fae4af6ba06:   movabs rax,0x7fae344e77e8           ;   {metadata(method data for {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6ba10:   add    QWORD PTR [rax+0x138],0x1
+  0x00007fae4af6ba18:   mov    rbx,rdx
+  0x00007fae4af6ba1b:   mov    rdx,rbx
+  0x00007fae4af6ba1e:   mov    rcx,rdi
+  0x00007fae4af6ba21:   mov    rdi,rsi
+  0x00007fae4af6ba24:   mov    rsi,rdi
+  0x00007fae4af6ba27:   mov    QWORD PTR [rsp+0x80],rbx
+  0x00007fae4af6ba2f:   call   0x00007fae4ad8a6e0           ; ImmutableOopMap {[120]=Oop [128]=Oop [136]=Oop }
+                                                            ;*invokevirtual preDefineClass {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClass@4 (line 1011)
+                                                            ;   {optimized virtual_call}
+  0x00007fae4af6ba34:   mov    QWORD PTR [rsp+0x98],rax
+  0x00007fae4af6ba3c:   mov    rsi,QWORD PTR [rsp+0x78]
+  0x00007fae4af6ba41:   movabs rdx,0x7fae344e77e8           ;   {metadata(method data for {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6ba4b:   add    QWORD PTR [rdx+0x170],0x1
+  0x00007fae4af6ba53:   movabs rdx,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6ba5d:   mov    esi,DWORD PTR [rdx+0xf4]
+  0x00007fae4af6ba63:   add    esi,0x2
+  0x00007fae4af6ba66:   mov    DWORD PTR [rdx+0xf4],esi
+  0x00007fae4af6ba6c:   and    esi,0x1ffffe
+  0x00007fae4af6ba72:   cmp    esi,0x0
+  0x00007fae4af6ba75:   je     0x00007fae4af6bd4b
+  0x00007fae4af6ba7b:   cmp    rax,QWORD PTR [rax]          ; implicit exception: dispatches to 0x00007fae4af6bd6c
+  0x00007fae4af6ba7e:   mov    rdx,rax
+  0x00007fae4af6ba81:   movabs rsi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6ba8b:   add    QWORD PTR [rsi+0x138],0x1
+  0x00007fae4af6ba93:   mov    edx,DWORD PTR [rax+0x10]
+  0x00007fae4af6ba96:   shl    rdx,0x3
+  0x00007fae4af6ba9a:   cmp    rdx,0x0
+  0x00007fae4af6ba9e:   movabs rsi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6baa8:   movabs rdi,0x180
+  0x00007fae4af6bab2:   jne    0x00007fae4af6bac2
+  0x00007fae4af6bab8:   movabs rdi,0x170
+  0x00007fae4af6bac2:   mov    rbx,QWORD PTR [rsi+rdi*1]
+  0x00007fae4af6bac6:   lea    rbx,[rbx+0x1]
+  0x00007fae4af6baca:   mov    QWORD PTR [rsi+rdi*1],rbx
+  0x00007fae4af6bace:   jne    0x00007fae4af6bae3
+  0x00007fae4af6bad4:   movabs rbx,0x0                      ;   {oop(NULL)}
+  0x00007fae4af6bade:   jmp    0x00007fae4af6bc7f
+  0x00007fae4af6bae3:   cmp    rax,QWORD PTR [rdx]          ; implicit exception: dispatches to 0x00007fae4af6bd71
+  0x00007fae4af6bae6:   mov    rsi,rdx
+  0x00007fae4af6bae9:   movabs rdi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6baf3:   add    QWORD PTR [rdi+0x190],0x1
+  0x00007fae4af6bafb:   mov    esi,DWORD PTR [rdx+0xc]
+  0x00007fae4af6bafe:   shl    rsi,0x3
+  0x00007fae4af6bb02:   cmp    rsi,0x0
+  0x00007fae4af6bb06:   movabs rdi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bb10:   movabs rbx,0x1d8
+  0x00007fae4af6bb1a:   jne    0x00007fae4af6bb2a
+  0x00007fae4af6bb20:   movabs rbx,0x1c8
+  0x00007fae4af6bb2a:   mov    rcx,QWORD PTR [rdi+rbx*1]
+  0x00007fae4af6bb2e:   lea    rcx,[rcx+0x1]
+  0x00007fae4af6bb32:   mov    QWORD PTR [rdi+rbx*1],rcx
+  0x00007fae4af6bb36:   jne    0x00007fae4af6bb4b
+  0x00007fae4af6bb3c:   movabs rbx,0x0                      ;   {oop(NULL)}
+  0x00007fae4af6bb46:   jmp    0x00007fae4af6bc7f
+  0x00007fae4af6bb4b:   movabs rdi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bb55:   add    QWORD PTR [rdi+0x1e8],0x1
+  0x00007fae4af6bb5d:   cmp    rax,QWORD PTR [rsi]          ; implicit exception: dispatches to 0x00007fae4af6bd76
+  0x00007fae4af6bb60:   mov    rdx,rsi
+  0x00007fae4af6bb63:   movabs rdi,0x7fae344e6498           ;   {metadata(method data for {method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bb6d:   add    QWORD PTR [rdi+0x220],0x1
+  0x00007fae4af6bb75:   movabs rdx,0x7fae343d6600           ;   {metadata(method data for {method} {0x00007fae33cf6348} 'toString' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bb7f:   mov    edi,DWORD PTR [rdx+0xf4]
+  0x00007fae4af6bb85:   add    edi,0x2
+  0x00007fae4af6bb88:   mov    DWORD PTR [rdx+0xf4],edi
+  0x00007fae4af6bb8e:   and    edi,0x1ffffe
+  0x00007fae4af6bb94:   cmp    edi,0x0
+  0x00007fae4af6bb97:   je     0x00007fae4af6bd7b
+  0x00007fae4af6bb9d:   mov    rdx,rsi
+  0x00007fae4af6bba0:   movabs rdi,0x7fae343d6600           ;   {metadata(method data for {method} {0x00007fae33cf6348} 'toString' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bbaa:   add    QWORD PTR [rdi+0x138],0x1
+  0x00007fae4af6bbb2:   movabs rdx,0x7fae343d67b0           ;   {metadata(method data for {method} {0x00007fae33cf63f8} 'toExternalForm' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bbbc:   mov    edi,DWORD PTR [rdx+0xf4]
+  0x00007fae4af6bbc2:   add    edi,0x2
+  0x00007fae4af6bbc5:   mov    DWORD PTR [rdx+0xf4],edi
+  0x00007fae4af6bbcb:   and    edi,0x1ffffe
+  0x00007fae4af6bbd1:   cmp    edi,0x0
+  0x00007fae4af6bbd4:   je     0x00007fae4af6bd9c
+  0x00007fae4af6bbda:   mov    edi,DWORD PTR [rsi+0x38]
+  0x00007fae4af6bbdd:   shl    rdi,0x3
+  0x00007fae4af6bbe1:   cmp    rax,QWORD PTR [rdi]          ; implicit exception: dispatches to 0x00007fae4af6bdbd
+  0x00007fae4af6bbe4:   mov    rdx,rdi
+  0x00007fae4af6bbe7:   movabs rbx,0x7fae343d67b0           ;   {metadata(method data for {method} {0x00007fae33cf63f8} 'toExternalForm' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bbf1:   mov    edx,DWORD PTR [rdx+0x8]
+  0x00007fae4af6bbf4:   shl    rdx,0x3
+  0x00007fae4af6bbf8:   cmp    rdx,QWORD PTR [rbx+0x148]
+  0x00007fae4af6bbff:   jne    0x00007fae4af6bc0e
+  0x00007fae4af6bc01:   add    QWORD PTR [rbx+0x150],0x1
+  0x00007fae4af6bc09:   jmp    0x00007fae4af6bc6e
+  0x00007fae4af6bc0e:   cmp    rdx,QWORD PTR [rbx+0x158]
+  0x00007fae4af6bc15:   jne    0x00007fae4af6bc24
+  0x00007fae4af6bc17:   add    QWORD PTR [rbx+0x160],0x1
+  0x00007fae4af6bc1f:   jmp    0x00007fae4af6bc6e
+  0x00007fae4af6bc24:   cmp    QWORD PTR [rbx+0x148],0x0
+  0x00007fae4af6bc2c:   jne    0x00007fae4af6bc45
+  0x00007fae4af6bc2e:   mov    QWORD PTR [rbx+0x148],rdx
+  0x00007fae4af6bc35:   mov    QWORD PTR [rbx+0x150],0x1
+  0x00007fae4af6bc40:   jmp    0x00007fae4af6bc6e
+  0x00007fae4af6bc45:   cmp    QWORD PTR [rbx+0x158],0x0
+  0x00007fae4af6bc4d:   jne    0x00007fae4af6bc66
+  0x00007fae4af6bc4f:   mov    QWORD PTR [rbx+0x158],rdx
+  0x00007fae4af6bc56:   mov    QWORD PTR [rbx+0x160],0x1
+  0x00007fae4af6bc61:   jmp    0x00007fae4af6bc6e
+  0x00007fae4af6bc66:   add    QWORD PTR [rbx+0x138],0x1
+  0x00007fae4af6bc6e:   mov    rdx,rsi
+  0x00007fae4af6bc71:   mov    rsi,rdi
+  0x00007fae4af6bc74:   data16 xchg ax,ax
+  0x00007fae4af6bc77:   call   0x00007fae52833340           ; ImmutableOopMap {[120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*invokevirtual toExternalForm {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.net.URL::toExternalForm@5 (line 1195)
+                                                            ; - java.net.URL::toString@1 (line 1181)
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@22 (line 913)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {optimized virtual_call}
+  0x00007fae4af6bc7c:   mov    rbx,rax
+  0x00007fae4af6bc7f:   mov    rax,QWORD PTR [rsp+0x98]
+  0x00007fae4af6bc87:   mov    r9d,DWORD PTR [rsp+0x94]
+  0x00007fae4af6bc8f:   mov    r8d,DWORD PTR [rsp+0x90]
+  0x00007fae4af6bc97:   mov    rcx,QWORD PTR [rsp+0x88]
+  0x00007fae4af6bc9f:   mov    rdx,QWORD PTR [rsp+0x80]
+  0x00007fae4af6bca7:   mov    rsi,QWORD PTR [rsp+0x78]
+  0x00007fae4af6bcac:   movabs rdi,0x7fae344e77e8           ;   {metadata(method data for {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bcb6:   add    QWORD PTR [rdi+0x1a8],0x1
+  0x00007fae4af6bcbe:   mov    r11,rsi
+  0x00007fae4af6bcc1:   mov    rsi,r11
+  0x00007fae4af6bcc4:   mov    rdi,rax
+  0x00007fae4af6bcc7:   mov    QWORD PTR [rsp],rbx
+  0x00007fae4af6bccb:   nop    DWORD PTR [rax+0x0]
+  0x00007fae4af6bccf:   call   0x00007fae5272f338           ; ImmutableOopMap {[120]=Oop [152]=Oop }
+                                                            ;*invokestatic defineClass1 {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClass@27 (line 1013)
+                                                            ;   {static_call}
+  0x00007fae4af6bcd4:   mov    rsi,QWORD PTR [rsp+0x78]
+  0x00007fae4af6bcd9:   movabs rdx,0x7fae344e77e8           ;   {metadata(method data for {method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bce3:   add    QWORD PTR [rdx+0x1b8],0x1
+  0x00007fae4af6bceb:   mov    rdx,rax
+  0x00007fae4af6bcee:   mov    rcx,QWORD PTR [rsp+0x98]
+  0x00007fae4af6bcf6:   mov    rsi,QWORD PTR [rsp+0x78]
+  0x00007fae4af6bcfb:   mov    QWORD PTR [rsp+0xa0],rax
+  0x00007fae4af6bd03:   nop    DWORD PTR [rax+0x0]
+  0x00007fae4af6bd07:   call   0x00007fae4adcc680           ; ImmutableOopMap {[160]=Oop }
+                                                            ;*invokevirtual postDefineClass {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClass@37 (line 1014)
+                                                            ;   {optimized virtual_call}
+  0x00007fae4af6bd0c:   mov    rax,QWORD PTR [rsp+0xa0]
+  0x00007fae4af6bd14:   add    rsp,0xb0
+  0x00007fae4af6bd1b:   pop    rbp
+  0x00007fae4af6bd1c:   cmp    rsp,QWORD PTR [r15+0x378]    ;   {poll_return}
+  0x00007fae4af6bd23:   ja     0x00007fae4af6bdc2
+  0x00007fae4af6bd29:   ret    
+  0x00007fae4af6bd2a:   movabs r10,0x7fae33c24d00           ;   {metadata({method} {0x00007fae33c24d00} 'defineClass' '(Ljava/lang/String;[BIILjava/security/ProtectionDomain;)Ljava/lang/Class;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bd34:   mov    QWORD PTR [rsp+0x8],r10
+  0x00007fae4af6bd39:   mov    QWORD PTR [rsp],0xffffffffffffffff
+  0x00007fae4af6bd41:   call   0x00007fae5220ea80           ; ImmutableOopMap {rsi=Oop rdx=Oop rcx=Oop rdi=Oop [120]=Oop }
+                                                            ;*synchronization entry
+                                                            ; - java.lang.ClassLoader::defineClass@-1 (line 1011)
+                                                            ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007fae4af6bd46:   jmp    0x00007fae4af6b9eb
+  0x00007fae4af6bd4b:   movabs r10,0x7fae33c24ad8           ;   {metadata({method} {0x00007fae33c24ad8} 'defineClassSourceLocation' '(Ljava/security/ProtectionDomain;)Ljava/lang/String;' in 'java/lang/ClassLoader')}
+  0x00007fae4af6bd55:   mov    QWORD PTR [rsp+0x8],r10
+  0x00007fae4af6bd5a:   mov    QWORD PTR [rsp],0xffffffffffffffff
+  0x00007fae4af6bd62:   call   0x00007fae5220ea80           ; ImmutableOopMap {rax=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*synchronization entry
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@-1 (line 910)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007fae4af6bd67:   jmp    0x00007fae4af6ba7b
+  0x00007fae4af6bd6c:   call   0x00007fae52209b80           ; ImmutableOopMap {rax=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*invokevirtual getCodeSource {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@1 (line 910)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007fae4af6bd71:   call   0x00007fae52209b80           ; ImmutableOopMap {rax=Oop rdx=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*invokevirtual getLocation {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@12 (line 912)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007fae4af6bd76:   call   0x00007fae52209b80           ; ImmutableOopMap {rsi=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*invokevirtual toString {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@22 (line 913)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007fae4af6bd7b:   movabs r10,0x7fae33cf6348           ;   {metadata({method} {0x00007fae33cf6348} 'toString' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bd85:   mov    QWORD PTR [rsp+0x8],r10
+  0x00007fae4af6bd8a:   mov    QWORD PTR [rsp],0xffffffffffffffff
+  0x00007fae4af6bd92:   call   0x00007fae5220ea80           ; ImmutableOopMap {rsi=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*synchronization entry
+                                                            ; - java.net.URL::toString@-1 (line 1181)
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@22 (line 913)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007fae4af6bd97:   jmp    0x00007fae4af6bb9d
+  0x00007fae4af6bd9c:   movabs r10,0x7fae33cf63f8           ;   {metadata({method} {0x00007fae33cf63f8} 'toExternalForm' '()Ljava/lang/String;' in 'java/net/URL')}
+  0x00007fae4af6bda6:   mov    QWORD PTR [rsp+0x8],r10
+  0x00007fae4af6bdab:   mov    QWORD PTR [rsp],0xffffffffffffffff
+  0x00007fae4af6bdb3:   call   0x00007fae5220ea80           ; ImmutableOopMap {rsi=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*synchronization entry
+                                                            ; - java.net.URL::toExternalForm@-1 (line 1195)
+                                                            ; - java.net.URL::toString@1 (line 1181)
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@22 (line 913)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007fae4af6bdb8:   jmp    0x00007fae4af6bbda
+  0x00007fae4af6bdbd:   call   0x00007fae52209b80           ; ImmutableOopMap {rsi=Oop rdi=Oop [120]=Oop [128]=Oop [136]=Oop [152]=Oop }
+                                                            ;*invokevirtual toExternalForm {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.net.URL::toExternalForm@5 (line 1195)
+                                                            ; - java.net.URL::toString@1 (line 1181)
+                                                            ; - java.lang.ClassLoader::defineClassSourceLocation@22 (line 913)
+                                                            ; - java.lang.ClassLoader::defineClass@12 (line 1012)
+                                                            ;   {runtime_call throw_null_pointer_exception Runtime1 stub}
+  0x00007fae4af6bdc2:   movabs r10,0x7fae4af6bd1c           ;   {internal_word}
+  0x00007fae4af6bdcc:   mov    QWORD PTR [r15+0x390],r10
+  0x00007fae4af6bdd3:   jmp    0x00007fae52169600           ;   {runtime_call SafepointBlob}
+  0x00007fae4af6bdd8:   mov    rax,QWORD PTR [r15+0x428]
+  0x00007fae4af6bddf:   mov    QWORD PTR [r15+0x428],0x0
+  0x00007fae4af6bdea:   mov    QWORD PTR [r15+0x430],0x0
+  0x00007fae4af6bdf5:   add    rsp,0xb0
+  0x00007fae4af6bdfc:   pop    rbp
+  0x00007fae4af6bdfd:   jmp    0x00007fae5217bc00           ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007fae4af6be02:   hlt    
+  0x00007fae4af6be03:   hlt    
+  0x00007fae4af6be04:   hlt    
+  0x00007fae4af6be05:   hlt    
+  0x00007fae4af6be06:   hlt    
+  0x00007fae4af6be07:   hlt    
+[Stub Code]
+  0x00007fae4af6be08:   nop    DWORD PTR [rax+rax*1+0x0]    ;   {no_reloc}
+  0x00007fae4af6be0d:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6be17:   jmp    0x00007fae4af6be17           ;   {runtime_call}
+[Exception Handler]
+  0x00007fae4af6be1c:   call   0x00007fae5220b980           ;   {runtime_call handle_exception_from_callee Runtime1 stub}
+  0x00007fae4af6be21:   movabs rdi,0x7fae6ae68a65           ;   {external_word}
+  0x00007fae4af6be2b:   and    rsp,0xfffffffffffffff0
+  0x00007fae4af6be2f:   call   0x00007fae6aa78060           ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007fae4af6be34:   hlt    
+[Deopt Handler Code]
+  0x00007fae4af6be35:   movabs r10,0x7fae4af6be35           ;   {section_word}
+  0x00007fae4af6be3f:   push   r10
+  0x00007fae4af6be41:   jmp    0x00007fae52168520           ;   {runtime_call DeoptimizationBlob}
+  0x00007fae4af6be46:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6be50:   jmp    0x00007fae4af6be50           ;   {runtime_call}
+  0x00007fae4af6be55:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6be5f:   jmp    0x00007fae4af6be5f           ;   {runtime_call}
+  0x00007fae4af6be64:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6be6e:   jmp    0x00007fae4af6be6e           ;   {runtime_call}
+  0x00007fae4af6be73:   hlt    
+  0x00007fae4af6be74:   hlt    
+  0x00007fae4af6be75:   hlt    
+  0x00007fae4af6be76:   hlt    
+  0x00007fae4af6be77:   hlt    
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+
+Compiled method (c1)    4101 3451       3       java.security.SecureClassLoader::defineClass (16 bytes)
+ total in heap  [0x00007fae4af6d490,0x00007fae4af6d860] = 976
+ relocation     [0x00007fae4af6d5d8,0x00007fae4af6d620] = 72
+ main code      [0x00007fae4af6d620,0x00007fae4af6d770] = 336
+ stub code      [0x00007fae4af6d770,0x00007fae4af6d7b8] = 72
+ metadata       [0x00007fae4af6d7b8,0x00007fae4af6d7c0] = 8
+ scopes data    [0x00007fae4af6d7c0,0x00007fae4af6d808] = 72
+ scopes pcs     [0x00007fae4af6d808,0x00007fae4af6d858] = 80
+ dependencies   [0x00007fae4af6d858,0x00007fae4af6d860] = 8
+
+[Disassembly]
+--------------------------------------------------------------------------------
+[Constant Pool (empty)]
+
+--------------------------------------------------------------------------------
+
+[Entry Point]
+  # {method} {0x00007fae33c3d380} 'defineClass' '(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;' in 'java/security/SecureClassLoader'
+  # this:     rsi:rsi   = 'java/security/SecureClassLoader'
+  # parm0:    rdx:rdx   = 'java/lang/String'
+  # parm1:    rcx:rcx   = '[B'
+  # parm2:    r8        = int
+  # parm3:    r9        = int
+  # parm4:    rdi:rdi   = 'java/security/CodeSource'
+  #           [sp+0x80]  (sp of caller)
+  0x00007fae4af6d620:   mov    r10d,DWORD PTR [rsi+0x8]
+  0x00007fae4af6d624:   shl    r10,0x3
+  0x00007fae4af6d628:   cmp    r10,rax
+  0x00007fae4af6d62b:   jne    0x00007fae52162f80           ;   {runtime_call ic_miss_stub}
+  0x00007fae4af6d631:   data16 data16 nop WORD PTR [rax+rax*1+0x0]
+  0x00007fae4af6d63c:   data16 data16 xchg ax,ax
+[Verified Entry Point]
+  0x00007fae4af6d640:   mov    DWORD PTR [rsp-0x14000],eax
+  0x00007fae4af6d647:   push   rbp
+  0x00007fae4af6d648:   sub    rsp,0x70
+  0x00007fae4af6d64c:   cmp    DWORD PTR [r15+0x20],0x7
+  0x00007fae4af6d654:   je     0x00007fae4af6d65b
+  0x00007fae4af6d656:   call   Stub::nmethod_entry_barrier  ;   {runtime_call StubRoutines (2)}
+  0x00007fae4af6d65b:   movabs rbx,0x7fae367ace18           ;   {metadata(method data for {method} {0x00007fae33c3d380} 'defineClass' '(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;' in 'java/security/SecureClassLoader')}
+  0x00007fae4af6d665:   mov    eax,DWORD PTR [rbx+0xf4]
+  0x00007fae4af6d66b:   add    eax,0x2
+  0x00007fae4af6d66e:   mov    DWORD PTR [rbx+0xf4],eax
+  0x00007fae4af6d674:   and    eax,0x7fe
+  0x00007fae4af6d679:   cmp    eax,0x0
+  0x00007fae4af6d67c:   je     0x00007fae4af6d70f
+  0x00007fae4af6d682:   mov    DWORD PTR [rsp+0x5c],r9d
+  0x00007fae4af6d687:   mov    DWORD PTR [rsp+0x58],r8d
+  0x00007fae4af6d68c:   mov    QWORD PTR [rsp+0x50],rcx
+  0x00007fae4af6d691:   mov    QWORD PTR [rsp+0x48],rdx
+  0x00007fae4af6d696:   mov    rbx,rsi
+  0x00007fae4af6d699:   movabs rax,0x7fae367ace18           ;   {metadata(method data for {method} {0x00007fae33c3d380} 'defineClass' '(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;' in 'java/security/SecureClassLoader')}
+  0x00007fae4af6d6a3:   add    QWORD PTR [rax+0x138],0x1
+  0x00007fae4af6d6ab:   mov    rdx,rdi
+  0x00007fae4af6d6ae:   mov    rdi,rsi
+  0x00007fae4af6d6b1:   mov    rsi,rdi
+  0x00007fae4af6d6b4:   mov    QWORD PTR [rsp+0x40],rdi
+  0x00007fae4af6d6b9:   nop    WORD PTR [rax+rax*1+0x0]
+  0x00007fae4af6d6bf:   call   0x00007fae5284e240           ; ImmutableOopMap {[64]=Oop [72]=Oop [80]=Oop }
+                                                            ;*invokevirtual getProtectionDomain {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.security.SecureClassLoader::defineClass@9 (line 150)
+                                                            ;   {optimized virtual_call}
+  0x00007fae4af6d6c4:   mov    rsi,QWORD PTR [rsp+0x40]
+  0x00007fae4af6d6c9:   movabs rdx,0x7fae367ace18           ;   {metadata(method data for {method} {0x00007fae33c3d380} 'defineClass' '(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;' in 'java/security/SecureClassLoader')}
+  0x00007fae4af6d6d3:   add    QWORD PTR [rdx+0x170],0x1
+  0x00007fae4af6d6db:   mov    rdx,QWORD PTR [rsp+0x48]
+  0x00007fae4af6d6e0:   mov    rcx,QWORD PTR [rsp+0x50]
+  0x00007fae4af6d6e5:   mov    r8d,DWORD PTR [rsp+0x58]
+  0x00007fae4af6d6ea:   mov    r9d,DWORD PTR [rsp+0x5c]
+  0x00007fae4af6d6ef:   mov    rdi,rax
+  0x00007fae4af6d6f2:   mov    rsi,QWORD PTR [rsp+0x40]
+  0x00007fae4af6d6f7:   call   0x00007fae4af6b9a0           ; ImmutableOopMap {}
+                                                            ;*invokevirtual defineClass {reexecute=0 rethrow=0 return_oop=0}
+                                                            ; - java.security.SecureClassLoader::defineClass@12 (line 150)
+                                                            ;   {optimized virtual_call}
+  0x00007fae4af6d6fc:   add    rsp,0x70
+  0x00007fae4af6d700:   pop    rbp
+  0x00007fae4af6d701:   cmp    rsp,QWORD PTR [r15+0x378]    ;   {poll_return}
+  0x00007fae4af6d708:   ja     0x00007fae4af6d730
+  0x00007fae4af6d70e:   ret    
+  0x00007fae4af6d70f:   movabs r10,0x7fae33c3d380           ;   {metadata({method} {0x00007fae33c3d380} 'defineClass' '(Ljava/lang/String;[BIILjava/security/CodeSource;)Ljava/lang/Class;' in 'java/security/SecureClassLoader')}
+  0x00007fae4af6d719:   mov    QWORD PTR [rsp+0x8],r10
+  0x00007fae4af6d71e:   mov    QWORD PTR [rsp],0xffffffffffffffff
+  0x00007fae4af6d726:   call   0x00007fae5220ea80           ; ImmutableOopMap {rsi=Oop rdx=Oop rcx=Oop rdi=Oop }
+                                                            ;*synchronization entry
+                                                            ; - java.security.SecureClassLoader::defineClass@-1 (line 150)
+                                                            ;   {runtime_call counter_overflow Runtime1 stub}
+  0x00007fae4af6d72b:   jmp    0x00007fae4af6d682
+  0x00007fae4af6d730:   movabs r10,0x7fae4af6d701           ;   {internal_word}
+  0x00007fae4af6d73a:   mov    QWORD PTR [r15+0x390],r10
+  0x00007fae4af6d741:   jmp    0x00007fae52169600           ;   {runtime_call SafepointBlob}
+  0x00007fae4af6d746:   mov    rax,QWORD PTR [r15+0x428]
+  0x00007fae4af6d74d:   mov    QWORD PTR [r15+0x428],0x0
+  0x00007fae4af6d758:   mov    QWORD PTR [r15+0x430],0x0
+  0x00007fae4af6d763:   add    rsp,0x70
+  0x00007fae4af6d767:   pop    rbp
+  0x00007fae4af6d768:   jmp    0x00007fae5217bc00           ;   {runtime_call unwind_exception Runtime1 stub}
+  0x00007fae4af6d76d:   hlt    
+  0x00007fae4af6d76e:   hlt    
+  0x00007fae4af6d76f:   hlt    
+[Exception Handler]
+  0x00007fae4af6d770:   call   0x00007fae5220b980           ;   {no_reloc}
+  0x00007fae4af6d775:   movabs rdi,0x7fae6ae68a65           ;   {external_word}
+  0x00007fae4af6d77f:   and    rsp,0xfffffffffffffff0
+  0x00007fae4af6d783:   call   0x00007fae6aa78060           ;   {runtime_call MacroAssembler::debug64(char*, long, long*)}
+  0x00007fae4af6d788:   hlt    
+[Deopt Handler Code]
+  0x00007fae4af6d789:   movabs r10,0x7fae4af6d789           ;   {section_word}
+  0x00007fae4af6d793:   push   r10
+  0x00007fae4af6d795:   jmp    0x00007fae52168520           ;   {runtime_call DeoptimizationBlob}
+  0x00007fae4af6d79a:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6d7a4:   jmp    0x00007fae4af6d7a4           ;   {runtime_call}
+  0x00007fae4af6d7a9:   movabs rbx,0x0                      ;   {static_stub}
+  0x00007fae4af6d7b3:   jmp    0x00007fae4af6d7b3           ;   {runtime_call}
+--------------------------------------------------------------------------------
+[/Disassembly]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fae04095140, length=32, elements={
+0x00007fae64034a90, 0x00007fae64121ee0, 0x00007fae641233d0, 0x00007fae64124e70,
+0x00007fae641262d0, 0x00007fae64127720, 0x00007fae641291e0, 0x00007fae6412a700,
+0x00007fae641e2a90, 0x00007fae0c0c7860, 0x00007fae642e0ae0, 0x00007fae64a80660,
+0x00007fae64d03330, 0x00007fadf4000ff0, 0x00007fade8000ff0, 0x00007fade4000ff0,
+0x00007faddc000ff0, 0x00007fade0000ff0, 0x00007fae64d03e70, 0x00007fadd4000ff0,
+0x00007fae0c1cc2a0, 0x00007fae64c42a30, 0x00007fada4000ff0, 0x00007fada40020e0,
+0x00007fad9c000ff0, 0x00007fad98000ff0, 0x00007fad9c0020f0, 0x00007fad94000ff0,
+0x00007fad980024f0, 0x00007fad90000ff0, 0x00007fad9c003210, 0x00007fad88000ff0
+}
+
+Java Threads: ( => current thread )
+  0x00007fae64034a90 JavaThread "main" [_thread_blocked, id=16519, stack(0x00007fae69408000,0x00007fae69e08000)]
+  0x00007fae64121ee0 JavaThread "Reference Handler" daemon [_thread_blocked, id=16523, stack(0x00007fae32bd3000,0x00007fae335d3000)]
+  0x00007fae641233d0 JavaThread "Finalizer" daemon [_thread_blocked, id=16524, stack(0x00007fae321d3000,0x00007fae32bd3000)]
+  0x00007fae64124e70 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=16525, stack(0x00007fae317d3000,0x00007fae321d3000)]
+  0x00007fae641262d0 JavaThread "Service Thread" daemon [_thread_blocked, id=16526, stack(0x00007fae30dd3000,0x00007fae317d3000)]
+  0x00007fae64127720 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=16527, stack(0x00007fae303d3000,0x00007fae30dd3000)]
+  0x00007fae641291e0 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=16528, stack(0x00007fae302d3000,0x00007fae303d3000)]
+  0x00007fae6412a700 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=16529, stack(0x00007fae301d3000,0x00007fae302d3000)]
+  0x00007fae641e2a90 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=16531, stack(0x00007fae13600000,0x00007fae14000000)]
+  0x00007fae0c0c7860 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=16533, stack(0x00007fae300d3000,0x00007fae301d3000)]
+  0x00007fae642e0ae0 JavaThread "Notification Thread" daemon [_thread_blocked, id=16537, stack(0x00007fae12b00000,0x00007fae13500000)]
+  0x00007fae64a80660 JavaThread "Thread-0" [_thread_blocked, id=16539, stack(0x00007fae11ffe000,0x00007fae129fe000)]
+  0x00007fae64d03330 JavaThread "ForkJoinPool-1-worker-1" daemon [_thread_blocked, id=16541, stack(0x00007fae10bfe000,0x00007fae115fe000)]
+  0x00007fadf4000ff0 JavaThread "ForkJoinPool-1-worker-2" daemon [_thread_blocked, id=16542, stack(0x00007fae101fe000,0x00007fae10bfe000)]
+  0x00007fade8000ff0 JavaThread "ForkJoinPool-1-worker-3" daemon [_thread_in_vm, id=16543, stack(0x00007fadef600000,0x00007fadf0000000)]
+=>0x00007fade4000ff0 JavaThread "ForkJoinPool-1-worker-4" daemon [_thread_in_vm, id=16544, stack(0x00007fadeec00000,0x00007fadef600000)]
+  0x00007faddc000ff0 JavaThread "ForkJoinPool-1-worker-5" daemon [_thread_blocked, id=16545, stack(0x00007fadee200000,0x00007fadeec00000)]
+  0x00007fade0000ff0 JavaThread "ForkJoinPool-1-worker-6" daemon [_thread_in_vm, id=16546, stack(0x00007faded800000,0x00007fadee200000)]
+  0x00007fae64d03e70 JavaThread "ForkJoinPool-1-worker-7" daemon [_thread_blocked, id=16547, stack(0x00007fadece00000,0x00007faded800000)]
+  0x00007fadd4000ff0 JavaThread "ForkJoinPool-1-worker-8" daemon [_thread_blocked, id=16548, stack(0x00007fadec400000,0x00007fadece00000)]
+  0x00007fae0c1cc2a0 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=16558, stack(0x00007fae13500000,0x00007fae13600000)]
+  0x00007fae64c42a30 JavaThread "ForkJoinPool.commonPool-worker-1" daemon [_thread_blocked, id=16559, stack(0x00007fadc30f6000,0x00007fadc3af6000)]
+  0x00007fada4000ff0 JavaThread "ForkJoinPool.commonPool-worker-2" daemon [_thread_blocked, id=16560, stack(0x00007fadc26f6000,0x00007fadc30f6000)]
+  0x00007fada40020e0 JavaThread "ForkJoinPool.commonPool-worker-3" daemon [_thread_blocked, id=16561, stack(0x00007fadc1cf6000,0x00007fadc26f6000)]
+  0x00007fad9c000ff0 JavaThread "ForkJoinPool.commonPool-worker-4" daemon [_thread_blocked, id=16562, stack(0x00007fadc12f6000,0x00007fadc1cf6000)]
+  0x00007fad98000ff0 JavaThread "ForkJoinPool.commonPool-worker-5" daemon [_thread_blocked, id=16563, stack(0x00007fadc08f6000,0x00007fadc12f6000)]
+  0x00007fad9c0020f0 JavaThread "ForkJoinPool.commonPool-worker-6" daemon [_thread_blocked, id=16564, stack(0x00007fad8f600000,0x00007fad90000000)]
+  0x00007fad94000ff0 JavaThread "ForkJoinPool.commonPool-worker-9" daemon [_thread_blocked, id=16565, stack(0x00007fad8ec00000,0x00007fad8f600000)]
+  0x00007fad980024f0 JavaThread "ForkJoinPool.commonPool-worker-8" daemon [_thread_blocked, id=16566, stack(0x00007fad8e200000,0x00007fad8ec00000)]
+  0x00007fad90000ff0 JavaThread "ForkJoinPool.commonPool-worker-7" daemon [_thread_blocked, id=16567, stack(0x00007fad8d800000,0x00007fad8e200000)]
+  0x00007fad9c003210 JavaThread "ForkJoinPool.commonPool-worker-10" daemon [_thread_blocked, id=16568, stack(0x00007fad8ce00000,0x00007fad8d800000)]
+  0x00007fad88000ff0 JavaThread "ForkJoinPool.commonPool-worker-11" daemon [_thread_blocked, id=16569, stack(0x00007fad8c400000,0x00007fad8ce00000)]
+
+Other Threads:
+  0x00007fae640217f0 VMThread "VM Thread" [stack: 0x00007fae3362c000,0x00007fae3372c000] [id=16521] _threads_hazard_ptr=0x00007fae04095140
+  0x00007fae64021400 WatcherThread "VM Periodic Task Thread" [stack: 0x00007fae12a00000,0x00007fae12b00000] [id=16538]
+  0x00007fae64021ca0 WorkerThread "GC Thread#0" [stack: 0x00007fae684a6000,0x00007fae685a6000] [id=16520]
+  0x00007fae2c001130 WorkerThread "GC Thread#1" [stack: 0x00007fae100fe000,0x00007fae101fe000] [id=16549]
+  0x00007fae2c001b40 WorkerThread "GC Thread#2" [stack: 0x00007fadec300000,0x00007fadec400000] [id=16550]
+  0x00007fae2c002550 WorkerThread "GC Thread#3" [stack: 0x00007fadec1fe000,0x00007fadec2fe000] [id=16551]
+  0x00007fae2c002f60 WorkerThread "GC Thread#4" [stack: 0x00007fadec0fc000,0x00007fadec1fc000] [id=16552]
+  0x00007fae2c003970 WorkerThread "GC Thread#5" [stack: 0x00007fadc3f00000,0x00007fadc4000000] [id=16553]
+  0x00007fae2c004380 WorkerThread "GC Thread#6" [stack: 0x00007fadc3dfe000,0x00007fadc3efe000] [id=16554]
+  0x00007fae2c004d90 WorkerThread "GC Thread#7" [stack: 0x00007fadc3cfc000,0x00007fadc3dfc000] [id=16555]
+  0x00007fae2c0057e0 WorkerThread "GC Thread#8" [stack: 0x00007fadc3bfa000,0x00007fadc3cfa000] [id=16556]
+  0x00007fae2c006620 WorkerThread "GC Thread#9" [stack: 0x00007fadc3af8000,0x00007fadc3bf8000] [id=16557]
+
+Threads with active compile tasks:
+C2 CompilerThread0     4107 3557   !   4       jdk.internal.loader.BuiltinClassLoader::loadClassOrNull (143 bytes)
+C2 CompilerThread1     4107 3617       4       java.lang.Class::forName (87 bytes)
+C2 CompilerThread2     4107 3613       4       java.lang.ClassLoader::postDefineClass (39 bytes)
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fae64031c60] MethodCompileQueue_lock - owner thread: 0x00007fae0c0c7860
+[0x00007fae64033830] Compile_lock - owner thread: 0x00007faddc000ff0
+
+Heap address: 0x000000063a200000, size: 6238 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) not mapped
+Compressed class space mapped at: 0x00000007c0000000-0x0000000800000000, reserved size: 1073741824
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3, Narrow klass range: 0x800000000
+
+GC Precious Log:
+ CardTable entry size: 512
+ CPUs: 12 total, 12 available
+ Memory: 7797M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Alignments: Space 512K, Generation 512K, Heap 2M
+ Heap Min Capacity: 1G
+ Heap Initial Capacity: 1G
+ Heap Max Capacity: 6238M
+ Pre-touch: Disabled
+ Parallel Workers: 10
+
+Heap:
+ PSYoungGen      total 567808K, used 133228K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 524288K, 25% used [0x000000073e100000,0x000000074631b128,0x000000075e100000)
+  from space 43520K, 0% used [0x0000000760b80000,0x0000000760b80000,0x0000000763600000)
+  to   space 43520K, 0% used [0x000000075e100000,0x000000075e100000,0x0000000760b80000)
+ ParOldGen       total 699392K, used 61037K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 8% used [0x000000063a200000,0x000000063dd9b700,0x0000000664d00000)
+ Metaspace       used 89810K, committed 90048K, reserved 1179648K
+  class space    used 11931K, committed 12032K, reserved 1048576K
+
+Card table byte_map: [0x00007fae685a6000,0x00007fae691d6000] _byte_map_base: 0x00007fae653d5000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fae6b241380
+ Begin Bits: [0x00007fae37d10000, 0x00007fae3de88000)
+ End Bits:   [0x00007fae3de88000, 0x00007fae44000000)
+
+Polling page: 0x00007fae6b4d1000
+
+Metaspace:
+
+Usage:
+  Non-class:     76.05 MB used.
+      Class:     11.65 MB used.
+       Both:     87.71 MB used.
+
+Virtual space:
+  Non-class space:      128.00 MB reserved,      76.19 MB ( 60%) committed,  2 nodes.
+      Class space:        1.00 GB reserved,      11.75 MB (  1%) committed,  1 nodes.
+             Both:        1.12 GB reserved,      87.94 MB (  8%) committed. 
+
+Chunk freelists:
+   Non-Class:  3.69 MB
+       Class:  192.00 KB
+        Both:  3.88 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 97.31 MB
+CDS: off
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 11.
+num_arena_births: 278.
+num_arena_deaths: 28.
+num_vsnodes_births: 3.
+num_vsnodes_deaths: 0.
+num_space_committed: 1407.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 43.
+num_chunks_taken_from_freelist: 3331.
+num_chunk_merges: 13.
+num_chunk_splits: 2442.
+num_chunks_enlarged: 1726.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120028Kb used=1796Kb max_used=1796Kb free=118231Kb
+ bounds [0x00007fae52692000, 0x00007fae52902000, 0x00007fae59bc9000]
+CodeHeap 'profiled nmethods': size=120028Kb used=4980Kb max_used=4980Kb free=115048Kb
+ bounds [0x00007fae4abc9000, 0x00007fae4b0a9000, 0x00007fae52100000]
+CodeHeap 'non-nmethods': size=5704Kb used=1699Kb max_used=1713Kb free=4004Kb
+ bounds [0x00007fae52100000, 0x00007fae52370000, 0x00007fae52692000]
+ total_blobs=4086 nmethods=3120 adapters=875
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+JVMCI Events (5 events):
+Event: 0.013 Thread 0x00007fae64034a90 created new Java JVMCI runtime -1 (0x00007fae640cabf0)
+Event: 0.822 Thread 0x00007fae64034a90 initializing JVMCI runtime -1
+Event: 0.822 Thread 0x00007fae64034a90 initializing JavaVM references in JVMCI runtime -1
+Event: 0.829 Thread 0x00007fae64034a90 initialized JavaVM references in JVMCI runtime -1
+Event: 0.829 Thread 0x00007fae64034a90 initialized JVMCI runtime -1
+
+Compilation events (20 events):
+Event: 3.978 Thread 0x00007fae0c1cc2a0 3599       4       sun.net.util.URLUtil::urlNoFragString (137 bytes)
+Event: 3.979 Thread 0x00007fae0c0c7860 nmethod 3600 0x00007fae52848a90 code [0x00007fae52848c40, 0x00007fae52848df8]
+Event: 3.979 Thread 0x00007fae0c0c7860 3602       4       java.security.CodeSource::<init> (52 bytes)
+Event: 3.980 Thread 0x00007fae6412a700 nmethod 3603 0x00007fae4b09f590 code [0x00007fae4b09f960, 0x00007fae4b0a13f0]
+Event: 3.980 Thread 0x00007fae6412a700 3604       3       jdk.internal.perf.PerfCounter::getReadClassBytesTime (4 bytes)
+Event: 3.980 Thread 0x00007fae6412a700 nmethod 3604 0x00007fae4ae8b310 code [0x00007fae4ae8b4a0, 0x00007fae4ae8b590]
+Event: 3.988 Thread 0x00007fae6412a700 3608   !   3       jdk.internal.loader.Loader::loadClass (168 bytes)
+Event: 3.990 Thread 0x00007fae6412a700 nmethod 3608 0x00007fae4b0a1d90 code [0x00007fae4b0a2160, 0x00007fae4b0a3bd8]
+Event: 3.990 Thread 0x00007fae6412a700 3607       3       jdk.internal.loader.Loader::findLoadedModule (31 bytes)
+Event: 3.991 Thread 0x00007fae6412a700 nmethod 3607 0x00007fae4b0a4990 code [0x00007fae4b0a4b80, 0x00007fae4b0a5210]
+Event: 4.007 Thread 0x00007fae0c1cc2a0 nmethod 3599 0x00007fae52849010 code [0x00007fae52849200, 0x00007fae5284a350]
+Event: 4.007 Thread 0x00007fae0c1cc2a0 3610       4       java.security.CodeSource::matchCerts (254 bytes)
+Event: 4.009 Thread 0x00007fae6412a700 3612       3       java.security.MessageDigest::update (45 bytes)
+Event: 4.010 Thread 0x00007fae6412a700 nmethod 3612 0x00007fae4b0a5490 code [0x00007fae4b0a5660, 0x00007fae4b0a5a18]
+Event: 4.012 Thread 0x00007fae0c1cc2a0 nmethod 3610 0x00007fae5284b110 code [0x00007fae5284b2c0, 0x00007fae5284b610]
+Event: 4.012 Thread 0x00007fae0c1cc2a0 3611       4       java.lang.Integer::numberOfLeadingZeros (79 bytes)
+Event: 4.015 Thread 0x00007fae0c1cc2a0 nmethod 3611 0x00007fae5284b990 code [0x00007fae5284bb00, 0x00007fae5284bbd8]
+Event: 4.015 Thread 0x00007fae0c1cc2a0 3606   !   4       java.util.zip.InflaterInputStream::read (129 bytes)
+Event: 4.017 Thread 0x00007fae0c0c7860 nmethod 3602 0x00007fae5284bc90 code [0x00007fae5284be80, 0x00007fae5284d1e8]
+Event: 4.017 Thread 0x00007fae0c0c7860 3605       4       java.security.SecureClassLoader::getProtectionDomain (37 bytes)
+
+GC Heap History (14 events):
+Event: 1.151 GC heap before
+{Heap before GC invocations=1 (full 0):
+ PSYoungGen      total 305664K, used 126403K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 48% used [0x000000073e100000,0x0000000745c70f40,0x000000074e100000)
+  from space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+  to   space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+ ParOldGen       total 699392K, used 0K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 0% used [0x000000063a200000,0x000000063a200000,0x0000000664d00000)
+ Metaspace       used 21260K, committed 21504K, reserved 1114112K
+  class space    used 2387K, committed 2496K, reserved 1048576K
+}
+Event: 1.163 GC heap after
+{Heap after GC invocations=1 (full 0):
+ PSYoungGen      total 305664K, used 13275K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 30% used [0x000000074e100000,0x000000074edf6e18,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+ ParOldGen       total 699392K, used 24K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 0% used [0x000000063a200000,0x000000063a206000,0x0000000664d00000)
+ Metaspace       used 21260K, committed 21504K, reserved 1114112K
+  class space    used 2387K, committed 2496K, reserved 1048576K
+}
+Event: 1.163 GC heap before
+{Heap before GC invocations=2 (full 1):
+ PSYoungGen      total 305664K, used 13275K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 30% used [0x000000074e100000,0x000000074edf6e18,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+ ParOldGen       total 699392K, used 24K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 0% used [0x000000063a200000,0x000000063a206000,0x0000000664d00000)
+ Metaspace       used 21260K, committed 21504K, reserved 1114112K
+  class space    used 2387K, committed 2496K, reserved 1048576K
+}
+Event: 1.182 GC heap after
+{Heap after GC invocations=2 (full 1):
+ PSYoungGen      total 305664K, used 0K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+ ParOldGen       total 699392K, used 12984K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 1% used [0x000000063a200000,0x000000063aeae220,0x0000000664d00000)
+ Metaspace       used 21235K, committed 21504K, reserved 1114112K
+  class space    used 2380K, committed 2496K, reserved 1048576K
+}
+Event: 1.733 GC heap before
+{Heap before GC invocations=3 (full 1):
+ PSYoungGen      total 305664K, used 133425K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 50% used [0x000000073e100000,0x000000074634c660,0x000000074e100000)
+  from space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+ ParOldGen       total 699392K, used 12984K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 1% used [0x000000063a200000,0x000000063aeae220,0x0000000664d00000)
+ Metaspace       used 35593K, committed 35840K, reserved 1114112K
+  class space    used 4386K, committed 4544K, reserved 1048576K
+}
+Event: 1.751 GC heap after
+{Heap after GC invocations=3 (full 1):
+ PSYoungGen      total 305664K, used 19709K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 45% used [0x0000000750b80000,0x0000000751ebf4d0,0x0000000753600000)
+  to   space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+ ParOldGen       total 699392K, used 12992K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 1% used [0x000000063a200000,0x000000063aeb0220,0x0000000664d00000)
+ Metaspace       used 35593K, committed 35840K, reserved 1114112K
+  class space    used 4386K, committed 4544K, reserved 1048576K
+}
+Event: 1.751 GC heap before
+{Heap before GC invocations=4 (full 2):
+ PSYoungGen      total 305664K, used 19709K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 45% used [0x0000000750b80000,0x0000000751ebf4d0,0x0000000753600000)
+  to   space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+ ParOldGen       total 699392K, used 12992K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 1% used [0x000000063a200000,0x000000063aeb0220,0x0000000664d00000)
+ Metaspace       used 35593K, committed 35840K, reserved 1114112K
+  class space    used 4386K, committed 4544K, reserved 1048576K
+}
+Event: 1.796 GC heap after
+{Heap after GC invocations=4 (full 2):
+ PSYoungGen      total 305664K, used 0K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+  to   space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+ ParOldGen       total 699392K, used 31974K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c139860,0x0000000664d00000)
+ Metaspace       used 35593K, committed 35840K, reserved 1114112K
+  class space    used 4386K, committed 4544K, reserved 1048576K
+}
+Event: 2.794 GC heap before
+{Heap before GC invocations=5 (full 2):
+ PSYoungGen      total 305664K, used 262144K [0x000000073e100000, 0x0000000753600000, 0x00000007c0000000)
+  eden space 262144K, 100% used [0x000000073e100000,0x000000074e100000,0x000000074e100000)
+  from space 43520K, 0% used [0x0000000750b80000,0x0000000750b80000,0x0000000753600000)
+  to   space 43520K, 0% used [0x000000074e100000,0x000000074e100000,0x0000000750b80000)
+ ParOldGen       total 699392K, used 31974K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c139860,0x0000000664d00000)
+ Metaspace       used 56090K, committed 56448K, reserved 1114112K
+  class space    used 6874K, committed 7040K, reserved 1048576K
+}
+Event: 2.821 GC heap after
+{Heap after GC invocations=5 (full 2):
+ PSYoungGen      total 305664K, used 30942K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 262144K, 0% used [0x000000073e100000,0x000000073e100000,0x000000074e100000)
+  from space 43520K, 71% used [0x000000074e100000,0x000000074ff379b8,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000760b80000,0x0000000760b80000,0x0000000763600000)
+ ParOldGen       total 699392K, used 31982K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c13b860,0x0000000664d00000)
+ Metaspace       used 56090K, committed 56448K, reserved 1114112K
+  class space    used 6874K, committed 7040K, reserved 1048576K
+}
+Event: 2.956 GC heap before
+{Heap before GC invocations=6 (full 2):
+ PSYoungGen      total 305664K, used 51793K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 262144K, 7% used [0x000000073e100000,0x000000073f55cbf0,0x000000074e100000)
+  from space 43520K, 71% used [0x000000074e100000,0x000000074ff379b8,0x0000000750b80000)
+  to   space 43520K, 0% used [0x0000000760b80000,0x0000000760b80000,0x0000000763600000)
+ ParOldGen       total 699392K, used 31982K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c13b860,0x0000000664d00000)
+ Metaspace       used 59538K, committed 59776K, reserved 1114112K
+  class space    used 7339K, committed 7488K, reserved 1048576K
+}
+Event: 2.983 GC heap after
+{Heap after GC invocations=6 (full 2):
+ PSYoungGen      total 567808K, used 32979K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 524288K, 0% used [0x000000073e100000,0x000000073e100000,0x000000075e100000)
+  from space 43520K, 75% used [0x0000000760b80000,0x0000000762bb4db8,0x0000000763600000)
+  to   space 43520K, 0% used [0x000000075e100000,0x000000075e100000,0x0000000760b80000)
+ ParOldGen       total 699392K, used 31990K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c13d860,0x0000000664d00000)
+ Metaspace       used 59538K, committed 59776K, reserved 1114112K
+  class space    used 7339K, committed 7488K, reserved 1048576K
+}
+Event: 2.983 GC heap before
+{Heap before GC invocations=7 (full 3):
+ PSYoungGen      total 567808K, used 32979K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 524288K, 0% used [0x000000073e100000,0x000000073e100000,0x000000075e100000)
+  from space 43520K, 75% used [0x0000000760b80000,0x0000000762bb4db8,0x0000000763600000)
+  to   space 43520K, 0% used [0x000000075e100000,0x000000075e100000,0x0000000760b80000)
+ ParOldGen       total 699392K, used 31990K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 4% used [0x000000063a200000,0x000000063c13d860,0x0000000664d00000)
+ Metaspace       used 59538K, committed 59776K, reserved 1114112K
+  class space    used 7339K, committed 7488K, reserved 1048576K
+}
+Event: 3.071 GC heap after
+{Heap after GC invocations=7 (full 3):
+ PSYoungGen      total 567808K, used 0K [0x000000073e100000, 0x0000000763600000, 0x00000007c0000000)
+  eden space 524288K, 0% used [0x000000073e100000,0x000000073e100000,0x000000075e100000)
+  from space 43520K, 0% used [0x0000000760b80000,0x0000000760b80000,0x0000000763600000)
+  to   space 43520K, 0% used [0x000000075e100000,0x000000075e100000,0x0000000760b80000)
+ ParOldGen       total 699392K, used 61037K [0x000000063a200000, 0x0000000664d00000, 0x000000073e100000)
+  object space 699392K, 8% used [0x000000063a200000,0x000000063dd9b700,0x0000000664d00000)
+ Metaspace       used 59538K, committed 59776K, reserved 1114112K
+  class space    used 7339K, committed 7488K, reserved 1048576K
+}
+
+Dll operation events (10 events):
+Event: 0.001 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjava.so
+Event: 0.015 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjsvml.so
+Event: 0.040 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnio.so
+Event: 0.145 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libzip.so
+Event: 0.254 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjimage.so
+Event: 0.264 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnet.so
+Event: 1.093 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+Event: 1.098 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement.so
+Event: 1.104 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement_ext.so
+Event: 2.528 Loaded shared library /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libverify.so
+
+Deoptimization events (20 events):
+Event: 3.972 Thread 0x00007faddc000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fadeebfa850
+Event: 3.972 Thread 0x00007faddc000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadeebf9dd0 mode 0
+Event: 3.972 Thread 0x00007fae64d03330 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fae115fb7c0
+Event: 3.972 Thread 0x00007fae64d03330 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fae115fad40 mode 0
+Event: 3.972 Thread 0x00007fadd4000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fadecdf8950
+Event: 3.972 Thread 0x00007fadd4000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadecdf7ed0 mode 0
+Event: 3.972 Thread 0x00007faddc000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fadeebfc000
+Event: 3.972 Thread 0x00007faddc000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadeebfb580 mode 0
+Event: 3.972 Thread 0x00007fadf4000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fae10bf8100
+Event: 3.972 Thread 0x00007fadf4000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fae10bf7680 mode 0
+Event: 3.973 Thread 0x00007faddc000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fadeebfd7b0
+Event: 3.973 Thread 0x00007faddc000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadeebfcd30 mode 0
+Event: 3.973 Thread 0x00007fadd4000ff0 DEOPT PACKING pc=0x00007fae4aec500c sp=0x00007fadecdfa100
+Event: 3.973 Thread 0x00007fadd4000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadecdf9680 mode 0
+Event: 3.976 Thread 0x00007fade8000ff0 DEOPT PACKING pc=0x00007fae4b0885a4 sp=0x00007fadefffdc30
+Event: 3.976 Thread 0x00007fade8000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadefffd120 mode 0
+Event: 3.977 Thread 0x00007fadf4000ff0 DEOPT PACKING pc=0x00007fae4b0885a4 sp=0x00007fae10bfbc30
+Event: 3.977 Thread 0x00007fadf4000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fae10bfb120 mode 0
+Event: 3.977 Thread 0x00007fade4000ff0 DEOPT PACKING pc=0x00007fae4b0885a4 sp=0x00007fadef5fdc30
+Event: 3.977 Thread 0x00007fade4000ff0 DEOPT UNPACKING pc=0x00007fae52168b25 sp=0x00007fadef5fd120 mode 0
+
+Classes loaded (20 events):
+Event: 3.923 Loading class javax/xml/datatype/DatatypeConfigurationException
+Event: 3.923 Loading class javax/xml/datatype/DatatypeConfigurationException done
+Event: 3.923 Loading class javax/xml/datatype/DatatypeFactory
+Event: 3.924 Loading class javax/xml/datatype/DatatypeFactory done
+Event: 3.990 Loading class javax/net/ssl/KeyManagerFactorySpi
+Event: 3.990 Loading class javax/net/ssl/KeyManagerFactorySpi done
+Event: 3.993 Loading class java/net/HttpURLConnection
+Event: 3.994 Loading class java/net/HttpURLConnection done
+Event: 4.000 Loading class javax/xml/transform/TransformerFactoryConfigurationError
+Event: 4.000 Loading class javax/xml/transform/TransformerFactoryConfigurationError done
+Event: 4.003 Loading class org/w3c/dom/DOMException
+Event: 4.003 Loading class org/w3c/dom/DOMException done
+Event: 4.010 Loading class java/awt/Color
+Event: 4.010 Loading class java/awt/Paint
+Event: 4.010 Loading class java/io/LineNumberReader
+Event: 4.010 Loading class java/awt/Transparency
+Event: 4.010 Loading class java/io/LineNumberReader done
+Event: 4.010 Loading class java/awt/Transparency done
+Event: 4.010 Loading class java/awt/Paint done
+Event: 4.011 Loading class java/awt/Color done
+
+Classes unloaded (14 events):
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0287800 'java/lang/invoke/LambdaForm$MH+0x00000007c0287800'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0287400 'java/lang/invoke/LambdaForm$MH+0x00000007c0287400'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0286c00 'java/lang/invoke/LambdaForm$MH+0x00000007c0286c00'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0286800 'java/lang/invoke/LambdaForm$MH+0x00000007c0286800'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0285c00 'java/lang/invoke/LambdaForm$MH+0x00000007c0285c00'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0286000 'java/lang/invoke/LambdaForm$MH+0x00000007c0286000'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0285000 'java/lang/invoke/LambdaForm$MH+0x00000007c0285000'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c0284800 'java/lang/invoke/LambdaForm$MH+0x00000007c0284800'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023ec00 'java/lang/invoke/LambdaForm$MH+0x00000007c023ec00'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023e800 'java/lang/invoke/LambdaForm$MH+0x00000007c023e800'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023e000 'java/lang/invoke/LambdaForm$MH+0x00000007c023e000'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023dc00 'java/lang/invoke/LambdaForm$MH+0x00000007c023dc00'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023d400 'java/lang/invoke/LambdaForm$MH+0x00000007c023d400'
+Event: 1.169 Thread 0x00007fae640217f0 Unloading class 0x00000007c023cc00 'java/lang/invoke/LambdaForm$MH+0x00000007c023cc00'
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 3.932 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745904b30}: io/netty/channel/ChannelInitializer> (0x0000000745904b30) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.932 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074590aff8}: io/netty/channel/ChannelInboundHandlerAdapter> (0x000000074590aff8) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.932 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074590c4e8}: io/netty/bootstrap/AbstractBootstrap> (0x000000074590c4e8) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.932 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074590d668}: io/netty/bootstrap/AbstractBootstrap> (0x000000074590d668) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.933 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007459117e0}: io/netty/channel/ChannelInitializer> (0x00000007459117e0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.933 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745912950}: io/netty/channel/ChannelInitializer> (0x0000000745912950) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.933 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745913f48}: io/netty/util/concurrent/EventExecutorGroup> (0x0000000745913f48) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.933 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745915138}: io/netty/bootstrap/AbstractBootstrap> (0x0000000745915138) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.941 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074591dfd0}: io/netty/channel/ChannelInboundHandlerAdapter> (0x000000074591dfd0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.941 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007459248b8}: io/netty/channel/ChannelInboundHandlerAdapter> (0x00000007459248b8) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.942 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745928570}: org/apache/logging/log4j/core/pattern/ThrowablePatternConverter> (0x0000000745928570) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.942 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074592c620}: org/apache/logging/log4j/core/pattern/ThrowablePatternConverter> (0x000000074592c620) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.943 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074592f710}: org/apache/logging/log4j/core/config/DefaultConfiguration> (0x000000074592f710) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.944 Thread 0x00007fae64d03330 Exception <a 'java/lang/NoClassDefFoundError'{0x00000007459355b0}: org/apache/logging/log4j/core/config/ConfigurationFactory> (0x00000007459355b0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.989 Thread 0x00007faddc000ff0 Exception <a 'java/lang/NoClassDefFoundError'{0x000000074504ce10}: io/netty/handler/codec/http/HttpHeaders> (0x000000074504ce10) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 3.989 Thread 0x00007faddc000ff0 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745052a30}: reactor/netty/DisposableServer> (0x0000000745052a30) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 4.001 Thread 0x00007fae64d03330 Exception <a 'java/lang/IllegalAccessError'{0x00000007459fee00}: superclass access check failed: class org.springframework.boot.env.OriginTrackedYamlLoader$KeyScalarNode (in unnamed module @0x4f99e42d) cannot access class org.yaml.snakeyaml.nodes.ScalarNode (in module org.graalvm.nativeimage.base) because module org.graalvm.nativeimage.base does not export org.yaml.snakeyaml.nodes to unnamed module @0x4f99e42d> (0x00000007459fee00) 
+thrown [src/hotspot/share/classfile/classFileParser.cpp, line 4387]
+Event: 4.017 Thread 0x00007fae64d03330 Exception <a 'java/lang/IllegalAccessError'{0x0000000745a4c220}: superclass access check failed: class org.springframework.boot.env.OriginTrackedYamlLoader$OriginTrackingConstructor (in unnamed module @0x4f99e42d) cannot access class org.yaml.snakeyaml.constructor.SafeConstructor (in module org.graalvm.nativeimage.base) because module org.graalvm.nativeimage.base does not export org.yaml.snakeyaml.constructor to unnamed module @0x4f99e42d> (0x0000000745a4c220) 
+thrown [src/hotspot/share/classfile/classFile
+Event: 4.017 Thread 0x00007fade4000ff0 Exception <a 'java/lang/NoClassDefFoundError'{0x0000000745c8da70}: org/apache/commons/digester/AbstractObjectCreationFactory> (0x0000000745c8da70) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 294]
+Event: 4.017 Thread 0x00007fae64d03330 Exception <a 'java/lang/IllegalAccessError'{0x0000000745a523e0}: superclass access check failed: class org.springframework.boot.env.OriginTrackedYamlLoader$LimitedResolver (in unnamed module @0x4f99e42d) cannot access class org.yaml.snakeyaml.resolver.Resolver (in module org.graalvm.nativeimage.base) because module org.graalvm.nativeimage.base does not export org.yaml.snakeyaml.resolver to unnamed module @0x4f99e42d> (0x0000000745a523e0) 
+thrown [src/hotspot/share/classfile/classFileParser.cpp, line 4387]
+
+VM Operations (20 events):
+Event: 3.357 Executing VM operation: HandshakeAllThreads
+Event: 3.357 Executing VM operation: HandshakeAllThreads done
+Event: 3.478 Executing VM operation: HandshakeAllThreads
+Event: 3.479 Executing VM operation: HandshakeAllThreads done
+Event: 3.549 Executing VM operation: HandshakeAllThreads
+Event: 3.555 Executing VM operation: HandshakeAllThreads done
+Event: 3.556 Executing VM operation: HandshakeAllThreads
+Event: 3.556 Executing VM operation: HandshakeAllThreads done
+Event: 3.672 Executing VM operation: HandshakeAllThreads
+Event: 3.672 Executing VM operation: HandshakeAllThreads done
+Event: 3.777 Executing VM operation: HandshakeAllThreads
+Event: 3.777 Executing VM operation: HandshakeAllThreads done
+Event: 3.817 Executing VM operation: HandshakeAllThreads
+Event: 3.818 Executing VM operation: HandshakeAllThreads done
+Event: 3.889 Executing VM operation: HandshakeAllThreads
+Event: 3.889 Executing VM operation: HandshakeAllThreads done
+Event: 3.972 Executing VM operation: HandshakeAllThreads
+Event: 3.972 Executing VM operation: HandshakeAllThreads done
+Event: 3.976 Executing VM operation: HandshakeAllThreads
+Event: 3.976 Executing VM operation: HandshakeAllThreads done
+
+Events (20 events):
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae4abe0f90
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae4abd6d90
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae4abd4f10
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52783710
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52781090
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52780d10
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae5277ff10
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae5277f790
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52773910
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52769c10
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52768790
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52758590
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52757c90
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52745710
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52744610
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae526fd890
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae526f8e10
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae526bb790
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae526ac490
+Event: 3.011 Thread 0x00007fae640217f0 flushing nmethod 0x00007fae52692610
+
+
+Dynamic libraries:
+63a200000-664d00000 rw-p 00000000 00:00 0 
+664d00000-73e100000 ---p 00000000 00:00 0 
+73e100000-763600000 rw-p 00000000 00:00 0 
+763600000-7c0000000 ---p 00000000 00:00 0 
+7c0000000-7c0040000 rw-p 00000000 00:00 0 
+7c0040000-7c00c0000 rw-p 00000000 00:00 0 
+7c00c0000-7c0100000 rw-p 00000000 00:00 0 
+7c0100000-7c0180000 rw-p 00000000 00:00 0 
+7c0180000-7c0280000 rw-p 00000000 00:00 0 
+7c0280000-7c0540000 rw-p 00000000 00:00 0 
+7c0540000-7c0580000 rw-p 00000000 00:00 0 
+7c0580000-7c06e0000 rw-p 00000000 00:00 0 
+7c06e0000-7c0700000 rw-p 00000000 00:00 0 
+7c0700000-7c0ae0000 rw-p 00000000 00:00 0 
+7c0ae0000-7c0af0000 rw-p 00000000 00:00 0 
+7c0af0000-7c0b00000 ---p 00000000 00:00 0 
+7c0b00000-7c0bd0000 rw-p 00000000 00:00 0 
+7c0bd0000-800000000 ---p 00000000 00:00 0 
+56116551c000-56116551d000 r-xp 00000000 08:20 455794                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/bin/java
+56116551e000-56116551f000 r--p 00001000 08:20 455794                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/bin/java
+56116551f000-561165520000 rw-p 00002000 08:20 455794                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/bin/java
+5611672da000-561167323000 rw-p 00000000 00:00 0                          [heap]
+7fad70000000-7fad70021000 rw-p 00000000 00:00 0 
+7fad70021000-7fad74000000 ---p 00000000 00:00 0 
+7fad74000000-7fad74780000 rw-p 00000000 00:00 0 
+7fad74780000-7fad747e0000 rw-p 00000000 00:00 0 
+7fad747e0000-7fad74800000 ---p 00000000 00:00 0 
+7fad74800000-7fad74c50000 rw-p 00000000 00:00 0 
+7fad74c50000-7fad78000000 ---p 00000000 00:00 0 
+7fad78000000-7fad78055000 rw-p 00000000 00:00 0 
+7fad78055000-7fad7c000000 ---p 00000000 00:00 0 
+7fad7c000000-7fad7c02f000 rw-p 00000000 00:00 0 
+7fad7c02f000-7fad80000000 ---p 00000000 00:00 0 
+7fad80000000-7fad8003d000 rw-p 00000000 00:00 0 
+7fad8003d000-7fad84000000 ---p 00000000 00:00 0 
+7fad84000000-7fad84032000 rw-p 00000000 00:00 0 
+7fad84032000-7fad88000000 ---p 00000000 00:00 0 
+7fad88000000-7fad880a7000 rw-p 00000000 00:00 0 
+7fad880a7000-7fad8c000000 ---p 00000000 00:00 0 
+7fad8c400000-7fad8c404000 ---p 00000000 00:00 0 
+7fad8c404000-7fad8ce00000 rw-p 00000000 00:00 0 
+7fad8ce00000-7fad8ce04000 ---p 00000000 00:00 0 
+7fad8ce04000-7fad8d800000 rw-p 00000000 00:00 0 
+7fad8d800000-7fad8d804000 ---p 00000000 00:00 0 
+7fad8d804000-7fad8e200000 rw-p 00000000 00:00 0 
+7fad8e200000-7fad8e204000 ---p 00000000 00:00 0 
+7fad8e204000-7fad8ec00000 rw-p 00000000 00:00 0 
+7fad8ec00000-7fad8ec04000 ---p 00000000 00:00 0 
+7fad8ec04000-7fad8f600000 rw-p 00000000 00:00 0 
+7fad8f600000-7fad8f604000 ---p 00000000 00:00 0 
+7fad8f604000-7fad90000000 rw-p 00000000 00:00 0 
+7fad90000000-7fad90063000 rw-p 00000000 00:00 0 
+7fad90063000-7fad94000000 ---p 00000000 00:00 0 
+7fad94000000-7fad94026000 rw-p 00000000 00:00 0 
+7fad94026000-7fad98000000 ---p 00000000 00:00 0 
+7fad98000000-7fad9803d000 rw-p 00000000 00:00 0 
+7fad9803d000-7fad9c000000 ---p 00000000 00:00 0 
+7fad9c000000-7fad9c032000 rw-p 00000000 00:00 0 
+7fad9c032000-7fada0000000 ---p 00000000 00:00 0 
+7fada0000000-7fada0572000 rw-p 00000000 00:00 0 
+7fada0572000-7fada4000000 ---p 00000000 00:00 0 
+7fada4000000-7fada406e000 rw-p 00000000 00:00 0 
+7fada406e000-7fada8000000 ---p 00000000 00:00 0 
+7fada8000000-7fada8021000 rw-p 00000000 00:00 0 
+7fada8021000-7fadac000000 ---p 00000000 00:00 0 
+7fadac000000-7fadac021000 rw-p 00000000 00:00 0 
+7fadac021000-7fadb0000000 ---p 00000000 00:00 0 
+7fadb0000000-7fadb0021000 rw-p 00000000 00:00 0 
+7fadb0021000-7fadb4000000 ---p 00000000 00:00 0 
+7fadb4000000-7fadb4021000 rw-p 00000000 00:00 0 
+7fadb4021000-7fadb8000000 ---p 00000000 00:00 0 
+7fadb8000000-7fadb8021000 rw-p 00000000 00:00 0 
+7fadb8021000-7fadbc000000 ---p 00000000 00:00 0 
+7fadbc000000-7fadbc021000 rw-p 00000000 00:00 0 
+7fadbc021000-7fadc0000000 ---p 00000000 00:00 0 
+7fadc0200000-7fadc034d000 r-xp 00000000 08:20 453486                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/hsdis-amd64.so
+7fadc034d000-7fadc054d000 ---p 0014d000 08:20 453486                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/hsdis-amd64.so
+7fadc054d000-7fadc0623000 rw-p 0014d000 08:20 453486                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/hsdis-amd64.so
+7fadc0623000-7fadc0627000 rw-p 00000000 00:00 0 
+7fadc0669000-7fadc08f6000 rw-p 00000000 00:00 0 
+7fadc08f6000-7fadc08fa000 ---p 00000000 00:00 0 
+7fadc08fa000-7fadc12f6000 rw-p 00000000 00:00 0 
+7fadc12f6000-7fadc12fa000 ---p 00000000 00:00 0 
+7fadc12fa000-7fadc1cf6000 rw-p 00000000 00:00 0 
+7fadc1cf6000-7fadc1cfa000 ---p 00000000 00:00 0 
+7fadc1cfa000-7fadc26f6000 rw-p 00000000 00:00 0 
+7fadc26f6000-7fadc26fa000 ---p 00000000 00:00 0 
+7fadc26fa000-7fadc30f6000 rw-p 00000000 00:00 0 
+7fadc30f6000-7fadc30fa000 ---p 00000000 00:00 0 
+7fadc30fa000-7fadc3af6000 rw-p 00000000 00:00 0 
+7fadc3af6000-7fadc3af7000 ---p 00000000 00:00 0 
+7fadc3af7000-7fadc3bf8000 rw-p 00000000 00:00 0 
+7fadc3bf8000-7fadc3bf9000 ---p 00000000 00:00 0 
+7fadc3bf9000-7fadc3cfa000 rw-p 00000000 00:00 0 
+7fadc3cfa000-7fadc3cfb000 ---p 00000000 00:00 0 
+7fadc3cfb000-7fadc3dfc000 rw-p 00000000 00:00 0 
+7fadc3dfc000-7fadc3dfd000 ---p 00000000 00:00 0 
+7fadc3dfd000-7fadc3efe000 rw-p 00000000 00:00 0 
+7fadc3efe000-7fadc3eff000 ---p 00000000 00:00 0 
+7fadc3eff000-7fadc4000000 rw-p 00000000 00:00 0 
+7fadc4000000-7fadc4021000 rw-p 00000000 00:00 0 
+7fadc4021000-7fadc8000000 ---p 00000000 00:00 0 
+7fadc8000000-7fadc8021000 rw-p 00000000 00:00 0 
+7fadc8021000-7fadcc000000 ---p 00000000 00:00 0 
+7fadcc000000-7fadcc394000 rw-p 00000000 00:00 0 
+7fadcc394000-7fadd0000000 ---p 00000000 00:00 0 
+7fadd0000000-7fadd0021000 rw-p 00000000 00:00 0 
+7fadd0021000-7fadd4000000 ---p 00000000 00:00 0 
+7fadd4000000-7fadd4429000 rw-p 00000000 00:00 0 
+7fadd4429000-7fadd8000000 ---p 00000000 00:00 0 
+7fadd8000000-7fadd8569000 rw-p 00000000 00:00 0 
+7fadd8569000-7faddc000000 ---p 00000000 00:00 0 
+7faddc000000-7faddc577000 rw-p 00000000 00:00 0 
+7faddc577000-7fade0000000 ---p 00000000 00:00 0 
+7fade0000000-7fade0393000 rw-p 00000000 00:00 0 
+7fade0393000-7fade4000000 ---p 00000000 00:00 0 
+7fade4000000-7fade4335000 rw-p 00000000 00:00 0 
+7fade4335000-7fade8000000 ---p 00000000 00:00 0 
+7fade8000000-7fade845e000 rw-p 00000000 00:00 0 
+7fade845e000-7fadec000000 ---p 00000000 00:00 0 
+7fadec0fa000-7fadec0fb000 ---p 00000000 00:00 0 
+7fadec0fb000-7fadec1fc000 rw-p 00000000 00:00 0 
+7fadec1fc000-7fadec1fd000 ---p 00000000 00:00 0 
+7fadec1fd000-7fadec2fe000 rw-p 00000000 00:00 0 
+7fadec2fe000-7fadec2ff000 ---p 00000000 00:00 0 
+7fadec2ff000-7fadec400000 rw-p 00000000 00:00 0 
+7fadec400000-7fadec404000 ---p 00000000 00:00 0 
+7fadec404000-7fadece00000 rw-p 00000000 00:00 0 
+7fadece00000-7fadece04000 ---p 00000000 00:00 0 
+7fadece04000-7faded800000 rw-p 00000000 00:00 0 
+7faded800000-7faded804000 ---p 00000000 00:00 0 
+7faded804000-7fadee200000 rw-p 00000000 00:00 0 
+7fadee200000-7fadee204000 ---p 00000000 00:00 0 
+7fadee204000-7fadeec00000 rw-p 00000000 00:00 0 
+7fadeec00000-7fadeec04000 ---p 00000000 00:00 0 
+7fadeec04000-7fadef600000 rw-p 00000000 00:00 0 
+7fadef600000-7fadef604000 ---p 00000000 00:00 0 
+7fadef604000-7fadf0000000 rw-p 00000000 00:00 0 
+7fadf0000000-7fadf0021000 rw-p 00000000 00:00 0 
+7fadf0021000-7fadf4000000 ---p 00000000 00:00 0 
+7fadf4000000-7fadf43aa000 rw-p 00000000 00:00 0 
+7fadf43aa000-7fadf8000000 ---p 00000000 00:00 0 
+7fadf8000000-7fadf8021000 rw-p 00000000 00:00 0 
+7fadf8021000-7fadfc000000 ---p 00000000 00:00 0 
+7fadfc000000-7fadfc021000 rw-p 00000000 00:00 0 
+7fadfc021000-7fae00000000 ---p 00000000 00:00 0 
+7fae00000000-7fae00c16000 rw-p 00000000 00:00 0 
+7fae00c16000-7fae04000000 ---p 00000000 00:00 0 
+7fae04000000-7fae0425d000 rw-p 00000000 00:00 0 
+7fae0425d000-7fae08000000 ---p 00000000 00:00 0 
+7fae08000000-7fae08021000 rw-p 00000000 00:00 0 
+7fae08021000-7fae0c000000 ---p 00000000 00:00 0 
+7fae0c000000-7fae0c35b000 rw-p 00000000 00:00 0 
+7fae0c35b000-7fae10000000 ---p 00000000 00:00 0 
+7fae10009000-7fae100fc000 rw-p 00000000 00:00 0 
+7fae100fc000-7fae100fd000 ---p 00000000 00:00 0 
+7fae100fd000-7fae101fe000 rw-p 00000000 00:00 0 
+7fae101fe000-7fae10202000 ---p 00000000 00:00 0 
+7fae10202000-7fae10bfe000 rw-p 00000000 00:00 0 
+7fae10bfe000-7fae10c02000 ---p 00000000 00:00 0 
+7fae10c02000-7fae115fe000 rw-p 00000000 00:00 0 
+7fae115fe000-7fae11602000 ---p 00000000 00:00 0 
+7fae11602000-7fae11ffe000 rw-p 00000000 00:00 0 
+7fae11ffe000-7fae12002000 ---p 00000000 00:00 0 
+7fae12002000-7fae129fe000 rw-p 00000000 00:00 0 
+7fae129fe000-7fae129ff000 ---p 00000000 00:00 0 
+7fae129ff000-7fae12b00000 rw-p 00000000 00:00 0 
+7fae12b00000-7fae12b04000 ---p 00000000 00:00 0 
+7fae12b04000-7fae13500000 rw-p 00000000 00:00 0 
+7fae13500000-7fae13504000 ---p 00000000 00:00 0 
+7fae13504000-7fae13600000 rw-p 00000000 00:00 0 
+7fae13600000-7fae13604000 ---p 00000000 00:00 0 
+7fae13604000-7fae14000000 rw-p 00000000 00:00 0 
+7fae14000000-7fae14021000 rw-p 00000000 00:00 0 
+7fae14021000-7fae18000000 ---p 00000000 00:00 0 
+7fae18000000-7fae18e6d000 rw-p 00000000 00:00 0 
+7fae18e6d000-7fae1c000000 ---p 00000000 00:00 0 
+7fae1c000000-7fae1c021000 rw-p 00000000 00:00 0 
+7fae1c021000-7fae20000000 ---p 00000000 00:00 0 
+7fae20000000-7fae20021000 rw-p 00000000 00:00 0 
+7fae20021000-7fae24000000 ---p 00000000 00:00 0 
+7fae24000000-7fae24021000 rw-p 00000000 00:00 0 
+7fae24021000-7fae28000000 ---p 00000000 00:00 0 
+7fae28000000-7fae28021000 rw-p 00000000 00:00 0 
+7fae28021000-7fae2c000000 ---p 00000000 00:00 0 
+7fae2c000000-7fae2c021000 rw-p 00000000 00:00 0 
+7fae2c021000-7fae30000000 ---p 00000000 00:00 0 
+7fae300a6000-7fae300b3000 r-xp 00000000 08:20 455737                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libverify.so
+7fae300b3000-7fae300b5000 r--p 0000c000 08:20 455737                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libverify.so
+7fae300b5000-7fae300b6000 rw-p 0000e000 08:20 455737                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libverify.so
+7fae300b6000-7fae300bc000 r-xp 00000000 08:20 455736                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement_ext.so
+7fae300bc000-7fae300bd000 r--p 00005000 08:20 455736                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement_ext.so
+7fae300bd000-7fae300be000 rw-p 00006000 08:20 455736                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement_ext.so
+7fae300be000-7fae300c2000 r-xp 00000000 08:20 455762                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement.so
+7fae300c2000-7fae300c3000 r--p 00003000 08:20 455762                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement.so
+7fae300c3000-7fae300c4000 rw-p 00004000 08:20 455762                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libmanagement.so
+7fae300c4000-7fae300c5000 r--p 00000000 08:20 455231                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+7fae300c5000-7fae300c6000 r-xp 00001000 08:20 455231                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+7fae300c6000-7fae300c7000 r--p 00002000 08:20 455231                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+7fae300c7000-7fae300c8000 r--p 00002000 08:20 455231                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+7fae300c8000-7fae300c9000 rw-p 00003000 08:20 455231                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/lib/libreporterchelper.so
+7fae300c9000-7fae300d0000 r-xp 00000000 08:20 455739                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libzip.so
+7fae300d0000-7fae300d1000 ---p 00007000 08:20 455739                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libzip.so
+7fae300d1000-7fae300d2000 r--p 00007000 08:20 455739                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libzip.so
+7fae300d2000-7fae300d3000 rw-p 00008000 08:20 455739                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libzip.so
+7fae300d3000-7fae300d7000 ---p 00000000 00:00 0 
+7fae300d7000-7fae301d3000 rw-p 00000000 00:00 0 
+7fae301d3000-7fae301d7000 ---p 00000000 00:00 0 
+7fae301d7000-7fae302d3000 rw-p 00000000 00:00 0 
+7fae302d3000-7fae302d7000 ---p 00000000 00:00 0 
+7fae302d7000-7fae303d3000 rw-p 00000000 00:00 0 
+7fae303d3000-7fae303d7000 ---p 00000000 00:00 0 
+7fae303d7000-7fae30dd3000 rw-p 00000000 00:00 0 
+7fae30dd3000-7fae30dd7000 ---p 00000000 00:00 0 
+7fae30dd7000-7fae317d3000 rw-p 00000000 00:00 0 
+7fae317d3000-7fae317d7000 ---p 00000000 00:00 0 
+7fae317d7000-7fae321d3000 rw-p 00000000 00:00 0 
+7fae321d3000-7fae321d7000 ---p 00000000 00:00 0 
+7fae321d7000-7fae32bd3000 rw-p 00000000 00:00 0 
+7fae32bd3000-7fae32bd7000 ---p 00000000 00:00 0 
+7fae32bd7000-7fae335d3000 rw-p 00000000 00:00 0 
+7fae335d3000-7fae3362a000 r--p 00000000 08:20 2336                       /usr/lib/locale/C.utf8/LC_CTYPE
+7fae3362a000-7fae3362b000 ---p 00000000 00:00 0 
+7fae3362b000-7fae3372c000 rw-p 00000000 00:00 0 
+7fae3372c000-7fae337fa000 r-xp 00000000 08:20 455732                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjsvml.so
+7fae337fa000-7fae337fb000 r--p 000cd000 08:20 455732                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjsvml.so
+7fae337fb000-7fae337fc000 rw-p 000ce000 08:20 455732                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjsvml.so
+7fae337fc000-7fae34100000 rw-p 00000000 00:00 0 
+7fae34100000-7fae34120000 rw-p 00000000 00:00 0 
+7fae34120000-7fae34140000 rw-p 00000000 00:00 0 
+7fae34140000-7fae34180000 rw-p 00000000 00:00 0 
+7fae34180000-7fae34300000 rw-p 00000000 00:00 0 
+7fae34300000-7fae34380000 rw-p 00000000 00:00 0 
+7fae34380000-7fae34400000 rw-p 00000000 00:00 0 
+7fae34400000-7fae344e0000 rw-p 00000000 00:00 0 
+7fae344e0000-7fae34500000 rw-p 00000000 00:00 0 
+7fae34500000-7fae34700000 rw-p 00000000 00:00 0 
+7fae34700000-7fae34900000 rw-p 00000000 00:00 0 
+7fae34900000-7fae34d80000 rw-p 00000000 00:00 0 
+7fae34d80000-7fae34f00000 rw-p 00000000 00:00 0 
+7fae34f00000-7fae35000000 rw-p 00000000 00:00 0 
+7fae35000000-7fae35d80000 rw-p 00000000 00:00 0 
+7fae35d80000-7fae35e00000 rw-p 00000000 00:00 0 
+7fae35e00000-7fae36000000 rw-p 00000000 00:00 0 
+7fae36000000-7fae36180000 rw-p 00000000 00:00 0 
+7fae36180000-7fae36200000 rw-p 00000000 00:00 0 
+7fae36200000-7fae36400000 rw-p 00000000 00:00 0 
+7fae36400000-7fae36800000 rw-p 00000000 00:00 0 
+7fae36800000-7fae37580000 rw-p 00000000 00:00 0 
+7fae37580000-7fae37600000 rw-p 00000000 00:00 0 
+7fae37600000-7fae37c00000 rw-p 00000000 00:00 0 
+7fae37c01000-7fae37c0d000 r-xp 00000000 08:20 455766                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnet.so
+7fae37c0d000-7fae37c0e000 r--p 0000b000 08:20 455766                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnet.so
+7fae37c0e000-7fae37c0f000 rw-p 0000c000 08:20 455766                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnet.so
+7fae37c0f000-7fae44000000 rw-p 00000000 00:00 0 
+7fae44000000-7fae44021000 rw-p 00000000 00:00 0 
+7fae44021000-7fae48000000 ---p 00000000 00:00 0 
+7fae48000000-7fae48013000 r-xp 00000000 08:20 455735                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnio.so
+7fae48013000-7fae48014000 ---p 00013000 08:20 455735                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnio.so
+7fae48014000-7fae48015000 r--p 00013000 08:20 455735                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnio.so
+7fae48015000-7fae48016000 rw-p 00014000 08:20 455735                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libnio.so
+7fae48016000-7fae48017000 r--p 00000000 08:20 2343                       /usr/lib/locale/C.utf8/LC_NUMERIC
+7fae48017000-7fae48018000 r--p 00000000 08:20 2346                       /usr/lib/locale/C.utf8/LC_TIME
+7fae48018000-7fae48019000 r--p 00000000 08:20 2335                       /usr/lib/locale/C.utf8/LC_COLLATE
+7fae48019000-7fae4801a000 r--p 00000000 08:20 2341                       /usr/lib/locale/C.utf8/LC_MONETARY
+7fae4801a000-7fae48021000 r--s 00000000 08:20 6197                       /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7fae48021000-7fae4a4ff000 rw-p 00000000 00:00 0 
+7fae4a4ff000-7fae4abc9000 ---p 00000000 00:00 0 
+7fae4abc9000-7fae4b0a9000 rwxp 00000000 00:00 0 
+7fae4b0a9000-7fae52100000 ---p 00000000 00:00 0 
+7fae52100000-7fae52370000 rwxp 00000000 00:00 0 
+7fae52370000-7fae52692000 ---p 00000000 00:00 0 
+7fae52692000-7fae52902000 rwxp 00000000 00:00 0 
+7fae52902000-7fae59bc9000 ---p 00000000 00:00 0 
+7fae59bc9000-7fae64000000 r--s 00000000 08:20 455768                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/modules
+7fae64000000-7fae64d57000 rw-p 00000000 00:00 0 
+7fae64d57000-7fae68000000 ---p 00000000 00:00 0 
+7fae68000000-7fae68001000 r--p 00000000 08:20 2340                       /usr/lib/locale/C.utf8/LC_MESSAGES/SYS_LC_MESSAGES
+7fae68001000-7fae68002000 r--p 00000000 08:20 2344                       /usr/lib/locale/C.utf8/LC_PAPER
+7fae68002000-7fae68003000 r--p 00000000 08:20 2342                       /usr/lib/locale/C.utf8/LC_NAME
+7fae68003000-7fae684a4000 rw-p 00000000 00:00 0 
+7fae684a4000-7fae684a5000 ---p 00000000 00:00 0 
+7fae684a5000-7fae686fc000 rw-p 00000000 00:00 0 
+7fae686fc000-7fae68dc5000 ---p 00000000 00:00 0 
+7fae68dc5000-7fae68ef0000 rw-p 00000000 00:00 0 
+7fae68ef0000-7fae691d6000 ---p 00000000 00:00 0 
+7fae691d6000-7fae691db000 rw-p 00000000 00:00 0 
+7fae691db000-7fae692c1000 ---p 00000000 00:00 0 
+7fae692c1000-7fae692cb000 rw-p 00000000 00:00 0 
+7fae692cb000-7fae693ac000 ---p 00000000 00:00 0 
+7fae693ac000-7fae693b1000 rw-p 00000000 00:00 0 
+7fae693b1000-7fae693b8000 ---p 00000000 00:00 0 
+7fae693b8000-7fae693de000 r-xp 00000000 08:20 455725                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjava.so
+7fae693de000-7fae693df000 r--p 00025000 08:20 455725                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjava.so
+7fae693df000-7fae693e0000 rw-p 00026000 08:20 455725                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjava.so
+7fae693e0000-7fae693e1000 rw-p 00000000 00:00 0 
+7fae693e1000-7fae693e9000 rw-s 00000000 08:20 446733                     /tmp/hsperfdata_richardh/16518
+7fae693e9000-7fae69404000 r-xp 00000000 08:20 455745                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjimage.so
+7fae69404000-7fae69405000 ---p 0001b000 08:20 455745                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjimage.so
+7fae69405000-7fae69407000 r--p 0001b000 08:20 455745                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjimage.so
+7fae69407000-7fae69408000 rw-p 0001d000 08:20 455745                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjimage.so
+7fae69408000-7fae6940c000 ---p 00000000 00:00 0 
+7fae6940c000-7fae69e08000 rw-p 00000000 00:00 0 
+7fae69e08000-7fae69e16000 r--p 00000000 08:20 6588                       /usr/lib/x86_64-linux-gnu/libm.so.6
+7fae69e16000-7fae69e92000 r-xp 0000e000 08:20 6588                       /usr/lib/x86_64-linux-gnu/libm.so.6
+7fae69e92000-7fae69eed000 r--p 0008a000 08:20 6588                       /usr/lib/x86_64-linux-gnu/libm.so.6
+7fae69eed000-7fae69eee000 r--p 000e4000 08:20 6588                       /usr/lib/x86_64-linux-gnu/libm.so.6
+7fae69eee000-7fae69eef000 rw-p 000e5000 08:20 6588                       /usr/lib/x86_64-linux-gnu/libm.so.6
+7fae69eef000-7fae69ef0000 r--p 00000000 08:20 6707                       /usr/lib/x86_64-linux-gnu/librt.so.1
+7fae69ef0000-7fae69ef1000 r-xp 00001000 08:20 6707                       /usr/lib/x86_64-linux-gnu/librt.so.1
+7fae69ef1000-7fae69ef2000 r--p 00002000 08:20 6707                       /usr/lib/x86_64-linux-gnu/librt.so.1
+7fae69ef2000-7fae69ef3000 r--p 00002000 08:20 6707                       /usr/lib/x86_64-linux-gnu/librt.so.1
+7fae69ef3000-7fae69ef4000 rw-p 00003000 08:20 6707                       /usr/lib/x86_64-linux-gnu/librt.so.1
+7fae69ef4000-7fae6b10d000 r-xp 00000000 08:20 455773                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/server/libjvm.so
+7fae6b10d000-7fae6b1d6000 r--p 01218000 08:20 455773                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/server/libjvm.so
+7fae6b1d6000-7fae6b20b000 rw-p 012e1000 08:20 455773                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/server/libjvm.so
+7fae6b20b000-7fae6b26e000 rw-p 00000000 00:00 0 
+7fae6b26e000-7fae6b296000 r--p 00000000 08:20 6426                       /usr/lib/x86_64-linux-gnu/libc.so.6
+7fae6b296000-7fae6b42b000 r-xp 00028000 08:20 6426                       /usr/lib/x86_64-linux-gnu/libc.so.6
+7fae6b42b000-7fae6b483000 r--p 001bd000 08:20 6426                       /usr/lib/x86_64-linux-gnu/libc.so.6
+7fae6b483000-7fae6b487000 r--p 00214000 08:20 6426                       /usr/lib/x86_64-linux-gnu/libc.so.6
+7fae6b487000-7fae6b489000 rw-p 00218000 08:20 6426                       /usr/lib/x86_64-linux-gnu/libc.so.6
+7fae6b489000-7fae6b496000 rw-p 00000000 00:00 0 
+7fae6b496000-7fae6b497000 r--p 00000000 08:20 6456                       /usr/lib/x86_64-linux-gnu/libdl.so.2
+7fae6b497000-7fae6b498000 r-xp 00001000 08:20 6456                       /usr/lib/x86_64-linux-gnu/libdl.so.2
+7fae6b498000-7fae6b499000 r--p 00002000 08:20 6456                       /usr/lib/x86_64-linux-gnu/libdl.so.2
+7fae6b499000-7fae6b49a000 r--p 00002000 08:20 6456                       /usr/lib/x86_64-linux-gnu/libdl.so.2
+7fae6b49a000-7fae6b49b000 rw-p 00003000 08:20 6456                       /usr/lib/x86_64-linux-gnu/libdl.so.2
+7fae6b49b000-7fae6b49c000 r--p 00000000 08:20 6701                       /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7fae6b49c000-7fae6b49d000 r-xp 00001000 08:20 6701                       /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7fae6b49d000-7fae6b49e000 r--p 00002000 08:20 6701                       /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7fae6b49e000-7fae6b49f000 r--p 00002000 08:20 6701                       /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7fae6b49f000-7fae6b4a0000 rw-p 00003000 08:20 6701                       /usr/lib/x86_64-linux-gnu/libpthread.so.0
+7fae6b4a0000-7fae6b4ae000 r-xp 00000000 08:20 455751                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjli.so
+7fae6b4ae000-7fae6b4af000 ---p 0000e000 08:20 455751                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjli.so
+7fae6b4af000-7fae6b4b0000 r--p 0000e000 08:20 455751                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjli.so
+7fae6b4b0000-7fae6b4b1000 rw-p 0000f000 08:20 455751                     /home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/libjli.so
+7fae6b4b1000-7fae6b4b3000 r--p 00000000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4b3000-7fae6b4c4000 r-xp 00002000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4c4000-7fae6b4ca000 r--p 00013000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4ca000-7fae6b4cb000 ---p 00019000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4cb000-7fae6b4cc000 r--p 00019000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4cc000-7fae6b4cd000 rw-p 0001a000 08:20 6782                       /usr/lib/x86_64-linux-gnu/libz.so.1.2.11
+7fae6b4cd000-7fae6b4ce000 r--p 00000000 08:20 2334                       /usr/lib/locale/C.utf8/LC_ADDRESS
+7fae6b4ce000-7fae6b4cf000 r--p 00000000 08:20 2345                       /usr/lib/locale/C.utf8/LC_TELEPHONE
+7fae6b4cf000-7fae6b4d0000 r--p 00000000 08:20 2338                       /usr/lib/locale/C.utf8/LC_MEASUREMENT
+7fae6b4d0000-7fae6b4d1000 r--p 00000000 08:20 2337                       /usr/lib/locale/C.utf8/LC_IDENTIFICATION
+7fae6b4d1000-7fae6b4d2000 ---p 00000000 00:00 0 
+7fae6b4d2000-7fae6b4d3000 r--p 00000000 00:00 0 
+7fae6b4d3000-7fae6b4d5000 rw-p 00000000 00:00 0 
+7fae6b4d5000-7fae6b4d7000 r--p 00000000 08:20 6230                       /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fae6b4d7000-7fae6b501000 r-xp 00002000 08:20 6230                       /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fae6b501000-7fae6b50c000 r--p 0002c000 08:20 6230                       /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fae6b50c000-7fae6b50d000 ---p 00000000 00:00 0 
+7fae6b50d000-7fae6b50f000 r--p 00037000 08:20 6230                       /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fae6b50f000-7fae6b511000 rw-p 00039000 08:20 6230                       /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffcddd3b000-7ffcddd5c000 rw-p 00000000 00:00 0                          [stack]
+7ffcdddcb000-7ffcdddcf000 r--p 00000000 00:00 0                          [vvar]
+7ffcdddcf000-7ffcdddd1000 r-xp 00000000 00:00 0                          [vdso]
+
+
+VM Arguments:
+jvm_args: -XX:ThreadPriorityPolicy=1 -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCIProduct -XX:-UnlockExperimentalVMOptions -XX:+UseParallelGC -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -Dtruffle.TrustAllTruffleRuntimeProviders=true -Dtruffle.TruffleRuntime=com.oracle.truffle.api.impl.DefaultTruffleRuntime -Dgraalvm.ForcePolyglotInvalid=true -Dgraalvm.locatorDisabled=true -Dsubstratevm.IgnoreGraalVersionCheck=true --add-exports=java.base/com.sun.crypto.provider=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.access.foreign=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.event=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.loader=org.graalvm.nativeimage.builder,org.graalvm.truffle --add-exports=java.base/jdk.internal.logger=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.misc=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=java.base/jdk.internal.module=jdk.internal.vm.compiler,org.graalvm.nativeimage.base,org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.org.objectweb.asm=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.perf=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.platform=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.ref=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=java.base/jdk.internal.reflect=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.util=org.graalvm.nativeimage.builder --add-exports=java.base/jdk.internal.vm.annotation=org.graalvm.nativeimage.builder --add-exports=java.base/sun.invoke.util=org.graalvm.nativeimage.builder --add-exports=java.base/sun.net=org.graalvm.nativeimage.builder --add-exports=java.base/sun.nio.ch=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=java.base/sun.reflect.annotation=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.factory=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.reflectiveObjects=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.repository=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.scope=org.graalvm.nativeimage.builder --add-exports=java.base/sun.reflect.generics.tree=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.jca=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.provider=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.ssl=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.util=org.graalvm.nativeimage.builder --add-exports=java.base/sun.security.x509=org.graalvm.nativeimage.builder --add-exports=java.base/sun.text.spi=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.calendar=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.cldr=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.locale.provider=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.locale=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util.resources=org.graalvm.nativeimage.builder --add-exports=java.base/sun.util=org.graalvm.nativeimage.builder --add-exports=java.desktop/sun.java2d.pipe=org.graalvm.nativeimage.builder --add-exports=java.desktop/sun.java2d=org.graalvm.nativeimage.builder --add-exports=java.management/com.sun.jmx.mbeanserver=org.graalvm.nativeimage.builder --add-exports=java.management/sun.management=org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=java.xml.crypto/org.jcp.xml.dsig.internal.dom=org.graalvm.nativeimage.builder --add-exports=jdk.httpserver/sun.net.httpserver.simpleserver=org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.aarch64=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=jdk.internal.vm.ci/jdk.vm.ci.amd64=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.site=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code.stack=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.internal.vm.ci/jdk.vm.ci.code=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.common=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.aarch64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.amd64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot.riscv64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.hotspot=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.meta=jdk.internal.vm.compiler,org.graalvm.nativeimage.base,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.objectfile,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.riscv64=jdk.internal.vm.compiler --add-exports=jdk.internal.vm.ci/jdk.vm.ci.runtime=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder,org.graalvm.nativeimage.pointsto --add-exports=jdk.internal.vm.ci/jdk.vm.ci.services=jdk.internal.vm.compiler,org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.events=org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.internal.jfc=org.graalvm.nativeimage.builder --add-exports=jdk.jfr/jdk.jfr.internal=org.graalvm.nativeimage.builder --add-exports=jdk.management/com.sun.management.internal=org.graalvm.nativeimage.builder -XX:-UseJVMCICompiler -Xss10m -Xms1g -Xmx6540686128 -Djava.awt.headless=true -Dorg.graalvm.version=dev -Dorg.graalvm.vendor=Oracle Corporation -Dorg.graalvm.vendorurl=https://www.graalvm.org/ -Dorg.graalvm.config=CE -Dcom.oracle.graalvm.isaot=true -Djava.system.class.loader=com.oracle.svm.hosted.NativeImageSystemClassLoader -Xshare:off -Djdk.internal.lambda.disableEagerInitialization=true -Djdk.internal.lambda.eagerlyInitialize=false -Djava.lang.invoke.InnerClassLambdaMetafactory.initializeLambdas=false --add-modules=ALL-DEFAULT --module-path=/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/truffle/truffle-api.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/llvm-platform-specific-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/javacpp-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/objectfile.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/svm.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/svm-llvm.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/native-image-base.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/javacpp-platform-specific-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/llvm-wrapper-shadowed.jar:/home/richardh/capstone/graal/sdk/mxbuild/linux-amd64/GRAALVM_8F70D52881_JAVA20/graalvm-8f70d52881-java20-23.0.0-dev/lib/svm/builder/pointsto.jar -Djdk.module.main=org.graalvm.nativeimage.builder 
+java_command: org.graalvm.nativeimage.builder/com.oracle.svm.hosted.NativeImageGeneratorRunner --image-args-file=/tmp/native-image4562469794447761166.args
+java_class_path (initial): <not set>
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     bool EnableJVMCI                              = true                                {JVMCI product} {command line}
+     bool EnableJVMCIProduct                       = true                                {JVMCI product} {jimage}
+   size_t InitialHeapSize                          = 1073741824                                {product} {command line}
+   size_t MaxHeapSize                              = 6541017088                                {product} {command line, ergonomic}
+   size_t MaxNewSize                               = 2179989504                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 524288                                    {product} {ergonomic}
+   size_t MinHeapSize                              = 1073741824                                {product} {command line}
+   size_t NewSize                                  = 357564416                                 {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+   size_t OldSize                                  = 716177408                                 {product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 6541017088                             {manageable} {ergonomic}
+      int ThreadPriorityPolicy                     = 1                                         {product} {jimage}
+     intx ThreadStackSize                          = 10240                                  {pd product} {command line}
+     bool UnlockExperimentalVMOptions              = true                                 {experimental} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseJVMCICompiler                         = false                               {JVMCI product} {command line}
+     bool UseParallelGC                            = true                                      {product} {command line}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=/home/richardh/.mx/jdks/labsjdk-ce-20-jvmci-23.0-b05
+PATH=/home/richardh/.vscode-server/bin/7f329fe6c66b0f86ae1574c2911b681ad5a45d63/bin/remote-cli:/mnt/c/Users/Richa/AppData/Local/Programs/Microsoft VS Code/:/usr/lib/jvm/java-11-openjdk-amd64/bin/:~/capstone/mx/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/MicrosoftCorporationII.WindowsSubsystemForLinux_1.1.3.0_x64__8wekyb3d8bbwe:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/MinGW/bin:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.34.31933/bin/Hostx64/x86/:/mnt/c/Users/Richa/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Richa/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/Richa/AppData/Local/Programs/Python/Python39/:/mnt/c/Users/Richa/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/JetBrains/IntelliJ IDEA Community Edition 2021.1.1/bin:/mnt/c/Users/Richa/AppData/Roaming/npm:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2021.2.2/bin:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/Richa/.dotnet/tools:/snap/bin
+SHELL=/bin/bash
+DISPLAY=:0
+HOSTTYPE=x86_64
+LANG=C.UTF-8
+TERM=xterm-256color
+
+Active Locale:
+LC_ALL=C.UTF-8
+LC_COLLATE=C.UTF-8
+LC_CTYPE=C.UTF-8
+LC_MESSAGES=C.UTF-8
+LC_MONETARY=C.UTF-8
+LC_NUMERIC=C.UTF-8
+LC_TIME=C.UTF-8
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGBUS: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+    SIGFPE: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGPIPE: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGXFSZ: javaSignalHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGILL: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+   SIGUSR2: SR_handler in libjvm.so, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGHUP: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+    SIGINT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTERM: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGQUIT: UserHandler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, blocked
+   SIGTRAP: crash_handler in libjvm.so, mask=11100100010111111101111111111110, flags=SA_RESTART|SA_SIGINFO, unblocked
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=22.04
+DISTRIB_CODENAME=jammy
+DISTRIB_DESCRIPTION="Ubuntu 22.04.1 LTS"
+uname: Linux 5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023 x86_64
+OS uptime: 0 days 0:43 hours
+libc: glibc 2.35 NPTL 2.35 
+rlimit (soft/hard): STACK 8192k/infinity , CORE 0k/infinity , NPROC 31163/31163 , NOFILE 1048576/1048576 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 65536k/65536k
+load average: 6.29 3.84 2.25
+
+/proc/meminfo:
+MemTotal:        7984236 kB
+MemFree:         3913996 kB
+MemAvailable:    5607948 kB
+Buffers:          244160 kB
+Cached:          1641364 kB
+SwapCached:            0 kB
+Active:          1433124 kB
+Inactive:        2259872 kB
+Active(anon):       1968 kB
+Inactive(anon):  1807740 kB
+Active(file):    1431156 kB
+Inactive(file):   452132 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097152 kB
+SwapFree:        2097152 kB
+Dirty:               160 kB
+Writeback:             0 kB
+AnonPages:       1784284 kB
+Mapped:           197604 kB
+Shmem:              2236 kB
+KReclaimable:      52760 kB
+Slab:             106108 kB
+SReclaimable:      52760 kB
+SUnreclaim:        53348 kB
+KernelStack:        7008 kB
+PageTables:        16424 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6089268 kB
+Committed_AS:    3829336 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       27120 kB
+VmallocChunk:          0 kB
+Percpu:             4352 kB
+AnonHugePages:   1077248 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:       19456 kB
+DirectMap2M:     4020224 kB
+DirectMap1G:    12582912 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled: [always] madvise never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter): always defer defer+madvise [madvise] never
+
+Process Memory:
+Virtual Size: 11546208K (peak: 11549380K)
+Resident Set Size: 707512K (peak: 709520K) (anon: 652976K, file: 54536K, shmem: 0K)
+Swapped out: 0K
+C-Heap outstanding allocations: 112113K, retained: 17394K
+glibc malloc tunables: (default)
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads): 62326
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have): 65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers): 32768
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-11
+cpu_memory_nodes: 0
+active_processor_count: 12
+cpu_quota: no quota
+cpu_period: 100000
+cpu_shares: no shares
+memory_limit_in_bytes: unlimited
+memory_and_swap_limit_in_bytes: unlimited
+memory_soft_limit_in_bytes: unlimited
+memory_usage_in_bytes: 3670440 k
+memory_max_usage_in_bytes: unlimited
+kernel_memory_usage_in_bytes: unlimited
+kernel_memory_max_usage_in_bytes: unlimited
+kernel_memory_limit_in_bytes: unlimited
+maximum number of tasks: not supported
+current number of tasks: not supported
+
+Hyper-V virtualization detected
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0.000
+
+CPU: total 12 (initial active 12) (8 cores per cpu, 2 threads per core) family 6 model 165 stepping 2 microcode 0xffffffff, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, fma, vzeroupper, clflush, clflushopt, hv, rdtscp, f16c
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology cpuid pni pclmulqdq vmx ssse3 fma cx16 pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi ept vpid ept_ad fsgsbase bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt xsaveopt xsavec xgetbv1 xsaves flush_l1d arch_capabilities
+
+Online cpus: 0-11
+Offline cpus: 
+BIOS frequency limitation: <Not Available>
+Frequency switch latency (ns): <Not Available>
+Available cpu frequencies: <Not Available>
+Current governor: <Not Available>
+Core performance/turbo boost: <Not Available>
+
+Memory: 4k page, physical 7984236k(3913996k free), swap 2097152k(2097152k free)
+Page Sizes: 4k
+
+vm_info: OpenJDK 64-Bit Server VM (20+26-jvmci-23.0-b05) for linux-amd64 JRE (20+26-jvmci-23.0-b05), built on 2022-12-15T00:07:51Z by "buildslave" with gcc 11.2.0
+
+END.
