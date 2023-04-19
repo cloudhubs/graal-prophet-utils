@@ -178,7 +178,7 @@ public class LinkAlg {
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
 
-//                String endpointURI = e.getPath();
+                String endpointURI = e.getPath();
 //
 //                // remove the ms name from the uri
 //                if (endpointURI.startsWith(e.getMsName())) {
