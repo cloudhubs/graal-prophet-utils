@@ -1,0 +1,4 @@
+ts-admin-route-service,adminroute.controller.AdminRouteController,adminroute.controller.AdminRouteController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers
+ts-admin-route-service,adminroute.controller.AdminRouteController,adminroute.controller.AdminRouteController.deleteRoute,/adminroute/{routeId},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_routeId&@RequestHeader_HttpHeaders_headers
+ts-admin-route-service,adminroute.controller.AdminRouteController,adminroute.controller.AdminRouteController.addRoute,/adminroute,POST,org.springframework.http.HttpEntity,false,@RequestBody_RouteInfo_request&@RequestHeader_HttpHeaders_headers
+ts-admin-route-service,adminroute.controller.AdminRouteController,adminroute.controller.AdminRouteController.getAllRoutes,/adminroute,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers

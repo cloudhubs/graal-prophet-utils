@@ -1,0 +1,649 @@
+{
+		"name" : {
+			"name" : "ts-order-other-service",
+			"fullName" : "ts-order-other-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "OrderAlterInfo",
+					"fullName" : "OrderAlterInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "loginToken",
+							"fullName" : "loginToken"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "newOrderInfo",
+							"fullName" : "newOrderInfo"
+							}
+						,
+						"type" : "Order",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "previousOrderId",
+							"fullName" : "previousOrderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "Order",
+					"fullName" : "Order"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "seatNumber",
+							"fullName" : "seatNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "boughtDate",
+							"fullName" : "boughtDate"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "to",
+							"fullName" : "to"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "travelDate",
+							"fullName" : "travelDate"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "trainNumber",
+							"fullName" : "trainNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentType",
+							"fullName" : "documentType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatClass",
+							"fullName" : "seatClass"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "from",
+							"fullName" : "from"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "travelTime",
+							"fullName" : "travelTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsDocumentNumber",
+							"fullName" : "contactsDocumentNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "coachNumber",
+							"fullName" : "coachNumber"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "status",
+							"fullName" : "status"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsName",
+							"fullName" : "contactsName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.service.OrderOtherServiceImpl.queryForStationId",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations/namelist",
+				"isCollection" : false,
+				"restCallInClassName" : "other.service.OrderOtherServiceImpl",
+				"msName" : "ts-order-other-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.payOrder",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/orderPay/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.getOrderById",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.calculateSoldTicket",
+				"arguments" : [
+					"@PathVariable String travelDate",
+					"@PathVariable String trainNumber",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/{travelDate}/{trainNumber}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "other.controller.OrderOtherController.updateOrder",
+				"arguments" : [
+					"@RequestBody Order order",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/admin",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.controller.OrderOtherController.queryOrders",
+				"arguments" : [
+					"@RequestBody QueryInfo qi",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/query",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.getOrderPrice",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/price/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "other.controller.OrderOtherController.deleteOrder",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.securityInfoCheck",
+				"arguments" : [
+					"@PathVariable String checkDate",
+					"@PathVariable String accountId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/security/{checkDate}/{accountId}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.findAllOrder",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.controller.OrderOtherController.createNewOrder",
+				"arguments" : [
+					"@RequestBody Order createOrder",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.controller.OrderOtherController.addcreateNewOrder",
+				"arguments" : [
+					"@RequestBody Order order",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/admin",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "other.controller.OrderOtherController.saveOrderInfo",
+				"arguments" : [
+					"@RequestBody Order orderInfo",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.modifyOrder",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@PathVariable int status",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/status/{orderId}/{status}",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "other.controller.OrderOtherController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.controller.OrderOtherController.getTicketListByDateAndTripId",
+				"arguments" : [
+					"@RequestBody Seat seatRequest",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/tickets",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "other.controller.OrderOtherController.queryOrdersForRefresh",
+				"arguments" : [
+					"@RequestBody QueryInfo qi",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orderOther/refresh",
+				"isCollection" : false,
+				"endpointInClassName" : "other.controller.OrderOtherController",
+				"msName" : "ts-order-other-service"
+				}
+			
+			]
+		
+		}
+	

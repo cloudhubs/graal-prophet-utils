@@ -23,9 +23,9 @@ public class NativeImageRunner {
         this.info = info;
         String microservicePath = info.getBaseDir();
         this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-        this.entityOutput = "./" + outputDir + "/" + info.getMicroserviceName() + ".json";
-        this.restcallOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_restcalls.csv";
-        this.endpointOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_endpoints.csv";
+        this.entityOutput = "/home/jack/Capstone/graal-prophet-utils/" + outputDir + "/" + info.getMicroserviceName() + ".json";
+        this.restcallOutput = "/home/jack/Capstone/graal-prophet-utils/" + outputDir + "/"  + info.getMicroserviceName() + "_restcalls.csv";
+        this.endpointOutput = "/home/jack/Capstone/graal-prophet-utils/" + outputDir + "/"  + info.getMicroserviceName() + "_endpoints.csv";
 
     }
 

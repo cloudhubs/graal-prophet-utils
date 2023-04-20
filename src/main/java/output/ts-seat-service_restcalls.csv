@@ -1,0 +1,5 @@
+ts-seat-service,seat.service.SeatServiceImpl,seat.service.SeatServiceImpl.getLeftTicketOfInterval,ts-order-service/api/v1/orderservice/order/tickets,POST,org.springframework.http.HttpEntity,false
+ts-seat-service,seat.service.SeatServiceImpl,seat.service.SeatServiceImpl.getLeftTicketOfInterval,ts-order-other-service/api/v1/orderOtherService/orderOther/tickets,POST,org.springframework.http.HttpEntity,false
+ts-seat-service,seat.service.SeatServiceImpl,seat.service.SeatServiceImpl.distributeSeat,ts-order-other-service/api/v1/orderOtherService/orderOther/tickets,POST,org.springframework.http.HttpEntity,false
+ts-seat-service,seat.service.SeatServiceImpl,seat.service.SeatServiceImpl.getDirectProportion,ts-config-service/api/v1/configservice/configs/DirectTicketAllocationProportion,GET,org.springframework.http.HttpEntity,false
+ts-seat-service,seat.service.SeatServiceImpl,seat.service.SeatServiceImpl.distributeSeat,ts-order-service/api/v1/orderservice/order/tickets,POST,org.springframework.http.HttpEntity,false

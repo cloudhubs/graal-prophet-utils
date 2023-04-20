@@ -1,0 +1,246 @@
+{
+		"name" : {
+			"name" : "ts-admin-user-service",
+			"fullName" : "ts-admin-user-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "UserDto",
+					"fullName" : "UserDto"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "documentType",
+							"fullName" : "documentType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "gender",
+							"fullName" : "gender"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userName",
+							"fullName" : "userName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "password",
+							"fullName" : "password"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentNum",
+							"fullName" : "documentNum"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "email",
+							"fullName" : "email"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminuser.service.AdminUserServiceImpl.addUser",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-user-service/api/v1/userservice/users/register",
+				"isCollection" : false,
+				"restCallInClassName" : "adminuser.service.AdminUserServiceImpl",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminuser.service.AdminUserServiceImpl.getAllUsers",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-user-service/api/v1/userservice/users",
+				"isCollection" : false,
+				"restCallInClassName" : "adminuser.service.AdminUserServiceImpl",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminuser.service.AdminUserServiceImpl.updateUser",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-user-service/api/v1/userservice/users",
+				"isCollection" : false,
+				"restCallInClassName" : "adminuser.service.AdminUserServiceImpl",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminuser.service.AdminUserServiceImpl.deleteUser",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-user-service/api/v1/userservice/users/",
+				"isCollection" : false,
+				"restCallInClassName" : "adminuser.service.AdminUserServiceImpl",
+				"msName" : "ts-admin-user-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "adminuser.controller.AdminUserController.updateUser",
+				"arguments" : [
+					"@RequestBody UserDto userDto",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : null,
+				"isCollection" : false,
+				"endpointInClassName" : "adminuser.controller.AdminUserController",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "adminuser.controller.AdminUserController.addUser",
+				"arguments" : [
+					"@RequestBody UserDto userDto",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : null,
+				"isCollection" : false,
+				"endpointInClassName" : "adminuser.controller.AdminUserController",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminuser.controller.AdminUserController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "adminuser.controller.AdminUserController",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "adminuser.controller.AdminUserController.getAllUsers",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : null,
+				"isCollection" : false,
+				"endpointInClassName" : "adminuser.controller.AdminUserController",
+				"msName" : "ts-admin-user-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "adminuser.controller.AdminUserController.deleteUser",
+				"arguments" : [
+					"@PathVariable String userId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/{userId}",
+				"isCollection" : false,
+				"endpointInClassName" : "adminuser.controller.AdminUserController",
+				"msName" : "ts-admin-user-service"
+				}
+			
+			]
+		
+		}
+	

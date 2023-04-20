@@ -1,0 +1,4 @@
+ts-payment-service,com.trainticket.controller.PaymentController,com.trainticket.controller.PaymentController.pay,/payment,POST,org.springframework.http.HttpEntity,false,@RequestBody_Payment_info&@RequestHeader_HttpHeaders_headers
+ts-payment-service,com.trainticket.controller.PaymentController,com.trainticket.controller.PaymentController.addMoney,/payment/money,POST,org.springframework.http.HttpEntity,false,@RequestBody_Payment_info&@RequestHeader_HttpHeaders_headers
+ts-payment-service,com.trainticket.controller.PaymentController,com.trainticket.controller.PaymentController.query,/payment,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
+ts-payment-service,com.trainticket.controller.PaymentController,com.trainticket.controller.PaymentController.home,/welcome,GET,java.lang.String,false,

@@ -1,0 +1,8 @@
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.searchMinStopStations,ts-route-service/api/v1/routeservice/routes//,GET,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.getStationList,,GET,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.getTripFromHighSpeedTravelServive,ts-travel-service/api/v1/travelservice/trips/left,POST,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.getTripFromNormalTrainTravelService,ts-travel2-service/api/v1/travel2service/trips/left,POST,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.searchMinStopStations,ts-travel2-service/api/v1/travel2service/trips/routes,POST,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.getRouteByRouteId,ts-route-service/api/v1/routeservice/routes/,GET,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.searchMinStopStations,,POST,org.springframework.http.HttpEntity,false
+ts-route-plan-service,plan.service.RoutePlanServiceImpl,plan.service.RoutePlanServiceImpl.searchMinStopStations,ts-travel-service/api/v1/travelservice/trips/routes,POST,org.springframework.http.HttpEntity,false

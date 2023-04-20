@@ -1,0 +1,426 @@
+{
+		"name" : {
+			"name" : "ts-food-service",
+			"fullName" : "ts-food-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "FoodOrder",
+					"fullName" : "FoodOrder"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "foodName",
+							"fullName" : "foodName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "storeName",
+							"fullName" : "storeName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "foodType",
+							"fullName" : "foodType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "stationName",
+							"fullName" : "stationName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "Delivery",
+					"fullName" : "Delivery"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "foodName",
+							"fullName" : "foodName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "storeName",
+							"fullName" : "storeName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "stationName",
+							"fullName" : "stationName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "UUID",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "AllTripFood",
+					"fullName" : "AllTripFood"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "foodStoreListMap",
+							"fullName" : "foodStoreListMap"
+							}
+						,
+						"type" : "Map",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "trainFoodList",
+							"fullName" : "trainFoodList"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.service.FoodServiceImpl.getAllFood",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-food-service/api/v1/trainfoodservice/trainfoods/",
+				"isCollection" : false,
+				"restCallInClassName" : "foodsearch.service.FoodServiceImpl",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "foodsearch.service.FoodServiceImpl.getAllFood",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-food-service/api/v1/stationfoodservice/stationfoodstores",
+				"isCollection" : false,
+				"restCallInClassName" : "foodsearch.service.FoodServiceImpl",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.service.FoodServiceImpl.getAllFood",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel-service/api/v1/travelservice/routes/",
+				"isCollection" : false,
+				"restCallInClassName" : "foodsearch.service.FoodServiceImpl",
+				"msName" : "ts-food-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.controller.FoodController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.controller.FoodController.findFoodOrderByOrderId",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "foodsearch.controller.FoodController.updateFoodOrder",
+				"arguments" : [
+					"@RequestBody FoodOrder updateFoodOrder",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "foodsearch.controller.FoodController.createFoodOrder",
+				"arguments" : [
+					"@RequestBody FoodOrder addFoodOrder",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.controller.FoodController.test_send_delivery",
+				"arguments" : [
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/test_send_delivery",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "foodsearch.controller.FoodController.createFoodBatches",
+				"arguments" : [
+					"@RequestBody FoodOrder> foodOrderList",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/createOrderBatch",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.controller.FoodController.findAllFoodOrder",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "foodsearch.controller.FoodController.getAllFood",
+				"arguments" : [
+					"@PathVariable String date",
+					"@PathVariable String startStation",
+					"@PathVariable String endStation",
+					"@PathVariable String tripId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/foods/{date}/{startStation}/{endStation}/{tripId}",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "foodsearch.controller.FoodController.deleteFoodOrder",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "foodsearch.controller.FoodController",
+				"msName" : "ts-food-service"
+				}
+			
+			]
+		
+		}
+	

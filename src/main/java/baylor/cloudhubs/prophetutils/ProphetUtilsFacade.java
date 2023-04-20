@@ -58,7 +58,7 @@ public class ProphetUtilsFacade {
 
     private static void createOutputDir(String outputFolderName) throws IOException{
         // Create a File object for the root directory
-        File rootDir = new File("./");
+        File rootDir = new File("/home/jack/Capstone/graal-prophet-utils/");
         // Check if the 'output' directory exists in the root directory
         File outputDir = new File(rootDir, "./" + outputFolderName);
         if (!outputDir.exists()) {

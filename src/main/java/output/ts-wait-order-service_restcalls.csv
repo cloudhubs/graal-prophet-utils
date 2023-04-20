@@ -1,0 +1,1 @@
+ts-wait-order-service,waitorder.utils.PollThread,waitorder.utils.PollThread.doPreserve,/api/v1/contactservice/preserve,POST,org.springframework.http.HttpEntity,false

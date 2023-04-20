@@ -1,0 +1,5 @@
+ts-admin-travel-service,admintravel.controller.AdminTravelController,admintravel.controller.AdminTravelController.deleteTravel,/admintravel/{tripId},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_tripId&@RequestHeader_HttpHeaders_headers
+ts-admin-travel-service,admintravel.controller.AdminTravelController,admintravel.controller.AdminTravelController.getAllTravels,/admintravel,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
+ts-admin-travel-service,admintravel.controller.AdminTravelController,admintravel.controller.AdminTravelController.addTravel,/admintravel,POST,org.springframework.http.HttpEntity,false,@RequestBody_TravelInfo_request&@RequestHeader_HttpHeaders_headers
+ts-admin-travel-service,admintravel.controller.AdminTravelController,admintravel.controller.AdminTravelController.updateTravel,/admintravel,PUT,org.springframework.http.HttpEntity,false,@RequestBody_TravelInfo_request&@RequestHeader_HttpHeaders_headers
+ts-admin-travel-service,admintravel.controller.AdminTravelController,admintravel.controller.AdminTravelController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers

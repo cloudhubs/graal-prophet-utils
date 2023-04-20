@@ -1,0 +1,1284 @@
+{
+	"node": [
+	{
+		"nodeName": "TransferTravelResult",
+		"nodeFullName": "TransferTravelResult",
+		"fields": [
+			{
+				"fieldName": "firstSectionResult",
+				"fieldFullName": "firstSectionResult",
+				"fieldType": "List",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "secondSectionResult",
+				"fieldFullName": "secondSectionResult",
+				"fieldType": "List",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"nodeName": "TransferTravelInfo",
+		"nodeFullName": "TransferTravelInfo",
+		"fields": [
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelDate",
+				"fieldFullName": "travelDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "viaStation",
+				"fieldFullName": "viaStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"nodeName": "TravelAdvanceResultUnit",
+		"nodeFullName": "TravelAdvanceResultUnit",
+		"fields": [
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "numberOfRestTicketSecondClass",
+				"fieldFullName": "numberOfRestTicketSecondClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainTypeId",
+				"fieldFullName": "trainTypeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "priceForSecondClassSeat",
+				"fieldFullName": "priceForSecondClassSeat",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endTime",
+				"fieldFullName": "endTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "numberOfRestTicketFirstClass",
+				"fieldFullName": "numberOfRestTicketFirstClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stopStations",
+				"fieldFullName": "stopStations",
+				"fieldType": "List",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "priceForFirstClassSeat",
+				"fieldFullName": "priceForFirstClassSeat",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startTime",
+				"fieldFullName": "startTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	}
+	],
+"links": [
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Money",
+			"target": "MoneyType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Payment",
+			"target": "PaymentType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Money",
+			"target": "MoneyType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "1"
+		},
+		{
+			"source": "Payment",
+			"target": "PaymentType",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		}
+	]
+}

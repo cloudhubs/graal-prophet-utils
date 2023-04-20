@@ -1,0 +1,184 @@
+{
+		"name" : {
+			"name" : "ts-cancel-service",
+			"fullName" : "ts-cancel-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "GetOrderByIdInfo",
+					"fullName" : "GetOrderByIdInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "GetAccountByIdInfo",
+					"fullName" : "GetAccountByIdInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.service.CancelServiceImpl.drawbackMoney",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-inside-payment-service/api/v1/inside_pay_service/inside_payment/drawback//",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "cancel.service.CancelServiceImpl.sendEmail",
+				"returnType" : "java.lang.Boolean",
+				"uri" : "ts-notification-service/api/v1/notifyservice/notification/order_cancel_success",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.service.CancelServiceImpl.getOrderByIdFromOrder",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-service/api/v1/orderservice/order/",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "cancel.service.CancelServiceImpl.cancelFromOtherOrder",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-other-service/api/v1/orderOtherService/orderOther",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "cancel.service.CancelServiceImpl.cancelFromOrder",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-service/api/v1/orderservice/order",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.service.CancelServiceImpl.getOrderByIdFromOrderOther",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-other-service/api/v1/orderOtherService/orderOther/",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.service.CancelServiceImpl.getAccount",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-user-service/api/v1/userservice/users/id/",
+				"isCollection" : false,
+				"restCallInClassName" : "cancel.service.CancelServiceImpl",
+				"msName" : "ts-cancel-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.controller.CancelController.calculate",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/cancel/refound/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "cancel.controller.CancelController",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.controller.CancelController.cancelTicket",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@PathVariable String loginId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/cancel/{orderId}/{loginId}",
+				"isCollection" : false,
+				"endpointInClassName" : "cancel.controller.CancelController",
+				"msName" : "ts-cancel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "cancel.controller.CancelController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "cancel.controller.CancelController",
+				"msName" : "ts-cancel-service"
+				}
+			
+			]
+		
+		}
+	
