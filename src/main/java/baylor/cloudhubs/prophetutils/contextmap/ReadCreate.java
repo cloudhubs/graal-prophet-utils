@@ -16,6 +16,8 @@ import baylor.cloudhubs.prophetutils.contextmap.Data.Field;
 
 public class ReadCreate {
 
+    private List<Data> dataList = new ArrayList<>();
+
     private Data d;
 
     private HashMap<Pair<String, String>, Pair<Integer, Integer>> links = new HashMap<>();
@@ -35,13 +37,18 @@ public class ReadCreate {
                     reader.close();
                     d = gson.fromJson(json, Data.class);
                     findLinks();
-                    FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/src/main/java/output/entities.json");
-                    fileWriter.write(this.toString());
-                    fileWriter.close();
+                    dataList.add(d);
                 } catch(IOException e){
                     e.printStackTrace();
                 }
             }
+        }
+        try{
+            FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/src/main/java/output/entities.json");
+            fileWriter.write(this.toString());
+            fileWriter.close();
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -83,8 +90,14 @@ public class ReadCreate {
     public String toString(){
         String ret = "{\n";
         ret += "\t\"node\": [\n";
-        ret += d.toString();
-        ret = ret.substring(0, ret.length() - 4);
+        for(Data data : dataList){
+            ret += data.toString();
+            ret = ret.substring(0, ret.length() - 5);
+            if(!ret.endsWith(",")){
+                ret += ",\n";
+            }
+        }
+        ret = ret.substring(0, ret.length() - 2);
         ret += "\t],\n";
         ret += "\"links\": [\n";
         for(Link l : listLinks){
