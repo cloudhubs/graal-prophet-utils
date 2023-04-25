@@ -10,6 +10,9 @@ import javafx.util.Pair;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.FileWriter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Arrays;
 
 import baylor.cloudhubs.prophetutils.contextmap.Data.Entity;
 import baylor.cloudhubs.prophetutils.contextmap.Data.Field;
@@ -28,12 +31,19 @@ public class ReadCreate {
 
     private HashMap<Pair<String, String>, Integer> mults = new HashMap<>();
 
+    private List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
+                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
+                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
+                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
+                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
+
     public void readIn(){
-        String pathName = "/home/jack/Capstone/graal-prophet-utils/src/main/java/output";
+        String pathName = "/home/jack/Capstone/graal-prophet-utils/output_trainticket";
         File directory = new File(pathName);
         File[] files = directory.listFiles();
         for(File f : files){
-            if(f.getName().substring(f.getName().length() - 5).equals(".json") && !f.getName().equals("entities.json")){
+            if(f.getName().substring(f.getName().length() - 5).equals(".json") && !f.getName().equals("entities.json") 
+            && !f.getName().equals("communicationGraph.json") && !f.getName().equals("system-context.json")){
                 try{
                     Gson gson = new Gson();
                     FileReader reader = new FileReader(pathName + "/" + f.getName());
@@ -47,26 +57,9 @@ public class ReadCreate {
             }
         }
         findLinks();
-        
-        /*try{
-            Gson gson = new Gson();
-            FileReader reader = new FileReader("/home/jack/Capstone/graal-prophet-utils/src/main/java/output/ts-travel-service.json");
-            JsonElement json = gson.fromJson(reader, JsonElement.class);
-            reader.close();
-            d = gson.fromJson(json, Data.class);
-            dataList.add(d);
-            reader = new FileReader("/home/jack/Capstone/graal-prophet-utils/src/main/java/output/ts-train-service.json");
-            json = gson.fromJson(reader, JsonElement.class);
-            reader.close();
-            d = gson.fromJson(json, Data.class);
-            dataList.add(d);
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        findLinks();*/
 
         try{
-            FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/src/main/java/output/entities.json");
+            FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/output_trainticket/entities.json");
             fileWriter.write(this.toString());
             fileWriter.close();
         } catch (IOException e){
@@ -86,17 +79,36 @@ public class ReadCreate {
                 }
             }
         }
+        for(String s : tsCommon){
+            msNames.put(s, "ts-common");
+        }
         //Adds all mults to hashmap
+        Pattern pattern = Pattern.compile("<(.*?)>");
         for(Data d : dataList){
             for(Entity e : d.getEntities()){
                 for(Field f : e.getFields()){
+                    Matcher matcher = pattern.matcher(f.getType());
                     if(msNames.containsKey(f.getType()) && msNames.get(f.getType()) != d.getName().getName()){
                         //System.out.println(e.getEntityName().getName() + " | " + f.getType());
                         Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
                         if(mults.containsKey(p)){
-                            mults.put(p, mults.get(p) + 1);
+                            if(mults.get(p) != -1){
+                                mults.put(p, mults.get(p) + 1);
+                            }
                         }else{
                             mults.put(p, 1);
+                        }
+                    }else{
+                        while(matcher.find()){
+                            String type = matcher.group(1);
+                            for(String s : type.split(",")){
+                                //System.out.println(s + " | " + d.getName().getName());
+                                if(msNames.containsKey(type) && msNames.get(type) != d.getName().getName()){
+                                    System.out.println(type);
+                                    Pair<String, String> p = new Pair<>(e.getEntityName().getName(), type);
+                                    mults.put(p, -1);
+                                }
+                            }
                         }
                     }
                 }
@@ -115,43 +127,17 @@ public class ReadCreate {
             }
         }
         for(Map.Entry<Pair<String, String>, Pair<Integer, Integer>> entry : links.entrySet()){
-            listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), entry.getValue().getValue().toString()));
+            if(entry.getValue().getKey() == -1 && entry.getValue().getValue() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", "0..*"));
+            }else if(entry.getValue().getKey() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", entry.getValue().getValue().toString()));
+            }else if (entry.getValue().getValue() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), "0..*"));
+            }else{
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), entry.getValue().getValue().toString()));
+            }
         }
     }
-
-    /*public void findLinks(){
-        for(Entity e : d.getEntities()){
-            if(!d.msNames.contains(e.getEntityName().getName())){
-                d.msNames.add(e.getEntityName().getName());
-            }
-        }
-        for(Entity e : d.getEntities()){
-            for(Field f : e.getFields()){
-                if(d.msNames.contains(f.getType())){
-                    Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
-                    if(d.mults.containsKey(p)){
-                        d.mults.put(p, d.mults.get(p) + 1);
-                    }else{
-                        d.mults.put(p, 1);
-                    }
-                }
-            }
-        }
-        for(Map.Entry<Pair<String, String>, Integer> entry : d.mults.entrySet()){
-            if(!links.containsKey(entry.getKey()) && !links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
-                links.put(entry.getKey(), new Pair<>(entry.getValue(), 0));
-            }else if(links.containsKey(entry.getKey())){
-                Pair<Integer, Integer> p = new Pair<>(links.get(entry.getKey()).getKey(), entry.getValue());
-                links.put(entry.getKey(), p);
-            }else if(links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
-                Pair<Integer, Integer> p = new Pair<>(links.get(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())).getKey(), entry.getValue());
-                links.put(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()), p);
-            }
-        }
-        for(Map.Entry<Pair<String, String>, Pair<Integer, Integer>> entry : links.entrySet()){
-            listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), entry.getValue().getValue().toString()));
-        }
-    }*/
 
     @Override
     public String toString(){
