@@ -15,14 +15,18 @@ public class Data {
 
     protected HashMap<Pair<String, String>, Integer> mults = new HashMap<>();
 
-    protected HashSet<String> msNames = new HashSet<>();
-
     public Name getName(){
         return name;
     }
 
     public Entity[] getEntities(){
         return entities;
+    }
+
+    public Data addData(Data d){
+        Data data = new Data();
+
+        return data;
     }
 
     @Override
@@ -115,7 +119,7 @@ public class Data {
             if(annotations.length != 0){
                 ret = ret.substring(0, ret.length() - 2);
             }
-            ret += "\t\t\t\t],\n";
+            ret += "\n\t\t\t\t],\n";
             ret += "\t\t\t\t\"fieldIsReference\": " + isReference + ",\n";
             ret += "\t\t\t\t\"fieldEntityRefName\": \"" + entityRefName + "\",\n";
             ret += "\t\t\t\t\"isCollection\": " + isCollection + "\n";
