@@ -30,7 +30,7 @@ public class Main {
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome);
-        //ReadCreate r = new ReadCreate();
-        //r.readIn();
+        ReadCreate r = new ReadCreate();
+        r.readIn();
     }
 }
