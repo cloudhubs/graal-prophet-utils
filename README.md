@@ -36,3 +36,6 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
         ```
 
 
+## Command Line Params
+1. File path to microservice json
+2. Percent match integer. This is endpoints and Rest calls string similarity percentage needed to make a link. (Optional Param and is 70% by default)

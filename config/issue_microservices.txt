@@ -1,0 +1,7 @@
+ts-admin-route-service
+ts-auth-service
+ts-gateway-service
+ts-payment-service
+ts-preserve-other-service
+ts-station-food-service
+ts-verification-code-service      //has an endpoint extraction error
