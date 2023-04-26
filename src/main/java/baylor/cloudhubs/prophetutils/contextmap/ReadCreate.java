@@ -23,13 +23,13 @@ public class ReadCreate {
 
     private Data d;
 
-    private HashMap<Pair<String, String>, Pair<Integer, Integer>> links = new HashMap<>();
+    private HashMap<Pair<String, String>, Pair<Pair<Integer, Integer>, Pair<String, String>>> links = new HashMap<>();
 
     private List<Link> listLinks = new ArrayList<>();
 
     private HashMap<String, String> msNames = new HashMap<>();
 
-    private HashMap<Pair<String, String>, Integer> mults = new HashMap<>();
+    private HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
 
     private List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
                                                                 "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
@@ -71,10 +71,8 @@ public class ReadCreate {
         //Successfully pulls out all entity names for ts-travel-service and ts-train-service
         for(Data d : dataList){
             //For all entities in the data, add 
-            //System.out.println("---" + d.getName().getName() + "---");
             for(Entity e : d.getEntities()){
                 if(!msNames.containsKey(e.getEntityName().getName())){
-                    //System.out.println(e.getEntityName().getName());
                     msNames.put(e.getEntityName().getName(), d.getName().getName());
                 }
             }
@@ -88,24 +86,22 @@ public class ReadCreate {
             for(Entity e : d.getEntities()){
                 for(Field f : e.getFields()){
                     Matcher matcher = pattern.matcher(f.getType());
-                    if(msNames.containsKey(f.getType()) && msNames.get(f.getType()) != d.getName().getName()){
-                        //System.out.println(e.getEntityName().getName() + " | " + f.getType());
+                    if(msNames.containsKey(f.getType())){
                         Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
                         if(mults.containsKey(p)){
-                            if(mults.get(p) != -1){
-                                mults.put(p, mults.get(p) + 1);
+                            if(mults.get(p).getKey() != -1){
+                                mults.put(p, new Pair<>(mults.get(p).getKey() + 1, new Pair<>(d.getName().getName(), msNames.get(f.getType()))));
                             }
                         }else{
-                            mults.put(p, 1);
+                            mults.put(p, new Pair<>(1, new Pair<>(d.getName().getName(), msNames.get(f.getType()))));
                         }
                     }else{
                         while(matcher.find()){
                             String type = matcher.group(1);
                             for(String s : type.split(",")){
-                                //System.out.println(s + " | " + d.getName().getName());
                                 if(msNames.containsKey(type) && msNames.get(type) != d.getName().getName()){
                                     Pair<String, String> p = new Pair<>(e.getEntityName().getName(), type);
-                                    mults.put(p, -1);
+                                    mults.put(p, new Pair<>(-1, new Pair<>(d.getName().getName(), msNames.get(type))));
                                 }
                             }
                         }
@@ -114,26 +110,35 @@ public class ReadCreate {
             }
         }
         //Combines any mults
-        for(Map.Entry<Pair<String, String>, Integer> entry : mults.entrySet()){
+        //links: Pair<src, target>, Pair<Pair<srcMult, targetMult>, Pair<msSrc, msTarget>>
+        //entry: Pair<src, dest>, Pair<mult, Pair<msSrc, msDest>>
+        for(Map.Entry<Pair<String, String>, Pair<Integer, Pair<String, String>>> entry : mults.entrySet()){
+            //if there is not a link with the specified src/target and there is not a link with the same target/src
+            //basically, a link doesn't exist
             if(!links.containsKey(entry.getKey()) && !links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
-                links.put(entry.getKey(), new Pair<>(entry.getValue(), 0));
+                links.put(entry.getKey(), new Pair<>(new Pair<>(entry.getValue().getKey(), 0), new Pair<>(entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue())));
+            //if there is a link with the specified src/target
             }else if(links.containsKey(entry.getKey())){
-                Pair<Integer, Integer> p = new Pair<>(links.get(entry.getKey()).getKey(), entry.getValue());
-                links.put(entry.getKey(), p);
+                links.put(entry.getKey(), new Pair<>(new Pair<>(links.get(entry.getKey()).getKey().getKey() + 1, 0), new Pair<>(entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue())));
+            //if there is a link with the specified target/src
             }else if(links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
-                Pair<Integer, Integer> p = new Pair<>(links.get(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())).getKey(), entry.getValue());
-                links.put(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()), p);
+                links.put(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()), new Pair<>(
+                    new Pair<>(links.get(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())).getKey().getKey(), entry.getValue().getKey()), 
+                    new Pair<>(entry.getValue().getValue().getValue(), entry.getValue().getValue().getKey())));
             }
         }
-        for(Map.Entry<Pair<String, String>, Pair<Integer, Integer>> entry : links.entrySet()){
-            if(entry.getValue().getKey() == -1 && entry.getValue().getValue() == -1){
-                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", "0..*"));
-            }else if(entry.getValue().getKey() == -1){
-                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", entry.getValue().getValue().toString()));
-            }else if (entry.getValue().getValue() == -1){
-                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), "0..*"));
+        //add the links to listLinks
+        //entry: src, target, msSrc, msTarget, srcMult, targetMult
+        //link: src, target, srcMult, targetMult, msSource, msTarget
+        for(Map.Entry<Pair<String, String>, Pair<Pair<Integer, Integer>, Pair<String, String>>> entry : links.entrySet()){
+            if(entry.getValue().getKey().getKey() == -1 && entry.getValue().getKey().getValue() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", "0..*", entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue()));
+            }else if(entry.getValue().getKey().getKey() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), "0..*", entry.getValue().getKey().getValue().toString(), entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue()));
+            }else if (entry.getValue().getKey().getValue() == -1){
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().getKey().toString(), "0..*", entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue()));
             }else{
-                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().toString(), entry.getValue().getValue().toString()));
+                listLinks.add(new Link(entry.getKey().getKey(), entry.getKey().getValue(), entry.getValue().getKey().getKey().toString(), entry.getValue().getKey().getValue().toString(), entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue()));
             }
         }
     }
