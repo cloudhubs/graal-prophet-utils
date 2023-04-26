@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.HashMap;
 import java.util.HashSet;
 import javafx.util.Pair;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Data {
 
@@ -14,6 +17,12 @@ public class Data {
     private Entity[] entities;
 
     protected HashMap<Pair<String, String>, Integer> mults = new HashMap<>();
+
+    private List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
+                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
+                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
+                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
+                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
     public Name getName(){
         return name;
@@ -34,6 +43,7 @@ public class Data {
         String ret = "";
         for(Entity e : entities){
             ret += "\t{\n";
+            ret += "\t\t\"msName\": \"" + name.getName() + "\",\n";
             ret += e.toString();
             ret += "\t},\n";
         }

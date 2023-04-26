@@ -104,7 +104,6 @@ public class ReadCreate {
                             for(String s : type.split(",")){
                                 //System.out.println(s + " | " + d.getName().getName());
                                 if(msNames.containsKey(type) && msNames.get(type) != d.getName().getName()){
-                                    System.out.println(type);
                                     Pair<String, String> p = new Pair<>(e.getEntityName().getName(), type);
                                     mults.put(p, -1);
                                 }
@@ -142,7 +141,14 @@ public class ReadCreate {
     @Override
     public String toString(){
         String ret = "{\n";
-        ret += "\t\"node\": [\n";
+        ret += "\t\"nodes\": [\n";
+        for(String s : tsCommon){
+            ret += "\t{\n";
+            ret += "\t\t\"msName\": \"ts-common\",\n";
+            ret += "\t\t\"nodeName\": \"" + s + "\",\n";
+            ret += "\t\t\"nodeFullName\": \"" + s + "\",\n";
+            ret += "\t\t\"fields\": [\n\t\t]\n\t},\n";
+        }
         for(Data data : dataList){
             ret += data.toString();
             ret = ret.substring(0, ret.length() - 5);
