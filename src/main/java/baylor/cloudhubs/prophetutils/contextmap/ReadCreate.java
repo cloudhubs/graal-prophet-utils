@@ -86,6 +86,9 @@ public class ReadCreate {
             for(Entity e : d.getEntities()){
                 for(Field f : e.getFields()){
                     Matcher matcher = pattern.matcher(f.getType());
+                    if(d.getName().getName().equals("ts-cancel-service")){
+                        //System.out.println(f.getType());
+                    }
                     if(msNames.containsKey(f.getType())){
                         Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
                         if(mults.containsKey(p)){

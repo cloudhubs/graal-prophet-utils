@@ -4766,91 +4766,137 @@
 		{
 			"source": "StationFoodStoreInfo",
 			"target": "Food",
+			"msSource": "ts-food-delivery-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "TripAllDetail",
 			"target": "TripResponse",
+			"msSource": "ts-travel-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Money",
+			"target": "MoneyType",
+			"msSource": "ts-inside-payment-service",
+			"msTarget": "ts-inside-payment-service",
 			"sourceMultiplicity": "1",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "AdminTrip",
 			"target": "TrainType",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "Trip",
 			"target": "TripId",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "TrainFood",
 			"target": "Food",
+			"msSource": "ts-train-food-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "AllTripFood",
 			"target": "Food",
+			"msSource": "ts-food-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "TransferTravelResult",
 			"target": "TripResponse",
+			"msSource": "ts-travel-plan-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "AdminTrip",
 			"target": "Route",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "StationFoodStore",
 			"target": "Food",
+			"msSource": "ts-station-food-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "Assurance",
 			"target": "AssuranceType",
+			"msSource": "ts-assurance-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "1",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "TripAllDetail",
 			"target": "Trip",
+			"msSource": "ts-travel-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "1",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "FoodDeliveryOrder",
 			"target": "Food",
+			"msSource": "ts-food-delivery-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "0..*",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "OrderAlterInfo",
 			"target": "Order",
+			"msSource": "ts-order-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "AdminTrip",
 			"target": "Trip",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
 			"targetMultiplicity": "0"
 		},
 		{
 			"source": "Travel",
 			"target": "Trip",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
 			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Payment",
+			"target": "PaymentType",
+			"msSource": "ts-inside-payment-service",
+			"msTarget": "ts-inside-payment-service",
+			"sourceMultiplicity": "1",
 			"targetMultiplicity": "0"
 		}
 	]

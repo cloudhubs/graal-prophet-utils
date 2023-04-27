@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        /*String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
+        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
                 "GRAAL_PROPHET_HOME not set");
         if (args.length != 1) {
             throw new IllegalArgumentException("Expecting one argument - the microservices JSON");
@@ -32,7 +32,7 @@ public class Main {
             ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome);
         } catch (ArrayIndexOutOfBoundsException e){
             e.printStackTrace(System.out);
-        }*/
+        }
         ReadCreate r = new ReadCreate();
         r.readIn();
     }
