@@ -1,0 +1,536 @@
+{
+		"name" : {
+			"name" : "ts-notification-service",
+			"fullName" : "ts-notification-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Mail",
+					"fullName" : "Mail"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "attachments",
+							"fullName" : "attachments"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailTo",
+							"fullName" : "mailTo"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailFrom",
+							"fullName" : "mailFrom"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailBcc",
+							"fullName" : "mailBcc"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "model",
+							"fullName" : "model"
+							}
+						,
+						"type" : "Map",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailContent",
+							"fullName" : "mailContent"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailSubject",
+							"fullName" : "mailSubject"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "mailCc",
+							"fullName" : "mailCc"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contentType",
+							"fullName" : "contentType"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "NotifyInfo",
+					"fullName" : "NotifyInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "date",
+							"fullName" : "date"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatNumber",
+							"fullName" : "seatNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "sendStatus",
+							"fullName" : "sendStatus"
+							}
+						,
+						"type" : "Boolean",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "startPlace",
+							"fullName" : "startPlace"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatClass",
+							"fullName" : "seatClass"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "endPlace",
+							"fullName" : "endPlace"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "startTime",
+							"fullName" : "startTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "username",
+							"fullName" : "username"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "orderNumber",
+							"fullName" : "orderNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "email",
+							"fullName" : "email"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "EmailProperties",
+					"fullName" : "EmailProperties"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "host",
+							"fullName" : "host"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "username",
+							"fullName" : "username"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "port",
+							"fullName" : "port"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "password",
+							"fullName" : "password"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "notification.controller.NotificationController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "notification.controller.NotificationController.order_changed_success",
+				"arguments" : [
+					"@RequestBody NotifyInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/notification/order_changed_success",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "notification.controller.NotificationController.test_send",
+				"arguments" : [
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/test_send_mq",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "notification.controller.NotificationController.order_create_success",
+				"arguments" : [
+					"@RequestBody NotifyInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/notification/order_create_success",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "notification.controller.NotificationController.preserve_success",
+				"arguments" : [
+					"@RequestBody NotifyInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/notification/preserve_success",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "notification.controller.NotificationController.order_cancel_success",
+				"arguments" : [
+					"@RequestBody NotifyInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/notification/order_cancel_success",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "notification.controller.NotificationController.test_send_mail",
+				"arguments" : [
+					]
+				,
+				"returnType" : "boolean",
+				"path" : "/test_send_mail",
+				"isCollection" : false,
+				"endpointInClassName" : "notification.controller.NotificationController",
+				"msName" : "ts-notification-service"
+				}
+			
+			]
+		
+		}
+	

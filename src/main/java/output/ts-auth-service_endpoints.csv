@@ -1,0 +1,6 @@
+ts-auth-service,auth.controller.AuthController,auth.controller.AuthController.getHello,/hello,GET,java.lang.String,false,
+ts-auth-service,auth.controller.AuthController,auth.controller.AuthController.createDefaultUser,null,POST,class org.springframework.http.HttpEntity<class edu.fudan.common.util.Response>,true,@RequestBody_AuthDto_authDto
+ts-auth-service,auth.controller.UserController,auth.controller.UserController.deleteUserById,/{userId},DELETE,class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>,true,@PathVariable_String_userId&@RequestHeader_HttpHeaders_headers
+ts-auth-service,auth.controller.UserController,auth.controller.UserController.getHello,/hello,GET,java.lang.Object,false,
+ts-auth-service,auth.controller.UserController,auth.controller.UserController.getAllUser,null,GET,class org.springframework.http.ResponseEntity<?>,true,@RequestHeader_HttpHeaders_headers
+ts-auth-service,auth.controller.UserController,auth.controller.UserController.getToken,/login,POST,class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>,true,@RequestBody_BasicAuthDto_dao&@RequestHeader_HttpHeaders_headers

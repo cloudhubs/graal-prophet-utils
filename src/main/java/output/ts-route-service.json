@@ -1,0 +1,328 @@
+{
+		"name" : {
+			"name" : "ts-route-service",
+			"fullName" : "ts-route-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Route",
+					"fullName" : "Route"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "endStation",
+							"fullName" : "endStation"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "stations",
+							"fullName" : "stations"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							{
+								"name" : "@ElementCollection",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@OrderColumn",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "distances",
+							"fullName" : "distances"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							{
+								"name" : "@ElementCollection",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@OrderColumn",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "startStation",
+							"fullName" : "startStation"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "RouteInfo",
+					"fullName" : "RouteInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "endStation",
+							"fullName" : "endStation"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "Id",
+							"fullName" : "Id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "stationList",
+							"fullName" : "stationList"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "startStation",
+							"fullName" : "startStation"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "distanceList",
+							"fullName" : "distanceList"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "route.controller.RouteController.queryById",
+				"arguments" : [
+					"@PathVariable String routeId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routes/{routeId}",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "route.controller.RouteController.createAndModifyRoute",
+				"arguments" : [
+					"@RequestBody RouteInfo createAndModifyRouteInfo",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/routes",
+				"isCollection" : true,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "route.controller.RouteController.queryByStartAndTerminal",
+				"arguments" : [
+					"@PathVariable String start",
+					"@PathVariable String end",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routes/{start}/{end}",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "route.controller.RouteController.deleteRoute",
+				"arguments" : [
+					"@PathVariable String routeId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routes/{routeId}",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "route.controller.RouteController.queryByIds",
+				"arguments" : [
+					"@RequestBody String> routeIds",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routes/byIds",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "route.controller.RouteController.queryAll",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routes",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "route.controller.RouteController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "route.controller.RouteController",
+				"msName" : "ts-route-service"
+				}
+			
+			]
+		
+		}
+	

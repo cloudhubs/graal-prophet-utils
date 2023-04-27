@@ -1,0 +1,8 @@
+ts-train-service,train.controller.TrainController,train.controller.TrainController.retrieveByName,/trains/byNames,POST,org.springframework.http.HttpEntity,false,@RequestBody_String>_names&@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.home,/trains/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.delete,/trains/{id},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_id&@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.create,/trains,POST,org.springframework.http.HttpEntity,false,@RequestBody_TrainType_trainType&@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.retrieve,/trains/{id},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_id&@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.update,/trains,PUT,org.springframework.http.HttpEntity,false,@RequestBody_TrainType_trainType&@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.query,/trains,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
+ts-train-service,train.controller.TrainController,train.controller.TrainController.retrieveByName,/trains/byName/{name},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_name&@RequestHeader_HttpHeaders_headers

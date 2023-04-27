@@ -1,0 +1,723 @@
+{
+		"name" : {
+			"name" : "ts-inside-payment-service",
+			"fullName" : "ts-inside-payment-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Payment",
+					"fullName" : "Payment"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "type",
+							"fullName" : "type"
+							}
+						,
+						"type" : "PaymentType",
+						"annotations" : [
+							{
+								"name" : "@Enumerated",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "OutsidePaymentInfo",
+					"fullName" : "OutsidePaymentInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "PaymentType",
+					"fullName" : "PaymentType"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "index",
+							"fullName" : "index"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "Money",
+					"fullName" : "Money"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "type",
+							"fullName" : "type"
+							}
+						,
+						"type" : "MoneyType",
+						"annotations" : [
+							{
+								"name" : "@Enumerated",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "money",
+							"fullName" : "money"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "PaymentInfo",
+					"fullName" : "PaymentInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "tripId",
+							"fullName" : "tripId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "AccountInfo",
+					"fullName" : "AccountInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "money",
+							"fullName" : "money"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "Balance",
+					"fullName" : "Balance"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "balance",
+							"fullName" : "balance"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "userId",
+							"fullName" : "userId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "MoneyType",
+					"fullName" : "MoneyType"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "index",
+							"fullName" : "index"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.async.AsyncTask.sendAsyncCallToPaymentService",
+				"returnType" : "java.lang.Boolean",
+				"uri" : "http://rest-service-external:16100/greet",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.async.AsyncTask",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.service.InsidePaymentServiceImpl.setOrderStatus",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-service/api/v1/orderservice/order/status//",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.service.InsidePaymentServiceImpl",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "inside_payment.service.InsidePaymentServiceImpl.pay",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-payment-service/api/v1/paymentservice/payment",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.service.InsidePaymentServiceImpl",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "inside_payment.service.InsidePaymentServiceImpl.payDifference",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-payment-service/api/v1/paymentservice/payment",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.service.InsidePaymentServiceImpl",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.service.InsidePaymentServiceImpl.setOrderStatus",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-other-service/api/v1/orderOtherService/orderOther/status//",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.service.InsidePaymentServiceImpl",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.service.InsidePaymentServiceImpl.pay",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "inside_payment.service.InsidePaymentServiceImpl",
+				"msName" : "ts-inside-payment-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.queryAddMoney",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/money",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.pay",
+				"arguments" : [
+					"@RequestBody PaymentInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.addMoney",
+				"arguments" : [
+					"@PathVariable String userId",
+					"@PathVariable String money",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/{userId}/{money}",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.payDifference",
+				"arguments" : [
+					"@RequestBody PaymentInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/difference",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.queryAccount",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/account",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.createAccount",
+				"arguments" : [
+					"@RequestBody AccountInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/account",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.drawBack",
+				"arguments" : [
+					"@PathVariable String userId",
+					"@PathVariable String money",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/drawback/{userId}/{money}",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "inside_payment.controller.InsidePaymentController.queryPayment",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/inside_payment/payment",
+				"isCollection" : false,
+				"endpointInClassName" : "inside_payment.controller.InsidePaymentController",
+				"msName" : "ts-inside-payment-service"
+				}
+			
+			]
+		
+		}
+	

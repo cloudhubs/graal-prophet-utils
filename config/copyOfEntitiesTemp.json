@@ -1,0 +1,4903 @@
+{
+	"nodes": [
+	{
+		"msName": "ts-common",
+		"nodeName": "Account",
+		"nodeFullName": "Account",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "AdminTrip",
+		"nodeFullName": "AdminTrip",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Assurance",
+		"nodeFullName": "Assurance",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "AssuranceType",
+		"nodeFullName": "AssuranceType",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Config",
+		"nodeFullName": "Config",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Consign",
+		"nodeFullName": "Consign",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Contacts",
+		"nodeFullName": "Contacts",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "DocumentType",
+		"nodeFullName": "DocumentType",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Food",
+		"nodeFullName": "Food",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "FoodOrder",
+		"nodeFullName": "FoodOrder",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Gender",
+		"nodeFullName": "Gender",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "LeftTicketInfo",
+		"nodeFullName": "LeftTicketInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "NotifyInfo",
+		"nodeFullName": "NotifyInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Order",
+		"nodeFullName": "Order",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "OrderAlterInfo",
+		"nodeFullName": "OrderAlterInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "OrderSecurity",
+		"nodeFullName": "OrderSecurity",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "OrderStatus",
+		"nodeFullName": "OrderStatus",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "OrderTicketsInfo",
+		"nodeFullName": "OrderTicketsInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "PaymentDifferenceInfo",
+		"nodeFullName": "PaymentDifferenceInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "PriceConfig",
+		"nodeFullName": "PriceConfig",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Route",
+		"nodeFullName": "Route",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "RouteInfo",
+		"nodeFullName": "RouteInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "RoutePlanInfo",
+		"nodeFullName": "RoutePlanInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "RoutePlanResultUnit",
+		"nodeFullName": "RoutePlanResultUnit",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Seat",
+		"nodeFullName": "Seat",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "SeatClass",
+		"nodeFullName": "SeatClass",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "SoldTicket",
+		"nodeFullName": "SoldTicket",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Station",
+		"nodeFullName": "Station",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "StationFoodStore",
+		"nodeFullName": "StationFoodStore",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Ticket",
+		"nodeFullName": "Ticket",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TrainFood",
+		"nodeFullName": "TrainFood",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TrainType",
+		"nodeFullName": "TrainType",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Travel",
+		"nodeFullName": "Travel",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TravelInfo",
+		"nodeFullName": "TravelInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TravelResult",
+		"nodeFullName": "TravelResult",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Trip",
+		"nodeFullName": "Trip",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TripAllDetail",
+		"nodeFullName": "TripAllDetail",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TripAllDetailInfo",
+		"nodeFullName": "TripAllDetailInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TripId",
+		"nodeFullName": "TripId",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TripInfo",
+		"nodeFullName": "TripInfo",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "TripResponse",
+		"nodeFullName": "TripResponse",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "Type",
+		"nodeFullName": "Type",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "User",
+		"nodeFullName": "User",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-common",
+		"nodeName": "VerifyResult",
+		"nodeFullName": "VerifyResult",
+		"fields": [
+		]
+	},
+	{
+		"msName": "ts-auth-service",
+		"nodeName": "User",
+		"nodeFullName": "User",
+		"fields": [
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "roles",
+				"fieldFullName": "roles",
+				"fieldType": "Set<String>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					},
+					{
+						"annotation": "@CollectionTable"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Set<String>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "username",
+				"fieldFullName": "username",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-auth-service",
+		"nodeName": "TokenDto",
+		"nodeFullName": "TokenDto",
+		"fields": [
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "username",
+				"fieldFullName": "username",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "token",
+				"fieldFullName": "token",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-auth-service",
+		"nodeName": "BasicAuthDto",
+		"nodeFullName": "BasicAuthDto",
+		"fields": [
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "verificationCode",
+				"fieldFullName": "verificationCode",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "username",
+				"fieldFullName": "username",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-auth-service",
+		"nodeName": "AuthDto",
+		"nodeFullName": "AuthDto",
+		"fields": [
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userName",
+				"fieldFullName": "userName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-service",
+		"nodeName": "AdminTrip",
+		"nodeFullName": "AdminTrip",
+		"fields": [
+			{
+				"fieldName": "route",
+				"fieldFullName": "route",
+				"fieldType": "Route",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Route",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "TrainType",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "TrainType",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trip",
+				"fieldFullName": "trip",
+				"fieldType": "Trip",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Trip",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-service",
+		"nodeName": "Travel",
+		"nodeFullName": "Travel",
+		"fields": [
+			{
+				"fieldName": "trip",
+				"fieldFullName": "trip",
+				"fieldType": "Trip",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Trip",
+				"isCollection": false
+			},
+			{
+				"fieldName": "departureTime",
+				"fieldFullName": "departureTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startPlace",
+				"fieldFullName": "startPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endPlace",
+				"fieldFullName": "endPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-service",
+		"nodeName": "Trip",
+		"nodeFullName": "Trip",
+		"fields": [
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "TripId",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Embedded"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "TripId",
+				"isCollection": false
+			},
+			{
+				"fieldName": "terminalStationName",
+				"fieldFullName": "terminalStationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startTime",
+				"fieldFullName": "startTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainTypeName",
+				"fieldFullName": "trainTypeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStationName",
+				"fieldFullName": "startStationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "routeId",
+				"fieldFullName": "routeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationsName",
+				"fieldFullName": "stationsName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endTime",
+				"fieldFullName": "endTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-service",
+		"nodeName": "TripAllDetail",
+		"nodeFullName": "TripAllDetail",
+		"fields": [
+			{
+				"fieldName": "tripResponse",
+				"fieldFullName": "tripResponse",
+				"fieldType": "TripResponse",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "TripResponse",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trip",
+				"fieldFullName": "trip",
+				"fieldType": "Trip",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Trip",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-security-service",
+		"nodeName": "SecurityConfig",
+		"nodeFullName": "SecurityConfig",
+		"fields": [
+			{
+				"fieldName": "description",
+				"fieldFullName": "description",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "value",
+				"fieldFullName": "value",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-wait-order-service",
+		"nodeName": "WaitListOrderVO",
+		"nodeFullName": "WaitListOrderVO",
+		"fields": [
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsId",
+				"fieldFullName": "contactsId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "date",
+				"fieldFullName": "date",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatType",
+				"fieldFullName": "seatType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "to",
+				"fieldFullName": "to",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "from",
+				"fieldFullName": "from",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-wait-order-service",
+		"nodeName": "WaitListOrder",
+		"nodeFullName": "WaitListOrder",
+		"fields": [
+			{
+				"fieldName": "contactsDocumentNumber",
+				"fieldFullName": "contactsDocumentNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "createdTime",
+				"fieldFullName": "createdTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainNumber",
+				"fieldFullName": "trainNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "waitUtilTime",
+				"fieldFullName": "waitUtilTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsName",
+				"fieldFullName": "contactsName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatType",
+				"fieldFullName": "seatType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelTime",
+				"fieldFullName": "travelTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "to",
+				"fieldFullName": "to",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsId",
+				"fieldFullName": "contactsId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsDocumentType",
+				"fieldFullName": "contactsDocumentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "status",
+				"fieldFullName": "status",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "from",
+				"fieldFullName": "from",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-train-service",
+		"nodeName": "TrainType",
+		"nodeFullName": "TrainType",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "averageSpeed",
+				"fieldFullName": "averageSpeed",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "confortClass",
+				"fieldFullName": "confortClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "economyClass",
+				"fieldFullName": "economyClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel2-service",
+		"nodeName": "AdminTrip",
+		"nodeFullName": "AdminTrip",
+		"fields": [
+			{
+				"fieldName": "route",
+				"fieldFullName": "route",
+				"fieldType": "Route",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Route",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "TrainType",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "TrainType",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trip",
+				"fieldFullName": "trip",
+				"fieldType": "Trip",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Trip",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel2-service",
+		"nodeName": "Travel",
+		"nodeFullName": "Travel",
+		"fields": [
+			{
+				"fieldName": "trip",
+				"fieldFullName": "trip",
+				"fieldType": "Trip",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Trip",
+				"isCollection": false
+			},
+			{
+				"fieldName": "departureTime",
+				"fieldFullName": "departureTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startPlace",
+				"fieldFullName": "startPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endPlace",
+				"fieldFullName": "endPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel2-service",
+		"nodeName": "Trip",
+		"nodeFullName": "Trip",
+		"fields": [
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "TripId",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Embedded"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "TripId",
+				"isCollection": false
+			},
+			{
+				"fieldName": "terminalStationName",
+				"fieldFullName": "terminalStationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startTime",
+				"fieldFullName": "startTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainTypeName",
+				"fieldFullName": "trainTypeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStationName",
+				"fieldFullName": "startStationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "routeId",
+				"fieldFullName": "routeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationsName",
+				"fieldFullName": "stationsName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endTime",
+				"fieldFullName": "endTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-notification-service",
+		"nodeName": "EmailProperties",
+		"nodeFullName": "EmailProperties",
+		"fields": [
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "port",
+				"fieldFullName": "port",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "host",
+				"fieldFullName": "host",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "username",
+				"fieldFullName": "username",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-notification-service",
+		"nodeName": "NotifyInfo",
+		"nodeFullName": "NotifyInfo",
+		"fields": [
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderNumber",
+				"fieldFullName": "orderNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startTime",
+				"fieldFullName": "startTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatNumber",
+				"fieldFullName": "seatNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "date",
+				"fieldFullName": "date",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "sendStatus",
+				"fieldFullName": "sendStatus",
+				"fieldType": "Boolean",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Boolean",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "email",
+				"fieldFullName": "email",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatClass",
+				"fieldFullName": "seatClass",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startPlace",
+				"fieldFullName": "startPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endPlace",
+				"fieldFullName": "endPlace",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "username",
+				"fieldFullName": "username",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-notification-service",
+		"nodeName": "Mail",
+		"nodeFullName": "Mail",
+		"fields": [
+			{
+				"fieldName": "mailFrom",
+				"fieldFullName": "mailFrom",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "mailSubject",
+				"fieldFullName": "mailSubject",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "mailContent",
+				"fieldFullName": "mailContent",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "mailCc",
+				"fieldFullName": "mailCc",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "attachments",
+				"fieldFullName": "attachments",
+				"fieldType": "List<Object>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Object>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "contentType",
+				"fieldFullName": "contentType",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "mailTo",
+				"fieldFullName": "mailTo",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "model",
+				"fieldFullName": "model",
+				"fieldType": "Map<String,Object>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Map<String,Object>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "mailBcc",
+				"fieldFullName": "mailBcc",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-service",
+		"nodeName": "Delivery",
+		"nodeFullName": "Delivery",
+		"fields": [
+			{
+				"fieldName": "storeName",
+				"fieldFullName": "storeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "UUID",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "UUID",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationName",
+				"fieldFullName": "stationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodName",
+				"fieldFullName": "foodName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-service",
+		"nodeName": "FoodOrder",
+		"nodeFullName": "FoodOrder",
+		"fields": [
+			{
+				"fieldName": "storeName",
+				"fieldFullName": "storeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationName",
+				"fieldFullName": "stationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodName",
+				"fieldFullName": "foodName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodType",
+				"fieldFullName": "foodType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-service",
+		"nodeName": "AllTripFood",
+		"nodeFullName": "AllTripFood",
+		"fields": [
+			{
+				"fieldName": "foodStoreListMap",
+				"fieldFullName": "foodStoreListMap",
+				"fieldType": "Map<String,StationFoodStore>>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Map<String,StationFoodStore>>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "trainFoodList",
+				"fieldFullName": "trainFoodList",
+				"fieldType": "List<Food>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Food>",
+				"isCollection": true
+			}
+		]
+	},
+	{
+		"msName": "ts-payment-service",
+		"nodeName": "Payment",
+		"nodeFullName": "Payment",
+		"fields": [
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-payment-service",
+		"nodeName": "Money",
+		"nodeFullName": "Money",
+		"fields": [
+			{
+				"fieldName": "money",
+				"fieldFullName": "money",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-contacts-service",
+		"nodeName": "Contacts",
+		"nodeFullName": "Contacts",
+		"fields": [
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "phoneNumber",
+				"fieldFullName": "phoneNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentNumber",
+				"fieldFullName": "documentNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-consign-service",
+		"nodeName": "ConsignRecord",
+		"nodeFullName": "ConsignRecord",
+		"fields": [
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "phone",
+				"fieldFullName": "phone",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "handleDate",
+				"fieldFullName": "handleDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "consignee",
+				"fieldFullName": "consignee",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "weight",
+				"fieldFullName": "weight",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "targetDate",
+				"fieldFullName": "targetDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "double",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "from",
+				"fieldFullName": "from",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "to",
+				"fieldFullName": "to",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-consign-service",
+		"nodeName": "Consign",
+		"nodeFullName": "Consign",
+		"fields": [
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},	{
+		"msName": "ts-assurance-service",
+		"nodeName": "AssuranceType",
+		"nodeFullName": "AssuranceType",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "index",
+				"fieldFullName": "index",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-assurance-service",
+		"nodeName": "Assurance",
+		"nodeFullName": "Assurance",
+		"fields": [
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "type",
+				"fieldFullName": "type",
+				"fieldType": "AssuranceType",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					},
+					{
+						"annotation": "@Enumerated"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "AssuranceType",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-assurance-service",
+		"nodeName": "PlainAssurance",
+		"nodeFullName": "PlainAssurance",
+		"fields": [
+			{
+				"fieldName": "typePrice",
+				"fieldFullName": "typePrice",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "typeIndex",
+				"fieldFullName": "typeIndex",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "typeName",
+				"fieldFullName": "typeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-assurance-service",
+		"nodeName": "AssuranceTypeBean",
+		"nodeFullName": "AssuranceTypeBean",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "index",
+				"fieldFullName": "index",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},	{
+		"msName": "ts-admin-user-service",
+		"nodeName": "UserDto",
+		"nodeFullName": "UserDto",
+		"fields": [
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentNum",
+				"fieldFullName": "documentNum",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "gender",
+				"fieldFullName": "gender",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "email",
+				"fieldFullName": "email",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userName",
+				"fieldFullName": "userName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-route-service",
+		"nodeName": "RouteInfo",
+		"nodeFullName": "RouteInfo",
+		"fields": [
+			{
+				"fieldName": "distanceList",
+				"fieldFullName": "distanceList",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationList",
+				"fieldFullName": "stationList",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "Id",
+				"fieldFullName": "Id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-route-service",
+		"nodeName": "Route",
+		"nodeFullName": "Route",
+		"fields": [
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "distances",
+				"fieldFullName": "distances",
+				"fieldType": "List<Integer>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					},
+					{
+						"annotation": "@OrderColumn"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Integer>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stations",
+				"fieldFullName": "stations",
+				"fieldType": "List<String>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					},
+					{
+						"annotation": "@OrderColumn"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<String>",
+				"isCollection": true
+			}
+		]
+	},
+	{
+		"msName": "ts-user-service",
+		"nodeName": "UserDto",
+		"nodeFullName": "UserDto",
+		"fields": [
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentNum",
+				"fieldFullName": "documentNum",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "gender",
+				"fieldFullName": "gender",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "email",
+				"fieldFullName": "email",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userName",
+				"fieldFullName": "userName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-user-service",
+		"nodeName": "User",
+		"nodeFullName": "User",
+		"fields": [
+			{
+				"fieldName": "documentNum",
+				"fieldFullName": "documentNum",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "gender",
+				"fieldFullName": "gender",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "email",
+				"fieldFullName": "email",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userName",
+				"fieldFullName": "userName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-user-service",
+		"nodeName": "AuthDto",
+		"nodeFullName": "AuthDto",
+		"fields": [
+			{
+				"fieldName": "password",
+				"fieldFullName": "password",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userName",
+				"fieldFullName": "userName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-delivery-service",
+		"nodeName": "StationFoodStoreInfo",
+		"nodeFullName": "StationFoodStoreInfo",
+		"fields": [
+			{
+				"fieldName": "foodList",
+				"fieldFullName": "foodList",
+				"fieldType": "List<Food>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Food>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "storeName",
+				"fieldFullName": "storeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "businessTime",
+				"fieldFullName": "businessTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationId",
+				"fieldFullName": "stationId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "telephone",
+				"fieldFullName": "telephone",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "deliveryFee",
+				"fieldFullName": "deliveryFee",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-delivery-service",
+		"nodeName": "SeatInfo",
+		"nodeFullName": "SeatInfo",
+		"fields": [
+			{
+				"fieldName": "seatNo",
+				"fieldFullName": "seatNo",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-delivery-service",
+		"nodeName": "TripOrderInfo",
+		"nodeFullName": "TripOrderInfo",
+		"fields": [
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-delivery-service",
+		"nodeName": "FoodDeliveryOrder",
+		"nodeFullName": "FoodDeliveryOrder",
+		"fields": [
+			{
+				"fieldName": "createdTime",
+				"fieldFullName": "createdTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatNo",
+				"fieldFullName": "seatNo",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationFoodStoreId",
+				"fieldFullName": "stationFoodStoreId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "deliveryTime",
+				"fieldFullName": "deliveryTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodList",
+				"fieldFullName": "foodList",
+				"fieldType": "List<Food>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Food>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "deliveryFee",
+				"fieldFullName": "deliveryFee",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-food-delivery-service",
+		"nodeName": "DeliveryInfo",
+		"nodeFullName": "DeliveryInfo",
+		"fields": [
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "deliveryTime",
+				"fieldFullName": "deliveryTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},	{
+		"msName": "ts-order-other-service",
+		"nodeName": "OrderAlterInfo",
+		"nodeFullName": "OrderAlterInfo",
+		"fields": [
+			{
+				"fieldName": "loginToken",
+				"fieldFullName": "loginToken",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "previousOrderId",
+				"fieldFullName": "previousOrderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "newOrderInfo",
+				"fieldFullName": "newOrderInfo",
+				"fieldType": "Order",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Order",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-order-other-service",
+		"nodeName": "Order",
+		"nodeFullName": "Order",
+		"fields": [
+			{
+				"fieldName": "contactsDocumentNumber",
+				"fieldFullName": "contactsDocumentNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainNumber",
+				"fieldFullName": "trainNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatNumber",
+				"fieldFullName": "seatNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsName",
+				"fieldFullName": "contactsName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelTime",
+				"fieldFullName": "travelTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "to",
+				"fieldFullName": "to",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelDate",
+				"fieldFullName": "travelDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatClass",
+				"fieldFullName": "seatClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "boughtDate",
+				"fieldFullName": "boughtDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "coachNumber",
+				"fieldFullName": "coachNumber",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "status",
+				"fieldFullName": "status",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "from",
+				"fieldFullName": "from",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-cancel-service",
+		"nodeName": "GetOrderByIdInfo",
+		"nodeFullName": "GetOrderByIdInfo",
+		"fields": [
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-cancel-service",
+		"nodeName": "GetAccountByIdInfo",
+		"nodeFullName": "GetAccountByIdInfo",
+		"fields": [
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},	{
+		"msName": "ts-rebook-service",
+		"nodeName": "RebookInfo",
+		"nodeFullName": "RebookInfo",
+		"fields": [
+			{
+				"fieldName": "oldTripId",
+				"fieldFullName": "oldTripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "date",
+				"fieldFullName": "date",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatType",
+				"fieldFullName": "seatType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "loginId",
+				"fieldFullName": "loginId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-train-food-service",
+		"nodeName": "TrainFood",
+		"nodeFullName": "TrainFood",
+		"fields": [
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodList",
+				"fieldFullName": "foodList",
+				"fieldType": "List<Food>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					},
+					{
+						"annotation": "@CollectionTable"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Food>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-consign-price-service",
+		"nodeName": "ConsignPrice",
+		"nodeFullName": "ConsignPrice",
+		"fields": [
+			{
+				"fieldName": "initialPrice",
+				"fieldFullName": "initialPrice",
+				"fieldType": "double",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "withinPrice",
+				"fieldFullName": "withinPrice",
+				"fieldType": "double",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "beyondPrice",
+				"fieldFullName": "beyondPrice",
+				"fieldType": "double",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "index",
+				"fieldFullName": "index",
+				"fieldType": "int",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "initialWeight",
+				"fieldFullName": "initialWeight",
+				"fieldType": "double",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},	{
+		"msName": "ts-admin-basic-info-service",
+		"nodeName": "PriceInfo",
+		"nodeFullName": "PriceInfo",
+		"fields": [
+			{
+				"fieldName": "basicPriceRate",
+				"fieldFullName": "basicPriceRate",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "routeId",
+				"fieldFullName": "routeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "firstClassPriceRate",
+				"fieldFullName": "firstClassPriceRate",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-price-service",
+		"nodeName": "PriceConfig",
+		"nodeFullName": "PriceConfig",
+		"fields": [
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "routeId",
+				"fieldFullName": "routeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "basicPriceRate",
+				"fieldFullName": "basicPriceRate",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "firstClassPriceRate",
+				"fieldFullName": "firstClassPriceRate",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-station-service",
+		"nodeName": "Station",
+		"nodeFullName": "Station",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stayTime",
+				"fieldFullName": "stayTime",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-config-service",
+		"nodeName": "Config",
+		"nodeFullName": "Config",
+		"fields": [
+			{
+				"fieldName": "description",
+				"fieldFullName": "description",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "value",
+				"fieldFullName": "value",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-station-food-service",
+		"nodeName": "StationFoodStore",
+		"nodeFullName": "StationFoodStore",
+		"fields": [
+			{
+				"fieldName": "storeName",
+				"fieldFullName": "storeName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "businessTime",
+				"fieldFullName": "businessTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stationName",
+				"fieldFullName": "stationName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "telephone",
+				"fieldFullName": "telephone",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "foodList",
+				"fieldFullName": "foodList",
+				"fieldType": "List<Food>",
+				"fieldAnnotations": [
+					{
+						"annotation": "@ElementCollection"
+					},
+					{
+						"annotation": "@CollectionTable"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<Food>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "deliveryFee",
+				"fieldFullName": "deliveryFee",
+				"fieldType": "double",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-order-service",
+		"nodeName": "OrderAlterInfo",
+		"nodeFullName": "OrderAlterInfo",
+		"fields": [
+			{
+				"fieldName": "loginToken",
+				"fieldFullName": "loginToken",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "previousOrderId",
+				"fieldFullName": "previousOrderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "newOrderInfo",
+				"fieldFullName": "newOrderInfo",
+				"fieldType": "Order",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "Order",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-order-service",
+		"nodeName": "Order",
+		"nodeFullName": "Order",
+		"fields": [
+			{
+				"fieldName": "contactsDocumentNumber",
+				"fieldFullName": "contactsDocumentNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainNumber",
+				"fieldFullName": "trainNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatNumber",
+				"fieldFullName": "seatNumber",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "contactsName",
+				"fieldFullName": "contactsName",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelTime",
+				"fieldFullName": "travelTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "to",
+				"fieldFullName": "to",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "accountId",
+				"fieldFullName": "accountId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "travelDate",
+				"fieldFullName": "travelDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "documentType",
+				"fieldFullName": "documentType",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "seatClass",
+				"fieldFullName": "seatClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "boughtDate",
+				"fieldFullName": "boughtDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "coachNumber",
+				"fieldFullName": "coachNumber",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "status",
+				"fieldFullName": "status",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "from",
+				"fieldFullName": "from",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "Payment",
+		"nodeFullName": "Payment",
+		"fields": [
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "type",
+				"fieldFullName": "type",
+				"fieldType": "PaymentType",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Enumerated"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "PaymentType",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "Balance",
+		"nodeFullName": "Balance",
+		"fields": [
+			{
+				"fieldName": "balance",
+				"fieldFullName": "balance",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "Money",
+		"nodeFullName": "Money",
+		"fields": [
+			{
+				"fieldName": "money",
+				"fieldFullName": "money",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "type",
+				"fieldFullName": "type",
+				"fieldType": "MoneyType",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Enumerated"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "MoneyType",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "id",
+				"fieldFullName": "id",
+				"fieldType": "String",
+				"fieldAnnotations": [
+					{
+						"annotation": "@Id"
+					},
+					{
+						"annotation": "@GeneratedValue"
+					},
+					{
+						"annotation": "@Column"
+					}
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "PaymentInfo",
+		"nodeFullName": "PaymentInfo",
+		"fields": [
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "PaymentType",
+		"nodeFullName": "PaymentType",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "index",
+				"fieldFullName": "index",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "MoneyType",
+		"nodeFullName": "MoneyType",
+		"fields": [
+			{
+				"fieldName": "name",
+				"fieldFullName": "name",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "index",
+				"fieldFullName": "index",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "OutsidePaymentInfo",
+		"nodeFullName": "OutsidePaymentInfo",
+		"fields": [
+			{
+				"fieldName": "price",
+				"fieldFullName": "price",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "orderId",
+				"fieldFullName": "orderId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-inside-payment-service",
+		"nodeName": "AccountInfo",
+		"nodeFullName": "AccountInfo",
+		"fields": [
+			{
+				"fieldName": "money",
+				"fieldFullName": "money",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "userId",
+				"fieldFullName": "userId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-plan-service",
+		"nodeName": "TransferTravelResult",
+		"nodeFullName": "TransferTravelResult",
+		"fields": [
+			{
+				"fieldName": "secondSectionResult",
+				"fieldFullName": "secondSectionResult",
+				"fieldType": "List<TripResponse>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<TripResponse>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "firstSectionResult",
+				"fieldFullName": "firstSectionResult",
+				"fieldType": "List<TripResponse>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<TripResponse>",
+				"isCollection": true
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-plan-service",
+		"nodeName": "TransferTravelInfo",
+		"nodeFullName": "TransferTravelInfo",
+		"fields": [
+			{
+				"fieldName": "travelDate",
+				"fieldFullName": "travelDate",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "viaStation",
+				"fieldFullName": "viaStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainType",
+				"fieldFullName": "trainType",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	},
+	{
+		"msName": "ts-travel-plan-service",
+		"nodeName": "TravelAdvanceResultUnit",
+		"nodeFullName": "TravelAdvanceResultUnit",
+		"fields": [
+			{
+				"fieldName": "priceForFirstClassSeat",
+				"fieldFullName": "priceForFirstClassSeat",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startStation",
+				"fieldFullName": "startStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "stopStations",
+				"fieldFullName": "stopStations",
+				"fieldType": "List<String>",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "List<String>",
+				"isCollection": true
+			},
+			{
+				"fieldName": "numberOfRestTicketSecondClass",
+				"fieldFullName": "numberOfRestTicketSecondClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "priceForSecondClassSeat",
+				"fieldFullName": "priceForSecondClassSeat",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "startTime",
+				"fieldFullName": "startTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "numberOfRestTicketFirstClass",
+				"fieldFullName": "numberOfRestTicketFirstClass",
+				"fieldType": "int",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": false,
+				"fieldEntityRefName": "null",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endStation",
+				"fieldFullName": "endStation",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "trainTypeId",
+				"fieldFullName": "trainTypeId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "tripId",
+				"fieldFullName": "tripId",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			},
+			{
+				"fieldName": "endTime",
+				"fieldFullName": "endTime",
+				"fieldType": "String",
+				"fieldAnnotations": [
+
+				],
+				"fieldIsReference": true,
+				"fieldEntityRefName": "String",
+				"isCollection": false
+			}
+		]
+	}	],
+"links": [
+		{
+			"source": "StationFoodStoreInfo",
+			"target": "Food",
+			"msSource": "ts-food-delivery-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "TripResponse",
+			"msSource": "ts-travel-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Money",
+			"target": "MoneyType",
+			"msSource": "ts-inside-payment-service",
+			"msTarget": "ts-inside-payment-service",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "TrainType",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Trip",
+			"target": "TripId",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TrainFood",
+			"target": "Food",
+			"msSource": "ts-train-food-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AllTripFood",
+			"target": "Food",
+			"msSource": "ts-food-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TransferTravelResult",
+			"target": "TripResponse",
+			"msSource": "ts-travel-plan-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Route",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "StationFoodStore",
+			"target": "Food",
+			"msSource": "ts-station-food-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Assurance",
+			"target": "AssuranceType",
+			"msSource": "ts-assurance-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "TripAllDetail",
+			"target": "Trip",
+			"msSource": "ts-travel-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "FoodDeliveryOrder",
+			"target": "Food",
+			"msSource": "ts-food-delivery-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "0..*",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "OrderAlterInfo",
+			"target": "Order",
+			"msSource": "ts-order-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "AdminTrip",
+			"target": "Trip",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Travel",
+			"target": "Trip",
+			"msSource": "ts-travel2-service",
+			"msTarget": "ts-common",
+			"sourceMultiplicity": "2",
+			"targetMultiplicity": "0"
+		},
+		{
+			"source": "Payment",
+			"target": "PaymentType",
+			"msSource": "ts-inside-payment-service",
+			"msTarget": "ts-inside-payment-service",
+			"sourceMultiplicity": "1",
+			"targetMultiplicity": "0"
+		}
+	]
+}
