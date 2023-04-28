@@ -1,2 +1,0 @@
-ts-security-service,security.service.SecurityServiceImpl,security.service.SecurityServiceImpl.getSecurityOrderInfoFromOrder,ts-order-service/api/v1/orderservice/order/security//,GET,org.springframework.http.HttpEntity,false
-ts-security-service,security.service.SecurityServiceImpl,security.service.SecurityServiceImpl.getSecurityOrderOtherInfoFromOrder,ts-order-other-service/api/v1/orderOtherService/orderOther/security//,GET,org.springframework.http.HttpEntity,false

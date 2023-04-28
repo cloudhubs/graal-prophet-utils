@@ -1,5 +1,0 @@
-ts-admin-user-service,adminuser.controller.AdminUserController,adminuser.controller.AdminUserController.updateUser,null,PUT,org.springframework.http.HttpEntity,false,@RequestBody_UserDto_userDto&@RequestHeader_HttpHeaders_headers
-ts-admin-user-service,adminuser.controller.AdminUserController,adminuser.controller.AdminUserController.addUser,null,POST,org.springframework.http.HttpEntity,false,@RequestBody_UserDto_userDto&@RequestHeader_HttpHeaders_headers
-ts-admin-user-service,adminuser.controller.AdminUserController,adminuser.controller.AdminUserController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers
-ts-admin-user-service,adminuser.controller.AdminUserController,adminuser.controller.AdminUserController.getAllUsers,null,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
-ts-admin-user-service,adminuser.controller.AdminUserController,adminuser.controller.AdminUserController.deleteUser,/{userId},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_userId&@RequestHeader_HttpHeaders_headers

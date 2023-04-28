@@ -19,26 +19,27 @@ import baylor.cloudhubs.prophetutils.contextmap.Data.Field;
 
 public class ReadCreate {
 
-    private List<Data> dataList = new ArrayList<>();
+    private static List<Data> dataList = new ArrayList<>();
 
-    private Data d;
+    private static Data d;
 
-    private HashMap<Pair<String, String>, Pair<Pair<Integer, Integer>, Pair<String, String>>> links = new HashMap<>();
+    private static HashMap<Pair<String, String>, Pair<Pair<Integer, Integer>, Pair<String, String>>> links = new HashMap<>();
 
-    private List<Link> listLinks = new ArrayList<>();
+    private static List<Link> listLinks = new ArrayList<>();
 
-    private HashMap<String, String> msNames = new HashMap<>();
+    private static HashMap<String, String> msNames = new HashMap<>();
 
-    private HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
+    private static HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
 
-    private List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
+    //This is a list of Entities within ts-common, which cannot be parsed because of the kind of JAR file which
+    //is created
+    private static List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
                                                                 "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
                                                                 "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
                                                                 "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
                                                                 "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
-    public void readIn(){
-        String pathName = "/home/jack/Capstone/graal-prophet-utils/output_trainticket";
+    public static void readIn(String pathName, boolean tsCommonBool){
         File directory = new File(pathName);
         File[] files = directory.listFiles();
         for(File f : files){
@@ -56,18 +57,18 @@ public class ReadCreate {
                 }
             }
         }
-        findLinks();
+        findLinks(tsCommonBool);
 
         try{
-            FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/output_trainticket/entities.json");
-            fileWriter.write(this.toString());
+            FileWriter fileWriter = new FileWriter(pathName + "/entities.json");
+            fileWriter.write(write());
             fileWriter.close();
         } catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    public void findLinks(){
+    public static void findLinks(boolean tsCommonBool){
         //Successfully pulls out all entity names for ts-travel-service and ts-train-service
         for(Data d : dataList){
             //For all entities in the data, add 
@@ -77,8 +78,11 @@ public class ReadCreate {
                 }
             }
         }
-        for(String s : tsCommon){
-            msNames.put(s, "ts-common");
+        //We only insert the ts-common entities manually if the user specifies to
+        if(tsCommonBool){
+            for(String s : tsCommon){
+                msNames.put(s, "ts-common");
+            }
         }
         //Adds all mults to hashmap
         Pattern pattern = Pattern.compile("<(.*?)>");
@@ -146,8 +150,7 @@ public class ReadCreate {
         }
     }
 
-    @Override
-    public String toString(){
+    public static String write(){
         String ret = "{\n";
         ret += "\t\"nodes\": [\n";
         for(String s : tsCommon){
