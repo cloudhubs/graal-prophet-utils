@@ -19,6 +19,8 @@ import baylor.cloudhubs.prophetutils.contextmap.Data.Field;
 
 public class ReadCreate {
 
+    private String outputDirName;
+
     private List<Data> dataList = new ArrayList<>();
 
     private Data d;
@@ -37,16 +39,21 @@ public class ReadCreate {
                                                                 "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
                                                                 "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
+
+    public ReadCreate(String outputDirName){
+        this.outputDirName = outputDirName;
+    }
+
     public void readIn(){
-        String pathName = "/home/jack/Capstone/graal-prophet-utils/output_trainticket";
-        File directory = new File(pathName);
+
+        File directory = new File(this.outputDirName);
         File[] files = directory.listFiles();
         for(File f : files){
             if(f.getName().substring(f.getName().length() - 5).equals(".json") && !f.getName().equals("entities.json") 
             && !f.getName().equals("communicationGraph.json") && !f.getName().equals("system-context.json")){
                 try{
                     Gson gson = new Gson();
-                    FileReader reader = new FileReader(pathName + "/" + f.getName());
+                    FileReader reader = new FileReader(this.outputDirName + "/" + f.getName());
                     JsonElement json = gson.fromJson(reader, JsonElement.class);
                     reader.close();
                     d = gson.fromJson(json, Data.class);
@@ -59,7 +66,7 @@ public class ReadCreate {
         findLinks();
 
         try{
-            FileWriter fileWriter = new FileWriter("/home/jack/Capstone/graal-prophet-utils/output_trainticket/entities.json");
+            FileWriter fileWriter = new FileWriter(outputDirName + "/entities.json");
             fileWriter.write(this.toString());
             fileWriter.close();
         } catch (IOException e){
@@ -86,9 +93,7 @@ public class ReadCreate {
             for(Entity e : d.getEntities()){
                 for(Field f : e.getFields()){
                     Matcher matcher = pattern.matcher(f.getType());
-                    if(d.getName().getName().equals("ts-cancel-service")){
-                        //System.out.println(f.getType());
-                    }
+
                     if(msNames.containsKey(f.getType())){
                         Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
                         if(mults.containsKey(p)){

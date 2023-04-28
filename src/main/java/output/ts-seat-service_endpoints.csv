@@ -1,3 +1,0 @@
-ts-seat-service,seat.controller.SeatController,seat.controller.SeatController.create,/seats,POST,org.springframework.http.HttpEntity,false,@RequestBody_Seat_seatRequest&@RequestHeader_HttpHeaders_headers
-ts-seat-service,seat.controller.SeatController,seat.controller.SeatController.home,/welcome,GET,java.lang.String,false,
-ts-seat-service,seat.controller.SeatController,seat.controller.SeatController.getLeftTicketOfInterval,/seats/left_tickets,POST,org.springframework.http.HttpEntity,false,@RequestBody_Seat_seatRequest&@RequestHeader_HttpHeaders_headers

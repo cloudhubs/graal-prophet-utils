@@ -1,6 +1,0 @@
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.create,/securityConfigs,POST,org.springframework.http.HttpEntity,false,@RequestBody_SecurityConfig_info&@RequestHeader_HttpHeaders_headers
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.findAllSecurityConfig,/securityConfigs,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.update,/securityConfigs,PUT,org.springframework.http.HttpEntity,false,@RequestBody_SecurityConfig_info&@RequestHeader_HttpHeaders_headers
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.delete,/securityConfigs/{id},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_id&@RequestHeader_HttpHeaders_headers
-ts-security-service,security.controller.SecurityController,security.controller.SecurityController.check,/securityConfigs/{accountId},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_accountId&@RequestHeader_HttpHeaders_headers

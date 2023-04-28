@@ -1,7 +1,0 @@
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.drawbackMoney,ts-inside-payment-service/api/v1/inside_pay_service/inside_payment/drawback//,GET,org.springframework.http.HttpEntity,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.sendEmail,ts-notification-service/api/v1/notifyservice/notification/order_cancel_success,POST,java.lang.Boolean,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.getOrderByIdFromOrder,ts-order-service/api/v1/orderservice/order/,GET,org.springframework.http.HttpEntity,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.cancelFromOtherOrder,ts-order-other-service/api/v1/orderOtherService/orderOther,PUT,org.springframework.http.HttpEntity,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.cancelFromOrder,ts-order-service/api/v1/orderservice/order,PUT,org.springframework.http.HttpEntity,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.getOrderByIdFromOrderOther,ts-order-other-service/api/v1/orderOtherService/orderOther/,GET,org.springframework.http.HttpEntity,false
-ts-cancel-service,cancel.service.CancelServiceImpl,cancel.service.CancelServiceImpl.getAccount,ts-user-service/api/v1/userservice/users/id/,GET,org.springframework.http.HttpEntity,false

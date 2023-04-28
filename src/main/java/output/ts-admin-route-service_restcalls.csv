@@ -1,4 +1,0 @@
-ts-admin-route-service,adminroute.service.AdminRouteServiceImpl,adminroute.service.AdminRouteServiceImpl.getAllRoutes,ts-route-service/api/v1/routeservice/routes,GET,org.springframework.http.HttpEntity,false
-ts-admin-route-service,adminroute.service.AdminRouteServiceImpl,adminroute.service.AdminRouteServiceImpl.checkStationsExists,ts-station-service/api/v1/stationservice/stations/idlist,POST,org.springframework.http.HttpEntity,false
-ts-admin-route-service,adminroute.service.AdminRouteServiceImpl,adminroute.service.AdminRouteServiceImpl.createAndModifyRoute,ts-route-service/api/v1/routeservice/routes,POST,org.springframework.http.HttpEntity,false
-ts-admin-route-service,adminroute.service.AdminRouteServiceImpl,adminroute.service.AdminRouteServiceImpl.deleteRoute,ts-route-service/api/v1/routeservice/routes/,DELETE,org.springframework.http.HttpEntity,false

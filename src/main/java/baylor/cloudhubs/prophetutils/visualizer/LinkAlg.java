@@ -6,6 +6,9 @@ import java.net.URL;
 import java.util.*;
 
 import com.google.gson.Gson;
+
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -27,10 +30,14 @@ public class LinkAlg {
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage) {
+    public LinkAlg(int similarityPercentage, List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+
+        for (MicroserviceInfo mi : microservices){
+            nodes.add(new Node(mi.getMicroserviceName()));
+        }
     }
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
@@ -112,7 +119,7 @@ public class LinkAlg {
             );
             endpoints.add(end);
             //ADD ENDPOINT MS 
-            this.nodes.add(new Node(end.getMsName()));
+            // this.nodes.add(new Node(end.getMsName()));
         }
         br.close();
 
@@ -147,7 +154,7 @@ public class LinkAlg {
             }
             Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
             //ADD REQUEST MS 
-            this.nodes.add(new Node(req.getMsName()));
+            // this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
         }
 

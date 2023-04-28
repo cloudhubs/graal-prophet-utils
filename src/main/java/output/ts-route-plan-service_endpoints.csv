@@ -1,4 +1,0 @@
-ts-route-plan-service,plan.controller.RoutePlanController,plan.controller.RoutePlanController.getCheapestRoutes,/routePlan/cheapestRoute,POST,org.springframework.http.HttpEntity,false,@RequestBody_RoutePlanInfo_info&@RequestHeader_HttpHeaders_headers
-ts-route-plan-service,plan.controller.RoutePlanController,plan.controller.RoutePlanController.home,/welcome,GET,java.lang.String,false,
-ts-route-plan-service,plan.controller.RoutePlanController,plan.controller.RoutePlanController.getQuickestRoutes,/routePlan/quickestRoute,POST,org.springframework.http.HttpEntity,false,@RequestBody_RoutePlanInfo_info&@RequestHeader_HttpHeaders_headers
-ts-route-plan-service,plan.controller.RoutePlanController,plan.controller.RoutePlanController.getMinStopStations,/routePlan/minStopStations,POST,org.springframework.http.HttpEntity,false,@RequestBody_RoutePlanInfo_info&@RequestHeader_HttpHeaders_headers

@@ -1,1 +1,0 @@
-ts-auth-service,auth.service.impl.TokenServiceImpl,auth.service.impl.TokenServiceImpl.getToken,ts-verification-code-service/api/v1/verifycode/verify/,GET,java.lang.Boolean,false

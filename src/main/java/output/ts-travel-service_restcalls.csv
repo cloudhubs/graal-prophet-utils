@@ -1,5 +1,0 @@
-ts-travel-service,travel.service.TravelServiceImpl,travel.service.TravelServiceImpl.getTicketsByBatch,ts-basic-service/api/v1/basicservice/basic/travels,POST,org.springframework.http.HttpEntity,false
-ts-travel-service,travel.service.TravelServiceImpl,travel.service.TravelServiceImpl.getTickets,ts-basic-service/api/v1/basicservice/basic/travel,POST,org.springframework.http.HttpEntity,false
-ts-travel-service,travel.service.TravelServiceImpl,travel.service.TravelServiceImpl.getTrainTypeByName,ts-train-service/api/v1/trainservice/trains/byName/,GET,org.springframework.http.HttpEntity,false
-ts-travel-service,travel.service.TravelServiceImpl,travel.service.TravelServiceImpl.getRouteByRouteId,ts-route-service/api/v1/routeservice/routes/,GET,org.springframework.http.HttpEntity,false
-ts-travel-service,travel.service.TravelServiceImpl,travel.service.TravelServiceImpl.getRestTicketNumber,ts-seat-service/api/v1/seatservice/seats/left_tickets,POST,org.springframework.http.HttpEntity,false

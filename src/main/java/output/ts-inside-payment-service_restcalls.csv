@@ -1,6 +1,0 @@
-ts-inside-payment-service,inside_payment.async.AsyncTask,inside_payment.async.AsyncTask.sendAsyncCallToPaymentService,http://rest-service-external:16100/greet,GET,java.lang.Boolean,false
-ts-inside-payment-service,inside_payment.service.InsidePaymentServiceImpl,inside_payment.service.InsidePaymentServiceImpl.setOrderStatus,ts-order-service/api/v1/orderservice/order/status//,GET,org.springframework.http.HttpEntity,false
-ts-inside-payment-service,inside_payment.service.InsidePaymentServiceImpl,inside_payment.service.InsidePaymentServiceImpl.pay,ts-payment-service/api/v1/paymentservice/payment,POST,org.springframework.http.HttpEntity,false
-ts-inside-payment-service,inside_payment.service.InsidePaymentServiceImpl,inside_payment.service.InsidePaymentServiceImpl.payDifference,ts-payment-service/api/v1/paymentservice/payment,POST,org.springframework.http.HttpEntity,false
-ts-inside-payment-service,inside_payment.service.InsidePaymentServiceImpl,inside_payment.service.InsidePaymentServiceImpl.setOrderStatus,ts-order-other-service/api/v1/orderOtherService/orderOther/status//,GET,org.springframework.http.HttpEntity,false
-ts-inside-payment-service,inside_payment.service.InsidePaymentServiceImpl,inside_payment.service.InsidePaymentServiceImpl.pay,,GET,org.springframework.http.HttpEntity,false

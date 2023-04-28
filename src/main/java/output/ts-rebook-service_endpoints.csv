@@ -1,3 +1,0 @@
-ts-rebook-service,rebook.controller.RebookController,rebook.controller.RebookController.payDifference,/rebook/difference,POST,org.springframework.http.HttpEntity,false,@RequestBody_RebookInfo_info&@RequestHeader_HttpHeaders_headers
-ts-rebook-service,rebook.controller.RebookController,rebook.controller.RebookController.home,/welcome,GET,java.lang.String,false,
-ts-rebook-service,rebook.controller.RebookController,rebook.controller.RebookController.rebook,/rebook,POST,org.springframework.http.HttpEntity,false,@RequestBody_RebookInfo_info&@RequestHeader_HttpHeaders_headers

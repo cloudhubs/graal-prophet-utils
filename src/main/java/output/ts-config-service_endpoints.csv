@@ -1,6 +1,0 @@
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.deleteConfig,/configs/{configName},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_configName&@RequestHeader_HttpHeaders_headers
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.createConfig,/configs,POST,class org.springframework.http.HttpEntity<?>,true,@RequestBody_Config_info&@RequestHeader_HttpHeaders_headers
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.queryAll,/configs,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.updateConfig,/configs,PUT,org.springframework.http.HttpEntity,false,@RequestBody_Config_info&@RequestHeader_HttpHeaders_headers
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.retrieve,/configs/{configName},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_configName&@RequestHeader_HttpHeaders_headers
-ts-config-service,config.controller.ConfigController,config.controller.ConfigController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers

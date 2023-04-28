@@ -1,7 +1,0 @@
-ts-price-service,price.controller.PriceController,price.controller.PriceController.query,/prices/byRouteIdsAndTrainTypes,POST,org.springframework.http.HttpEntity,false,@RequestBody_String>_ridsAndTts&@RequestHeader_HttpHeaders_headers
-ts-price-service,price.controller.PriceController,price.controller.PriceController.delete,/prices/{pricesId},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_pricesId&@RequestHeader_HttpHeaders_headers
-ts-price-service,price.controller.PriceController,price.controller.PriceController.query,/prices/{routeId}/{trainType},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_routeId&@PathVariable_String_trainType&@RequestHeader_HttpHeaders_headers
-ts-price-service,price.controller.PriceController,price.controller.PriceController.home,/prices/welcome,GET,java.lang.String,false,
-ts-price-service,price.controller.PriceController,price.controller.PriceController.create,/prices,POST,class org.springframework.http.HttpEntity<?>,true,@RequestBody_PriceConfig_info&@RequestHeader_HttpHeaders_headers
-ts-price-service,price.controller.PriceController,price.controller.PriceController.update,/prices,PUT,org.springframework.http.HttpEntity,false,@RequestBody_PriceConfig_info&@RequestHeader_HttpHeaders_headers
-ts-price-service,price.controller.PriceController,price.controller.PriceController.queryAll,/prices,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
