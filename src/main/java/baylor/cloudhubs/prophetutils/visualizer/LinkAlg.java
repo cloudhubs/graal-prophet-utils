@@ -120,7 +120,12 @@ public class LinkAlg {
     }
 
     private String addCurlyBraceToURI(String s) {
-        return s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+        String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
+
+        targetList.remove(0);
+
+        return String.join("/", targetList);
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
@@ -179,13 +184,16 @@ public class LinkAlg {
             for (Endpoint e : endpoints) {
 
                 String endpointURI = e.getPath();
-//
-//                // remove the ms name from the uri
-//                if (endpointURI.startsWith(e.getMsName())) {
-//                    endpointURI = endpointURI.replaceFirst(e.getMsName(), "");
-//                }
 
-                currDist = findDistance(endpointURI, addCurlyBraceToURI(uri));
+//                System.out.println("ms name endpoint: " + e.getMsName());
+//                System.out.println("ms name req: " + r.getMsName());
+//                System.out.println("ms name req dest: " + r.getEndpointMsName() + "\n");
+
+//                System.out.println("Pre processed: " + uri);
+                String restCallURI = addCurlyBraceToURI(uri);
+//                System.out.println("Post processed: " + restCallURI + "\n");
+
+                currDist = findDistance(endpointURI, restCallURI);
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
