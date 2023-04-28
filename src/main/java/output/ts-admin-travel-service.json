@@ -1,0 +1,170 @@
+{
+		"name" : {
+			"name" : "ts-admin-travel-service",
+			"fullName" : "ts-admin-travel-service"
+			}
+		,
+		"entities" : [
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.updateTravel",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.getAllTravels",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel-service/api/v1/travelservice/admin_trip",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.deleteTravel",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.queryTrainTypeByName",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-train-service/api/v1/trainservice/trains/byName/",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.getRouteByRouteId",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-route-service/api/v1/routeservice/routes/",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.getAllTravels",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel2-service/api/v1/travel2service/admin_trip",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.checkStationsExists",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-service/api/v1/stationservice/stations/idlist",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "admintravel.service.AdminTravelServiceImpl.addTravel",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "admintravel.service.AdminTravelServiceImpl",
+				"msName" : "ts-admin-travel-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "admintravel.controller.AdminTravelController.deleteTravel",
+				"arguments" : [
+					"@PathVariable String tripId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/admintravel/{tripId}",
+				"isCollection" : false,
+				"endpointInClassName" : "admintravel.controller.AdminTravelController",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.controller.AdminTravelController.getAllTravels",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/admintravel",
+				"isCollection" : false,
+				"endpointInClassName" : "admintravel.controller.AdminTravelController",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "admintravel.controller.AdminTravelController.addTravel",
+				"arguments" : [
+					"@RequestBody TravelInfo request",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/admintravel",
+				"isCollection" : false,
+				"endpointInClassName" : "admintravel.controller.AdminTravelController",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "admintravel.controller.AdminTravelController.updateTravel",
+				"arguments" : [
+					"@RequestBody TravelInfo request",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/admintravel",
+				"isCollection" : false,
+				"endpointInClassName" : "admintravel.controller.AdminTravelController",
+				"msName" : "ts-admin-travel-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "admintravel.controller.AdminTravelController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "admintravel.controller.AdminTravelController",
+				"msName" : "ts-admin-travel-service"
+				}
+			
+			]
+		
+		}
+	

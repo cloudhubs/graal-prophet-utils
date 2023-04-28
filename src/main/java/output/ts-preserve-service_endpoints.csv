@@ -1,0 +1,2 @@
+ts-preserve-service,preserve.controller.PreserveController,preserve.controller.PreserveController.home,/welcome,GET,java.lang.String,false,
+ts-preserve-service,preserve.controller.PreserveController,preserve.controller.PreserveController.preserve,/preserve,POST,org.springframework.http.HttpEntity,false,@RequestBody_OrderTicketsInfo_oti&@RequestHeader_HttpHeaders_headers

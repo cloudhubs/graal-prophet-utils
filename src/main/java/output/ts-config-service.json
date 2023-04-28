@@ -1,0 +1,167 @@
+{
+		"name" : {
+			"name" : "ts-config-service",
+			"fullName" : "ts-config-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Config",
+					"fullName" : "Config"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "value",
+							"fullName" : "value"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "description",
+							"fullName" : "description"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "config.controller.ConfigController.deleteConfig",
+				"arguments" : [
+					"@PathVariable String configName",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/configs/{configName}",
+				"isCollection" : false,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "config.controller.ConfigController.createConfig",
+				"arguments" : [
+					"@RequestBody Config info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.HttpEntity<?>",
+				"path" : "/configs",
+				"isCollection" : true,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "config.controller.ConfigController.queryAll",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/configs",
+				"isCollection" : false,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "config.controller.ConfigController.updateConfig",
+				"arguments" : [
+					"@RequestBody Config info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/configs",
+				"isCollection" : false,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "config.controller.ConfigController.retrieve",
+				"arguments" : [
+					"@PathVariable String configName",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/configs/{configName}",
+				"isCollection" : false,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "config.controller.ConfigController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "config.controller.ConfigController",
+				"msName" : "ts-config-service"
+				}
+			
+			]
+		
+		}
+	

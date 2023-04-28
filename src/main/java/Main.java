@@ -7,11 +7,14 @@ import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
 import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
 
 import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+
+import baylor.cloudhubs.prophetutils.contextmap.*;
 
 public class Main {
 
@@ -32,6 +35,8 @@ public class Main {
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
+        ReadCreate r = new ReadCreate();
+        r.readIn();
     }
 
 

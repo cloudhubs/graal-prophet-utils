@@ -1,0 +1,7 @@
+ts-route-service,route.controller.RouteController,route.controller.RouteController.queryById,/routes/{routeId},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_routeId&@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.createAndModifyRoute,/routes,POST,class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>,true,@RequestBody_RouteInfo_createAndModifyRouteInfo&@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.queryByStartAndTerminal,/routes/{start}/{end},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_start&@PathVariable_String_end&@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.deleteRoute,/routes/{routeId},DELETE,org.springframework.http.HttpEntity,false,@PathVariable_String_routeId&@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.queryByIds,/routes/byIds,POST,org.springframework.http.HttpEntity,false,@RequestBody_String>_routeIds&@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.queryAll,/routes,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
+ts-route-service,route.controller.RouteController,route.controller.RouteController.home,/welcome,GET,java.lang.String,false,

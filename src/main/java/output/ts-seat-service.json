@@ -1,0 +1,110 @@
+{
+		"name" : {
+			"name" : "ts-seat-service",
+			"fullName" : "ts-seat-service"
+			}
+		,
+		"entities" : [
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.service.SeatServiceImpl.getLeftTicketOfInterval",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-service/api/v1/orderservice/order/tickets",
+				"isCollection" : false,
+				"restCallInClassName" : "seat.service.SeatServiceImpl",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.service.SeatServiceImpl.getLeftTicketOfInterval",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-other-service/api/v1/orderOtherService/orderOther/tickets",
+				"isCollection" : false,
+				"restCallInClassName" : "seat.service.SeatServiceImpl",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.service.SeatServiceImpl.distributeSeat",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-other-service/api/v1/orderOtherService/orderOther/tickets",
+				"isCollection" : false,
+				"restCallInClassName" : "seat.service.SeatServiceImpl",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "seat.service.SeatServiceImpl.getDirectProportion",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-config-service/api/v1/configservice/configs/DirectTicketAllocationProportion",
+				"isCollection" : false,
+				"restCallInClassName" : "seat.service.SeatServiceImpl",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.service.SeatServiceImpl.distributeSeat",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-order-service/api/v1/orderservice/order/tickets",
+				"isCollection" : false,
+				"restCallInClassName" : "seat.service.SeatServiceImpl",
+				"msName" : "ts-seat-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.controller.SeatController.create",
+				"arguments" : [
+					"@RequestBody Seat seatRequest",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/seats",
+				"isCollection" : false,
+				"endpointInClassName" : "seat.controller.SeatController",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "seat.controller.SeatController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "seat.controller.SeatController",
+				"msName" : "ts-seat-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "seat.controller.SeatController.getLeftTicketOfInterval",
+				"arguments" : [
+					"@RequestBody Seat seatRequest",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/seats/left_tickets",
+				"isCollection" : false,
+				"endpointInClassName" : "seat.controller.SeatController",
+				"msName" : "ts-seat-service"
+				}
+			
+			]
+		
+		}
+	

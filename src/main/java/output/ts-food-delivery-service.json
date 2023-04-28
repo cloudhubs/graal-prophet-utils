@@ -1,0 +1,553 @@
+{
+		"name" : {
+			"name" : "ts-food-delivery-service",
+			"fullName" : "ts-food-delivery-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "FoodDeliveryOrder",
+					"fullName" : "FoodDeliveryOrder"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "deliveryTime",
+							"fullName" : "deliveryTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "foodList",
+							"fullName" : "foodList"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							{
+								"name" : "@ElementCollection",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatNo",
+							"fullName" : "seatNo"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "tripId",
+							"fullName" : "tripId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "createdTime",
+							"fullName" : "createdTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "deliveryFee",
+							"fullName" : "deliveryFee"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "stationFoodStoreId",
+							"fullName" : "stationFoodStoreId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "StationFoodStoreInfo",
+					"fullName" : "StationFoodStoreInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "stationId",
+							"fullName" : "stationId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "telephone",
+							"fullName" : "telephone"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "foodList",
+							"fullName" : "foodList"
+							}
+						,
+						"type" : "List",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "storeName",
+							"fullName" : "storeName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "businessTime",
+							"fullName" : "businessTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "deliveryFee",
+							"fullName" : "deliveryFee"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "TripOrderInfo",
+					"fullName" : "TripOrderInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "tripId",
+							"fullName" : "tripId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "SeatInfo",
+					"fullName" : "SeatInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatNo",
+							"fullName" : "seatNo"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "DeliveryInfo",
+					"fullName" : "DeliveryInfo"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "deliveryTime",
+							"fullName" : "deliveryTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food_delivery.service.FoodDeliveryServiceImpl.createFoodDeliveryOrder",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-station-food-service/api/v1/stationfoodservice/stationfoodstores/bystoreid/",
+				"isCollection" : false,
+				"restCallInClassName" : "food_delivery.service.FoodDeliveryServiceImpl",
+				"msName" : "ts-food-delivery-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.updateSeatNo",
+				"arguments" : [
+					"@RequestBody SeatInfo seatInfo",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/seatno",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.updateDeliveryTime",
+				"arguments" : [
+					"@RequestBody DeliveryInfo deliveryInfo",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/dtime",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.getFoodDeliveryOrderById",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.updateTripId",
+				"arguments" : [
+					"@RequestBody TripOrderInfo tripOrderInfo",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/tripid",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.createFoodDeliveryOrder",
+				"arguments" : [
+					"@RequestBody FoodDeliveryOrder fd",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.getFoodDeliveryOrderByStoreId",
+				"arguments" : [
+					"@PathVariable String storeId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/store/{storeId}",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.deleteFoodDeliveryOrder",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/d/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "food_delivery.controller.FoodDeliveryController.getAllFoodDeliveryOrders",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders/all",
+				"isCollection" : false,
+				"endpointInClassName" : "food_delivery.controller.FoodDeliveryController",
+				"msName" : "ts-food-delivery-service"
+				}
+			
+			]
+		
+		}
+	

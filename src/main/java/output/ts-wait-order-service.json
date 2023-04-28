@@ -1,0 +1,486 @@
+{
+		"name" : {
+			"name" : "ts-wait-order-service",
+			"fullName" : "ts-wait-order-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "WaitListOrder",
+					"fullName" : "WaitListOrder"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "waitUtilTime",
+							"fullName" : "waitUtilTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "to",
+							"fullName" : "to"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatType",
+							"fullName" : "seatType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "createdTime",
+							"fullName" : "createdTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "trainNumber",
+							"fullName" : "trainNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "from",
+							"fullName" : "from"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsDocumentType",
+							"fullName" : "contactsDocumentType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "travelTime",
+							"fullName" : "travelTime"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsId",
+							"fullName" : "contactsId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsDocumentNumber",
+							"fullName" : "contactsDocumentNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "status",
+							"fullName" : "status"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsName",
+							"fullName" : "contactsName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "WaitListOrderVO",
+					"fullName" : "WaitListOrderVO"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "date",
+							"fullName" : "date"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "from",
+							"fullName" : "from"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "to",
+							"fullName" : "to"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "contactsId",
+							"fullName" : "contactsId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "tripId",
+							"fullName" : "tripId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "seatType",
+							"fullName" : "seatType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "waitorder.utils.PollThread.doPreserve",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "/api/v1/contactservice/preserve",
+				"isCollection" : false,
+				"restCallInClassName" : "waitorder.utils.PollThread",
+				"msName" : "ts-wait-order-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "waitorder.controller.WaitListOrderController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "waitorder.controller.WaitListOrderController",
+				"msName" : "ts-wait-order-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "waitorder.controller.WaitListOrderController.getAllOrders",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/orders",
+				"isCollection" : false,
+				"endpointInClassName" : "waitorder.controller.WaitListOrderController",
+				"msName" : "ts-wait-order-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "waitorder.controller.WaitListOrderController.createNewOrder",
+				"arguments" : [
+					"@RequestBody WaitListOrderVO createOrder",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/order",
+				"isCollection" : false,
+				"endpointInClassName" : "waitorder.controller.WaitListOrderController",
+				"msName" : "ts-wait-order-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "waitorder.controller.WaitListOrderController.getWaitListOrders",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/waitlistorders",
+				"isCollection" : false,
+				"endpointInClassName" : "waitorder.controller.WaitListOrderController",
+				"msName" : "ts-wait-order-service"
+				}
+			
+			]
+		
+		}
+	

@@ -1,0 +1,277 @@
+{
+		"name" : {
+			"name" : "ts-contacts-service",
+			"fullName" : "ts-contacts-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Contacts",
+					"fullName" : "Contacts"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "phoneNumber",
+							"fullName" : "phoneNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentNumber",
+							"fullName" : "documentNumber"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "accountId",
+							"fullName" : "accountId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "documentType",
+							"fullName" : "documentType"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "contacts.controller.ContactsController.findContactsByAccountId",
+				"arguments" : [
+					"@PathVariable String accountId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/contacts/account/{accountId}",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "contacts.controller.ContactsController.getContactsByContactsId",
+				"arguments" : [
+					"@PathVariable String id",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/contacts/{id}",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "contacts.controller.ContactsController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/contacts/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "contacts.controller.ContactsController.createNewContacts",
+				"arguments" : [
+					"@RequestBody Contacts aci",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.ResponseEntity<class edu.fudan.common.util.Response>",
+				"path" : "/contacts",
+				"isCollection" : true,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "contacts.controller.ContactsController.deleteContacts",
+				"arguments" : [
+					"@PathVariable String contactsId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/contacts/{contactsId}",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "contacts.controller.ContactsController.modifyContacts",
+				"arguments" : [
+					"@RequestBody Contacts info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/contacts",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "contacts.controller.ContactsController.getAllContacts",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/contacts",
+				"isCollection" : false,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "contacts.controller.ContactsController.createNewContactsAdmin",
+				"arguments" : [
+					"@RequestBody Contacts aci",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.HttpEntity<?>",
+				"path" : "/contacts/admin",
+				"isCollection" : true,
+				"endpointInClassName" : "contacts.controller.ContactsController",
+				"msName" : "ts-contacts-service"
+				}
+			
+			]
+		
+		}
+	

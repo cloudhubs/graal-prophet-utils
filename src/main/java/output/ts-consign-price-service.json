@@ -1,0 +1,239 @@
+{
+		"name" : {
+			"name" : "ts-consign-price-service",
+			"fullName" : "ts-consign-price-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "ConsignPrice",
+					"fullName" : "ConsignPrice"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "initialPrice",
+							"fullName" : "initialPrice"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "withinPrice",
+							"fullName" : "withinPrice"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "beyondPrice",
+							"fullName" : "beyondPrice"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@GeneratedValue",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "index",
+							"fullName" : "index"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "initialWeight",
+							"fullName" : "initialWeight"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "consignprice.controller.ConsignPriceController.getPriceInfo",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/consignprice/price",
+				"isCollection" : false,
+				"endpointInClassName" : "consignprice.controller.ConsignPriceController",
+				"msName" : "ts-consign-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "consignprice.controller.ConsignPriceController.getPriceByWeightAndRegion",
+				"arguments" : [
+					"@PathVariable String weight",
+					"@PathVariable String isWithinRegion",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/consignprice/{weight}/{isWithinRegion}",
+				"isCollection" : false,
+				"endpointInClassName" : "consignprice.controller.ConsignPriceController",
+				"msName" : "ts-consign-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "consignprice.controller.ConsignPriceController.getPriceConfig",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/consignprice/config",
+				"isCollection" : false,
+				"endpointInClassName" : "consignprice.controller.ConsignPriceController",
+				"msName" : "ts-consign-price-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "consignprice.controller.ConsignPriceController.modifyPriceConfig",
+				"arguments" : [
+					"@RequestBody ConsignPrice priceConfig",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/consignprice",
+				"isCollection" : false,
+				"endpointInClassName" : "consignprice.controller.ConsignPriceController",
+				"msName" : "ts-consign-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "consignprice.controller.ConsignPriceController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "consignprice.controller.ConsignPriceController",
+				"msName" : "ts-consign-price-service"
+				}
+			
+			]
+		
+		}
+	

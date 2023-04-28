@@ -1,0 +1,1 @@
+ts-order-other-service,other.service.OrderOtherServiceImpl,other.service.OrderOtherServiceImpl.queryForStationId,ts-station-service/api/v1/stationservice/stations/namelist,POST,org.springframework.http.HttpEntity,false

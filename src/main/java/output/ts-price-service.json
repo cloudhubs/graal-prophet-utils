@@ -1,0 +1,230 @@
+{
+		"name" : {
+			"name" : "ts-price-service",
+			"fullName" : "ts-price-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "PriceConfig",
+					"fullName" : "PriceConfig"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "trainType",
+							"fullName" : "trainType"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "routeId",
+							"fullName" : "routeId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "basicPriceRate",
+							"fullName" : "basicPriceRate"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "firstClassPriceRate",
+							"fullName" : "firstClassPriceRate"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "price.controller.PriceController.query",
+				"arguments" : [
+					"@RequestBody String> ridsAndTts",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/prices/byRouteIdsAndTrainTypes",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "price.controller.PriceController.delete",
+				"arguments" : [
+					"@PathVariable String pricesId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/prices/{pricesId}",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "price.controller.PriceController.query",
+				"arguments" : [
+					"@PathVariable String routeId",
+					"@PathVariable String trainType",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/prices/{routeId}/{trainType}",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "price.controller.PriceController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/prices/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "price.controller.PriceController.create",
+				"arguments" : [
+					"@RequestBody PriceConfig info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "class org.springframework.http.HttpEntity<?>",
+				"path" : "/prices",
+				"isCollection" : true,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "PUT",
+				"parentMethod" : "price.controller.PriceController.update",
+				"arguments" : [
+					"@RequestBody PriceConfig info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/prices",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "price.controller.PriceController.queryAll",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/prices",
+				"isCollection" : false,
+				"endpointInClassName" : "price.controller.PriceController",
+				"msName" : "ts-price-service"
+				}
+			
+			]
+		
+		}
+	

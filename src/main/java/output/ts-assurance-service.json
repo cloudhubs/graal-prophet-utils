@@ -1,0 +1,413 @@
+{
+		"name" : {
+			"name" : "ts-assurance-service",
+			"fullName" : "ts-assurance-service"
+			}
+		,
+		"entities" : [
+			{
+				"entityName" : {
+					"name" : "Assurance",
+					"fullName" : "Assurance"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "type",
+							"fullName" : "type"
+							}
+						,
+						"type" : "AssuranceType",
+						"annotations" : [
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Enumerated",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							{
+								"name" : "@Id",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							,
+							{
+								"name" : "@Column",
+								"stringValue" : null,
+								"intValue" : null
+								}
+							
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "AssuranceTypeBean",
+					"fullName" : "AssuranceTypeBean"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "index",
+							"fullName" : "index"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "PlainAssurance",
+					"fullName" : "PlainAssurance"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "orderId",
+							"fullName" : "orderId"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "typePrice",
+							"fullName" : "typePrice"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "typeName",
+							"fullName" : "typeName"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "id",
+							"fullName" : "id"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "typeIndex",
+							"fullName" : "typeIndex"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			,
+			{
+				"entityName" : {
+					"name" : "AssuranceType",
+					"fullName" : "AssuranceType"
+					}
+				,
+				"fields" : [
+					{
+						"name" : {
+							"name" : "index",
+							"fullName" : "index"
+							}
+						,
+						"type" : "int",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "name",
+							"fullName" : "name"
+							}
+						,
+						"type" : "String",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					,
+					{
+						"name" : {
+							"name" : "price",
+							"fullName" : "price"
+							}
+						,
+						"type" : "double",
+						"annotations" : [
+							]
+						,
+						"isReference" : false,
+						"entityRefName" : null,
+						"isCollection" : false
+						}
+					
+					]
+				
+				}
+			
+			]
+		,
+		"restCalls" : [
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "assurance.controller.AssuranceController.deleteAssuranceByOrderId",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances/orderid/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.getAllAssurances",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.getAllAssuranceType",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances/types",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "DELETE",
+				"parentMethod" : "assurance.controller.AssuranceController.deleteAssurance",
+				"arguments" : [
+					"@PathVariable String assuranceId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances/assuranceid/{assuranceId}",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.createNewAssurance",
+				"arguments" : [
+					"@PathVariable int typeIndex",
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances/{typeIndex}/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.findAssuranceByOrderId",
+				"arguments" : [
+					"@PathVariable String orderId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurance/orderid/{orderId}",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.getAssuranceById",
+				"arguments" : [
+					"@PathVariable String assuranceId",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/assurances/assuranceid/{assuranceId}",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "assurance.controller.AssuranceController.home",
+				"arguments" : [
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "assurance.controller.AssuranceController",
+				"msName" : "ts-assurance-service"
+				}
+			
+			]
+		
+		}
+	

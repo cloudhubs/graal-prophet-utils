@@ -1,0 +1,155 @@
+{
+		"name" : {
+			"name" : "ts-route-plan-service",
+			"fullName" : "ts-route-plan-service"
+			}
+		,
+		"entities" : [
+			]
+		,
+		"restCalls" : [
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.searchMinStopStations",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-route-service/api/v1/routeservice/routes//",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.getStationList",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.getTripFromHighSpeedTravelServive",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel-service/api/v1/travelservice/trips/left",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.getTripFromNormalTrainTravelService",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel2-service/api/v1/travel2service/trips/left",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.searchMinStopStations",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel2-service/api/v1/travel2service/trips/routes",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.getRouteByRouteId",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-route-service/api/v1/routeservice/routes/",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.searchMinStopStations",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.service.RoutePlanServiceImpl.searchMinStopStations",
+				"returnType" : "org.springframework.http.HttpEntity",
+				"uri" : "ts-travel-service/api/v1/travelservice/trips/routes",
+				"isCollection" : false,
+				"restCallInClassName" : "plan.service.RoutePlanServiceImpl",
+				"msName" : "ts-route-plan-service"
+				}
+			
+			]
+		,
+		"endpoints" : [
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.controller.RoutePlanController.getCheapestRoutes",
+				"arguments" : [
+					"@RequestBody RoutePlanInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routePlan/cheapestRoute",
+				"isCollection" : false,
+				"endpointInClassName" : "plan.controller.RoutePlanController",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "GET",
+				"parentMethod" : "plan.controller.RoutePlanController.home",
+				"arguments" : [
+					]
+				,
+				"returnType" : "java.lang.String",
+				"path" : "/welcome",
+				"isCollection" : false,
+				"endpointInClassName" : "plan.controller.RoutePlanController",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.controller.RoutePlanController.getQuickestRoutes",
+				"arguments" : [
+					"@RequestBody RoutePlanInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routePlan/quickestRoute",
+				"isCollection" : false,
+				"endpointInClassName" : "plan.controller.RoutePlanController",
+				"msName" : "ts-route-plan-service"
+				}
+			,
+			{
+				"httpMethod" : "POST",
+				"parentMethod" : "plan.controller.RoutePlanController.getMinStopStations",
+				"arguments" : [
+					"@RequestBody RoutePlanInfo info",
+					"@RequestHeader HttpHeaders headers"
+					]
+				,
+				"returnType" : "org.springframework.http.HttpEntity",
+				"path" : "/routePlan/minStopStations",
+				"isCollection" : false,
+				"endpointInClassName" : "plan.controller.RoutePlanController",
+				"msName" : "ts-route-plan-service"
+				}
+			
+			]
+		
+		}
+	

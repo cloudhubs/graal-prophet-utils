@@ -1,0 +1,3 @@
+ts-train-food-service,trainFood.controller.TrainFoodController,trainFood.controller.TrainFoodController.getAllTrainFood,/trainfoods,GET,org.springframework.http.HttpEntity,false,@RequestHeader_HttpHeaders_headers
+ts-train-food-service,trainFood.controller.TrainFoodController,trainFood.controller.TrainFoodController.getTrainFoodOfTrip,/trainfoods/{tripId},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_tripId&@RequestHeader_HttpHeaders_headers
+ts-train-food-service,trainFood.controller.TrainFoodController,trainFood.controller.TrainFoodController.home,/trainfoods/welcome,GET,java.lang.String,false,

@@ -1,0 +1,2 @@
+ts-consign-service,consign.service.ConsignServiceImpl,consign.service.ConsignServiceImpl.updateConsignRecord,ts-consign-price-service/api/v1/consignpriceservice/consignprice//,GET,org.springframework.http.HttpEntity,false
+ts-consign-service,consign.service.ConsignServiceImpl,consign.service.ConsignServiceImpl.insertConsignRecord,ts-consign-price-service/api/v1/consignpriceservice/consignprice//,GET,org.springframework.http.HttpEntity,false

@@ -30,7 +30,6 @@ public class NativeImageRunner {
         this.entityOutput = "./" + outputDir + "/" + info.getMicroserviceName() + ".json";
         this.restcallOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_restcalls.csv";
         this.endpointOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_endpoints.csv";
-        
     }
 
     public Module runProphetPlugin() {

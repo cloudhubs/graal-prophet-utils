@@ -1,0 +1,3 @@
+ts-food-service,foodsearch.service.FoodServiceImpl,foodsearch.service.FoodServiceImpl.getAllFood,ts-train-food-service/api/v1/trainfoodservice/trainfoods/,GET,org.springframework.http.HttpEntity,false
+ts-food-service,foodsearch.service.FoodServiceImpl,foodsearch.service.FoodServiceImpl.getAllFood,ts-station-food-service/api/v1/stationfoodservice/stationfoodstores,POST,org.springframework.http.HttpEntity,false
+ts-food-service,foodsearch.service.FoodServiceImpl,foodsearch.service.FoodServiceImpl.getAllFood,ts-travel-service/api/v1/travelservice/routes/,GET,org.springframework.http.HttpEntity,false

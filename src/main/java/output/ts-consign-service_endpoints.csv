@@ -1,0 +1,6 @@
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.findByAccountId,/consigns/account/{id},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_id&@RequestHeader_HttpHeaders_headers
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.findByConsignee,/consigns/{consignee},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_consignee&@RequestHeader_HttpHeaders_headers
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.insertConsign,/consigns,POST,org.springframework.http.HttpEntity,false,@RequestBody_Consign_request&@RequestHeader_HttpHeaders_headers
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.updateConsign,/consigns,PUT,org.springframework.http.HttpEntity,false,@RequestBody_Consign_request&@RequestHeader_HttpHeaders_headers
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.findByOrderId,/consigns/order/{id},GET,org.springframework.http.HttpEntity,false,@PathVariable_String_id&@RequestHeader_HttpHeaders_headers
+ts-consign-service,consign.controller.ConsignController,consign.controller.ConsignController.home,/welcome,GET,java.lang.String,false,@RequestHeader_HttpHeaders_headers
