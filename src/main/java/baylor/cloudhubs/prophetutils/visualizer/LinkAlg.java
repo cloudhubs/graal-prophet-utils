@@ -22,10 +22,13 @@ public class LinkAlg {
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    public LinkAlg() {
+    public LinkAlg(List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 0.3;
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+        for (MicroserviceInfo mi : microservices){
+            nodes.add(new Node(mi.getMicroserviceName()));
+        }
     }
 
 
@@ -107,6 +110,7 @@ public class LinkAlg {
             // for (String s : items){
             //     System.out.println("\t" + s);
             // }
+            System.out.println("items = " + Arrays.toString(items));
             Endpoint end = new Endpoint(
                 items[5],
                 items[2],

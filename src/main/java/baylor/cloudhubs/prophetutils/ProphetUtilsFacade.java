@@ -63,9 +63,9 @@ public class ProphetUtilsFacade {
 
             outputFolderName = "output_" + analysisRequest.getSystemName();
             try {
-				// createOutputDir(outputFolderName);
-                // SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
-                // FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
+				createOutputDir(outputFolderName);
+                SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
+                FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
                 System.out.println("Beginning Linking and Communication Graph Creation\n");
                 LinkAlg linkAlgorithm = new LinkAlg(percentMatch, microservices);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
