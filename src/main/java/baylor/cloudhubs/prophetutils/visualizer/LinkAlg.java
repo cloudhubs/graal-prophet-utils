@@ -121,9 +121,14 @@ public class LinkAlg {
 
     private String addCurlyBraceToURI(String s) {
         String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+
+        /* THIS SECTION IS FOR TRAIN TICKET */
+
         ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
 
         targetList.remove(0);
+
+        /* END TRAIN TICKET SECTION */
 
         return String.join("/", targetList);
     }
@@ -189,12 +194,14 @@ public class LinkAlg {
 //                System.out.println("ms name req: " + r.getMsName());
 //                System.out.println("ms name req dest: " + r.getEndpointMsName() + "\n");
 
-//                System.out.println("Pre processed: " + uri);
+                System.out.println("Pre processed: " + uri);
                 String restCallURI = addCurlyBraceToURI(uri);
-//                System.out.println("Post processed: " + restCallURI + "\n");
+                System.out.println("Post processed: " + restCallURI + "\n");
+
+                boolean hasCurlyBraces = (restCallURI.contains("{") || restCallURI.contains("}")) && (endpointURI.contains("{") || endpointURI.contains("}"));
 
                 currDist = findDistance(endpointURI, restCallURI);
-                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
+                if (hasCurlyBraces && e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
                     lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
@@ -257,8 +264,8 @@ public class LinkAlg {
 
         // Applying the algorithm:
         short insertion, deletion, replacement;
-        for(short i = 1; i <= a.length(); i++) {
-            for(short j = 1; j <= b.length(); j++) {
+        for (short i = 1; i <= a.length(); i++) {
+            for (short j = 1; j <= b.length(); j++) {
                 if(a.charAt(i - 1) == (b.charAt(j - 1)))
                     d[i][j] = d[i - 1][j - 1];
                 else {
