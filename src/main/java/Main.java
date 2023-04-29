@@ -44,7 +44,7 @@ public class Main {
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
         System.out.println("Path: " + args[0] + " | tsCommon: " + tsCommon + " | percentMatch: " + percentMatch);
-        //ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
+        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
 
         Path absolute = Paths.get(args[0]);
         Path parent = absolute.getParent().getParent();

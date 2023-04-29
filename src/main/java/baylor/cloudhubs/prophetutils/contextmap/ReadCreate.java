@@ -90,9 +90,6 @@ public class ReadCreate {
             for(Entity e : d.getEntities()){
                 for(Field f : e.getFields()){
                     Matcher matcher = pattern.matcher(f.getType());
-                    if(d.getName().getName().equals("ts-cancel-service")){
-                        //System.out.println(f.getType());
-                    }
                     if(msNames.containsKey(f.getType())){
                         Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
                         if(mults.containsKey(p)){
@@ -120,18 +117,19 @@ public class ReadCreate {
         //links: Pair<src, target>, Pair<Pair<srcMult, targetMult>, Pair<msSrc, msTarget>>
         //entry: Pair<src, dest>, Pair<mult, Pair<msSrc, msDest>>
         for(Map.Entry<Pair<String, String>, Pair<Integer, Pair<String, String>>> entry : mults.entrySet()){
-            //if there is not a link with the specified src/target and there is not a link with the same target/src
-            //basically, a link doesn't exist
-            if(!links.containsKey(entry.getKey()) && !links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
-                links.put(entry.getKey(), new Pair<>(new Pair<>(entry.getValue().getKey(), 0), new Pair<>(entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue())));
-            //if there is a link with the specified src/target
-            }else if(links.containsKey(entry.getKey())){
+            //System.out.println("Entry: Src: " + entry.getKey().getKey() + ", Dest: " + entry.getKey().getValue() + ", Mult: " + entry.getValue().getKey() + ", MSSrc: " + entry.getValue().getValue().getKey() + ", MSDest: " + entry.getValue().getValue().getKey());
+            //if there is a link with the specified src/target && specified msSrc/msTarget
+            if(links.containsKey(entry.getKey()) && links.get(entry.getKey()).getValue() != entry.getValue().getValue()){  //I think
                 links.put(entry.getKey(), new Pair<>(new Pair<>(links.get(entry.getKey()).getKey().getKey() + 1, 0), new Pair<>(entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue())));
-            //if there is a link with the specified target/src
-            }else if(links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()))){
+            //if there is a link with the specified target/src && specified msTarget/msSrc
+            }else if(links.containsKey(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())) && links.get(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())).getValue() != new Pair<>(entry.getValue().getValue().getValue(), entry.getValue().getValue().getKey())){
                 links.put(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey()), new Pair<>(
                     new Pair<>(links.get(new Pair<>(entry.getKey().getValue(), entry.getKey().getKey())).getKey().getKey(), entry.getValue().getKey()), 
                     new Pair<>(entry.getValue().getValue().getValue(), entry.getValue().getValue().getKey())));
+            //if there is not a link with the specified src/target && msSrc/msTarget and there is not a link with the same target/src && msTarget/msSrc
+            //basically, a link doesn't exist
+            }else{
+                links.put(entry.getKey(), new Pair<>(new Pair<>(entry.getValue().getKey(), 0), new Pair<>(entry.getValue().getValue().getKey(), entry.getValue().getValue().getValue())));
             }
         }
         //add the links to listLinks
