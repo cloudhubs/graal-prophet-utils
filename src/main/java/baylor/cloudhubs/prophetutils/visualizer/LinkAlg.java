@@ -195,24 +195,20 @@ public class LinkAlg {
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
+            String restCallURI = addCurlyBraceToURI(uri);
+//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
 
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
 
                 String endpointURI = e.getPath();
-
-//                System.out.println("ms name endpoint: " + e.getMsName());
-//                System.out.println("ms name req: " + r.getMsName());
-//                System.out.println("ms name req dest: " + r.getEndpointMsName() + "\n");
-
-                System.out.println("Pre processed: " + uri);
-                String restCallURI = addCurlyBraceToURI(uri);
-                System.out.println("Post processed: " + restCallURI + "\n");
-
-                boolean hasCurlyBraces = (restCallURI.contains("{") || restCallURI.contains("}")) && (endpointURI.contains("{") || endpointURI.contains("}"));
+//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
+//
+//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
+//                    continue;
 
                 currDist = findDistance(endpointURI, restCallURI);
-                if (hasCurlyBraces && e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
+                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
                     lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
