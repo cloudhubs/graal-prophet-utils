@@ -6,6 +6,9 @@ import java.net.URL;
 import java.util.*;
 
 import com.google.gson.Gson;
+
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -19,18 +22,25 @@ public class LinkAlg {
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    public LinkAlg() {
+    public LinkAlg(List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 0.3;
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+        for (MicroserviceInfo mi : microservices){
+            nodes.add(new Node(mi.getMicroserviceName()));
+        }
     }
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage) {
+    public LinkAlg(int similarityPercentage, List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+
+        for (MicroserviceInfo mi : microservices){
+            nodes.add(new Node(mi.getMicroserviceName()));
+        }
     }
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
@@ -100,6 +110,7 @@ public class LinkAlg {
             // for (String s : items){
             //     System.out.println("\t" + s);
             // }
+            System.out.println("items = " + Arrays.toString(items));
             Endpoint end = new Endpoint(
                 items[5],
                 items[2],
@@ -112,7 +123,7 @@ public class LinkAlg {
             );
             endpoints.add(end);
             //ADD ENDPOINT MS 
-            this.nodes.add(new Node(end.getMsName()));
+            // this.nodes.add(new Node(end.getMsName()));
         }
         br.close();
 
@@ -157,7 +168,7 @@ public class LinkAlg {
             }
             Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
             //ADD REQUEST MS 
-            this.nodes.add(new Node(req.getMsName()));
+            // this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
         }
 

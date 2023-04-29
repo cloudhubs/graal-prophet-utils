@@ -1,1 +1,0 @@
-ts-food-delivery-service,food_delivery.service.FoodDeliveryServiceImpl,food_delivery.service.FoodDeliveryServiceImpl.createFoodDeliveryOrder,ts-station-food-service/api/v1/stationfoodservice/stationfoodstores/bystoreid/,GET,org.springframework.http.HttpEntity,false

@@ -30,6 +30,7 @@ public class NativeImageRunner {
         this.entityOutput = "./" + outputDir + "/" + info.getMicroserviceName() + ".json";
         this.restcallOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_restcalls.csv";
         this.endpointOutput = "./" + outputDir + "/"  + info.getMicroserviceName() + "_endpoints.csv";
+        System.out.println("classpath = " + classpath);
     }
 
     public Module runProphetPlugin() {
@@ -75,34 +76,6 @@ public class NativeImageRunner {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-        // String[] cmd = {
-        //     niCommand,
-        //     "-H:+ProphetPlugin",
-        //     "-H:-InlineBeforeAnalysis",
-        //     "-H:+BuildOutputSilent",
-        //     "-H:ProphetMicroserviceName=" + this.info.getMicroserviceName(),
-        //     "-H:ProphetBasePackage=" + this.info.getBasePackage(),
-        //     "-H:ProphetEntityOutputFile=" + this.entityOutput,   
-        //     "-H:ProphetRestCallOutputFile=" + this.restcallOutput,        
-        //     "-H:ProphetEndpointOutputFile=" + this.endpointOutput,        
-        //     "-cp",
-        //     classpath,
-        //     this.info.getMicroserviceName()
-        // };
-        // String commandStr = niCommand +  " --gc=G1 -H:+ProphetPlugin -H:-InlineBeforeAnalysis -H:+BuildOutputSilent -H:ProphetMicroserviceName=" + this.info.getMicroserviceName() + 
-        //     " -H:ProphetBasePackage=" + this.info.getBasePackage() + " -H:ProphetEntityOutputFile=" + this.entityOutput + " -H:ProphetRestCallOutputFile=" + this.restcallOutput + 
-        //     " -H:ProphetEndpointOutputFile=" + this.endpointOutput + " -cp " + classpath + " " + this.info.getMicroserviceName();
-        // System.out.println("command = " + commandStr);
-        // Runtime r = Runtime.getRuntime();
-        // try {
-        //     Process p = r.exec(commandStr);
-        //     int exitVal = p.waitFor();
-        //     if (exitVal != 0){
-        //         throw new IOException("Process did not complete successfully");
-        //     }
-        // } catch (IOException | InterruptedException e ) {
-        //     e.printStackTrace();
-        // }
     }
 
     @NotNull

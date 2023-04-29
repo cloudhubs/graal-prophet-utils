@@ -2,6 +2,7 @@ package baylor.cloudhubs.prophetutils;
 
 import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
+import baylor.cloudhubs.prophetutils.contextmap.ReadCreate;
 import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
@@ -65,8 +66,11 @@ public class ProphetUtilsFacade {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
-                LinkAlg linkAlgorithm = new LinkAlg(percentMatch);
+                System.out.println("Beginning Linking and Communication Graph Creation\n");
+                LinkAlg linkAlgorithm = new LinkAlg(percentMatch, microservices);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
+                ReadCreate r = new ReadCreate(outputFolderName);
+                r.readIn();
 			}
             catch(IOException | InterruptedException e){
                 e.printStackTrace();
@@ -80,7 +84,8 @@ public class ProphetUtilsFacade {
 
     private static void createOutputDir(String outputFolderName) throws IOException{
         // Create a File object for the root directory
-        File rootDir = new File("/home/jack/Capstone/graal-prophet-utils/");
+        File rootDir = new File("./");
+
         // Check if the 'output' directory exists in the root directory
         File outputDir = new File(rootDir, "./" + outputFolderName);
         if (!outputDir.exists()) {

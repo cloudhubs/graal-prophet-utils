@@ -1,8 +1,0 @@
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.updateTravel,,PUT,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.getAllTravels,ts-travel-service/api/v1/travelservice/admin_trip,GET,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.deleteTravel,,DELETE,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.queryTrainTypeByName,ts-train-service/api/v1/trainservice/trains/byName/,GET,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.getRouteByRouteId,ts-route-service/api/v1/routeservice/routes/,GET,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.getAllTravels,ts-travel2-service/api/v1/travel2service/admin_trip,GET,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.checkStationsExists,ts-station-service/api/v1/stationservice/stations/idlist,POST,org.springframework.http.HttpEntity,false
-ts-admin-travel-service,admintravel.service.AdminTravelServiceImpl,admintravel.service.AdminTravelServiceImpl.addTravel,,POST,org.springframework.http.HttpEntity,false
