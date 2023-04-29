@@ -1,14 +1,8 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-input_directory="./output_tms"
-restcalls_output="./output_tms/restcalls_total.csv"
-endpoints_output="./output_tms/endpoints_total.csv"
-=======
 input_directory="./output_trainticket"
 restcalls_output="$input_directory/restcalls_total.csv"
 endpoints_output="$input_directory/endpoints_total.csv"
->>>>>>> RH-ms-analysis-v1
 
 # Initialize output files with header row
 #echo "header1,header2,header3" > "$restcalls_output"
