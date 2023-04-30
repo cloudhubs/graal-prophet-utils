@@ -21,7 +21,7 @@ public class Main {
         }
 
         boolean isTrainTicket = false;
-        if (args.length == 2) {
+        if (args.length >= 2) {
             isTrainTicket = Boolean.parseBoolean(args[1]);
         }
 
