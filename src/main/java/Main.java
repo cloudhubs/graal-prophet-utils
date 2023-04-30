@@ -16,12 +16,17 @@ public class Main {
 
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
                 "GRAAL_PROPHET_HOME not set");
-        if (args.length == 0 || args.length > 2) {
-            throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <percentMatch>");
+        if (args.length == 0 || args.length > 3) {
+            throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <isTrainTicket> <percentMatch>");
+        }
+
+        boolean isTrainTicket = false;
+        if (args.length == "true") {
+            isTrainTicket = true;
         }
 
         int percentMatch = 70;
-        if (args.length == 2) {
+        if (args.length == 3) {
             percentMatch = Integer.parseInt(args[1]);
         }
 

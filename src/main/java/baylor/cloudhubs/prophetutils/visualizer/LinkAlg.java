@@ -19,6 +19,8 @@ public class LinkAlg {
 
     private double dissimilarityPercent;
 
+    private boolean isTrainTicket;
+
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
@@ -33,10 +35,11 @@ public class LinkAlg {
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage, List<MicroserviceInfo> microservices) {
+    public LinkAlg(int similarityPercentage, boolean isTrainTicket, List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+        this.isTrainTicket = isTrainTicket;
 
         for (MicroserviceInfo mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
@@ -133,15 +136,18 @@ public class LinkAlg {
     private String addCurlyBraceToURI(String s) {
         String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
 
+
         /* THIS SECTION IS FOR TRAIN TICKET */
+        if (this.isTrainTicket) {
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
 
-        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
+            targetList.remove(0);
 
-        targetList.remove(0);
-
+            return String.join("/", targetList);
+        }
         /* END TRAIN TICKET SECTION */
 
-        return String.join("/", targetList);
+        return addCurlyStr;
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
