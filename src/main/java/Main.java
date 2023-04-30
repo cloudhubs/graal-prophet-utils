@@ -16,19 +16,24 @@ public class Main {
 
         String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
                 "GRAAL_PROPHET_HOME not set");
-        if (args.length == 0 || args.length > 2) {
-            throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <percentMatch>");
+        if (args.length == 0 || args.length > 3) {
+            throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <isTrainTicket> <percentMatch>");
+        }
+
+        boolean isTrainTicket = false;
+        if (args.length >= 2) {
+            isTrainTicket = Boolean.parseBoolean(args[1]);
         }
 
         int percentMatch = 70;
-        if (args.length == 2) {
-            percentMatch = Integer.parseInt(args[1]);
+        if (args.length == 3) {
+            percentMatch = Integer.parseInt(args[2]);
         }
 
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
-        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
+        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
 
     }
 

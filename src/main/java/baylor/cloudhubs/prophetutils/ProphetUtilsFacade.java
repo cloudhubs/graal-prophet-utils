@@ -49,7 +49,7 @@ public class ProphetUtilsFacade {
             MS_TO_ANALYZE.put(info.getMicroserviceName(), 0);
         }
     }
-    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome, int percentMatch){
+    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome, int percentMatch, boolean isTrainTicket){
         String outputFolderName = null;
         List<MicroserviceInfo> microservices = analysisRequest.getMicroservices();
         String systemName = analysisRequest.getSystemName();
@@ -67,7 +67,7 @@ public class ProphetUtilsFacade {
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
                 FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
                 System.out.println("Beginning Linking and Communication Graph Creation\n");
-                LinkAlg linkAlgorithm = new LinkAlg(percentMatch, microservices);
+                LinkAlg linkAlgorithm = new LinkAlg(percentMatch, isTrainTicket, microservices);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
                 ReadCreate r = new ReadCreate(outputFolderName);
                 r.readIn();

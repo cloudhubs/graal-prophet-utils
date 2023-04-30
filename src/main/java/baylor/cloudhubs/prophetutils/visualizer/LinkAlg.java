@@ -19,6 +19,8 @@ public class LinkAlg {
 
     private double dissimilarityPercent;
 
+    private boolean isTrainTicket;
+
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
@@ -33,10 +35,11 @@ public class LinkAlg {
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage, List<MicroserviceInfo> microservices) {
+    public LinkAlg(int similarityPercentage, boolean isTrainTicket, List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
+        this.isTrainTicket = isTrainTicket;
 
         for (MicroserviceInfo mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
@@ -131,7 +134,20 @@ public class LinkAlg {
     }
 
     private String addCurlyBraceToURI(String s) {
-        return s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+        String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+
+
+        /* THIS SECTION IS FOR TRAIN TICKET */
+        if (this.isTrainTicket) {
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
+
+            targetList.remove(0);
+
+            return String.join("/", targetList);
+        }
+        /* END TRAIN TICKET SECTION */
+
+        return addCurlyStr;
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
@@ -185,18 +201,19 @@ public class LinkAlg {
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
+            String restCallURI = addCurlyBraceToURI(uri);
+//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
 
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
 
                 String endpointURI = e.getPath();
+//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
 //
-//                // remove the ms name from the uri
-//                if (endpointURI.startsWith(e.getMsName())) {
-//                    endpointURI = endpointURI.replaceFirst(e.getMsName(), "");
-//                }
+//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
+//                    continue;
 
-                currDist = findDistance(endpointURI, addCurlyBraceToURI(uri));
+                currDist = findDistance(endpointURI, restCallURI);
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
@@ -260,8 +277,8 @@ public class LinkAlg {
 
         // Applying the algorithm:
         short insertion, deletion, replacement;
-        for(short i = 1; i <= a.length(); i++) {
-            for(short j = 1; j <= b.length(); j++) {
+        for (short i = 1; i <= a.length(); i++) {
+            for (short j = 1; j <= b.length(); j++) {
                 if(a.charAt(i - 1) == (b.charAt(j - 1)))
                     d[i][j] = d[i - 1][j - 1];
                 else {
