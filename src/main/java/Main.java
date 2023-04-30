@@ -21,19 +21,19 @@ public class Main {
         }
 
         boolean isTrainTicket = false;
-        if (args.length == "true") {
-            isTrainTicket = true;
+        if (args.length == 2) {
+            isTrainTicket = Boolean.parseBoolean(args[1]);
         }
 
         int percentMatch = 70;
         if (args.length == 3) {
-            percentMatch = Integer.parseInt(args[1]);
+            percentMatch = Integer.parseInt(args[2]);
         }
 
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
-        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch);
+        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
 
     }
 
