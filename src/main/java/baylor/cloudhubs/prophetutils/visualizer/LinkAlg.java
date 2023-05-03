@@ -150,6 +150,18 @@ public class LinkAlg {
         return addCurlyStr;
     }
 
+    private int countParams(String s) {
+        int numberOfParams = 0;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '{') {
+                numberOfParams++;
+            }
+        }
+
+        return numberOfParams;
+    }
+
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
         Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
 
@@ -201,20 +213,24 @@ public class LinkAlg {
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
+
+            // count the number of parameters in side uri
             String restCallURI = addCurlyBraceToURI(uri);
-//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
+            int uriParamCount = countParams(restCallURI);
+
+            // filter by param count and HTTP method
+            List<Endpoint> newEndpoints = endpoints
+                    .stream()
+                    .filter((e) -> countParams(e.getPath()) == uriParamCount && e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()))
+                    .collect(Collectors.toList());
 
             // find the specific endpoint being called
-            for (Endpoint e : endpoints) {
+            for (Endpoint e : newEndpoints) {
 
                 String endpointURI = e.getPath();
-//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
-//
-//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
-//                    continue;
 
                 currDist = findDistance(endpointURI, restCallURI);
-                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
+                if (minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
                     lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
