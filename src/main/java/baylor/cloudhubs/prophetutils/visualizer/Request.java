@@ -14,8 +14,15 @@ public class Request {
     private String msName;
     private String restCallInClassName;
 
+    private boolean isPath;
+    private boolean isBody;
+    private String paramType;
+    private int paramCount;
+
+
     public Request(String msName, String restCallInClassName, String parentMethod,
-                String uri, String httpType, String requestReturn, Boolean isCollection) {
+                String uri, String httpType, String requestReturn, Boolean isPath, Boolean isBody,
+                   String paramType, int paramCount, Boolean isCollection) {
         this.type = httpType;
         this.uri = uri;
         this.requestReturn = requestReturn;
@@ -23,6 +30,10 @@ public class Request {
         this.msName = msName;
         this.parentMethod = parentMethod;
         this.restCallInClassName = restCallInClassName;
+        this.isPath = isPath;
+        this.isBody = isBody;
+        this.paramType = paramType;
+        this.paramCount = paramCount;
     }
     
     public String getType() {
@@ -48,6 +59,22 @@ public class Request {
     }
     public String getUri() {
         return uri;
+    }
+
+    public boolean isPath() {
+        return isPath;
+    }
+
+    public boolean isBody() {
+        return isBody;
+    }
+
+    public String getParamType() {
+        return paramType;
+    }
+
+    public int getParamCount() {
+        return paramCount;
     }
 
     public void setUri(String uri) {

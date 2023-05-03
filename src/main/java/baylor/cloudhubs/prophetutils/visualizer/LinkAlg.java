@@ -158,8 +158,8 @@ public class LinkAlg {
         BufferedReader br = new BufferedReader(fileReader);
 
         // CSV SCHEMA
-        // 0   ,         1             ,     2   ,   3    ,     4   ,    5     ,     6,    
-        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isCollection
+        // 0    ,        1           ,     2       , 3  ,     4     ,    5      ,     6 ,    7  ,     8    ,     9     ,      10
+        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isPath, isBody, paramType, paramCount, isCollection
 
         ArrayList<Request> requests = new ArrayList<>();
 
@@ -172,11 +172,15 @@ public class LinkAlg {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items");
             }
-            Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
+            Request req = new Request(items[0], items[1], items[2], items[3], items[4],
+                    items[5], Boolean.parseBoolean(items[6]), Boolean.parseBoolean(items[7]), items[8],
+                    Integer.parseInt(items[9]), Boolean.parseBoolean(items[10]));
             //ADD REQUEST MS 
             // this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
         }
+
+
 
         // close file
         br.close();
@@ -202,16 +206,13 @@ public class LinkAlg {
             int lengthOfLongerStr = 0;
 
             String restCallURI = addCurlyBraceToURI(uri);
-//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
+
+            ArrayList<Endpoint> filteringEndpoints = endpoints.stream().filter(() -> )
 
             // find the specific endpoint being called
             for (Endpoint e : endpoints) {
 
                 String endpointURI = e.getPath();
-//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
-//
-//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
-//                    continue;
 
                 currDist = findDistance(endpointURI, restCallURI);
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {

@@ -210,6 +210,16 @@
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-wait-order-service",
         "basePackage": "waitorder",
         "microserviceName": "ts-wait-order-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-food-map-service",
+        "basePackage": "food",
+        "microserviceName": "ts-food-map-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-ticketinfo-service",
+        "basePackage": "ticketinfo",
+        "microserviceName": "ts-ticketinfo-service"
       }
     ]
   }
