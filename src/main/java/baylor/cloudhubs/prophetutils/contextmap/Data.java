@@ -114,6 +114,22 @@ public class Data {
         public String getType(){
             return type;
         }
+
+        public Annotation[] getAnnotations(){
+            return annotations;
+        }
+
+        public boolean getIsReference(){
+            return isReference;
+        }
+
+        public String getEntityRefName(){
+            return entityRefName;
+        }
+
+        public boolean getIsCollection(){
+            return isCollection;
+        }
     
         @Override
         public String toString() {
@@ -147,6 +163,18 @@ public class Data {
 
         @SerializedName("intValue")
         private String intValue;
+
+        public String getName(){
+            return name;
+        }
+
+        public String getStringValue(){
+            return stringValue;
+        }
+
+        public String getIntValue(){
+            return intValue;
+        }
 
         @Override
         public String toString(){

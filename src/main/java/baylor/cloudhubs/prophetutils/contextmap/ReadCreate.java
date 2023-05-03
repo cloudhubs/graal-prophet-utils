@@ -8,6 +8,7 @@ import java.io.IOException;
 import com.google.gson.*;
 import javafx.util.Pair;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.io.FileWriter;
 import java.util.regex.Matcher;
@@ -27,9 +28,15 @@ public class ReadCreate {
 
     private static List<Link> listLinks = new ArrayList<>();
 
+    private static List<Link> listLinks2 = new ArrayList<>();
+
     private static HashMap<String, String> msNames = new HashMap<>();
 
     private static HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
+
+    private static List<Link> mults2 = new ArrayList<>();
+
+    private static List<Link> combinedMults = new ArrayList<>();
 
     //This is a list of Entities within ts-common, which cannot be parsed because of the kind of JAR file which
     //is created
@@ -39,7 +46,7 @@ public class ReadCreate {
                                                                 "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
                                                                 "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
-    public static void readIn(String pathName, boolean tsCommonBool){
+    public static void readIn(String pathName, boolean tsCommonBool, String systemName){
         File directory = new File(pathName);
         File[] files = directory.listFiles();
         for(File f : files){
@@ -57,7 +64,14 @@ public class ReadCreate {
                 }
             }
         }
-        findLinks(tsCommonBool);
+        /*int entityNumber = 0;
+        for(Data d : dataList){
+            entityNumber += d.getEntities().length;
+        }
+        entityNumber += tsCommon.size();
+        System.out.println("Total entities: " + entityNumber);
+        findLinks(tsCommonBool);*/
+        ConvertToBounded.convert(dataList, systemName);
 
         try{
             FileWriter fileWriter = new FileWriter(pathName + "/entities.json");
@@ -103,9 +117,9 @@ public class ReadCreate {
                         while(matcher.find()){
                             String type = matcher.group(1);
                             for(String s : type.split(",")){
-                                if(msNames.containsKey(type) && msNames.get(type) != d.getName().getName()){
-                                    Pair<String, String> p = new Pair<>(e.getEntityName().getName(), type);
-                                    mults.put(p, new Pair<>(-1, new Pair<>(d.getName().getName(), msNames.get(type))));
+                                if(msNames.containsKey(s) && msNames.get(s) != d.getName().getName()){
+                                    Pair<String, String> p = new Pair<>(e.getEntityName().getName(), s);
+                                    mults.put(p, new Pair<>(-1, new Pair<>(d.getName().getName(), msNames.get(s))));
                                 }
                             }
                         }
@@ -113,9 +127,77 @@ public class ReadCreate {
                 }
             }
         }
+        /*Pattern pattern = Pattern.compile("<(.*?)>");
+        for(Data d : dataList){
+            for(Entity e : d.getEntities()){
+                for(Field f : e.getFields()){
+                    Matcher matcher = pattern.matcher(f.getType());
+                    if(msNames.containsKey(f.getType())){
+                        Pair<String, String> p = new Pair<>(e.getEntityName().getName(), f.getType());
+                        if(mults.containsKey(p)){
+                            if(mults.get(p).getKey() != -1){
+                                mults.put(p, new Pair<>(mults.get(p).getKey() + 1, new Pair<>(d.getName().getName(), msNames.get(f.getType()))));
+                            }
+                        }else{
+                            mults.put(p, new Pair<>(1, new Pair<>(d.getName().getName(), msNames.get(f.getType()))));
+                        }
+                        Link temp = new Link(e.getEntityName().getName(), f.getType());
+                        if(mults2.contains(temp)){
+                            if(mults2.get(mults2.indexOf(temp)).getSrcMult() != "-1"){
+                                mults2.add(new Link(e.getEntityName().getName(), f.getType(), String.valueOf(Integer.parseInt(mults2.get(mults2.indexOf(temp)).getSrcMult()) + 1), d.getName().getName(), msNames.get(f.getType()), null));
+                                //System.out.println("adding");
+                            }else{
+                                //TODO
+                            }
+                        }else{
+                            mults2.add(new Link(e.getEntityName().getName(), f.getType(), "1", d.getName().getName(), msNames.get(f.getType()), null));
+                            //System.out.println("adding");
+                        }
+                    }else{
+                        while(matcher.find()){
+                            String type = matcher.group(1);
+                            for(String s : type.split(",")){
+                                if(msNames.containsKey(s) && msNames.get(s) != d.getName().getName()){
+                                    Pair<String, String> p = new Pair<>(e.getEntityName().getName(), s);
+                                    //mults.put(p, new Pair<>(-1, new Pair<>(d.getName().getName(), msNames.get(s))));
+                                    mults2.add(new Link(e.getEntityName().getName(), s, "-1", d.getName().getName(), msNames.get(s), null));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }*/
+        //for(Link l : mults2){
+            //System.out.println(l.getMsSrc() + " " + l.getMsTarget());
+        //}
         //Combines any mults
         //links: Pair<src, target>, Pair<Pair<srcMult, targetMult>, Pair<msSrc, msTarget>>
         //entry: Pair<src, dest>, Pair<mult, Pair<msSrc, msDest>>
+        /*for(int i = 0; i < mults2.size(); i++){
+            for(int j = i; j < mults2.size(); j++){
+                if(mults2.get(i).equals(mults2.get(j))){
+                    Link temp = mults2.get(i);
+                    temp.addSrcMult(mults2.get(i).getSrcMult(), mults2.get(j).getSrcMult());
+                    temp.addTargetMult(mults2.get(i).getTargetMult(), mults2.get(j).getTargetMult());
+                    listLinks2.add(temp);
+                }else if(mults2.get(i).isInverse(mults2.get(j))){
+                    Link temp = mults2.get(i);
+                    temp.addSrcMult(mults2.get(j).getSrcMult(), mults2.get(i).getSrcMult());
+                    temp.addTargetMult(mults2.get(j).getTargetMult(), mults2.get(i).getTargetMult());
+                    listLinks2.add(temp);
+                }
+            }
+            if(!listLinks2.contains(mults2.get(i))){
+                listLinks2.add(mults2.get(i));
+            }
+        }
+        //int counter = 1;
+        for(Link l : listLinks2){
+            //System.out.println(counter);
+            //counter++;
+            //System.out.println(l.getMsSrc() + " " + l.getMsTarget());
+        }*/
         for(Map.Entry<Pair<String, String>, Pair<Integer, Pair<String, String>>> entry : mults.entrySet()){
             //System.out.println("Entry: Src: " + entry.getKey().getKey() + ", Dest: " + entry.getKey().getValue() + ", Mult: " + entry.getValue().getKey() + ", MSSrc: " + entry.getValue().getValue().getKey() + ", MSDest: " + entry.getValue().getValue().getKey());
             //if there is a link with the specified src/target && specified msSrc/msTarget
