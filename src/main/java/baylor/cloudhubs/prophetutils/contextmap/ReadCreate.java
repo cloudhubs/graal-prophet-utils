@@ -22,7 +22,7 @@ public class ReadCreate {
 
     private static List<Data> dataList = new ArrayList<>();
 
-    private static Data d;
+//    private static Data d;
 
     private static HashMap<Pair<String, String>, Pair<Pair<Integer, Integer>, Pair<String, String>>> links = new HashMap<>();
 
@@ -57,7 +57,7 @@ public class ReadCreate {
                     FileReader reader = new FileReader(pathName + "/" + f.getName());
                     JsonElement json = gson.fromJson(reader, JsonElement.class);
                     reader.close();
-                    d = gson.fromJson(json, Data.class);
+                    Data d = gson.fromJson(json, Data.class);
                     dataList.add(d);
                 } catch(IOException e){
                     e.printStackTrace();
