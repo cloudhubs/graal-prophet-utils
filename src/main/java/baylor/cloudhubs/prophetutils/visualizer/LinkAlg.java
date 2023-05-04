@@ -133,11 +133,26 @@ public class LinkAlg {
         return endpoints;
     }
 
-    private Boolean doesMicroserviceExist(String s) {
-        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(s.split("/")));
+    private Boolean doesMicroserviceExist(Request r) {
+
+        String finalURI = "";
+        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(r.getUri().split("/")));
+
+        try {
+            URL url = new URL(r.getUri());
+            if (url.getHost().startsWith("ts")) {
+                finalURI = url.getHost();
+            }
+            else if (targetList.get(0).startsWith("ts")) {
+                finalURI = targetList.get(0);
+            }
+        } catch (MalformedURLException e) {
+            targetList = new ArrayList<String>(Arrays.asList(r.getUri().split("/")));
+            finalURI = targetList.get(0);
+        }
 
         for (Node n : nodes) {
-            if (n.getNodeName().equals(targetList.get(0))) {
+            if (n.getNodeName().equals(finalURI)) {
                 return true;
             }
         }
@@ -145,10 +160,27 @@ public class LinkAlg {
         return false;
     }
 
-    private String getDestMicroservice(String uri) {
+    private String getDestMicroservice(Request r) {
         if (this.isTrainTicket) {
-            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(uri.split("/")));
-            return targetList.get(0);
+
+            String finalURI = "";
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(r.getUri().split("/")));
+
+            try {
+                URL url = new URL(r.getUri());
+                if (url.getHost().startsWith("ts")) {
+                    finalURI = url.getHost();
+                }
+                else if (targetList.get(0).startsWith("ts")) {
+                    finalURI = targetList.get(0);
+                }
+            } catch (MalformedURLException e) {
+                targetList = new ArrayList<String>(Arrays.asList(r.getUri().split("/")));
+                finalURI = targetList.get(0);
+            }
+
+            return finalURI;
+
         }
         return "";
     }
@@ -158,15 +190,25 @@ public class LinkAlg {
 
         /* THIS SECTION IS FOR TRAIN TICKET */
         if (this.isTrainTicket) {
-            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(s.split("/")));
 
-            targetList.remove(0);
+            String finalURI = s;
+
+            try {
+                URL url = new URL(s);
+                finalURI = url.getPath();
+            }
+            catch (MalformedURLException ignored) {}
+
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(finalURI.split("/")));
+
+            if (targetList.get(0).startsWith("ts"))
+                targetList.remove(0);
 
             return String.join(" ", targetList).trim();
         }
         /* END TRAIN TICKET SECTION */
 
-        return "";
+        return s;
     }
 
     private String cleanEndpointURI(String s) {
@@ -179,7 +221,7 @@ public class LinkAlg {
 
             return String.join(" ", targetList).trim();
         }
-        return "";
+        return s;
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
@@ -212,8 +254,6 @@ public class LinkAlg {
             requests.add(req);
         }
 
-
-
         // close file
         br.close();
         fileReader.close();
@@ -221,7 +261,7 @@ public class LinkAlg {
         // loop through parsed requests
         for (Request r : requests) {
 
-            URL uriObj;
+            URL uriObj = null;
             String uri; //only necessary because of final requirement for comparator
 
             // parse the endpoint path from the request URL
@@ -238,23 +278,35 @@ public class LinkAlg {
 //            int lengthOfLongerStr = 0;
 
             // check if the microservice exists BASED OFF OF PREPENDED URI STRING
-            if (!doesMicroserviceExist(uri)) {
+            if (!doesMicroserviceExist(r)) {
                 continue;
             }
 
             // get microservice BASED OFF OF PREPENDED URI STRING
-            String destMicroservice = getDestMicroservice(uri);
+            String destMicroservice = getDestMicroservice(r);
 
-            // filter Endpoints based off of msName and HTTP Method
+            // filter Endpoints based off of msName, HTTP Method, and Body parameter
             List<Endpoint> filteredEndpoints = endpoints
                     .stream()
-                    .filter((e) -> e.getHttpMethod().equals(r.getType()) && e.getMsName().equals(destMicroservice))
+                    .filter((e) -> {
+                        // make sure its in the same microservice and same HTTP method
+                        boolean HTTPandMsFilter = e.getHttpMethod().equals(r.getType()) && e.getMsName().equals(destMicroservice);
+
+                        boolean EPHasBody = e.getArguments()
+                                .stream()
+                                .anyMatch((str) -> str.contains("@RequestBody"));
+
+                        // check if request and endpoint has body
+                        boolean bodyCheck = (r.isBody() && EPHasBody) || (!r.isBody() && !EPHasBody);
+
+                        return bodyCheck && HTTPandMsFilter;
+                    })
                     .collect(Collectors.toList());
 
             // clean REST URI
             String RESTURI = cleanRESTURI(uri);
 
-            System.out.println("REST URI: " + RESTURI + " DEST MS: " + destMicroservice);
+//            System.out.println("REST URI: " + RESTURI + " DEST MS: " + destMicroservice);
 
             // find the specific endpoint being called
             for (Endpoint e : filteredEndpoints) {

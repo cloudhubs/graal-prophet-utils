@@ -82,19 +82,9 @@
         "microserviceName": "ts-execute-service"
       },
       {
-        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-food-delivery-service",
-        "basePackage": "food_delivery",
-        "microserviceName": "ts-food-delivery-service"
-      },
-      {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-food-service",
         "basePackage": "foodsearch",
         "microserviceName": "ts-food-service"
-      },
-      {
-        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-gateway-service",
-        "basePackage": "gateway",
-        "microserviceName": "ts-gateway-service"
       },
       {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-inside-payment-service",
@@ -162,19 +152,9 @@
         "microserviceName": "ts-security-service"
       },
       {
-        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-station-food-service",
-        "basePackage": "food",
-        "microserviceName": "ts-station-food-service"
-      },
-      {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-station-service",
         "basePackage": "fdse.microservice",
         "microserviceName": "ts-station-service"
-      },
-      {
-        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-train-food-service",
-        "basePackage": "trainFood",
-        "microserviceName": "ts-train-food-service"
       },
       {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-train-service",
@@ -205,11 +185,6 @@
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-verification-code-service",
         "basePackage": "verifycode",
         "microserviceName": "ts-verification-code-service"
-      },
-      {
-        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-wait-order-service",
-        "basePackage": "waitorder",
-        "microserviceName": "ts-wait-order-service"
       },
       {
         "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-food-map-service",

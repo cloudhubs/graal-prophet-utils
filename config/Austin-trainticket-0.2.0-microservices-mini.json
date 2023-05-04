@@ -1,0 +1,50 @@
+{
+    "systemName": "trainticket",
+    "microservices": [
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-admin-basic-info-service",
+        "basePackage": "adminbasic",
+        "microserviceName": "ts-admin-basic-info-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-admin-order-service",
+        "basePackage": "adminorder",
+        "microserviceName": "ts-admin-order-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-admin-route-service",
+        "basePackage": "adminroute",
+        "microserviceName": "ts-admin-route-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-admin-travel-service",
+        "basePackage": "admintravel",
+        "microserviceName": "ts-admin-travel-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-admin-user-service",
+        "basePackage": "adminuser",
+        "microserviceName": "ts-admin-user-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-assurance-service",
+        "basePackage": "assurance",
+        "microserviceName": "ts-assurance-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-auth-service",
+        "basePackage": "auth",
+        "microserviceName": "ts-auth-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-basic-service",
+        "basePackage": "fdse.microservice",
+        "microserviceName": "ts-basic-service"
+      },
+      {
+        "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket-0.2.0/ts-cancel-service",
+        "basePackage": "cancel",
+        "microserviceName": "ts-cancel-service"
+      }
+    ]
+  }
