@@ -22,7 +22,7 @@ public class LinkAlg {
     private boolean isTrainTicket;
 
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
-    private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
+    private final int RESTCALL_CSV_SCHEMA_LENGTH = 11;
 
     public LinkAlg(List<MicroserviceInfo> microservices) {
         this.dissimilarityPercent = 0.3;
@@ -133,21 +133,53 @@ public class LinkAlg {
         return endpoints;
     }
 
-    private String addCurlyBraceToURI(String s) {
-        String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
+    private Boolean doesMicroserviceExist(String s) {
+        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(s.split("/")));
+
+        for (Node n : nodes) {
+            if (n.getNodeName().equals(targetList.get(0))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private String getDestMicroservice(String uri) {
+        if (this.isTrainTicket) {
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(uri.split("/")));
+            return targetList.get(0);
+        }
+        return "";
+    }
+
+    private String cleanRESTURI(String s) {
 
 
         /* THIS SECTION IS FOR TRAIN TICKET */
         if (this.isTrainTicket) {
-            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
+            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(s.split("/")));
 
             targetList.remove(0);
 
-            return String.join("/", targetList);
+            return String.join(" ", targetList).trim();
         }
         /* END TRAIN TICKET SECTION */
 
-        return addCurlyStr;
+        return "";
+    }
+
+    private String cleanEndpointURI(String s) {
+        if (this.isTrainTicket) {
+            List<String> targetList = new ArrayList<String>(Arrays.asList(s.split("/")));
+
+            targetList = targetList.stream()
+                    .filter((str) -> !str.contains("{") && !str.contains("}"))
+                    .collect(Collectors.toList());
+
+            return String.join(" ", targetList).trim();
+        }
+        return "";
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
@@ -200,34 +232,56 @@ public class LinkAlg {
                 uri = r.getUri();
             }
 
-            int minDist = Integer.MAX_VALUE;
-            int currDist = -1;
-            Endpoint closestMatch = null;
-            int lengthOfLongerStr = 0;
+//            int minDist = Integer.MAX_VALUE;
+//            int currDist = -1;
+//            Endpoint closestMatch = null;
+//            int lengthOfLongerStr = 0;
 
-            String restCallURI = addCurlyBraceToURI(uri);
+            // check if the microservice exists BASED OFF OF PREPENDED URI STRING
+            if (!doesMicroserviceExist(uri)) {
+                continue;
+            }
 
-            ArrayList<Endpoint> filteringEndpoints = endpoints.stream().filter(() -> )
+            // get microservice BASED OFF OF PREPENDED URI STRING
+            String destMicroservice = getDestMicroservice(uri);
+
+            // filter Endpoints based off of msName and HTTP Method
+            List<Endpoint> filteredEndpoints = endpoints
+                    .stream()
+                    .filter((e) -> e.getHttpMethod().equals(r.getType()) && e.getMsName().equals(destMicroservice))
+                    .collect(Collectors.toList());
+
+            // clean REST URI
+            String RESTURI = cleanRESTURI(uri);
+
+            System.out.println("REST URI: " + RESTURI + " DEST MS: " + destMicroservice);
 
             // find the specific endpoint being called
-            for (Endpoint e : endpoints) {
+            for (Endpoint e : filteredEndpoints) {
 
-                String endpointURI = e.getPath();
+                String endpointURI = cleanEndpointURI(e.getPath());
 
-                currDist = findDistance(endpointURI, restCallURI);
-                if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
-                    minDist = currDist;
-                    closestMatch = e;
-                    lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
+                if (endpointURI.equals(RESTURI)) {
+                    requestEndpointMap.put(r, e);
                 }
+
+                // FOR LINKNING APPROXIMATION
+//                currDist = findDistance(endpointURI, RESTURI);
+//                if (minDist > currDist) {
+//                    minDist = currDist;
+//                    closestMatch = e;
+//                    lengthOfLongerStr = Math.max(e.getPath().length(), uri.length());
+//                }
             }
 
-            double percent = lengthOfLongerStr * dissimilarityPercent;
+            // FOR LINKING APPROXIMATION
+//            double percent = lengthOfLongerStr * dissimilarityPercent;
 
             // add request to endpoint map
-            if (closestMatch != null && percent > minDist) {
-                requestEndpointMap.put(r, closestMatch);
-            }
+            // FOR LINKING APPROXIMATION
+//            if (closestMatch != null && percent > minDist) {
+//                requestEndpointMap.put(r, closestMatch);
+//            }
 
         }
 
