@@ -28,8 +28,16 @@ public class Data {
         return name;
     }
 
+    public void setName(Name name){
+        this.name = name;
+    }
+
     public Entity[] getEntities(){
         return entities;
+    }
+
+    public void setEntities(Entity[] entities){
+        this.entities = entities;
     }
 
     public Data addData(Data d){
@@ -66,14 +74,22 @@ public class Data {
             return entityName;
         }
 
+        public void setName(Name name){
+            this.entityName = name;
+        }
+
         public Field[] getFields(){
             return fields;
+        }
+
+        public void setFields(Field[] fields){
+            this.fields = fields;
         }
 
         @Override
         public String toString(){
             String ret = "\t\t\"nodeName\": \"" + entityName.getName() + "\",\n";
-            ret += "\t\t\"nodeFullName\": \"" + entityName.getFullName() + "\",\n";
+            ret += "\t\t\"nodeFullName\": \"" + entityName.getName() + "\",\n";
             ret += "\t\t\"fields\": [\n";
             for(Field f : fields){
                 ret += f.toString();
@@ -108,27 +124,51 @@ public class Data {
         private boolean isCollection;
 
         public Name getFieldName(){
-            return name;
+            return fieldName;
+        }
+
+        public void setFieldName(Name fieldName){
+            this.fieldName = fieldName;
         }
 
         public String getType(){
             return type;
         }
 
+        public void setType(String type){
+            this.type = type;
+        }
+
         public Annotation[] getAnnotations(){
             return annotations;
+        }
+
+        public void setAnnotations(Annotation[] annotations){
+            this.annotations = annotations;
         }
 
         public boolean getIsReference(){
             return isReference;
         }
 
+        public void setIsReference(boolean isReference){
+            this.isReference = isReference;
+        }
+
         public String getEntityRefName(){
             return entityRefName;
         }
 
+        public void setEntityRefName(String entityRefName){
+            this.entityRefName = entityRefName;
+        }
+
         public boolean getIsCollection(){
             return isCollection;
+        }
+
+        public void setIsCollection(boolean isCollection){
+            this.isCollection = isCollection;
         }
     
         @Override
@@ -168,12 +208,24 @@ public class Data {
             return name;
         }
 
+        public void setName(String name){
+            this.name = name;
+        }
+
         public String getStringValue(){
             return stringValue;
         }
 
+        public void setStringValue(String stringValue){
+            this.stringValue = stringValue;
+        }
+
         public String getIntValue(){
             return intValue;
+        }
+
+        public void setIntValue(String intValue){
+            this.intValue = intValue;
         }
 
         @Override
@@ -196,8 +248,16 @@ public class Data {
             return name;
         }
 
+        public void setName(String name){
+            this.name = name;
+        }
+
         public String getFullName(){
             return fullName;
+        }
+
+        public void setFullName(String fullName){
+            this.fullName = fullName;
         }
 
         @Override

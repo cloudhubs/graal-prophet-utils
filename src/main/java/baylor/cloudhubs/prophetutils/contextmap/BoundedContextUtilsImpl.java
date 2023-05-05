@@ -43,7 +43,7 @@ public class BoundedContextUtilsImpl implements BoundedContextUtils {
         }
 
         return new BoundedContext(systemContext.getSystemName(), moduleStack.size() > 0 ? moduleStack.get(0).getEntities() : null);
-
+        //return new BoundedContext(systemContext.getSystemName(), moduleStack.size() > 0 ? moduleStack.get(0).getEntities() : null, moduleStack);
     }
 
     /**

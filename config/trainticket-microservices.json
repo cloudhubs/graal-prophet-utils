@@ -47,11 +47,6 @@
         "microserviceName": "ts-cancel-service"
       },
       {
-        "baseDir": "/home/jack/Capstone/train-ticket/ts-common",
-        "basePackage": "edu.fudan.common",
-        "microserviceName": "ts-common"
-      },
-      {
         "baseDir": "/home/jack/Capstone/train-ticket/ts-config-service",
         "basePackage": "config",
         "microserviceName": "ts-config-service"

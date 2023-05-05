@@ -2,6 +2,7 @@ package baylor.cloudhubs.prophetutils.contextmap;
 
 import java.util.Objects;
 import java.util.Set;
+import java.util.Stack;
 
 public class BoundedContext {
 
@@ -9,10 +10,18 @@ public class BoundedContext {
 
     private Set<Entity> boundedContextEntities;
 
+    private Stack<Module> boundedContextModules;
+
     public BoundedContext(){}
 
     public BoundedContext(String systemName, Set<Entity> boundedContextEntities) {
         this.systemName = systemName;
+        this.boundedContextEntities = boundedContextEntities;
+    }
+
+    public BoundedContext(String systemName, Set<Entity> boundedContextEntities, Stack<Module> boundedContextModules){
+        this.systemName = systemName;
+        this.boundedContextModules = boundedContextModules;
         this.boundedContextEntities = boundedContextEntities;
     }
 
@@ -30,6 +39,14 @@ public class BoundedContext {
 
     public void setBoundedContextEntities(Set<Entity> boundedContextEntities) {
         this.boundedContextEntities = boundedContextEntities;
+    }
+
+    public Stack<Module> getBoundedContextModules(){
+        return boundedContextModules;
+    }
+
+    public void setBoundedContextModules(Stack<Module> boundedContextModules){
+        this.boundedContextModules = boundedContextModules;
     }
 
     @Override

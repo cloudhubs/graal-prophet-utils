@@ -1,9 +1,5 @@
 package baylor.cloudhubs.prophetutils.contextmap;
 
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Entity;
-import edu.baylor.ecs.cloudhubs.prophetdto.systemcontext.Field;
-
-import edu.baylor.ecs.prophet.bounded.context.utils.SimilarityUtils;
 import edu.cmu.lti.jawjaw.pobj.POS;
 import edu.cmu.lti.lexical_db.ILexicalDatabase;
 import edu.cmu.lti.lexical_db.NictWordNet;

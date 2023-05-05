@@ -1,5 +1,7 @@
 package baylor.cloudhubs.prophetutils.contextmap;
 
+import java.util.Objects;
+
 public class Link {
     
     private String src;
@@ -26,13 +28,11 @@ public class Link {
         this.className = className;
     }
 
-    public Link(String src, String target, String srcMult, String targetMult, String msSrc, String msTarget){
+    public Link(String src, String target, String srcMult, String targetMult){
         this.src = src;
         this.target = target;
         this.srcMult = srcMult;
         this.targetMult = targetMult;
-        this.msSrc = msSrc;
-        this.msTarget = msTarget;
     }
 
     public Link(String src, String target){
@@ -100,14 +100,6 @@ public class Link {
         return this.src.equals(other.target) && this.target.equals(other.src) && this.msSrc.equals(other.msTarget) && this.msTarget.equals(other.msSrc);
     }
 
-    public void addSrcMult(String one, String two){
-
-    }
-
-    public void addTargetMult(String one, String two){
-
-    }
-
     @Override
     public String toString(){
         String ret = "\t\t{\n" + "\t\t\t\"source\": \"" + src + "\",\n"
@@ -118,6 +110,11 @@ public class Link {
                         + "\t\t\t\"targetMultiplicity\": \"" + targetMult + "\"\n"
                         + "\t\t},\n";
         return ret;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSrc()) + Objects.hash(getTarget());
     }
 
     @Override
