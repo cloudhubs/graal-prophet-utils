@@ -49,7 +49,6 @@ public class ReadCreate {
                     reader.close();
                     d = gson.fromJson(json, Data.class);
                     dataList.add(d);
-                    //System.out.println(d.getName().getName() + " | " + d.getName().getFullName());
                 } catch(IOException e){
                     e.printStackTrace();
                 }
@@ -75,13 +74,14 @@ public class ReadCreate {
         for(Entity e : d.getEntities()){
             msNames.add(e.getEntityName().getName());
         }
-        if(tsCommonBool){
+        /*if(tsCommonBool){
             for(String s : tsCommon){
                 msNames.add(s);
             }
-        }
+        }*/
         Pattern pattern = Pattern.compile("<(.*?)>");
         for(Entity e : d.getEntities()){
+            //System.out.println(e.getEntityName().getName());
             for(Field f : e.getFields()){
                 Matcher matcher = pattern.matcher(f.getType());
                 if(msNames.contains(f.getType())){
@@ -130,13 +130,6 @@ public class ReadCreate {
     public static String write(){
         String ret = "{\n";
         ret += "\t\"nodes\": [\n";
-        for(String s : tsCommon){
-            ret += "\t{\n";
-            ret += "\t\t\"msName\": \"ts-common\",\n";
-            ret += "\t\t\"nodeName\": \"" + s + "\",\n";
-            ret += "\t\t\"nodeFullName\": \"" + s + "\",\n";
-            ret += "\t\t\"fields\": [\n\t\t]\n\t},\n";
-        }
         for(Data data : dataList){
             ret += data.toString();
             ret = ret.substring(0, ret.length() - 5);

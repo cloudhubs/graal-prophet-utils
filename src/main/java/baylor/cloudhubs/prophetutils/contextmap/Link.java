@@ -104,8 +104,8 @@ public class Link {
     public String toString(){
         String ret = "\t\t{\n" + "\t\t\t\"source\": \"" + src + "\",\n"
                         + "\t\t\t\"target\": \"" + target + "\",\n"
-                        + "\t\t\t\"msSource\": \"" + msSrc + "\",\n"
-                        + "\t\t\t\"msTarget\": \"" + msTarget + "\",\n"
+                        //+ "\t\t\t\"msSource\": \"" + msSrc + "\",\n"
+                        //+ "\t\t\t\"msTarget\": \"" + msTarget + "\",\n"
                         + "\t\t\t\"sourceMultiplicity\": \"" + srcMult + "\",\n"
                         + "\t\t\t\"targetMultiplicity\": \"" + targetMult + "\"\n"
                         + "\t\t},\n";

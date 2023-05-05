@@ -8,24 +8,31 @@ import java.util.HashSet;
 public class ConvertToBounded {
     public baylor.cloudhubs.prophetutils.contextmap.Data.Entity[] convert(List<Data> dataList, String systemName){
         Set<Module> moduleSet = convertDataToModule(dataList);
+        Set<Entity> entitySet = new HashSet<>();
         int entityCnt = 0;
         for(Module m : moduleSet){
             entityCnt += m.getEntities().size();
+            entitySet.addAll(m.getEntities());
+            for(Entity e : m.getEntities()){
+                if(e.getEntityName().getName().equals("Consign")){
+                    //System.out.println("In: " + m.getName().getName());
+                }
+            }
         }
-        System.out.println("starting number of entities: " + entityCnt);
+        //System.out.println("starting number of entities: " + entityCnt);
         SystemContext systemContext = new SystemContext(systemName, moduleSet);
         BoundedContextUtilsImpl boundedContextUtilsImpl = new BoundedContextUtilsImpl();
         BoundedContext boundedContext = boundedContextUtilsImpl.createBoundedContext(systemContext, true);
         Set<Entity> entities = boundedContext.getBoundedContextEntities();
-        System.out.println("Number of entities: " + entities.size());
+        //System.out.println("Number of entities: " + entities.size());
         Set<String> counter = new HashSet<>();
         for(Entity e : entities){
             if(counter.contains(e.getEntityName().getName())){
-                System.out.println("Already have: " + e.getEntityName().getName());
+                //System.out.println("Already have: " + e.getEntityName().getName());
             }
             counter.add(e.getEntityName().getName());
         }
-        System.out.println("Number without duplicates: " + counter.size());
+        //System.out.println("Number without duplicates: " + counter.size());
         Data d = new Data();
         baylor.cloudhubs.prophetutils.contextmap.Data.Entity[] ret = convertEntitiesBack(entities, d);
         return ret;

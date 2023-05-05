@@ -43,6 +43,13 @@ public class convertCommonTXT {
         if(fieldsString.length() != 0){
             for(String field : fieldsString.split(", ")){
                 String[] spl = field.split(" ");
+                if(spl.length == 3){
+                    String[] temp = spl;
+                    spl = new String[4];
+                    spl[0] = "";
+                    System.arraycopy(temp, 0, spl, 1, 3);
+                    //System.out.println(spl[0] + "|" + spl[1] + "|" + spl[2] + "|" + spl[3]);
+                }
                 baylor.cloudhubs.prophetutils.contextmap.Data.Field temp = d.new Field();
                 baylor.cloudhubs.prophetutils.contextmap.Data.Name n = d.new Name();
                 n.setName(spl[2]);
