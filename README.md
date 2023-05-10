@@ -36,6 +36,20 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
         ```
 
 
-## Command Line Params
-1. File path to microservice json
-2. Percent match integer. This is endpoints and Rest calls string similarity percentage needed to make a link. (Optional Param and is 70% by default)
+## TWO VERSIONS
+
+# main branch
+1. This is a generalized approach and implementation for all microservice systems
+2. Uses Levenshtein distance and approximates the distance for service dependancy linking
+
+# Austin-adding-new-params-for-requests branch
+1. This branch is for analysis of train ticket
+2. This one is not recommended for generalized approach as it parses patterns specific to train ticket
+    2a. Parses destination microservice from URI and or host name depending on version of train ticket
+3. Uses partial signature matching for the URI, body param, and HTTP method
+
+# NOTE: Both approaches parse by body param and HTTP method
+
+# FUTURE IMPROVEMENT RECOMMENDATIONS:
+- Partial signature matching for the URI could be implemented for the generalized approach in the main branch instead of approximating with distance
+- Partial signature matching is defined as only matching hard coded parts for the URI and ignoring path params
