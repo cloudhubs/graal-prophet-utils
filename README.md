@@ -59,3 +59,16 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
 ## FUTURE IMPROVEMENT RECOMMENDATIONS:
 - Partial signature matching for the URI could be implemented for the generalized approach in the main branch instead of approximating with distance
 - Partial signature matching is defined as only matching hard coded parts for the URI and ignoring path params
+
+
+
+# HOW TO USE
+
+## Pre-requisites
+1. make sure you have graal and native-image setup
+
+## Instructions
+1. Make sure you have the input JSON file with the schema listed above
+2. Provide the path as the first path parameter (and other options depending on version)
+3. Run and wait for analysis to finish (this could take a while :))
+4. Once it is finished all of the JSON data for the system should be in "output_<msSystemName>"
