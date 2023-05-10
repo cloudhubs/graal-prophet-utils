@@ -45,7 +45,7 @@ This repository is a version of the prophet-utils repository, adapted to the Gra
 ## Austin-adding-new-params-for-requests branch
 1. This branch is for analysis of train ticket
 2. This one is not recommended for generalized approach as it parses patterns specific to train ticket
-    2a. Parses destination microservice from URI and or host name depending on version of train ticket
+    * Parses destination microservice from URI and or host name depending on version of train ticket
 3. Uses partial signature matching for the URI, body param, and HTTP method
 
 ## NOTE: Both approaches parse by body param and HTTP method
