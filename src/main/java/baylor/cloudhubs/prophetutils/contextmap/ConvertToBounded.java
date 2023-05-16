@@ -19,12 +19,12 @@ public class ConvertToBounded {
                 }
             }
         }
-        //System.out.println("starting number of entities: " + entityCnt);
+        System.out.println("starting number of entities: " + entityCnt);
         SystemContext systemContext = new SystemContext(systemName, moduleSet);
         BoundedContextUtilsImpl boundedContextUtilsImpl = new BoundedContextUtilsImpl();
-        BoundedContext boundedContext = boundedContextUtilsImpl.createBoundedContext(systemContext, true);
+        BoundedContext boundedContext = boundedContextUtilsImpl.createBoundedContext(systemContext, false);
         Set<Entity> entities = boundedContext.getBoundedContextEntities();
-        //System.out.println("Number of entities: " + entities.size());
+        System.out.println("Number of entities: " + entities.size());
         Set<String> counter = new HashSet<>();
         for(Entity e : entities){
             if(counter.contains(e.getEntityName().getName())){
@@ -32,7 +32,7 @@ public class ConvertToBounded {
             }
             counter.add(e.getEntityName().getName());
         }
-        //System.out.println("Number without duplicates: " + counter.size());
+        System.out.println("Number without duplicates: " + counter.size());
         Data d = new Data();
         baylor.cloudhubs.prophetutils.contextmap.Data.Entity[] ret = convertEntitiesBack(entities, d);
         return ret;

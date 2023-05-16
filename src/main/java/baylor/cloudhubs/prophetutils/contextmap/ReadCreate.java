@@ -28,14 +28,6 @@ public class ReadCreate {
 
     private static SpecialLinkCollection<Link> mults = new SpecialLinkCollection<>();
 
-    //This is a list of Entities within ts-common, which cannot be parsed because of the kind of JAR file which
-    //is created
-    private static List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
-                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
-                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
-                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
-                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
-
     public static void readIn(String pathName, boolean tsCommonBool, String systemName){
         File directory = new File(pathName);
         File[] files = directory.listFiles();
@@ -49,6 +41,7 @@ public class ReadCreate {
                     reader.close();
                     d = gson.fromJson(json, Data.class);
                     dataList.add(d);
+                    entityCnt += d.getEntities().length;
                 } catch(IOException e){
                     e.printStackTrace();
                 }
@@ -74,21 +67,12 @@ public class ReadCreate {
         for(Entity e : d.getEntities()){
             msNames.add(e.getEntityName().getName());
         }
-        /*if(tsCommonBool){
-            for(String s : tsCommon){
-                msNames.add(s);
-            }
-        }*/
         Pattern pattern = Pattern.compile("<(.*?)>");
         for(Entity e : d.getEntities()){
-            //System.out.println(e.getEntityName().getName());
             for(Field f : e.getFields()){
                 Matcher matcher = pattern.matcher(f.getType());
                 if(msNames.contains(f.getType())){
                     if(mults.contains(new Link(e.getEntityName().getName(), f.getType(), "", ""))){
-                        //mults.add(new Link(e.getEntityName().getName(), f.getType(), 
-                            //mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getSrcMult().contains("..*") ? String.valueOf(Integer.parseInt(mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getSrcMult().replace("..*", "")) + 1) + "..*" : String.valueOf(Integer.parseInt(mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getSrcMult()) + 1),
-                            //mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getTargetMult().contains("..*") ? String.valueOf(Integer.parseInt(mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getTargetMult().replace("..*", "")) + 1) + "..*" : String.valueOf(Integer.parseInt(mults.get(new Link(e.getEntityName().getName(), f.getType(), "", "")).getTargetMult()) + 1)));
                         mults.add(new Link(e.getEntityName().getName(), f.getType(), mults.get(new Link(e.getEntityName().getName(), f.getType())).getSrcMult(), addMults(mults.get(new Link(e.getEntityName().getName(), f.getType())).getTargetMult(), "1")));
                     }else{
                         mults.add(new Link(e.getEntityName().getName(), f.getType(), "0", "1"));
@@ -128,27 +112,19 @@ public class ReadCreate {
     }
 
     public static String write(){
-        String ret = "{\n";
-        ret += "\t\"nodes\": [\n";
-        for(Data data : dataList){
-            ret += data.toString();
-            ret = ret.substring(0, ret.length() - 5);
-            if(!ret.endsWith(",")){
-                ret += ",\n";
-            }
+        String ret = "{\n\t\"nodes\": [\n";
+        for(Entity e : d.getEntities()){
+            ret += "\t\t{\n" + e.toString() + "\t\t},\n";
         }
         ret = ret.substring(0, ret.length() - 2);
-        ret += "\t],\n";
-        ret += "\"links\": [\n";
+        ret += "\t],\n\"links\": [\n";
         for(Link l : listLinks){
             ret += l.toString();
         }
         if(listLinks.size() != 0){
-            ret = ret.substring(0, ret.length() - 2);
-            ret += "\n";
+            ret = ret.substring(0, ret.length() - 2) + "\n";
         }
-        ret += "\t]\n";
-        ret += "}";
+        ret += "\t]\n}";
         return ret;
     }
 }
