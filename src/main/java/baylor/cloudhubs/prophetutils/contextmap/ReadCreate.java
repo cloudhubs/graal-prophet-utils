@@ -41,7 +41,6 @@ public class ReadCreate {
                     reader.close();
                     d = gson.fromJson(json, Data.class);
                     dataList.add(d);
-                    entityCnt += d.getEntities().length;
                 } catch(IOException e){
                     e.printStackTrace();
                 }
