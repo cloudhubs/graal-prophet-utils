@@ -11,7 +11,6 @@ import java.util.Set;
 import java.io.FileWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.Arrays;
 
 import baylor.cloudhubs.prophetutils.contextmap.Data.Entity;
 import baylor.cloudhubs.prophetutils.contextmap.Data.Field;
