@@ -1,0 +1,10 @@
+{
+  "systemName": "tms",
+  "microservices": [
+    {
+      "baseDir": "/Users/dkozak/Projects/tms/cms",
+      "basePackage": "edu.baylor.ecs.cms",
+      "microserviceName": "cms"
+    }
+  ]
+}
