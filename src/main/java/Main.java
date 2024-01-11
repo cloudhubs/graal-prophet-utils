@@ -1,13 +1,12 @@
-import java.text.ParseException;
-
-import com.google.gson.Gson;
-
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
-import java.io.IOException;
-import java.io.FileReader;
-import java.util.Objects;
+import com.google.gson.Gson;
+
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Objects;
 
 
 public class Main {
@@ -33,9 +32,10 @@ public class Main {
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
 
+        var before = System.currentTimeMillis();
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
-
+        var duration = System.currentTimeMillis() - before;
+        var perService = duration / analysisRequest.getMicroservices().size();
+        System.out.println("The whole analysis took " + duration + " ms for " + analysisRequest.getMicroservices().size() + " microservices, so on average " + perService + "ms per microservice.");
     }
-
-
 }

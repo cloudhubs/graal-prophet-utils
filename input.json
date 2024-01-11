@@ -2,9 +2,19 @@
   "systemName": "tms",
   "microservices": [
     {
-      "baseDir": "/Users/dkozak/Projects/tms/cms",
+      "baseDir": "/Users/dkozak/Projects/graal-prophet/tms/cms",
       "basePackage": "edu.baylor.ecs.cms",
       "microserviceName": "cms"
+    },
+    {
+      "baseDir": "/Users/dkozak/Projects/graal-prophet/tms/ems",
+      "basePackage": "edu.baylor.ems",
+      "microserviceName": "ems"
+    },
+    {
+      "baseDir": "/Users/dkozak/Projects/graal-prophet/tms/qms",
+      "basePackage": "baylor.csi.questionManagement",
+      "microserviceName": "qms"
     }
   ]
 }

@@ -1,15 +1,12 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+import com.google.gson.Gson;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
-
-import com.google.gson.Gson;
-
-import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
-
-import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class LinkAlg {
@@ -168,9 +165,9 @@ public class LinkAlg {
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
 
-            if (items.length != RESTCALL_CSV_SCHEMA_LENGTH){
+            if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
-                throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items");
+                throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
             }
             Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
             //ADD REQUEST MS 
