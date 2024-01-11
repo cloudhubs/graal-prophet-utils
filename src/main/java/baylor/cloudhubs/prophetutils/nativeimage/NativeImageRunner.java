@@ -72,7 +72,7 @@ public class NativeImageRunner {
                     .command(cmd)
                     .inheritIO()
                     .start();
-            System.out.println("Native image drive pid is" + process.pid());
+            System.out.println("Native image drive pid is " + process.pid());
             int res = process.waitFor();
             if (res != 0) {
                 System.err.println("Failed to execute command.");
