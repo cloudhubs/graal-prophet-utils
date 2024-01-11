@@ -2,7 +2,7 @@ package baylor.cloudhubs.prophetutils.nativeimage;
 
 public class MicroserviceInfo {
 
-    private final String baseDir;
+    private String baseDir;
     private final String basePackage;
     private final String microserviceName;
 
@@ -22,5 +22,9 @@ public class MicroserviceInfo {
 
     public String getBasePackage() {
         return basePackage;
+    }
+
+    public void setBaseDir(String baseDir) {
+        this.baseDir = baseDir;
     }
 }

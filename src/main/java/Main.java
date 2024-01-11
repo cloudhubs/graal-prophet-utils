@@ -1,3 +1,4 @@
+import baylor.cloudhubs.prophetutils.Env;
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
 import com.google.gson.Gson;
@@ -6,15 +7,13 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.Objects;
 
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"),
-                "GRAAL_PROPHET_HOME not set");
+        String graalProphetHome = Env.load("GRAAL_PROPHET_HOME");
         if (args.length == 0 || args.length > 3) {
             throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <isTrainTicket> <percentMatch>");
         }
@@ -31,6 +30,7 @@ public class Main {
 
         Gson gson = new Gson();
         AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
+        analysisRequest.resolveProphetHome();
 
         var before = System.currentTimeMillis();
         ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
