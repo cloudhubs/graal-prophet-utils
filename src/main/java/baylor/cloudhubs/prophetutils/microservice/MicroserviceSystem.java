@@ -1,4 +1,6 @@
-package baylor.cloudhubs.prophetutils.nativeimage;
+package baylor.cloudhubs.prophetutils.microservice;
+
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 
 import java.util.List;
 import java.util.Objects;

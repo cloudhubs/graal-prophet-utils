@@ -5,8 +5,8 @@ import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
 import baylor.cloudhubs.prophetutils.contextmap.ReadCreate;
 import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
-import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceSystem;
-import baylor.cloudhubs.prophetutils.nativeimage.Microservice;
+import baylor.cloudhubs.prophetutils.microservice.MicroserviceSystem;
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import baylor.cloudhubs.prophetutils.nativeimage.NativeImageRunner;
 
 import java.io.File;

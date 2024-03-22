@@ -1,5 +1,5 @@
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
-import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceSystem;
+import baylor.cloudhubs.prophetutils.microservice.MicroserviceSystem;
 import com.google.gson.Gson;
 
 import java.io.FileNotFoundException;

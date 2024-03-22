@@ -1,6 +1,7 @@
 package baylor.cloudhubs.prophetutils.nativeimage;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;

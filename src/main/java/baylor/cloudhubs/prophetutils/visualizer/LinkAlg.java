@@ -1,6 +1,6 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
-import baylor.cloudhubs.prophetutils.nativeimage.Microservice;
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import com.google.gson.Gson;
 
 import java.io.*;

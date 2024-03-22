@@ -1,4 +1,4 @@
-package baylor.cloudhubs.prophetutils.nativeimage;
+package baylor.cloudhubs.prophetutils.microservice;
 
 public class Microservice {
 
