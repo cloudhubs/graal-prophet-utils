@@ -1,12 +1,12 @@
 package baylor.cloudhubs.prophetutils.nativeimage;
 
-public class MicroserviceInfo {
+public class Microservice {
 
     private String baseDir;
     private final String basePackage;
     private final String microserviceName;
 
-    public MicroserviceInfo(String baseDir, String basePackage, String microserviceName) {
+    public Microservice(String baseDir, String basePackage, String microserviceName) {
         this.baseDir = baseDir;
         this.basePackage = basePackage;
         this.microserviceName = microserviceName;

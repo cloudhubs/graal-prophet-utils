@@ -1,5 +1,5 @@
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
-import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceSystem;
 import com.google.gson.Gson;
 
 import java.io.FileNotFoundException;
@@ -29,13 +29,13 @@ public class Main {
         }
 
         Gson gson = new Gson();
-        AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
-        analysisRequest.resolveProphetHome();
+        MicroserviceSystem microserviceSystem = gson.fromJson(new FileReader(args[0]), MicroserviceSystem.class);
+        microserviceSystem.resolveProphetHome();
 
         var before = System.currentTimeMillis();
-        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
+        ProphetUtilsFacade.runNativeImage(microserviceSystem, graalProphetHome, percentMatch, isTrainTicket);
         var duration = System.currentTimeMillis() - before;
-        var perService = duration / analysisRequest.getMicroservices().size();
-        System.out.println("The whole analysis took " + duration + " ms for " + analysisRequest.getMicroservices().size() + " microservices, so on average " + perService + "ms per microservice.");
+        var perService = duration / microserviceSystem.getMicroservices().size();
+        System.out.println("The whole analysis took " + duration + " ms for " + microserviceSystem.getMicroservices().size() + " microservices, so on average " + perService + "ms per microservice.");
     }
 }

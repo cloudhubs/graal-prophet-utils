@@ -3,11 +3,11 @@ package baylor.cloudhubs.prophetutils.nativeimage;
 import java.util.List;
 import java.util.Objects;
 
-public class AnalysisRequest {
-    private final List<MicroserviceInfo> microservices;
+public class MicroserviceSystem {
+    private final List<Microservice> microservices;
     private final String systemName;
 
-    public AnalysisRequest(List<MicroserviceInfo> microservices, String systemName) {
+    public MicroserviceSystem(List<Microservice> microservices, String systemName) {
         this.microservices = microservices;
         this.systemName = systemName;
     }
@@ -16,7 +16,7 @@ public class AnalysisRequest {
         return this.systemName;
     }
 
-    public List<MicroserviceInfo> getMicroservices() {
+    public List<Microservice> getMicroservices() {
         return microservices;
     }
 

@@ -5,8 +5,8 @@ import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
 import baylor.cloudhubs.prophetutils.contextmap.ReadCreate;
 import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
-import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
-import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceSystem;
+import baylor.cloudhubs.prophetutils.nativeimage.Microservice;
 import baylor.cloudhubs.prophetutils.nativeimage.NativeImageRunner;
 
 import java.io.File;
@@ -18,10 +18,10 @@ public class ProphetUtilsFacade {
     public final static Map<String, Integer> MS_TO_ANALYZE = new HashMap<>(); 
     public final static int RETRY_MAX = 3;
 
-     private static SystemContext createSystemContext(List<MicroserviceInfo> microservices, String graalProphetHome, String outputDir) {
+     private static SystemContext createSystemContext(List<Microservice> microservices, String graalProphetHome, String outputDir) {
         Set<Module> modules = new HashSet<>();
         while (!MS_TO_ANALYZE.isEmpty()){
-            for (MicroserviceInfo info : microservices) {
+            for (Microservice info : microservices) {
                 //if the microservice is not in the MS_TO_ANALYZE, it has already been analyzed
                 if (MS_TO_ANALYZE.get(info.getMicroserviceName()) == null){
                     continue;
@@ -44,24 +44,24 @@ public class ProphetUtilsFacade {
         return new SystemContext(!microservices.isEmpty() ? microservices.get(0).getMicroserviceName() : "unknown", modules);
     }
 
-    private static void initializeMap(AnalysisRequest ar){
-        for (MicroserviceInfo info : ar.getMicroservices()){
-            MS_TO_ANALYZE.put(info.getMicroserviceName(), 0);
+    private static void initializeMap(MicroserviceSystem ar){
+        for (Microservice ms : ar.getMicroservices()){
+            MS_TO_ANALYZE.put(ms.getMicroserviceName(), 0);
         }
     }
-    public static void runNativeImage(AnalysisRequest analysisRequest, String graalProphetHome, int percentMatch, boolean isTrainTicket){
+    public static void runNativeImage(MicroserviceSystem microserviceSystem, String graalProphetHome, int percentMatch, boolean isTrainTicket){
         String outputFolderName = null;
-        List<MicroserviceInfo> microservices = analysisRequest.getMicroservices();
-        String systemName = analysisRequest.getSystemName();
+        List<Microservice> microservices = microserviceSystem.getMicroservices();
+        String systemName = microserviceSystem.getSystemName();
         if (systemName == null){
             System.err.println("WARNING: No system name provided in microservices JSON");
             return;
         }
         if (!microservices.isEmpty()){
             
-            initializeMap(analysisRequest); //INIT MAP OF MICROSERVICES FOR ANALYSIS
+            initializeMap(microserviceSystem); //INIT MAP OF MICROSERVICES FOR ANALYSIS
 
-            outputFolderName = "output_" + analysisRequest.getSystemName();
+            outputFolderName = "output_" + microserviceSystem.getSystemName();
             try {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
