@@ -1,4 +1,3 @@
-import baylor.cloudhubs.prophetutils.Env;
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
 import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
 import com.google.gson.Gson;
@@ -7,13 +6,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Objects;
 
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        String graalProphetHome = Env.load("GRAAL_PROPHET_HOME");
+        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), " GRAAL_PROPHET_HOME is not set");
         if (args.length == 0 || args.length > 3) {
             throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <isTrainTicket> <percentMatch>");
         }
