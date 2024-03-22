@@ -3,13 +3,15 @@ package baylor.cloudhubs.prophetutils;
 import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import baylor.cloudhubs.prophetutils.systemcontext.SystemContext;
 import baylor.cloudhubs.prophetutils.contextmap.ReadCreate;
-import baylor.cloudhubs.prophetutils.filemanager.FileManager;
 import baylor.cloudhubs.prophetutils.visualizer.LinkAlg;
 import baylor.cloudhubs.prophetutils.microservice.MicroserviceSystem;
 import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import baylor.cloudhubs.prophetutils.nativeimage.NativeImageRunner;
+import com.google.gson.Gson;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
@@ -65,7 +67,9 @@ public class ProphetUtilsFacade {
             try {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
-                FileManager.writeToFile(ctx, "./" + outputFolderName + "/system-context.json");
+                Gson gson = new Gson();
+                gson.toJson(ctx, new BufferedWriter(new FileWriter("./" + outputFolderName + "/system-context.json")));
+
                 System.out.println("Beginning Linking and Communication Graph Creation\n");
                 LinkAlg linkAlgorithm = new LinkAlg(percentMatch, isTrainTicket, microservices);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
