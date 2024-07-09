@@ -26,7 +26,7 @@ to [Graal MVP](https://github.com/cloudhubs/graal_mvp).
       - `cd train-ticket && mvn install -DskipTests=true`
     - Unzip jars
         - Example (train-ticket):
-          - Set env. `PROPHET_PLUGIN_HOME`
+          - Set env. `MS_ROOT`
           - Run the help script `bash graal-prophet-utils/microservice-setup.sh`
     - Create microservice [metadata file](config/trainticket-microservices.json)
     - Run the analysis
