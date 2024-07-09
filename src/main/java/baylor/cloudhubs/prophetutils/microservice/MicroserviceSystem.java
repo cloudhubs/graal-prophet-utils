@@ -1,26 +1,16 @@
 package baylor.cloudhubs.prophetutils.microservice;
 
-import baylor.cloudhubs.prophetutils.microservice.Microservice;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Objects;
 
+@Getter
+@AllArgsConstructor
 public class MicroserviceSystem {
     private final List<Microservice> microservices;
     private final String systemName;
-
-    public MicroserviceSystem(List<Microservice> microservices, String systemName) {
-        this.microservices = microservices;
-        this.systemName = systemName;
-    }
-
-    public String getSystemName() {
-        return this.systemName;
-    }
-
-    public List<Microservice> getMicroservices() {
-        return microservices;
-    }
 
 
     /**

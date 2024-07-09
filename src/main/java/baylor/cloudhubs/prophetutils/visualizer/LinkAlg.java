@@ -237,7 +237,7 @@ public class LinkAlg {
 
             // set missing fields in the request
             r.setEndpointMsName(e.getMsName());
-            r.setTargetEndpoint(e.getPath());
+            r.setTargetEndpointUri(e.getPath());
             r.setEndpointFunction(e.getParentMethod());
 
             // if the link doesn't exist add it to the list

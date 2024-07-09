@@ -2,7 +2,6 @@ package baylor.cloudhubs.prophetutils.contextmap;
 
 import com.google.gson.annotations.SerializedName;
 import java.util.HashMap;
-import java.util.HashSet;
 import javafx.util.Pair;
 import java.util.List;
 import java.util.ArrayList;
