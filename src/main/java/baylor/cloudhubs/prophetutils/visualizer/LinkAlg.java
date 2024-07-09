@@ -11,20 +11,17 @@ import java.util.stream.Collectors;
 
 public class LinkAlg {
 
-    private ArrayList<Link> msLinks;
-    private Set<Node> nodes;
+    private ArrayList<Link> msLinks = new ArrayList<>();
+    private Set<Node> nodes = new HashSet<>();
 
-    private double dissimilarityPercent;
+    private double dissimilarityPercent = 0.3;
 
-    private boolean isTrainTicket;
+    private boolean isTrainTicket = false;
 
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
     public LinkAlg(List<Microservice> microservices) {
-        this.dissimilarityPercent = 0.3;
-        this.msLinks = new ArrayList<>();
-        this.nodes = new HashSet<>();
         for (Microservice mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
         }
@@ -32,15 +29,10 @@ public class LinkAlg {
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage, boolean isTrainTicket, List<Microservice> microservices) {
+    public LinkAlg(List<Microservice> microservices, int similarityPercentage, boolean isTrainTicket) {
+        this(microservices);
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
-        this.msLinks = new ArrayList<>();
-        this.nodes = new HashSet<>();
         this.isTrainTicket = isTrainTicket;
-
-        for (Microservice mi : microservices){
-            nodes.add(new Node(mi.getMicroserviceName()));
-        }
     }
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {

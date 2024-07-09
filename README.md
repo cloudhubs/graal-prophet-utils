@@ -30,7 +30,7 @@ to [Graal MVP](https://github.com/cloudhubs/graal_mvp).
           - Run the help script `bash graal-prophet-utils/microservice-setup.sh`
     - Create microservice [metadata file](config/trainticket-microservices.json)
     - Run the analysis
-      - `$JAVA_HOME/bin/java -jar target/graal-prophet-utils-0.0.8.jar ./config/trainticket-microservices.json true`
+      - `$JAVA_HOME/bin/java -jar target/graal-prophet-utils-0.0.8.jar ./config/trainticket-microservices.json`
     - Output will be in `output_SYSTEMNAME`
 
 
