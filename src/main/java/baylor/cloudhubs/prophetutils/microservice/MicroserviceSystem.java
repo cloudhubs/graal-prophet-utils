@@ -14,13 +14,13 @@ public class MicroserviceSystem {
 
 
     /**
-     * If the config contains paths relative to the PROPHET_PLUGIN_HOME env var, resolve them into full paths.
+     * If the config contains paths relative to the MS_ROOT env var, resolve them into full paths.
      */
-    public void resolveProphetHome() {
-        var home = Objects.requireNonNull(System.getenv("PROPHET_PLUGIN_HOME"), "PROPHET_PLUGIN_HOME is not set");
+    public void resolveMSroot() {
+        var home = Objects.requireNonNull(System.getenv("MS_ROOT"), "MS_ROOT is not set");
         for (var microservice : microservices) {
-            if (microservice.getBaseDir().contains("$PROPHET_PLUGIN_HOME")) {
-                microservice.setBaseDir(microservice.getBaseDir().replace("$PROPHET_PLUGIN_HOME", home));
+            if (microservice.getBaseDir().contains("$MS_ROOT")) {
+                microservice.setBaseDir(microservice.getBaseDir().replace("$MS_ROOT", home));
             }
         }
     }

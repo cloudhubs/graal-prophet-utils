@@ -2,33 +2,33 @@
   "systemName": "trainTicket",
   "microservices": [
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-admin-basic-info-service",
+      "baseDir": "$MS_ROOT/ts-admin-basic-info-service",
       "basePackage": "adminbasic",
       "microserviceName": "ts-admin-basic-info-service"
     },
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-admin-order-service",
+      "baseDir": "$MS_ROOT/ts-admin-order-service",
       "basePackage": "adminorder",
       "microserviceName": "ts-admin-order-service"
     },
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-admin-user-service",
+      "baseDir": "$MS_ROOT/ts-admin-user-service",
       "basePackage": "adminuser",
       "microserviceName": "ts-admin-user-service"
     },
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-basic-service",
+      "baseDir": "$MS_ROOT/ts-basic-service",
       "basePackage": "fdse.microservice",
       "microserviceName": "ts-basic-service"
     },
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-station-food-service",
+      "baseDir": "$MS_ROOT/ts-station-food-service",
       "basePackage": "food",
       "microserviceName": "ts-station-food-service"
     },
     
     {
-      "baseDir": "/Users/austinblanchard/Documents/CSI_43C9/microservices/train-ticket/ts-user-service",
+      "baseDir": "$MS_ROOT/ts-user-service",
       "basePackage": "user",
       "microserviceName": "ts-user-service"
     }

@@ -30,7 +30,7 @@ public class Main {
 
         Gson gson = new Gson();
         MicroserviceSystem microserviceSystem = gson.fromJson(new FileReader(args[0]), MicroserviceSystem.class);
-        microserviceSystem.resolveProphetHome();
+        microserviceSystem.resolveMSroot();
 
         var before = System.currentTimeMillis();
         ProphetUtilsFacade.runNativeImage(microserviceSystem, graalProphetHome, percentMatch, isTrainTicket);
