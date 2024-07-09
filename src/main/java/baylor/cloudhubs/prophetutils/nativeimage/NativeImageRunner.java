@@ -87,6 +87,7 @@ public class NativeImageRunner {
     private List<String> prepareCommand() {
         List<String> cmd = new ArrayList<>();
         cmd.add(niCommand);
+        cmd.add("-H:+UnlockExperimentalVMOptions");
         cmd.add("-H:+ProphetPlugin");
         cmd.add("-H:-InlineBeforeAnalysis");
         cmd.add("-H:+BuildOutputSilent");
