@@ -1,6 +1,6 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
-import baylor.cloudhubs.prophetutils.nativeimage.MicroserviceInfo;
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import com.google.gson.Gson;
 
 import java.io.*;
@@ -21,24 +21,24 @@ public class LinkAlg {
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
-    public LinkAlg(List<MicroserviceInfo> microservices) {
+    public LinkAlg(List<Microservice> microservices) {
         this.dissimilarityPercent = 0.3;
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
-        for (MicroserviceInfo mi : microservices){
+        for (Microservice mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
         }
     }
 
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(int similarityPercentage, boolean isTrainTicket, List<MicroserviceInfo> microservices) {
+    public LinkAlg(int similarityPercentage, boolean isTrainTicket, List<Microservice> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
         this.isTrainTicket = isTrainTicket;
 
-        for (MicroserviceInfo mi : microservices){
+        for (Microservice mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
         }
     }
@@ -237,7 +237,7 @@ public class LinkAlg {
 
             // set missing fields in the request
             r.setEndpointMsName(e.getMsName());
-            r.setTargetEndpoint(e.getPath());
+            r.setTargetEndpointUri(e.getPath());
             r.setEndpointFunction(e.getParentMethod());
 
             // if the link doesn't exist add it to the list

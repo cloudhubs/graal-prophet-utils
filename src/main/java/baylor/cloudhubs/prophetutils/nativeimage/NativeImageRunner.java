@@ -1,6 +1,7 @@
 package baylor.cloudhubs.prophetutils.nativeimage;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
+import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
@@ -17,24 +18,24 @@ public class NativeImageRunner {
     private final String restcallOutput;
     private final String endpointOutput;
 
-    private final MicroserviceInfo msInfo;
+    private final Microservice ms;
     private final String niCommand;
 
 
-    public NativeImageRunner(MicroserviceInfo info, String graalProphetHome, String outputDir) {
+    public NativeImageRunner(Microservice ms, String graalProphetHome, String outputDir) {
         this.niCommand = graalProphetHome + "/bin/native-image";
-        this.msInfo = info;
-        String microservicePath = info.getBaseDir();
-        if (ProphetUtilsFacade.MS_TO_ANALYZE.get(info.getMicroserviceName()) == 0) {
+        this.ms = ms;
+        String microservicePath = ms.getBaseDir();
+        if (ProphetUtilsFacade.MS_TO_ANALYZE.get(ms.getMicroserviceName()) == 0) {
             // first try
             this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
         } else {
             // retry without looping considering libs
             this.classpath = microservicePath + "/target/BOOT-INF/classes";
         }
-        this.entityOutput = "./" + outputDir + "/" + info.getMicroserviceName() + ".json";
-        this.restcallOutput = "./" + outputDir + "/" + info.getMicroserviceName() + "_restcalls.csv";
-        this.endpointOutput = "./" + outputDir + "/" + info.getMicroserviceName() + "_endpoints.csv";
+        this.entityOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + ".json";
+        this.restcallOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_restcalls.csv";
+        this.endpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_endpoints.csv";
         System.out.println("classpath = " + classpath);
     }
 
@@ -51,14 +52,14 @@ public class NativeImageRunner {
             System.out.println("WARNING: FILE '" + entityOutput + "' NOT FOUND, LIKELY ANALYSIS FAILED");
 
             //increment attempt for running microservice
-            ProphetUtilsFacade.MS_TO_ANALYZE.put(this.msInfo.getMicroserviceName(), ProphetUtilsFacade.MS_TO_ANALYZE.get(this.msInfo.getMicroserviceName()) + 1);
+            ProphetUtilsFacade.MS_TO_ANALYZE.put(this.ms.getMicroserviceName(), ProphetUtilsFacade.MS_TO_ANALYZE.get(this.ms.getMicroserviceName()) + 1);
             //if microservice failed third attempt, throw error
-            if (ProphetUtilsFacade.MS_TO_ANALYZE.get(this.msInfo.getMicroserviceName()) >= ProphetUtilsFacade.RETRY_MAX) {
-                throw new RuntimeException("ERROR: " + this.msInfo.getMicroserviceName() + " FAILED TO BE ANALYZED");
+            if (ProphetUtilsFacade.MS_TO_ANALYZE.get(this.ms.getMicroserviceName()) >= ProphetUtilsFacade.RETRY_MAX) {
+                throw new RuntimeException("ERROR: " + this.ms.getMicroserviceName() + " FAILED TO BE ANALYZED");
             }
             return null;
         } catch (IOException e) {
-            System.out.println("ERROR: IOException RUNNING ON " + this.msInfo.getMicroserviceName());
+            System.out.println("ERROR: IOException RUNNING ON " + this.ms.getMicroserviceName());
             throw new RuntimeException(e);
         }
     }
@@ -86,12 +87,13 @@ public class NativeImageRunner {
     private List<String> prepareCommand() {
         List<String> cmd = new ArrayList<>();
         cmd.add(niCommand);
+        cmd.add("-H:+UnlockExperimentalVMOptions");
         cmd.add("-H:+ProphetPlugin");
         cmd.add("-H:-InlineBeforeAnalysis");
         cmd.add("-H:+BuildOutputSilent");
         cmd.add("-H:+AllowDeprecatedBuilderClassesOnImageClasspath");
-        cmd.add("-H:ProphetMicroserviceName=" + this.msInfo.getMicroserviceName());
-        cmd.add("-H:ProphetBasePackage=" + this.msInfo.getBasePackage());
+        cmd.add("-H:ProphetMicroserviceName=" + this.ms.getMicroserviceName());
+        cmd.add("-H:ProphetBasePackage=" + this.ms.getBasePackage());
         cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);
         cmd.add("-H:ProphetRestCallOutputFile=" + this.restcallOutput);
         cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);
@@ -100,7 +102,7 @@ public class NativeImageRunner {
         // cmd.add("-R:MaxNewSize=2m");   
         cmd.add("-cp");
         cmd.add(classpath);
-        cmd.add(this.msInfo.getMicroserviceName());
+        cmd.add(this.ms.getMicroserviceName());
         return cmd;
     }
 }

@@ -1,5 +1,8 @@
 package baylor.cloudhubs.prophetutils.contextmap;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Link {
     
     private String src;
@@ -13,15 +16,6 @@ public class Link {
     private String msSource;
 
     private String msTarget;
-
-    public Link(String src, String target, String srcMult, String targetMult, String msSource, String msTarget){
-        this.src = src;
-        this.target = target;
-        this.srcMult = srcMult;
-        this.targetMult = targetMult;
-        this.msSource = msSource;
-        this.msTarget = msTarget;
-    }
 
     @Override
     public String toString(){

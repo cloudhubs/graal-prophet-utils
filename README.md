@@ -6,10 +6,38 @@ applications project.
 For the high-level overview and instructions how to perform the analysis, please go
 to [Graal MVP](https://github.com/cloudhubs/graal_mvp).
 
+## Running MicroGraal
+
+- Build graal
+    - `git clone https://github.com/cloudhubs/graal.git`
+    - Install [mx](https://github.com/graalvm/mx.git)
+    - Install jdk with jvmci and set `JAVA_HOME`
+      - `cd graal/substratevm && mx fetch-jdk`
+    - Compile graal
+      - `cd graal/substratevm && mx build`
+      - `export GRAAL_PROPHET_HOME=$(mx -p graal/substratevm graalvm-home)`
+- Build graal-utils
+    - Install Maven
+    - Compile project
+      - `cd graal-prophet-utils && mvn clean package -DskipTests=true -X`
+- Analyze a project
+    - Clone microservice project to be analyzed (e.g. train-ticket)
+    - Compile microservice project
+      - `cd train-ticket && mvn install -DskipTests=true`
+    - Unzip jars
+        - Example (train-ticket):
+          - Set env. `PROPHET_PLUGIN_HOME`
+          - Run the help script `bash graal-prophet-utils/microservice-setup.sh`
+    - Create microservice [metadata file](config/trainticket-microservices.json)
+    - Run the analysis
+      - `$JAVA_HOME/bin/java -jar target/graal-prophet-utils-0.0.8.jar ./config/trainticket-microservices.json true`
+    - Output will be in `output_SYSTEMNAME`
+
+
 ## Note:
 
-- This program only currently accepts Java microservices
-- Program only runs on Windows and Linux machines
+- This program only currently accepts Java microservices on Spark
+- Program only runs on Linux machines
 - This program depends on cloudhubs/graal repository
 
 ## Setup:
@@ -72,16 +100,3 @@ to [Graal MVP](https://github.com/cloudhubs/graal_mvp).
 - Partial signature matching for the URI could be implemented for the generalized approach in the main branch instead of
   approximating with distance
 - Partial signature matching is defined as only matching hard coded parts for the URI and ignoring path params
-
-# HOW TO USE
-
-## Pre-requisites
-
-1. make sure you have graal and native-image setup
-
-## Instructions
-
-1. Make sure you have the input JSON file with the schema listed above
-2. Provide the path as the first path parameter (and other options depending on version)
-3. Run and wait for analysis to finish (this could take a while :))
-4. Once it is finished all of the JSON data for the system should be in "output_<msSystemName>"

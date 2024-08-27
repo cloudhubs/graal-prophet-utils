@@ -1,5 +1,8 @@
 package baylor.cloudhubs.prophetutils.visualizer;
 
+import lombok.Getter;
+
+@Getter
 public class Node {
     private String nodeName;
     private final String nodeType = "service";
@@ -35,11 +38,5 @@ public class Node {
         } else if (!nodeType.equals(other.nodeType))
             return false;
         return true;
-    }
-    public String getNodeName(){
-        return this.nodeName;
-    }
-    public String getNodeType(){
-        return this.nodeType;
     }
 }

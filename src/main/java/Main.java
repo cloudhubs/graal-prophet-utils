@@ -1,19 +1,19 @@
-import baylor.cloudhubs.prophetutils.Env;
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;
-import baylor.cloudhubs.prophetutils.nativeimage.AnalysisRequest;
+import baylor.cloudhubs.prophetutils.microservice.MicroserviceSystem;
 import com.google.gson.Gson;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Objects;
 
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {
 
-        String graalProphetHome = Env.load("GRAAL_PROPHET_HOME");
+        String graalProphetHome = Objects.requireNonNull(System.getenv("GRAAL_PROPHET_HOME"), " GRAAL_PROPHET_HOME is not set");
         if (args.length == 0 || args.length > 3) {
             throw new IllegalArgumentException("Expecting one or two args <microservice_JSON> <isTrainTicket> <percentMatch>");
         }
@@ -29,13 +29,13 @@ public class Main {
         }
 
         Gson gson = new Gson();
-        AnalysisRequest analysisRequest = gson.fromJson(new FileReader(args[0]), AnalysisRequest.class);
-        analysisRequest.resolveProphetHome();
+        MicroserviceSystem microserviceSystem = gson.fromJson(new FileReader(args[0]), MicroserviceSystem.class);
+        microserviceSystem.resolveProphetHome();
 
         var before = System.currentTimeMillis();
-        ProphetUtilsFacade.runNativeImage(analysisRequest, graalProphetHome, percentMatch, isTrainTicket);
+        ProphetUtilsFacade.runNativeImage(microserviceSystem, graalProphetHome, percentMatch, isTrainTicket);
         var duration = System.currentTimeMillis() - before;
-        var perService = duration / analysisRequest.getMicroservices().size();
-        System.out.println("The whole analysis took " + duration + " ms for " + analysisRequest.getMicroservices().size() + " microservices, so on average " + perService + "ms per microservice.");
+        var perService = duration / microserviceSystem.getMicroservices().size();
+        System.out.println("The whole analysis took " + duration + " ms for " + microserviceSystem.getMicroservices().size() + " microservices, so on average " + perService + "ms per microservice.");
     }
 }
