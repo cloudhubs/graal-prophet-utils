@@ -2,22 +2,22 @@
   "systemName": "trainTicket",
   "microservices": [
     {
-      "baseDir": "$PROPHET_PLUGIN_HOME/train-ticket/ts-travel-service",
+      "baseDir": "$MS_ROOT/ts-travel-service",
       "basePackage": "travel",
       "microserviceName": "ts-travel-service"
     },
     {
-      "baseDir": "$PROPHET_PLUGIN_HOME/train-ticket/ts-travel2-service",
+      "baseDir": "$MS_ROOT/ts-travel2-service",
       "basePackage": "travel2",
       "microserviceName": "ts-travel2-service"
     },
     {
-      "baseDir": "$PROPHET_PLUGIN_HOME/train-ticket/ts-travel-plan-service",
+      "baseDir": "$MS_ROOT/ts-travel-plan-service",
       "basePackage": "travelplan",
       "microserviceName": "ts-travel-plan-service"
     },
     {
-      "baseDir": "$PROPHET_PLUGIN_HOME/train-ticket/ts-common",
+      "baseDir": "$MS_ROOT/ts-common",
       "basePackage": "edu.fudan.common",
       "microserviceName": "ts-common"
     }

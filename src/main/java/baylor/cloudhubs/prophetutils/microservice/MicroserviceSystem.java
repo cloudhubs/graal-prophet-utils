@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @AllArgsConstructor
@@ -14,14 +13,15 @@ public class MicroserviceSystem {
 
 
     /**
-     * If the config contains paths relative to the PROPHET_PLUGIN_HOME env var, resolve them into full paths.
+     * If the config contains paths relative to the MS_ROOT env var, resolve them into full paths.
      */
-    public void resolveProphetHome() {
-        var home = Objects.requireNonNull(System.getenv("PROPHET_PLUGIN_HOME"), "PROPHET_PLUGIN_HOME is not set");
-        for (var microservice : microservices) {
-            if (microservice.getBaseDir().contains("$PROPHET_PLUGIN_HOME")) {
-                microservice.setBaseDir(microservice.getBaseDir().replace("$PROPHET_PLUGIN_HOME", home));
+    public void resolveMSroot() {
+        String home = System.getenv("MS_ROOT");
+        microservices.stream().filter(microservice -> microservice.getBaseDir().contains("$MS_ROOT")).forEach(microservice -> {
+            if (home == null) {
+                throw new NullPointerException("MS_ROOT not set, but services in config file define relative paths");
             }
-        }
+            microservice.setBaseDir(microservice.getBaseDir().replace("$MS_ROOT", home));
+        });
     }
 }

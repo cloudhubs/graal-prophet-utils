@@ -22,13 +22,13 @@ to [Graal MVP](https://github.com/cloudhubs/graal_mvp).
       - `cd graal-prophet-utils && mvn clean package -DskipTests=true -X`
 - Analyze a project
     - Clone microservice project to be analyzed (e.g. train-ticket)
+    - Create microservice [metadata file](config/trainticket-microservices.json)
     - Compile microservice project
       - `cd train-ticket && mvn install -DskipTests=true`
     - Unzip jars
-        - Example (train-ticket):
-          - Set env. `PROPHET_PLUGIN_HOME`
-          - Run the help script `bash graal-prophet-utils/microservice-setup.sh`
-    - Create microservice [metadata file](config/trainticket-microservices.json)
+        - Example:
+          - Set env. `MS_ROOT`
+          - Run the help script `./microservice-setup.sh config/trainticket-microservice.json` (requires `jq` json parser tool)
     - Run the analysis
       - `$JAVA_HOME/bin/java -jar target/graal-prophet-utils-0.0.8.jar ./config/trainticket-microservices.json`
     - Output will be in `output_SYSTEMNAME`
