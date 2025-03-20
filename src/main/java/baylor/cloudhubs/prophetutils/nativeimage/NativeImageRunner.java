@@ -108,8 +108,8 @@ public class NativeImageRunner {
         cmd.add("-H:+ProphetPlugin");
         cmd.add("-H:-InlineBeforeAnalysis");
         cmd.add("-H:-BuildOutputSilent");
-        cmd.add("-H:+PrintAnalysisCallTree");
-        cmd.add("-H:PrintAnalysisCallTreeType=CSV");
+//        cmd.add("-H:+PrintAnalysisCallTree");
+//        cmd.add("-H:PrintAnalysisCallTreeType=CSV");
 //        cmd.add("-H:Path=" + this.callGraphOutputDir);
         cmd.add("-H:+AllowDeprecatedBuilderClassesOnImageClasspath");
         cmd.add("-H:ProphetMicroserviceName=" + this.ms.getMicroserviceName());
