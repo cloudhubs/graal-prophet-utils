@@ -33,17 +33,15 @@ public class ReadCreate {
 
     private HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
 
-    private final boolean isTrainTicket;
-    private final List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
-                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
-                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
-                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
-                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
+//    private final List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
+//                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
+//                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
+//                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
+//                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
 
-    public ReadCreate(String outputDirName, boolean isTrainTicket){
+    public ReadCreate(String outputDirName){
         this.outputDirName = outputDirName;
-        this.isTrainTicket = isTrainTicket;
     }
 
     public void readIn(){
@@ -86,11 +84,11 @@ public class ReadCreate {
                 }
             }
         }
-        if (this.isTrainTicket) {
-            for (String s : tsCommon) {
-                msNames.put(s, "ts-common");
-            }
-        }
+
+//            for (String s : tsCommon) {
+//                msNames.put(s, "ts-common");
+//            }
+
         //Adds all mults to hashmap
         Pattern pattern = Pattern.compile("<(.*?)>");
         for(Data d : dataList){
@@ -159,15 +157,6 @@ public class ReadCreate {
     public String toString(){
         String ret = "{\n";
         ret += "\t\"nodes\": [\n";
-        if (this.isTrainTicket) {
-            for (String s : tsCommon) {
-                ret += "\t{\n";
-                ret += "\t\t\"msName\": \"ts-common\",\n";
-                ret += "\t\t\"nodeName\": \"" + s + "\",\n";
-                ret += "\t\t\"nodeFullName\": \"" + s + "\",\n";
-                ret += "\t\t\"fields\": [\n\t\t]\n\t},\n";
-            }
-        }
         for(Data data : dataList){
             ret += data.toString();
             ret = ret.substring(0, ret.length() - 5);

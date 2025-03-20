@@ -11,41 +11,71 @@ import java.util.stream.Collectors;
 
 public class LinkAlg {
 
-    private ArrayList<Link> msLinks = new ArrayList<>();
-    private Set<Node> nodes = new HashSet<>();
+    private ArrayList<Link> msLinks;
+    private Set<Node> nodes;
 
-    private double dissimilarityPercent = 0.3;
-
-    private boolean isTrainTicket = false;
+    private double dissimilarityPercent;
 
     private final int ENDPOINT_CSV_SCHEMA_LENGTH = 8;
     private final int RESTCALL_CSV_SCHEMA_LENGTH = 7;
 
     public LinkAlg(List<Microservice> microservices) {
+        this.dissimilarityPercent = 0.3;
+        this.msLinks = new ArrayList<>();
+        this.nodes = new HashSet<>();
         for (Microservice mi : microservices){
             nodes.add(new Node(mi.getMicroserviceName()));
         }
     }
 
+    private ArrayList<WebSocketConnection> parseWebSocketConnections(File csv) throws IOException {
+        FileReader fileReader = new FileReader(csv);
+        BufferedReader br = new BufferedReader(fileReader);
+
+        ArrayList<WebSocketConnection> webSocketConnections = new ArrayList<>();
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] items = line.split(",");
+            WebSocketConnection connection = new WebSocketConnection(
+                    items[0],
+                    items[1],
+                    items[2],
+                    items[3],
+                    items[4],
+                    items[5],
+                    Boolean.parseBoolean(items[6])
+            );
+            webSocketConnections.add(connection);
+        }
+        br.close();
+
+        return webSocketConnections;
+    }
+
 
     // takes similarity percentage as a whole number or integer
-    public LinkAlg(List<Microservice> microservices, int similarityPercentage, boolean isTrainTicket) {
-        this(microservices);
+    public LinkAlg(int similarityPercentage, List<Microservice> microservices) {
         this.dissimilarityPercent = 1.0 - (similarityPercentage / 100.0);
-        this.isTrainTicket = isTrainTicket;
+        this.msLinks = new ArrayList<>();
+        this.nodes = new HashSet<>();
+
+        for (Microservice mi : microservices){
+            nodes.add(new Node(mi.getMicroserviceName()));
+        }
     }
 
     public void calculateLinks(String dir) throws IOException, InterruptedException {
-        // read from output dir and create list of all files *endpoints.csv and *restcalls.csv
-        
         File outputDir = new File(dir);
         File[] files = outputDir.listFiles();
         ArrayList<Endpoint> endpoints = new ArrayList<>();
+        ArrayList<WebSocketConnection> webSocketConnections = new ArrayList<>();
 
-        // filter and parse the correct files
         for (File f : files) {
             if (f.getName().endsWith("_endpoints.csv")) {
                 endpoints.addAll(parseEndpoints(f));
+            } else if (f.getName().endsWith("_websocketconnections.csv")) {
+                webSocketConnections.addAll(parseWebSocketConnections(f));
             }
         }
 
@@ -54,27 +84,44 @@ public class LinkAlg {
                 parseRestCalls(f, endpoints);
             }
         }
-        // Set<String> tempNodeSet = msMaptoLinks.keySet();
-        // for (String s : tempNodeSet){
-        //     nodes.add(new Node(s));
-        // }
-        Gson gson = new Gson();
 
+        for (WebSocketConnection connection : webSocketConnections) {
+            System.out.println(connection.toString());
+        }
+
+        // Link WebSocket connections based on the fourth value (uri)
+        for (int i = 0; i < webSocketConnections.size(); i++) {
+            for (int j = i + 1; j < webSocketConnections.size(); j++) {
+                WebSocketConnection conn1 = webSocketConnections.get(i);
+                WebSocketConnection conn2 = webSocketConnections.get(j);
+
+                if (conn1.getUri().contains(conn2.getUri()) || conn2.getUri().contains(conn1.getUri())) {
+                    Link link = new Link(conn1.getMsName(), conn2.getMsName(), new ArrayList<>());
+                    if (!this.msLinks.contains(link)) {
+                        this.msLinks.add(link);
+                    }
+
+                    // Create a Request object for the link
+                    Request request = new Request(conn1.getMsName(), conn1.getClass().getName(), null, conn1.getUri(), "WS", conn1.getReturnType(), false);
+                    link.addRequest(request);
+                }
+            }
+        }
+
+        Gson gson = new Gson();
         String nodesJsonString = gson.toJson(nodes);
         nodesJsonString.replaceFirst("\\[\\{", "");
-        nodesJsonString.substring(0, nodesJsonString.length() - 2); //remove "}]"
+        nodesJsonString.substring(0, nodesJsonString.length() - 2);
         String linksJsonString = gson.toJson(msLinks);
         linksJsonString.replaceFirst("\\[\\{", "");
-        linksJsonString.substring(0, linksJsonString.length() - 2); //remove "}]"
+        linksJsonString.substring(0, linksJsonString.length() - 2);
         String combinedJson = "{\"nodes\": " + nodesJsonString + ", \"links\": " + linksJsonString + "}";
-        // System.out.println("COMBINED JSON =\n\n" + combinedJson);
-        
+
         try (FileWriter fileWriter = new FileWriter(dir + "/communicationGraph.json")) {
             fileWriter.write(combinedJson);
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file: " + e.getMessage());
         }
-
     }
 
     public ArrayList<Link> getMsLinks() {
@@ -84,7 +131,7 @@ public class LinkAlg {
     private ArrayList<Endpoint> parseEndpoints(File csv) throws IOException {
         FileReader fileReader = new FileReader(csv);
         BufferedReader br = new BufferedReader(fileReader);
-        
+
         ArrayList<Endpoint> endpoints = new ArrayList<>();
 
         String line;
@@ -94,7 +141,7 @@ public class LinkAlg {
             //     br.close();
             //     throw new RuntimeException("Endpoint line parsed does not have " + ENDPOINT_CSV_SCHEMA_LENGTH + " items");
             // }
-            
+
             // CSV SCHEMA
             //   0   ,        1          ,       2     ,    3  ,      4    ,     5  ,    6      ,      7
             //msName, endpointInClassName, parentMethod, arguments, path, httpMethod, returnType, isCollection
@@ -104,14 +151,14 @@ public class LinkAlg {
             // }
             System.out.println("items = " + Arrays.toString(items));
             Endpoint end = new Endpoint(
-                items[5],
-                items[2],
-                Arrays.asList(items[3].split("&")),
-                items[6],
-                items[4],
-                Boolean.parseBoolean(items[7]),
-                items[1],
-                items[0]
+                    items[5],
+                    items[2],
+                    Arrays.asList(items[3].split("&")),
+                    items[6],
+                    items[4],
+                    Boolean.parseBoolean(items[7]),
+                    items[1],
+                    items[0]
             );
             endpoints.add(end);
             //ADD ENDPOINT MS 
@@ -127,16 +174,16 @@ public class LinkAlg {
 
 
         /* THIS SECTION IS FOR TRAIN TICKET */
-        if (this.isTrainTicket) {
+//        if (this.isTrainTicket) {
             ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
 
             targetList.remove(0);
 
             return String.join("/", targetList);
-        }
+//        }
         /* END TRAIN TICKET SECTION */
 
-        return addCurlyStr;
+//        return addCurlyStr;
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {

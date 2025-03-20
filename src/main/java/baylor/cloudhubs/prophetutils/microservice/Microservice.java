@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public class Microservice {
@@ -11,4 +13,5 @@ public class Microservice {
     @Setter private String baseDir;
     private final String basePackage;
     private final String microserviceName;
+    private final List<String> jarFiles;
 }

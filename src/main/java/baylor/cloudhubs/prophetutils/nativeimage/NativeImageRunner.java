@@ -5,7 +5,7 @@ import baylor.cloudhubs.prophetutils.microservice.Microservice;
 import baylor.cloudhubs.prophetutils.systemcontext.Module;
 import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
-
+import java.util.StringJoiner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,29 +18,42 @@ public class NativeImageRunner {
     private final String entityOutput;
     private final String restcallOutput;
     private final String endpointOutput;
+    private final String websocketconnectionOutput;
 
     private final Microservice ms;
     private final String niCommand;
-    private final String callGraphOutputDir;
+//    private final String callGraphOutputDir;
 
 
     public NativeImageRunner(Microservice ms, String graalProphetHome, String outputDir) {
         this.niCommand = graalProphetHome + "/bin/native-image";
         this.ms = ms;
+
+
         String microservicePath = ms.getBaseDir();
-        if (ProphetUtilsFacade.MS_TO_ANALYZE.get(ms.getMicroserviceName()) == 0) {
-            // first try
-            this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-        } else {
-            // retry without looping considering libs
-            this.classpath = microservicePath + "/target/BOOT-INF/classes";
+        List<String> jarFiles = ms.getJarFiles();
+
+        StringJoiner classpathJoiner = new StringJoiner(":");
+        classpathJoiner.add(microservicePath + "/target/BOOT-INF/classes");
+        classpathJoiner.add(microservicePath + "/target/classes");
+        for (String jarFile : jarFiles) {
+            classpathJoiner.add(jarFile);
         }
-        this.callGraphOutputDir = "./" + outputDir + "/" + ms.getMicroserviceName();
-        new File(callGraphOutputDir).mkdirs();
+        this.classpath = classpathJoiner.toString();
+
+//        if (ProphetUtilsFacade.MS_TO_ANALYZE.get(ms.getMicroserviceName()) == 0) {
+//            // first try
+//            this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
+//        } else {
+//            // retry without looping considering libs
+//            this.classpath = microservicePath + "/target/BOOT-INF/classes";
+//        }
+//        this.callGraphOutputDir = "./" + outputDir + "/" + ms.getMicroserviceName();
+//        new File(callGraphOutputDir).mkdirs();
         this.entityOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + ".json";
         this.restcallOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_restcalls.csv";
         this.endpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_endpoints.csv";
-        System.out.println("classpath = " + classpath);
+        this.websocketconnectionOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_websocketconnections.csv";
     }
 
     public Module runProphetPlugin() {
@@ -97,13 +110,15 @@ public class NativeImageRunner {
         cmd.add("-H:-BuildOutputSilent");
         cmd.add("-H:+PrintAnalysisCallTree");
         cmd.add("-H:PrintAnalysisCallTreeType=CSV");
-        cmd.add("-H:Path=" + this.callGraphOutputDir);
+//        cmd.add("-H:Path=" + this.callGraphOutputDir);
         cmd.add("-H:+AllowDeprecatedBuilderClassesOnImageClasspath");
         cmd.add("-H:ProphetMicroserviceName=" + this.ms.getMicroserviceName());
         cmd.add("-H:ProphetBasePackage=" + this.ms.getBasePackage());
         cmd.add("-H:ProphetEntityOutputFile=" + this.entityOutput);
         cmd.add("-H:ProphetRestCallOutputFile=" + this.restcallOutput);
         cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);
+        cmd.add("-H:ProphetWebsocketConnectionsOutputFile=" + this.websocketconnectionOutput);
+//        cmd.add("--debug-attach");
         // cmd.add("-R:MinHeapSize=4m"); 
         // cmd.add("-R:MaxHeapSize=15m");
         // cmd.add("-R:MaxNewSize=2m");   

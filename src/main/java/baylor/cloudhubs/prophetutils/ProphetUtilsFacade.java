@@ -51,7 +51,7 @@ public class ProphetUtilsFacade {
             MS_TO_ANALYZE.put(ms.getMicroserviceName(), 0);
         }
     }
-    public static void runNativeImage(MicroserviceSystem microserviceSystem, String graalProphetHome, int percentMatch){
+    public static void runNativeImage(MicroserviceSystem microserviceSystem, String graalProphetHome, int percentMatch) {
         String outputFolderName = null;
         List<Microservice> microservices = microserviceSystem.getMicroservices();
         String systemName = microserviceSystem.getSystemName();
@@ -63,7 +63,7 @@ public class ProphetUtilsFacade {
             
             initializeMap(microserviceSystem); //INIT MAP OF MICROSERVICES FOR ANALYSIS
 
-            outputFolderName = "output_" + microserviceSystem.getSystemName();
+            outputFolderName = "./graal-prophet-utils/output_" + microserviceSystem.getSystemName();
             try {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
@@ -71,10 +71,9 @@ public class ProphetUtilsFacade {
                 gson.toJson(ctx, new BufferedWriter(new FileWriter("./" + outputFolderName + "/system-context.json")));
 
                 System.out.println("Beginning Linking and Communication Graph Creation\n");
-                boolean isTrainTicket = systemName.equals("trainticket");
-                LinkAlg linkAlgorithm = new LinkAlg(microservices, percentMatch, isTrainTicket);
+                LinkAlg linkAlgorithm = new LinkAlg(percentMatch, microservices);
                 linkAlgorithm.calculateLinks("./" + outputFolderName);
-                ReadCreate r = new ReadCreate(outputFolderName, isTrainTicket);
+                ReadCreate r = new ReadCreate(outputFolderName);
                 r.readIn();
 			}
             catch(IOException | InterruptedException e){
