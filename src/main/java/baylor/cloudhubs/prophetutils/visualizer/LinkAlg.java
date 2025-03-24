@@ -70,39 +70,42 @@ public class LinkAlg {
         File[] files = outputDir.listFiles();
         ArrayList<Endpoint> endpoints = new ArrayList<>();
         ArrayList<WebSocketConnection> webSocketConnections = new ArrayList<>();
+        ArrayList<WebSocketEndpoint> webSocketEndpoints = new ArrayList<>();
 
         for (File f : files) {
             if (f.getName().endsWith("_endpoints.csv")) {
                 endpoints.addAll(parseEndpoints(f));
+            } else if (f.getName().endsWith("_websocketendpoints.csv")) {
+                webSocketEndpoints.addAll(parseWebSocketEndpoints(f));
             } else if (f.getName().endsWith("_websocketconnections.csv")) {
                 webSocketConnections.addAll(parseWebSocketConnections(f));
-            }
-        }
-
-        for (File f : files) {
-            if (f.getName().endsWith("_restcalls.csv")) {
+            } else if (f.getName().endsWith("_restcalls.csv")) {
                 parseRestCalls(f, endpoints);
             }
         }
 
         for (WebSocketConnection connection : webSocketConnections) {
-            System.out.println(connection.toString());
+            System.out.println(connection.getUri());
         }
 
-        // Link WebSocket connections based on the fourth value (uri)
-        for (int i = 0; i < webSocketConnections.size(); i++) {
-            for (int j = i + 1; j < webSocketConnections.size(); j++) {
-                WebSocketConnection conn1 = webSocketConnections.get(i);
-                WebSocketConnection conn2 = webSocketConnections.get(j);
+        System.out.println("webSocketConnections = " + webSocketConnections.size() + ", webSocketEndpoints = " + webSocketEndpoints.size());
 
-                if (conn1.getUri().contains(conn2.getUri()) || conn2.getUri().contains(conn1.getUri())) {
-                    Link link = new Link(conn1.getMsName(), conn2.getMsName(), new ArrayList<>());
+        // Link WebSocket connections based on the fourth value (uri)
+        for (WebSocketConnection webSocketConnection : webSocketConnections) {
+            for (WebSocketEndpoint webSocketEndpoint : webSocketEndpoints) {
+
+                // Console log
+                System.out.println("webSocketConnection = " + webSocketConnection
+                        + ", webSocketEndpoint = " + webSocketEndpoint);
+
+                if (webSocketConnection.getUri().contains(webSocketEndpoint.getUri()) || webSocketEndpoint.getUri().contains(webSocketConnection.getUri())) {
+                    Link link = new Link(webSocketConnection.getMsName(), webSocketEndpoint.getMsName(), new ArrayList<>());
                     if (!this.msLinks.contains(link)) {
                         this.msLinks.add(link);
                     }
 
                     // Create a Request object for the link
-                    Request request = new Request(conn1.getMsName(), conn1.getClass().getName(), null, conn1.getUri(), "WS", conn1.getReturnType(), false);
+                    Request request = new Request(webSocketConnection.getMsName(), webSocketConnection.getClass().getName(), null, webSocketConnection.getUri(), "WS", webSocketConnection.getReturnType(), false);
                     link.addRequest(request);
                 }
             }
@@ -122,6 +125,38 @@ public class LinkAlg {
         } catch (IOException e) {
             System.err.println("An error occurred while writing to the file: " + e.getMessage());
         }
+    }
+
+    private ArrayList<WebSocketEndpoint> parseWebSocketEndpoints(File csv) throws IOException {
+        FileReader fileReader = new FileReader(csv);
+
+//        String header = "msName,connectionInClassName,parentMethod,uri,httpMethod,returnType,isCollection";
+//        ensureCsvHeader(csv, header);
+
+        BufferedReader br = new BufferedReader(fileReader);
+
+        // Skip the header line
+        String header = br.readLine();
+
+        ArrayList<WebSocketEndpoint> webSocketEndpoints = new ArrayList<>();
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] items = line.split(",");
+            WebSocketEndpoint endpoint = new WebSocketEndpoint(
+                    items[0],
+                    items[1],
+                    items[2],
+                    items[3],
+                    items[4],
+                    items[5],
+                    Boolean.parseBoolean(items[6])
+            );
+            webSocketEndpoints.add(endpoint);
+        }
+        br.close();
+
+        return webSocketEndpoints;
     }
 
     public ArrayList<Link> getMsLinks() {
