@@ -101,6 +101,8 @@ public class LinkAlg {
             System.out.println(connection.getUri());
         }
 
+        System.out.println("webSocketConnections = " + webSocketConnections.size() + ", webSocketEndpoints = " + webSocketEndpoints.size());
+
         // Link WebSocket connections based on the fourth value (uri)
         for (WebSocketConnection webSocketConnection : webSocketConnections) {
             for (WebSocketEndpoint webSocketEndpoint : webSocketEndpoints) {
@@ -146,14 +148,13 @@ public class LinkAlg {
 
         BufferedReader br = new BufferedReader(fileReader);
 
-        // Skip the header line
-        String header = br.readLine();
-
         ArrayList<WebSocketEndpoint> webSocketEndpoints = new ArrayList<>();
 
         String line;
+
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
+
             WebSocketEndpoint endpoint = new WebSocketEndpoint(
                     items[0],
                     items[1],
@@ -195,7 +196,7 @@ public class LinkAlg {
             // for (String s : items){
             //     System.out.println("\t" + s);
             // }
-            System.out.println("items = " + Arrays.toString(items));
+//            System.out.println("items = " + Arrays.toString(items));
             Endpoint end = new Endpoint(
                     items[5],
                     items[2],
@@ -276,7 +277,7 @@ public class LinkAlg {
         String line;
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
-            System.out.println("ITEMS: " + Arrays.toString(items));
+//            System.out.println("ITEMS: " + Arrays.toString(items));
             if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
@@ -398,7 +399,7 @@ public class LinkAlg {
         String line;
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
-            System.out.println("ITEMS: " + Arrays.toString(items));
+//            System.out.println("ITEMS: " + Arrays.toString(items));
             if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
