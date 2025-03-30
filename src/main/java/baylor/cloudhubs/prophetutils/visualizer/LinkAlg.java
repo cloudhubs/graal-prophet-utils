@@ -69,26 +69,37 @@ public class LinkAlg {
         File outputDir = new File(dir);
         File[] files = outputDir.listFiles();
         ArrayList<Endpoint> endpoints = new ArrayList<>();
+        ArrayList<Endpoint> graphqlendpoints = new ArrayList<>();
         ArrayList<WebSocketConnection> webSocketConnections = new ArrayList<>();
         ArrayList<WebSocketEndpoint> webSocketEndpoints = new ArrayList<>();
 
         for (File f : files) {
             if (f.getName().endsWith("_endpoints.csv")) {
                 endpoints.addAll(parseEndpoints(f));
-            } else if (f.getName().endsWith("_websocketendpoints.csv")) {
-                webSocketEndpoints.addAll(parseWebSocketEndpoints(f));
             } else if (f.getName().endsWith("_websocketconnections.csv")) {
                 webSocketConnections.addAll(parseWebSocketConnections(f));
-            } else if (f.getName().endsWith("_restcalls.csv")) {
+            } else if (f.getName().endsWith("_websocketendpoints.csv")) {
+                webSocketEndpoints.addAll(parseWebSocketEndpoints(f));
+            } else if (f.getName().endsWith("_graphqlendpoints.csv")) {
+                graphqlendpoints.addAll(parseGraphQLEndpoints(f));
+            }
+        }
+
+        for (File f : files) {
+            if (f.getName().endsWith("_restcalls.csv")) {
                 parseRestCalls(f, endpoints);
+            }
+        }
+
+        for (File f : files) {
+            if (f.getName().endsWith("_graphqlcalls.csv")) {
+                parseGraphQLCalls(f, graphqlendpoints);
             }
         }
 
         for (WebSocketConnection connection : webSocketConnections) {
             System.out.println(connection.getUri());
         }
-
-        System.out.println("webSocketConnections = " + webSocketConnections.size() + ", webSocketEndpoints = " + webSocketEndpoints.size());
 
         // Link WebSocket connections based on the fourth value (uri)
         for (WebSocketConnection webSocketConnection : webSocketConnections) {
@@ -105,7 +116,7 @@ public class LinkAlg {
                     }
 
                     // Create a Request object for the link
-                    Request request = new Request(webSocketConnection.getMsName(), webSocketConnection.getClass().getName(), null, webSocketConnection.getUri(), "WS", webSocketConnection.getReturnType(), false);
+                    Request request = new Request(webSocketConnection.getMsName(), webSocketConnection.getClass().getName(), null, webSocketConnection.getUri(), "WS", webSocketConnection.getReturnType(), false, "", "");
                     link.addRequest(request);
                 }
             }
@@ -201,7 +212,34 @@ public class LinkAlg {
         }
         br.close();
 
+//        System.out.println("Parsed Endpoints: " + endpoints);
         return endpoints;
+    }
+
+    private ArrayList<Endpoint> parseGraphQLEndpoints(File csv) throws IOException {
+        FileReader fileReader = new FileReader(csv);
+        BufferedReader br = new BufferedReader(fileReader);
+
+        ArrayList<Endpoint> graphQLEndpoints = new ArrayList<>();
+
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] items = line.split(",");
+            Endpoint endpoint = new Endpoint(
+                    items[5],
+                    items[2],
+                    Arrays.asList(items[3].split("&")),
+                    items[6],
+                    items[4],
+                    Boolean.parseBoolean(items[7]),
+                    items[1],
+                    items[0]
+            );
+            graphQLEndpoints.add(endpoint);
+        }
+        br.close();
+
+        return graphQLEndpoints;
     }
 
     private String addCurlyBraceToURI(String s) {
@@ -238,12 +276,13 @@ public class LinkAlg {
         String line;
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
-
+            System.out.println("ITEMS: " + Arrays.toString(items));
             if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
             }
-            Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]));
+
+            Request req = new Request(items[0], items[1], items[2], items[3], items[4], items[5], Boolean.parseBoolean(items[6]), "", "");
             //ADD REQUEST MS 
             // this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
@@ -255,6 +294,11 @@ public class LinkAlg {
 
         // loop through parsed requests
         for (Request r : requests) {
+
+
+
+            System.out.println("Endpoints: " + endpoints);
+            System.out.println("Requests: " + requests);
 
             URL uriObj;
             String uri; //only necessary because of final requirement for comparator
@@ -285,6 +329,9 @@ public class LinkAlg {
 //                    continue;
 
                 currDist = findDistance(endpointURI, restCallURI);
+
+                System.out.println("Current Distance: " + currDist + ", Endpoint URI: " + endpointURI + ", Rest Call URI: " + restCallURI);
+
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
@@ -311,6 +358,123 @@ public class LinkAlg {
 
             // set missing fields in the request
             r.setEndpointMsName(e.getMsName());
+            r.setTargetEndpointUri(e.getPath());
+            r.setEndpointFunction(e.getParentMethod());
+
+            // if the link doesn't exist add it to the list
+            if (!this.msLinks.contains(l)) {
+                l.addRequest(r);
+                this.msLinks.add(l);
+            }
+            // if the link does exist, find it then add the request to it
+            else {
+                this.msLinks
+                        .stream()
+                        .filter((link) -> link.equals(l))
+                        .collect(Collectors.toList())
+                        .get(0)
+                        .addRequest(r);
+            }
+
+        }
+
+
+    }
+
+    private void parseGraphQLCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
+        Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
+
+        // open file readers
+        FileReader fileReader = new FileReader(csv);
+        BufferedReader br = new BufferedReader(fileReader);
+
+        // CSV SCHEMA
+        // 0   ,         1             ,     2   ,   3    ,     4   ,    5     ,     6,
+        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isCollection
+
+        ArrayList<Request> requests = new ArrayList<>();
+
+        // read in csv and make requests
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] items = line.split(",");
+            System.out.println("ITEMS: " + Arrays.toString(items));
+            if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
+                br.close();
+                throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
+            }
+
+            Request req = new Request(items[0], items[1], items[2], items[3], "", items[4], Boolean.parseBoolean(items[6]), items[7], items[5]);
+            //ADD REQUEST MS
+            // this.nodes.add(new Node(req.getMsName()));
+            requests.add(req);
+        }
+
+        // close file
+        br.close();
+        fileReader.close();
+
+        // loop through parsed requests
+        for (Request r : requests) {
+
+
+
+            System.out.println("Endpoints: " + endpoints);
+            System.out.println("Requests: " + requests);
+
+            URL uriObj;
+            String uri; //only necessary because of final requirement for comparator
+
+            // parse the endpoint path from the request URL
+
+            int minDist = Integer.MAX_VALUE;
+            int currDist = -1;
+            Endpoint closestMatch = null;
+            int lengthOfLongerStr = 0;
+
+//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
+
+            // find the specific endpoint being called
+            for (Endpoint e : endpoints) {
+
+                String endpointURI = e.getPath();
+//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
+//
+//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
+//                    continue;
+
+                currDist = findDistance(endpointURI, r.getUri());
+
+                System.out.println("Current Distance: " + currDist + ", Endpoint URI: " + endpointURI + ", Rest Call URI: " + r.getUri());
+
+                if (!e.getMsName().equals(r.getMsName()) && minDist > currDist) {
+                    minDist = currDist;
+                    closestMatch = e;
+                    lengthOfLongerStr = Math.max(e.getPath().length(), r.getUri().length());
+                }
+            }
+
+            double percent = lengthOfLongerStr * dissimilarityPercent;
+
+            // add request to endpoint map
+            if (closestMatch != null && percent > minDist) {
+                requestEndpointMap.put(r, closestMatch);
+            }
+
+        }
+
+        // create the links
+        for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
+            Request r = reqs.getKey();
+            Endpoint e = reqs.getValue();
+
+            // create the link
+            Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
+
+            // set missing fields in the request
+            r.setEndpointMsName(e.getMsName());
+            r.setType(e.getHttpMethod());
+            r.setArguments(e.getArguments().toString());
             r.setTargetEndpointUri(e.getPath());
             r.setEndpointFunction(e.getParentMethod());
 

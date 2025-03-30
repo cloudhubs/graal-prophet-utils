@@ -20,6 +20,8 @@ public class NativeImageRunner {
     private final String endpointOutput;
     private final String websocketconnectionOutput;
     private final String websocketendpointOutput;
+    private final String graphQLCallOutput;
+    private final String graphQLEndpointOutput;
 
     private final Microservice ms;
     private final String niCommand;
@@ -56,6 +58,8 @@ public class NativeImageRunner {
         this.endpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_endpoints.csv";
         this.websocketconnectionOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_websocketconnections.csv";
         this.websocketendpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_websocketendpoints.csv";
+        this.graphQLCallOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_graphqlcalls.csv";
+        this.graphQLEndpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_graphqlendpoints.csv";
     }
 
     public Module runProphetPlugin() {
@@ -121,6 +125,8 @@ public class NativeImageRunner {
         cmd.add("-H:ProphetEndpointOutputFile=" + this.endpointOutput);
         cmd.add("-H:ProphetWebsocketConnectionsOutputFile=" + this.websocketconnectionOutput);
         cmd.add("-H:ProphetWebsocketEndpointsOutputFile=" + this.websocketendpointOutput);
+        cmd.add("-H:ProphetGraphQLEndpointOutputFile=" + this.graphQLEndpointOutput);
+        cmd.add("-H:ProphetGraphQLCallOutputFile=" + this.graphQLCallOutput);
 //        cmd.add("--debug-attach");
         // cmd.add("-R:MinHeapSize=4m"); 
         // cmd.add("-R:MaxHeapSize=15m");
