@@ -32,14 +32,11 @@ public class NativeImageRunner {
         this.niCommand = graalProphetHome + "/bin/native-image";
         this.ms = ms;
 
-
-        String microservicePath = ms.getBaseDir();
         List<String> jarFiles = ms.getJarFiles();
-        String targetDir = ms.getTargetDir();
+        String classesDir = ms.getClassesDir();
 
         StringJoiner classpathJoiner = new StringJoiner(":");
-        classpathJoiner.add(targetDir + "/BOOT-INF/classes");
-        classpathJoiner.add(microservicePath + "/classes");
+        classpathJoiner.add(classesDir);
         for (String jarFile : jarFiles) {
             classpathJoiner.add(jarFile);
         }

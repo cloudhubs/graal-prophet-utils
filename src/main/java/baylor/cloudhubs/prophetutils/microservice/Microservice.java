@@ -12,6 +12,7 @@ public class Microservice {
 
     @Setter private String baseDir;
     @Setter private String targetDir;
+    @Setter private String classesDir;
     private final String basePackage;
     private final String microserviceName;
     private final List<String> jarFiles;
