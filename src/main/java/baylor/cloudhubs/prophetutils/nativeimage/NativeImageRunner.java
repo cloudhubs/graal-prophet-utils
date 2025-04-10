@@ -35,10 +35,11 @@ public class NativeImageRunner {
 
         String microservicePath = ms.getBaseDir();
         List<String> jarFiles = ms.getJarFiles();
+        String targetDir = ms.getTargetDir();
 
         StringJoiner classpathJoiner = new StringJoiner(":");
-        classpathJoiner.add(microservicePath + "/target/BOOT-INF/classes");
-        classpathJoiner.add(microservicePath + "/target/classes");
+        classpathJoiner.add(targetDir + "/BOOT-INF/classes");
+        classpathJoiner.add(microservicePath + "/classes");
         for (String jarFile : jarFiles) {
             classpathJoiner.add(jarFile);
         }

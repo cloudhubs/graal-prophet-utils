@@ -11,6 +11,7 @@ import java.util.List;
 public class Microservice {
 
     @Setter private String baseDir;
+    @Setter private String targetDir;
     private final String basePackage;
     private final String microserviceName;
     private final List<String> jarFiles;
