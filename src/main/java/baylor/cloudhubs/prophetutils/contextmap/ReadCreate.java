@@ -33,13 +33,6 @@ public class ReadCreate {
 
     private HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
 
-
-//    private final List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
-//                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
-//                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
-//                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
-//                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
-
     public ReadCreate(String outputDirName){
         this.outputDirName = outputDirName;
     }
@@ -84,10 +77,6 @@ public class ReadCreate {
                 }
             }
         }
-
-//            for (String s : tsCommon) {
-//                msNames.put(s, "ts-common");
-//            }
 
         //Adds all mults to hashmap
         Pattern pattern = Pattern.compile("<(.*?)>");

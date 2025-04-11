@@ -23,11 +23,18 @@ public class LinkAlg {
         this.dissimilarityPercent = 0.3;
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
-        for (Microservice mi : microservices){
+        for (Microservice mi : microservices) {
             nodes.add(new Node(mi.getMicroserviceName()));
         }
     }
 
+    /**
+     * Parses a CSV file containing WebSocket connection data and returns a list of WebSocketConnection objects.
+     *
+     * @param csv The CSV file to parse.
+     * @return An ArrayList of WebSocketConnection objects parsed from the file.
+     * @throws IOException If an I/O error occurs while reading the file.
+     */
     private ArrayList<WebSocketConnection> parseWebSocketConnections(File csv) throws IOException {
         FileReader fileReader = new FileReader(csv);
         BufferedReader br = new BufferedReader(fileReader);
@@ -60,7 +67,7 @@ public class LinkAlg {
         this.msLinks = new ArrayList<>();
         this.nodes = new HashSet<>();
 
-        for (Microservice mi : microservices){
+        for (Microservice mi : microservices) {
             nodes.add(new Node(mi.getMicroserviceName()));
         }
     }
@@ -101,15 +108,10 @@ public class LinkAlg {
             System.out.println(connection.getUri());
         }
 
-        System.out.println("webSocketConnections = " + webSocketConnections.size() + ", webSocketEndpoints = " + webSocketEndpoints.size());
 
         // Link WebSocket connections based on the fourth value (uri)
         for (WebSocketConnection webSocketConnection : webSocketConnections) {
             for (WebSocketEndpoint webSocketEndpoint : webSocketEndpoints) {
-
-                // Console log
-                System.out.println("webSocketConnection = " + webSocketConnection
-                        + ", webSocketEndpoint = " + webSocketEndpoint);
 
                 if (webSocketConnection.getUri().contains(webSocketEndpoint.getUri()) || webSocketEndpoint.getUri().contains(webSocketConnection.getUri())) {
                     Link link = new Link(webSocketConnection.getMsName(), webSocketEndpoint.getMsName(), new ArrayList<>());
@@ -140,6 +142,13 @@ public class LinkAlg {
         }
     }
 
+    /**
+     * Parses a CSV file containing WebSocket endpoint data and returns a list of WebSocketEndpoint objects.
+     *
+     * @param csv The CSV file to parse.
+     * @return An ArrayList of WebSocketEndpoint objects parsed from the file.
+     * @throws IOException If an I/O error occurs while reading the file.
+     */
     private ArrayList<WebSocketEndpoint> parseWebSocketEndpoints(File csv) throws IOException {
         FileReader fileReader = new FileReader(csv);
 
@@ -217,6 +226,13 @@ public class LinkAlg {
         return endpoints;
     }
 
+    /**
+     * Parses a CSV file containing GraphQL endpoint data and returns a list of Endpoint objects.
+     *
+     * @param csv The CSV file to parse.
+     * @return An ArrayList of Endpoint objects parsed from the file.
+     * @throws IOException If an I/O error occurs while reading the file.
+     */
     private ArrayList<Endpoint> parseGraphQLEndpoints(File csv) throws IOException {
         FileReader fileReader = new FileReader(csv);
         BufferedReader br = new BufferedReader(fileReader);
@@ -243,21 +259,20 @@ public class LinkAlg {
         return graphQLEndpoints;
     }
 
+    /**
+     * Modifies a URI string by adding curly braces to specific segments and removing the first segment.
+     *
+     * @param s The input URI string to modify.
+     * @return The modified URI string with curly braces added and the first segment removed.
+     */
     private String addCurlyBraceToURI(String s) {
         String addCurlyStr = s.replaceFirst("\\/$", "/{}").replaceAll("//", "/{}/");
 
+        ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
 
-        /* THIS SECTION IS FOR TRAIN TICKET */
-//        if (this.isTrainTicket) {
-            ArrayList<String> targetList = new ArrayList<String>(Arrays.asList(addCurlyStr.split("/")));
+        targetList.remove(0);
 
-            targetList.remove(0);
-
-            return String.join("/", targetList);
-//        }
-        /* END TRAIN TICKET SECTION */
-
-//        return addCurlyStr;
+        return String.join("/", targetList);
     }
 
     private void parseRestCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
@@ -277,7 +292,6 @@ public class LinkAlg {
         String line;
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
-//            System.out.println("ITEMS: " + Arrays.toString(items));
             if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
@@ -295,11 +309,6 @@ public class LinkAlg {
 
         // loop through parsed requests
         for (Request r : requests) {
-
-
-
-            System.out.println("Endpoints: " + endpoints);
-            System.out.println("Requests: " + requests);
 
             URL uriObj;
             String uri; //only necessary because of final requirement for comparator
@@ -330,8 +339,6 @@ public class LinkAlg {
 //                    continue;
 
                 currDist = findDistance(endpointURI, restCallURI);
-
-                System.out.println("Current Distance: " + currDist + ", Endpoint URI: " + endpointURI + ", Rest Call URI: " + restCallURI);
 
                 if (e.getHttpMethod().equals(r.getType()) && !e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
@@ -382,72 +389,62 @@ public class LinkAlg {
 
     }
 
+    /**
+     * Parses a CSV file containing GraphQL call data and maps requests to their closest matching endpoints.
+     *
+     * @param csv The CSV file to parse.
+     * @param endpoints A list of endpoints to match the requests against.
+     * @throws IOException If an I/O error occurs while reading the file.
+     */
     private void parseGraphQLCalls(File csv, ArrayList<Endpoint> endpoints) throws IOException {
+        // Map to store the relationship between requests and their closest matching endpoints
         Map<Request, Endpoint> requestEndpointMap = new HashMap<>();
 
-        // open file readers
+        // Open file readers
         FileReader fileReader = new FileReader(csv);
         BufferedReader br = new BufferedReader(fileReader);
 
         // CSV SCHEMA
         // 0   ,         1             ,     2   ,   3    ,     4   ,    5     ,     6,
-        //msName, restCallInClassName, parentMethod, uri, httpMethod, returnType, isCollection
+        // msName, restCallInClassName, parentMethod, uri, graphqlMethod, returnType, isCollection
 
         ArrayList<Request> requests = new ArrayList<>();
 
-        // read in csv and make requests
+        // Read the CSV file line by line and create Request objects
         String line;
         while ((line = br.readLine()) != null) {
             String[] items = line.split(",");
-//            System.out.println("ITEMS: " + Arrays.toString(items));
             if (items.length < RESTCALL_CSV_SCHEMA_LENGTH) {
                 br.close();
                 throw new RuntimeException("Restcall line parsed does not have " + RESTCALL_CSV_SCHEMA_LENGTH + " items, its length is " + items.length);
             }
 
+            // Create a Request object from the parsed CSV line
             Request req = new Request(items[0], items[1], items[2], items[3], "", items[4], Boolean.parseBoolean(items[6]), items[7], items[5]);
-            //ADD REQUEST MS
-            // this.nodes.add(new Node(req.getMsName()));
             requests.add(req);
         }
 
-        // close file
+        // Close file readers
         br.close();
         fileReader.close();
 
-        // loop through parsed requests
+        // Match each request to the closest endpoint
         for (Request r : requests) {
-
-
-
-            System.out.println("Endpoints: " + endpoints);
-            System.out.println("Requests: " + requests);
-
-            URL uriObj;
-            String uri; //only necessary because of final requirement for comparator
-
-            // parse the endpoint path from the request URL
-
             int minDist = Integer.MAX_VALUE;
-            int currDist = -1;
+            int currDist;
             Endpoint closestMatch = null;
             int lengthOfLongerStr = 0;
 
-//            boolean restHasCurlyBraces = restCallURI.contains("{") && restCallURI.contains("}");
-
-            // find the specific endpoint being called
             for (Endpoint e : endpoints) {
-
                 String endpointURI = e.getPath();
-//                boolean endpointHasCurlyBraces = endpointURI.contains("{") && endpointURI.contains("}");
-//
-//                if (restHasCurlyBraces && !endpointHasCurlyBraces)
-//                    continue;
 
+                // Calculate the distance between the request URI and the endpoint URI
                 currDist = findDistance(endpointURI, r.getUri());
 
+                // Debugging output for distance calculation
                 System.out.println("Current Distance: " + currDist + ", Endpoint URI: " + endpointURI + ", Rest Call URI: " + r.getUri());
 
+                // Update the closest match if a better match is found
                 if (!e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
                     closestMatch = e;
@@ -455,37 +452,36 @@ public class LinkAlg {
                 }
             }
 
+            // Calculate the similarity threshold
             double percent = lengthOfLongerStr * dissimilarityPercent;
 
-            // add request to endpoint map
+            // Add the request and its closest endpoint to the map if the match is valid
             if (closestMatch != null && percent > minDist) {
                 requestEndpointMap.put(r, closestMatch);
             }
-
         }
 
-        // create the links
+        // Create links between microservices based on the matched requests and endpoints
         for (Map.Entry<Request, Endpoint> reqs : requestEndpointMap.entrySet()) {
             Request r = reqs.getKey();
             Endpoint e = reqs.getValue();
 
-            // create the link
+            // Create a new link between the microservices
             Link l = new Link(r.getMsName(), e.getMsName(), new ArrayList<>());
 
-            // set missing fields in the request
+            // Set additional details for the request
             r.setEndpointMsName(e.getMsName());
             r.setType(e.getHttpMethod());
             r.setArguments(e.getArguments().toString());
             r.setTargetEndpointUri(e.getPath());
             r.setEndpointFunction(e.getParentMethod());
 
-            // if the link doesn't exist add it to the list
+            // Add the link to the list if it doesn't already exist
             if (!this.msLinks.contains(l)) {
                 l.addRequest(r);
                 this.msLinks.add(l);
-            }
-            // if the link does exist, find it then add the request to it
-            else {
+            } else {
+                // If the link exists, add the request to the existing link
                 this.msLinks
                         .stream()
                         .filter((link) -> link.equals(l))
@@ -493,10 +489,7 @@ public class LinkAlg {
                         .get(0)
                         .addRequest(r);
             }
-
         }
-
-
     }
 
     // levenstein algorithm for two strings
@@ -504,18 +497,18 @@ public class LinkAlg {
         short d[][] = new short[a.length() + 1][b.length() + 1];
 
         // Initialising first column:
-        for(short i = 0; i <= a.length(); i++)
+        for (short i = 0; i <= a.length(); i++)
             d[i][0] = i;
 
         // Initialising first row:
-        for(short j = 0; j <= b.length(); j++)
+        for (short j = 0; j <= b.length(); j++)
             d[0][j] = j;
 
         // Applying the algorithm:
         short insertion, deletion, replacement;
         for (short i = 1; i <= a.length(); i++) {
             for (short j = 1; j <= b.length(); j++) {
-                if(a.charAt(i - 1) == (b.charAt(j - 1)))
+                if (a.charAt(i - 1) == (b.charAt(j - 1)))
                     d[i][j] = d[i - 1][j - 1];
                 else {
                     insertion = d[i][j - 1];
@@ -533,9 +526,9 @@ public class LinkAlg {
 
     // Helper function used by findDistance()
     private short findMin(short x, short y, short z) {
-        if(x <= y && x <= z)
+        if (x <= y && x <= z)
             return x;
-        if(y <= x && y <= z)
+        if (y <= x && y <= z)
             return y;
         else
             return z;

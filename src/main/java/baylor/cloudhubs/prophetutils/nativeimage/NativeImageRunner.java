@@ -42,15 +42,6 @@ public class NativeImageRunner {
         }
         this.classpath = classpathJoiner.toString();
 
-//        if (ProphetUtilsFacade.MS_TO_ANALYZE.get(ms.getMicroserviceName()) == 0) {
-//            // first try
-//            this.classpath = microservicePath + "/target/BOOT-INF/classes" + ":" + microservicePath + "/target/BOOT-INF/lib/*";
-//        } else {
-//            // retry without looping considering libs
-//            this.classpath = microservicePath + "/target/BOOT-INF/classes";
-//        }
-//        this.callGraphOutputDir = "./" + outputDir + "/" + ms.getMicroserviceName();
-//        new File(callGraphOutputDir).mkdirs();
         this.entityOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + ".json";
         this.restcallOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_restcalls.csv";
         this.endpointOutput = "./" + outputDir + "/" + ms.getMicroserviceName() + "_endpoints.csv";

@@ -254,7 +254,7 @@ def unzip_microservices(microservices, base_directory):
 
 
 def copy_to_frontend(system_name):
-    source_dir = f"./graal-prophet-utils/output_{system_name}"
+    source_dir = f"./output_{system_name}"
     target_dir = "../graal_mvp/frontend/src/data"
 
     shutil.copy(os.path.join(source_dir, "entities.json"), os.path.join(target_dir, "contextMap.json"))
@@ -305,7 +305,7 @@ if __name__ == "__main__":
             } for ms in microservices
         ]
     }
-    output_main_file = "../output_main.json"
+    output_main_file = "./output_main.json"
     with open(output_main_file, "w") as f:
         json.dump(result_main, f, indent=4)
 
