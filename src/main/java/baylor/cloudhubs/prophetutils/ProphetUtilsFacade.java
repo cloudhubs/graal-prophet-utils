@@ -63,7 +63,7 @@ public class ProphetUtilsFacade {
             
             initializeMap(microserviceSystem); //INIT MAP OF MICROSERVICES FOR ANALYSIS
 
-            outputFolderName = "./graal-prophet-utils/output_" + microserviceSystem.getSystemName();
+            outputFolderName = "./output_" + microserviceSystem.getSystemName();
             try {
 				createOutputDir(outputFolderName);
                 SystemContext ctx = createSystemContext(microservices, graalProphetHome, outputFolderName);
