@@ -56,25 +56,31 @@ def find_microservices(base_dir, build):
             target_dir = find_target_dir(root)
 
             if not target_dir and build:
+                print(f"Warning: No target directory found for {root}. Attempting to build the project.")
                 try:
                     build_project(root)
-                    target_dir = find_target_dir(root)
                 except Exception as e:
-                    print(f"Warning building project failed {root}: {e}")
-                    continue
+                    print(f"Warning: Building project failed for {root}: {e}")
+
+            # Re-locate target directory after build
+            target_dir = find_target_dir(root)
 
             if target_dir:
                 microservice["targetDir"] = os.path.abspath(target_dir)
-
-                classes_dir = find_classes_dir(target_dir)
-                if classes_dir:
-                    microservice["classesDir"] = classes_dir
 
                 # Locate JAR files in the target directory
                 jar_files = [
                     os.path.abspath(os.path.join(target_dir, f)) for f in os.listdir(target_dir)
                     if re.match(r".*\.(jar|war|ear)$", f)
                 ]
+
+                microservice["jars"] = jar_files
+
+                unzip_microservice(microservice, base_dir)
+
+                classes_dir = find_classes_dir(target_dir)
+                if classes_dir:
+                    microservice["classesDir"] = classes_dir
 
                 # Locate the lib directory
                 lib_dir = find_lib_dir(target_dir)
@@ -100,7 +106,7 @@ def find_microservices(base_dir, build):
 
 def build_project(base_dir):
     if os.path.exists(os.path.join(base_dir, "pom.xml")):
-        command = ["mvn", "clean", "package"]
+        command = ["mvn", "clean", "package", "-DskipTests"]
     elif os.path.exists(os.path.join(base_dir, "build.gradle")) or os.path.exists(
             os.path.join(base_dir, "build.gradle.kts")):
         gradlew_path = os.path.join(base_dir, "gradlew")
@@ -209,7 +215,7 @@ def find_target_dir(base_dir):
 
     for root, dirs, files in os.walk(base_dir):
         # Skip irrelevant paths
-        if root.endswith(os.path.join("gradle", "wrapper")):
+        if root.endswith(os.path.join("gradle", "wrapper")) or root.endswith(os.path.join(".mvn", "wrapper")):
             continue
 
         # Match against jar/war/ear
@@ -237,20 +243,19 @@ def find_lib_dir(target_dir):
     return None
 
 
-def unzip_microservices(microservices, base_directory):
-    for microservice in microservices:
-        microservice_name = microservice["microserviceName"]
+def unzip_microservice(microservice, base_directory):
+    microservice_name = microservice["microserviceName"]
 
-        if "jars" not in microservice or not microservice["jars"]:
-            print(f"Warning: No JAR files found for microservice '{microservice.get('microserviceName', 'unknown')}'. Skipping...")
-            continue
+    if "jars" not in microservice or not microservice["jars"]:
+        print(
+            f"Warning: No JAR files found for microservice '{microservice.get('microserviceName', 'unknown')}'. Skipping...")
 
-        fatjar = microservice["jars"][0]
+    fatjar = microservice["jars"][0]
 
-        output_path = os.path.join(base_directory, microservice_name, microservice["targetDir"])
+    output_path = os.path.join(base_directory, microservice_name, microservice["targetDir"])
 
-        with zipfile.ZipFile(fatjar, 'r') as zip_ref:
-            zip_ref.extractall(output_path)
+    with zipfile.ZipFile(fatjar, 'r') as zip_ref:
+        zip_ref.extractall(output_path)
 
 
 def copy_to_frontend(system_name):
@@ -291,17 +296,19 @@ if __name__ == "__main__":
     # Build the project if the --build flag is provided
     microservices = find_microservices(base_directory, args.build)
 
+    print(f"Found {len(microservices)} microservices in {base_directory}.")
+
     # Prepare and save the first file (microservices with baseDir, basePackage, microserviceName)
     result_main = {
         "systemName": system_name,
         "microservices": [
             {
-                "baseDir": ms["baseDir"],
-                "basePackage": ms.get("basePackage"),
-                "targetDir": ms.get("targetDir"),
-                "microserviceName": ms.get("microserviceName"),
-                "jarFiles": ms.get("jars"),
-                "classesDir": ms.get("classesDir"),
+                "baseDir": ms["baseDir"],  # Always required
+                "basePackage": ms.get("basePackage", ""),  # Default to an empty string if None
+                "targetDir": ms.get("targetDir", ""),  # Default to an empty string if None
+                "microserviceName": ms.get("microserviceName", ""),  # Default to an empty string if None
+                "jarFiles": ms.get("jars", []),  # Default to an empty list if None
+                "classesDir": ms.get("classesDir", ""),  # Default to an empty string if None
             } for ms in microservices
         ]
     }
@@ -309,6 +316,5 @@ if __name__ == "__main__":
     with open(output_main_file, "w") as f:
         json.dump(result_main, f, indent=4)
 
-    unzip_microservices(microservices, base_directory)
     run_java_command(output_main_file)
     copy_to_frontend(system_name)
