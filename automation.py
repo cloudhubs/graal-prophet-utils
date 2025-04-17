@@ -250,7 +250,8 @@ def unzip_microservice(microservice, base_directory):
         print(
             f"Warning: No JAR files found for microservice '{microservice.get('microserviceName', 'unknown')}'. Skipping...")
 
-    fatjar = microservice["jars"][0]
+    # Sort the JAR files by size in descending order and select the largest one
+    fatjar = max(microservice["jars"], key=os.path.getsize)
 
     output_path = os.path.join(base_directory, microservice_name, microservice["targetDir"])
 
