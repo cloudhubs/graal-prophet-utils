@@ -76,8 +76,6 @@ def find_microservices(base_dir, build):
 
                 microservice["jars"] = jar_files
 
-                unzip_microservice(microservice, base_dir)
-
                 classes_dir = find_classes_dir(target_dir)
                 if classes_dir:
                     microservice["classesDir"] = classes_dir
@@ -93,6 +91,8 @@ def find_microservices(base_dir, build):
                     )
 
                 microservice["jars"] = jar_files
+
+                unzip_microservice(microservice, base_dir)
 
             # Combine version and ending
             microservice["jarEnding"] = f"{microservice.get('version', 'unknown')}.jar"
@@ -277,11 +277,17 @@ def run_java_command(output_file):
     jar_path = "target/graal-prophet-utils-0.0.8.jar"
     command = [java_bin, "-jar", jar_path, output_file]
 
-    result = subprocess.run(command, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"Error running command: {result.stderr}")
-    else:
-        print(f"Command output: {result.stdout}")
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+
+    # Live output
+    for line in process.stdout:
+        print(line, end='')  # already includes \n
+
+    process.wait()
+
+    if process.returncode != 0:
+        print(f"Error running command, exit code {process.returncode}")
+
 
 
 if __name__ == "__main__":
