@@ -94,6 +94,14 @@ def find_microservices(base_dir, build):
 
                 unzip_microservice(microservice, base_dir)
 
+                target_dir = microservice.get("targetDir")
+                if target_dir:
+                    jar_files = [os.path.abspath(os.path.join(target_dir, f)) for f in os.listdir(target_dir) if re.match(r".*\.(jar|war|ear)$", f)]
+                    lib_dir = find_lib_dir(target_dir)
+                    if lib_dir:
+                        jar_files.extend(os.path.abspath(os.path.join(lib_dir, f)) for f in os.listdir(lib_dir) if f.endswith(".jar"))
+                    microservice["jars"] = jar_files
+
             # Combine version and ending
             microservice["jarEnding"] = f"{microservice.get('version', 'unknown')}.jar"
 
@@ -242,22 +250,15 @@ def find_lib_dir(target_dir):
             return root
     return None
 
-
 def unzip_microservice(microservice, base_directory):
-    microservice_name = microservice["microserviceName"]
-
     if "jars" not in microservice or not microservice["jars"]:
-        print(
-            f"Warning: No JAR files found for microservice '{microservice.get('microserviceName', 'unknown')}'. Skipping...")
+        return
 
-    # Sort the JAR files by size in descending order and select the largest one
     fatjar = max(microservice["jars"], key=os.path.getsize)
-
-    output_path = os.path.join(base_directory, microservice_name, microservice["targetDir"])
+    output_path = os.path.join(base_directory, microservice["microserviceName"], microservice["targetDir"])
 
     with zipfile.ZipFile(fatjar, 'r') as zip_ref:
         zip_ref.extractall(output_path)
-
 
 def copy_to_frontend(system_name):
     source_dir = f"./output_{system_name}"
