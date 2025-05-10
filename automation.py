@@ -260,14 +260,34 @@ def unzip_microservice(microservice, base_directory):
     with zipfile.ZipFile(fatjar, 'r') as zip_ref:
         zip_ref.extractall(output_path)
 
+
+def clean_json_file(file_path):
+    """Remove the extra comma in the nodes array if it exists."""
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    # Detect and remove the specific pattern of the extra comma
+    content = content.replace('"nodes": [,', '"nodes": [')
+
+    # Write the cleaned content back to the file
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(content)
+
+
 def copy_to_frontend(system_name):
     source_dir = f"./output_{system_name}"
     target_dir = "../graal_mvp/frontend/src/data"
 
-    shutil.copy(os.path.join(source_dir, "entities.json"), os.path.join(target_dir, "contextMap.json"))
+    entities_path = os.path.join(source_dir, "entities.json")
+    context_map_path = os.path.join(target_dir, "contextMap.json")
+
+    # Clean the entities.json file before copying
+    clean_json_file(entities_path)
+
+    # Copy files
+    shutil.copy(entities_path, context_map_path)
     shutil.copy(os.path.join(source_dir, "communicationGraph.json"),
                 os.path.join(target_dir, "communicationGraph.json"))
-
 
 def run_java_command(output_file):
     java_home = os.environ.get("JAVA_HOME")
