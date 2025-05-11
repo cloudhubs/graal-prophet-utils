@@ -72,7 +72,9 @@ def find_microservices(base_dir, build):
 
                 # Locate JAR files in the target directory
                 jar_files = [
-                    os.path.abspath(os.path.join(target_dir, f)) for f in os.listdir(target_dir)
+                    os.path.abspath(os.path.join(root, f))
+                    for root, _, files in os.walk(target_dir)
+                    for f in files
                     if re.match(r".*\.(jar|war|ear)$", f)
                 ]
 
@@ -95,6 +97,14 @@ def find_microservices(base_dir, build):
                 microservice["jars"] = jar_files
 
                 unzip_microservice(microservice, base_dir)
+
+                target_dir = microservice.get("targetDir")
+                if target_dir:
+                    jar_files = [os.path.abspath(os.path.join(target_dir, f)) for f in os.listdir(target_dir) if re.match(r".*\.(jar|war|ear)$", f)]
+                    lib_dir = find_lib_dir(target_dir)
+                    if lib_dir:
+                        jar_files.extend(os.path.abspath(os.path.join(lib_dir, f)) for f in os.listdir(lib_dir) if f.endswith(".jar"))
+                    microservice["jars"] = jar_files
 
             # Combine version and ending
             microservice["jarEnding"] = f"{microservice.get('version', 'unknown')}.jar"
@@ -244,31 +254,44 @@ def find_lib_dir(target_dir):
             return root
     return None
 
-
 def unzip_microservice(microservice, base_directory):
-    microservice_name = microservice["microserviceName"]
-
     if "jars" not in microservice or not microservice["jars"]:
-        print(
-            f"Warning: No JAR files found for microservice '{microservice.get('microserviceName', 'unknown')}'. Skipping...")
+        return
 
-    # Sort the JAR files by size in descending order and select the largest one
     fatjar = max(microservice["jars"], key=os.path.getsize)
-
-    output_path = os.path.join(base_directory, microservice_name, microservice["targetDir"])
+    output_path = os.path.join(base_directory, microservice["microserviceName"], microservice["targetDir"])
 
     with zipfile.ZipFile(fatjar, 'r') as zip_ref:
         zip_ref.extractall(output_path)
+
+
+def clean_json_file(file_path):
+    """Remove the extra comma in the nodes array if it exists."""
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+
+    # Detect and remove the specific pattern of the extra comma
+    content = content.replace('"nodes": [,', '"nodes": [')
+
+    # Write the cleaned content back to the file
+    with open(file_path, "w", encoding="utf-8") as file:
+        file.write(content)
 
 
 def copy_to_frontend(system_name):
     source_dir = f"./output_{system_name}"
     target_dir = "../graal_mvp/frontend/src/data"
 
-    shutil.copy(os.path.join(source_dir, "entities.json"), os.path.join(target_dir, "contextMap.json"))
+    entities_path = os.path.join(source_dir, "entities.json")
+    context_map_path = os.path.join(target_dir, "contextMap.json")
+
+    # Clean the entities.json file before copying
+    clean_json_file(entities_path)
+
+    # Copy files
+    shutil.copy(entities_path, context_map_path)
     shutil.copy(os.path.join(source_dir, "communicationGraph.json"),
                 os.path.join(target_dir, "communicationGraph.json"))
-
 
 def run_java_command(output_file):
     java_home = os.environ.get("JAVA_HOME")
