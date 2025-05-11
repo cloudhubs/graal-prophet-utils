@@ -150,27 +150,33 @@ public class ReadCreate {
 
     @Override
     public String toString(){
-        String ret = "{\n";
-        ret += "\t\"nodes\": [\n";
-        for(Data data : dataList){
-            ret += data.toString();
-            ret = ret.substring(0, ret.length() - 5);
-            if(!ret.endsWith(",")){
-                ret += ",\n";
+        StringBuilder ret = new StringBuilder();
+        ret.append("{\n");
+        ret.append("\t\"nodes\": [\n");
+
+        boolean firstNode = true;
+        for (Data data : dataList) {
+            String dataString = data.toString().trim();
+            if (!dataString.isEmpty()) {
+                if (!firstNode) ret.append(",\n");
+                ret.append(dataString);
+                firstNode = false;
             }
         }
-        ret = ret.substring(0, ret.length() - 2);
-        ret += "\t],\n";
-        ret += "\"links\": [\n";
-        for(Link l : listLinks){
-            ret += l.toString();
+        ret.append("\n\t],\n");
+
+        ret.append("\t\"links\": [\n");
+
+        for(int i = 0; i < listLinks.size(); i++){
+            ret.append(listLinks.get(i).toString());
+            if(i < listLinks.size() - 1) ret.append(",\n");
+            else ret.append("\n");
         }
-        if(links.size() != 0){
-            ret = ret.substring(0, ret.length() - 2);
-            ret += "\n";
-        }
-        ret += "\t]\n";
-        ret += "}";
-        return ret;
+
+        ret.append("\t]\n");
+        ret.append("}");
+        return ret.toString();
     }
+
+
 }

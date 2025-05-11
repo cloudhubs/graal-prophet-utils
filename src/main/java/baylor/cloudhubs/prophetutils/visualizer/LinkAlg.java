@@ -447,9 +447,6 @@ public class LinkAlg {
                 // Calculate the distance between the request URI and the endpoint URI
                 currDist = findDistance(endpointURI, r.getUri());
 
-                // Debugging output for distance calculation
-                System.out.println("Current Distance: " + currDist + ", Endpoint URI: " + endpointURI + ", Rest Call URI: " + r.getUri());
-
                 // Update the closest match if a better match is found
                 if (!e.getMsName().equals(r.getMsName()) && minDist > currDist) {
                     minDist = currDist;
