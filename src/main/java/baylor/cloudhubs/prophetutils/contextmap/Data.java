@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.contextmap;
 
 import com.google.gson.annotations.SerializedName;
