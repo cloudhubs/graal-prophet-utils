@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.contextmap;
 
 import java.util.List;

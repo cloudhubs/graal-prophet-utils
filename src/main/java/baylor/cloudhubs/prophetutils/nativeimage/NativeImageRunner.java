@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.nativeimage;
 
 import baylor.cloudhubs.prophetutils.ProphetUtilsFacade;

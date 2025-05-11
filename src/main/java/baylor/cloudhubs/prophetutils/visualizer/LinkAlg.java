@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.visualizer;
 
 import baylor.cloudhubs.prophetutils.microservice.Microservice;

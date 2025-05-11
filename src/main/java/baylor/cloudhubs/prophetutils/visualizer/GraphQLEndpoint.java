@@ -1,3 +1,8 @@
+/**
+ * Authors:
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.visualizer;
 
 import lombok.AllArgsConstructor;

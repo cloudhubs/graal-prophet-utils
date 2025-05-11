@@ -1,3 +1,5 @@
+# Author: Vsevolod Pokhvalenko
+
 import argparse
 import os
 import xml.etree.ElementTree as ET
