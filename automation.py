@@ -70,7 +70,9 @@ def find_microservices(base_dir, build):
 
                 # Locate JAR files in the target directory
                 jar_files = [
-                    os.path.abspath(os.path.join(target_dir, f)) for f in os.listdir(target_dir)
+                    os.path.abspath(os.path.join(root, f))
+                    for root, _, files in os.walk(target_dir)
+                    for f in files
                     if re.match(r".*\.(jar|war|ear)$", f)
                 ]
 
