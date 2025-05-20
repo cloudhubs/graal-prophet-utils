@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.contextmap;
 
 import com.google.gson.annotations.SerializedName;
@@ -29,20 +35,32 @@ public class Data {
     }
 
     @Override
-    public String toString(){
-        String ret = "";
-        for(Entity e : entities){
-            ret += "\t{\n";
-            ret += "\t\t\"msName\": \"" + name.getName() + "\",\n";
-            ret += e.toString();
-            ret += "\t},\n";
+    public String toString() {
+        if (entities == null || entities.length == 0) {
+            return "";  // return empty if no entities
         }
-        if(entities.length != 0){
-            ret = ret.substring(0, ret.length() - 2);
-            ret += "\n";
+
+        StringBuilder ret = new StringBuilder();
+
+        for (int i = 0; i < entities.length; i++) {
+            Entity e = entities[i];
+            ret.append("\t{\n");
+            ret.append("\t\t\"msName\": \"").append(name.getName()).append("\",\n");
+            ret.append("\t\t\"nodeName\": \"").append(e.entityName.getName()).append("\",\n");
+            ret.append("\t\t\"nodeFullName\": \"").append(e.entityName.getFullName()).append("\",\n");
+            ret.append("\t\t\"fields\": [\n");
+            for (int j = 0; j < e.fields.length; j++) {
+                ret.append(e.fields[j].toString());
+                if (j < e.fields.length - 1) ret.append(",\n");
+                else ret.append("\n");
+            }
+            ret.append("\t\t]\n");
+            ret.append("\t}");
+            if (i < entities.length - 1) ret.append(",\n");
+            else ret.append("\n");
         }
-        ret += "\t},\n";
-        return ret;
+
+        return ret.toString();
     }
 
     public class Entity{
@@ -62,19 +80,23 @@ public class Data {
 
         @Override
         public String toString(){
-            String ret = "\t\t\"nodeName\": \"" + entityName.getName() + "\",\n";
-            ret += "\t\t\"nodeFullName\": \"" + entityName.getFullName() + "\",\n";
-            ret += "\t\t\"fields\": [\n";
-            for(Field f : fields){
-                ret += f.toString();
+            StringBuilder ret = new StringBuilder();
+            ret.append("\t\t{\n");
+            ret.append("\t\t\t\"nodeName\": \"").append(entityName.getName()).append("\",\n");
+            ret.append("\t\t\t\"nodeFullName\": \"").append(entityName.getFullName()).append("\",\n");
+            ret.append("\t\t\t\"fields\": [\n");
+
+            for(int i = 0; i < fields.length; i++){
+                ret.append(fields[i].toString());
+                if(i < fields.length - 1) ret.append(",\n");
+                else ret.append("\n");
             }
-            if(fields.length != 0){
-                ret = ret.substring(0, ret.length() - 2);
-                ret += "\n";
-            }
-            ret += "\t\t]\n";
-            return ret;
+
+            ret.append("\t\t\t]\n");
+            ret.append("\t\t}");
+            return ret.toString();
         }
+
     }
 
     public class Field {
@@ -104,28 +126,34 @@ public class Data {
         public String getType(){
             return type;
         }
-    
+
         @Override
         public String toString() {
-            String ret = "\t\t\t{\n";
-            ret += "\t\t\t\t\"fieldName\": \"" + fieldName.getName() + "\",\n";
-            ret += "\t\t\t\t\"fieldFullName\": \"" + fieldName.getFullName() + "\",\n";
-            ret += "\t\t\t\t\"fieldType\": \"" + type + "\",\n";
-            ret += "\t\t\t\t\"fieldAnnotations\": [\n";
-            for(Annotation a : annotations){
-                ret += a.toString();
-                ret += ",\n";
+            StringBuilder ret = new StringBuilder();
+            ret.append("\t\t\t{\n");
+            ret.append("\t\t\t\t\"fieldName\": \"").append(fieldName.getName()).append("\",\n");
+            ret.append("\t\t\t\t\"fieldFullName\": \"").append(fieldName.getFullName()).append("\",\n");
+            ret.append("\t\t\t\t\"fieldType\": \"").append(type).append("\",\n");
+            ret.append("\t\t\t\t\"fieldAnnotations\": [\n");
+
+            for(int i = 0; i < annotations.length; i++){
+                ret.append(annotations[i].toString());
+                if(i < annotations.length - 1){
+                    ret.append(",\n");
+                } else {
+                    ret.append("\n");
+                }
             }
-            if(annotations.length != 0){
-                ret = ret.substring(0, ret.length() - 2);
-            }
-            ret += "\n\t\t\t\t],\n";
-            ret += "\t\t\t\t\"fieldIsReference\": " + isReference + ",\n";
-            ret += "\t\t\t\t\"fieldEntityRefName\": \"" + entityRefName + "\",\n";
-            ret += "\t\t\t\t\"isCollection\": " + isCollection + "\n";
-            ret += "\t\t\t},\n";
-            return ret;
+
+            ret.append("\t\t\t\t],\n");
+            ret.append("\t\t\t\t\"fieldIsReference\": ").append(isReference).append(",\n");
+            ret.append("\t\t\t\t\"fieldEntityRefName\": \"").append(entityRefName).append("\",\n");
+            ret.append("\t\t\t\t\"isCollection\": ").append(isCollection).append("\n");
+            ret.append("\t\t\t}");
+
+            return ret.toString();
         }
+
     }
 
     public class Annotation{

@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.visualizer;
 
 import lombok.EqualsAndHashCode;
@@ -18,9 +24,12 @@ public class Request {
     private String parentMethod;
     private String msName;
     private String restCallInClassName;
+    private String document;
+    private String param;
+    private String arguments;
 
     public Request(String msName, String restCallInClassName, String parentMethod,
-                String uri, String httpType, String requestReturn, Boolean isCollection) {
+                String uri, String httpType, String requestReturn, Boolean isCollection, String document, String param) {
         this.type = httpType;
         this.uri = uri;
         this.requestReturn = requestReturn;
@@ -28,6 +37,8 @@ public class Request {
         this.msName = msName;
         this.parentMethod = parentMethod;
         this.restCallInClassName = restCallInClassName;
+        this.document = document;
+        this.param = param;
     }
 
     @Override
@@ -43,6 +54,9 @@ public class Request {
                 ", parentMethod='" + parentMethod + '\'' +
                 ", msName='" + msName + '\'' +
                 ", restCallInClassName='" + restCallInClassName + '\'' +
+                ", document='" + document + '\'' +
+                ", param='" + param + '\'' +
+                ", arguments='" + arguments + '\'' +
                 "\n}\n";
     }
 }

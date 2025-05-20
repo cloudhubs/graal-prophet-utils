@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.contextmap;
 
 import java.util.List;
@@ -33,17 +39,8 @@ public class ReadCreate {
 
     private HashMap<Pair<String, String>, Pair<Integer, Pair<String, String>>> mults = new HashMap<>();
 
-    private final boolean isTrainTicket;
-    private final List<String> tsCommon = new ArrayList<>(Arrays.asList("Account", "AdminTrip", "Assurance", "AssuranceType", "Config", "Consign", "Contacts", "DocumentType", "Food", "FoodOrder",
-                                                                "Gender", "LeftTicketInfo", "NotifyInfo", "Order", "OrderAlterInfo", "OrderSecurity", "OrderStatus", "OrderTicketsInfo",
-                                                                "PaymentDifferenceInfo", "PriceConfig", "Route", "RouteInfo", "RoutePlanInfo", "RoutePlanResultUnit", "Seat", "SeatClass",
-                                                                "SoldTicket", "Station", "StationFoodStore", "Ticket", "TrainFood", "TrainType", "Travel", "TravelInfo", "TravelResult",
-                                                                "Trip", "TripAllDetail", "TripAllDetailInfo", "TripId", "TripInfo", "TripResponse", "Type", "User", "VerifyResult"));
-
-
-    public ReadCreate(String outputDirName, boolean isTrainTicket){
+    public ReadCreate(String outputDirName){
         this.outputDirName = outputDirName;
-        this.isTrainTicket = isTrainTicket;
     }
 
     public void readIn(){
@@ -86,11 +83,7 @@ public class ReadCreate {
                 }
             }
         }
-        if (this.isTrainTicket) {
-            for (String s : tsCommon) {
-                msNames.put(s, "ts-common");
-            }
-        }
+
         //Adds all mults to hashmap
         Pattern pattern = Pattern.compile("<(.*?)>");
         for(Data d : dataList){
@@ -157,36 +150,33 @@ public class ReadCreate {
 
     @Override
     public String toString(){
-        String ret = "{\n";
-        ret += "\t\"nodes\": [\n";
-        if (this.isTrainTicket) {
-            for (String s : tsCommon) {
-                ret += "\t{\n";
-                ret += "\t\t\"msName\": \"ts-common\",\n";
-                ret += "\t\t\"nodeName\": \"" + s + "\",\n";
-                ret += "\t\t\"nodeFullName\": \"" + s + "\",\n";
-                ret += "\t\t\"fields\": [\n\t\t]\n\t},\n";
+        StringBuilder ret = new StringBuilder();
+        ret.append("{\n");
+        ret.append("\t\"nodes\": [\n");
+
+        boolean firstNode = true;
+        for (Data data : dataList) {
+            String dataString = data.toString().trim();
+            if (!dataString.isEmpty()) {
+                if (!firstNode) ret.append(",\n");
+                ret.append(dataString);
+                firstNode = false;
             }
         }
-        for(Data data : dataList){
-            ret += data.toString();
-            ret = ret.substring(0, ret.length() - 5);
-            if(!ret.endsWith(",")){
-                ret += ",\n";
-            }
+        ret.append("\n\t],\n");
+
+        ret.append("\t\"links\": [\n");
+
+        for(int i = 0; i < listLinks.size(); i++){
+            ret.append(listLinks.get(i).toString());
+            if(i < listLinks.size() - 1) ret.append(",\n");
+            else ret.append("\n");
         }
-        ret = ret.substring(0, ret.length() - 2);
-        ret += "\t],\n";
-        ret += "\"links\": [\n";
-        for(Link l : listLinks){
-            ret += l.toString();
-        }
-        if(links.size() != 0){
-            ret = ret.substring(0, ret.length() - 2);
-            ret += "\n";
-        }
-        ret += "\t]\n";
-        ret += "}";
-        return ret;
+
+        ret.append("\t]\n");
+        ret.append("}");
+        return ret.toString();
     }
+
+
 }

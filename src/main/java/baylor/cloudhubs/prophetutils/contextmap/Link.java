@@ -1,3 +1,9 @@
+/**
+ * Authors:
+ * - Original Authors
+ * - Vsevolod Pokhvalenko
+ */
+
 package baylor.cloudhubs.prophetutils.contextmap;
 
 import lombok.AllArgsConstructor;
@@ -19,13 +25,13 @@ public class Link {
 
     @Override
     public String toString(){
-        String ret = "\t\t{\n" + "\t\t\t\"source\": \"" + src + "\",\n"
-                        + "\t\t\t\"target\": \"" + target + "\",\n"
-                        + "\t\t\t\"msSource\": \"" + msSource + "\",\n"
-                        + "\t\t\t\"msTarget\": \"" + msTarget + "\",\n"
-                        + "\t\t\t\"sourceMultiplicity\": \"" + srcMult + "\",\n"
-                        + "\t\t\t\"targetMultiplicity\": \"" + targetMult + "\"\n"
-                        + "\t\t},\n";
-        return ret;
+        return "\t{\n" +
+                "\t\t\"source\": \"" + src + "\",\n" +
+                "\t\t\"target\": \"" + target + "\",\n" +
+                "\t\t\"msSource\": \"" + msSource + "\",\n" +
+                "\t\t\"msTarget\": \"" + msTarget + "\",\n" +
+                "\t\t\"sourceMultiplicity\": \"" + srcMult + "\",\n" +
+                "\t\t\"targetMultiplicity\": \"" + targetMult + "\"\n" +
+                "\t}";
     }
 }
